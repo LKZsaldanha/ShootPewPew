@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Actor : MonoBehaviour {
     protected bool isground, isRight;
     [SerializeField] protected float speed,jump;
-    [SerializeField] protected GameObject bullet, barraLife, objAnimado;
+    [SerializeField] protected GameObject bullet, objAnimado;
     [SerializeField] private string[] inputs;
     [SerializeField] private Transform[] localSpawnBullet;
     protected float life, lifeMax;
@@ -19,8 +19,6 @@ public class Actor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GameObject.Find("Main Camera").transform.position = new Vector3(transform.position.x, GameObject.Find("Main Camera").transform.position.y, GameObject.Find("Main Camera").transform.position.z);
-
         Move();
         attack();
 	}
@@ -28,7 +26,7 @@ public class Actor : MonoBehaviour {
     private void Move()
     {
         //walk Direita ou esquerda
-        if (Input.GetAxis("Horizontal")>0)
+        if (Input.GetAxis("Horizontal")>0 && Input.GetAxis("Vertical") == 0f)
         {
             objAnimado.GetComponent<Animator>().SetBool("frente", true);
             objAnimado.GetComponent<Animator>().SetBool("cima", false);
@@ -40,10 +38,9 @@ public class Actor : MonoBehaviour {
                 isRight = true;
                 transform.Rotate(0, 180, 0);
             }
-
             transform.Translate(-speed*Time.deltaTime,0,0);
         }
-        else if (Input.GetAxis("Horizontal") < 0)
+        else if (Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") == 0f)
         {
             objAnimado.GetComponent<Animator>().SetBool("frente", true);
             objAnimado.GetComponent<Animator>().SetBool("cima", false);
@@ -55,7 +52,7 @@ public class Actor : MonoBehaviour {
                 isRight = false;
                 transform.Rotate(0, 180, 0);
             }
-            transform.Translate(-speed * Time.deltaTime, 0, 0);
+                transform.Translate(-speed * Time.deltaTime, 0, 0);
         }
 
         //walk DiagCima
@@ -72,7 +69,6 @@ public class Actor : MonoBehaviour {
                 isRight = true;
                 transform.Rotate(0, 180, 0);
             }
-
             transform.Translate(-speed * Time.deltaTime, 0, 0);
         }
         else if (Input.GetAxis("Horizontal") < -0.7f && Input.GetAxis("Vertical") > 0)
@@ -179,7 +175,6 @@ public class Actor : MonoBehaviour {
         if(collision.gameObject.tag == "enemy")
         {
             life--;
-            barraLife.GetComponent<Image>().fillAmount = life / lifeMax;
             if (life<=0)
             {
                 Destroy(gameObject);
