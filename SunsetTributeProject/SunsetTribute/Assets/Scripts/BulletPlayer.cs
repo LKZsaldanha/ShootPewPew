@@ -43,6 +43,11 @@ public class BulletPlayer : MonoBehaviour {
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
             }
+
+            if(collision.gameObject.tag == "chao")
+            {
+                Destroy(gameObject);
+            }
         }
 
     }

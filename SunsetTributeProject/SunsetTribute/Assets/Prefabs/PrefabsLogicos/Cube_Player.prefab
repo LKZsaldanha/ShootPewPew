@@ -99,9 +99,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1497172044900508}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0.99, y: 0, z: 0}
-  m_LocalScale: {x: 0.29019, y: 0.26249, z: 1.1926802}
+  m_LocalScale: {x: 0.29019025, y: 0.26249, z: 1.1926812}
   m_Children:
   - {fileID: 4072992712438024}
   m_Father: {fileID: 4139162740990356}
@@ -128,7 +128,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1705957658029812}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -302,9 +302,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jump: 500
+  cooldownRasteira: 0.3
+  speedRasteira: 700
   bullet: {fileID: 1885454868243236, guid: c1eddc9db60425a4e9d7b216a2b33fc7, type: 2}
-  barraLife: {fileID: 0}
   objAnimado: {fileID: 1497172044900508}
-  inputs: []
+  inputs:
+  - HorizontalP1
+  - VerticalP1
+  - JumpP1
+  - Fire1P1
+  - RasteiraP1
+  - AgacharP1
   localSpawnBullet:
   - {fileID: 4072992712438024}
