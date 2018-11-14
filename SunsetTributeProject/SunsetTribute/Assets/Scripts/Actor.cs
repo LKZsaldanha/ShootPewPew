@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Actor : MonoBehaviour {
-    protected bool isground, isRight,isRasteira;
+    protected bool isground, isRight,isRasteira, isAgachado;
     [SerializeField] protected float speed , jump, cooldownRasteira, speedRasteira;
     [SerializeField] protected GameObject bullet, objAnimado;
     [SerializeField] private string[] inputs;
@@ -157,9 +157,15 @@ public class Actor : MonoBehaviour {
         {
             isRasteira = true;
             if(isRight)
+            {
                 GetComponent<Rigidbody>().AddForce(speedRasteira, 0, 0);
+                GetComponent<BoxCollider>().size = new Vector3(3, 0.5f, 1);
+            }                
             else
+            {
                 GetComponent<Rigidbody>().AddForce(-speedRasteira, 0, 0);
+                GetComponent<BoxCollider>().size = new Vector3(3, 0.5f, 1);
+            }                
             StartCoroutine("Rasteira");
         }
 
@@ -171,9 +177,19 @@ public class Actor : MonoBehaviour {
         }
 
         //Agachar
-        if(Input.GetButtonDown(inputs[2]) && isground && !isRasteira)
+        if(Input.GetButtonDown(inputs[5]) && isground && !isRasteira)
         {
-            //GetComponent<BoxCollider>().size = new Vector3(1,0.5f,1);
+            if(!isAgachado)
+            {
+                GetComponent<BoxCollider>().size = new Vector3(1, 0.5f, 1);
+                isAgachado = true;
+            }
+            else
+            {
+                GetComponent<BoxCollider>().size = new Vector3(1, 1, 1);
+                isAgachado = false;
+            }
+            
         }
     }
 
@@ -191,6 +207,7 @@ public class Actor : MonoBehaviour {
     IEnumerator Rasteira()
     {
         yield return new WaitForSeconds(cooldownRasteira);
+        GetComponent<BoxCollider>().size = new Vector3(1,1,1);
         isRasteira = false;
         StopCoroutine("Rasteira");
     }
