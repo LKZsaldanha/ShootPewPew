@@ -36,10 +36,13 @@ public class Actor : MonoBehaviour {
             if (!isRight && isground)
             {
                 isRight = true;
-                transform.Rotate(0, 180, 0);
             }
             if(isRight)
-                transform.Translate(-speed*Time.deltaTime,0,0);
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                transform.Translate(speed * Time.deltaTime, 0, 0);
+            }
+               
         }
         else if (Input.GetAxis(inputs[0]) < 0 && Input.GetAxis(inputs[1]) == 0f)
         {
@@ -51,10 +54,14 @@ public class Actor : MonoBehaviour {
             if (isRight && isground)
             {
                 isRight = false;
-                transform.Rotate(0, 180, 0);
+                
             }
             if(!isRight)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
                 transform.Translate(-speed * Time.deltaTime, 0, 0);
+            }
+                
         }
 
         //walk DiagCima
@@ -68,10 +75,14 @@ public class Actor : MonoBehaviour {
             if (!isRight && isground)
             {
                 isRight = true;
-                transform.Rotate(0, 180, 0);
+                
             }
             if (isRight)
-                transform.Translate(-speed * Time.deltaTime, 0, 0);
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                transform.Translate(speed * Time.deltaTime, 0, 0);
+            }
+                
         }
         else if (Input.GetAxis(inputs[0]) < -0.7f && Input.GetAxis(inputs[1]) > 0)
         {
@@ -84,10 +95,14 @@ public class Actor : MonoBehaviour {
             if (isRight && isground)
             {
                 isRight = false;
-                transform.Rotate(0, 180, 0);
+               
             }
             if (!isRight)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
                 transform.Translate(-speed * Time.deltaTime, 0, 0);
+            }
+
         }
 
         //walk DiagBaixo
@@ -102,10 +117,14 @@ public class Actor : MonoBehaviour {
             {
 
                 isRight = true;
-                transform.Rotate(0, 180, 0);
+                
             }
             if (isRight)
-                transform.Translate(-speed * Time.deltaTime, 0, 0);
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                transform.Translate(speed * Time.deltaTime, 0, 0);
+            }
+                
         }
         else if (Input.GetAxis(inputs[0]) < -0.7f && Input.GetAxis(inputs[1]) < 0)
         {
@@ -118,10 +137,14 @@ public class Actor : MonoBehaviour {
             if (isRight && isground)
             {
                 isRight = false;
-                transform.Rotate(0, 180, 0);
+               
             }
             if (!isRight)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
                 transform.Translate(-speed * Time.deltaTime, 0, 0);
+            }
+                
         }
 
         //Cima ou Baixo
@@ -135,7 +158,7 @@ public class Actor : MonoBehaviour {
             if (!isRight)
             {
                 isRight = true;
-                transform.Rotate(0, 180, 0);
+                transform.localScale = new Vector3(1, 1, 1);
             }
         }
         else if (Input.GetAxis(inputs[1]) < 0)
@@ -148,7 +171,7 @@ public class Actor : MonoBehaviour {
             if (isRight)
             {
                 isRight = false;
-                transform.Rotate(0, 180, 0);
+                transform.localScale = new Vector3(-1, 1, 1);
             }
         }
 
