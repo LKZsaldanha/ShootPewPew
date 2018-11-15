@@ -159,7 +159,8 @@ public class Actor : MonoBehaviour {
             {
                 GetComponent<Rigidbody>().AddForce(-speedRasteira, 0, 0);
                 GetComponent<BoxCollider>().size = new Vector3(3, 0.5f, 1);
-            }                
+            }
+            rasteiraAnim();
             StartCoroutine("Rasteira");
         }
 
@@ -177,11 +178,13 @@ public class Actor : MonoBehaviour {
             {
                 GetComponent<BoxCollider>().size = new Vector3(1, 0.5f, 1);
                 isAgachado = true;
+                agacharAnim();
             }
             else
             {
                 GetComponent<BoxCollider>().size = new Vector3(1, 1, 1);
                 isAgachado = false;
+                agacharAnim();
             }
             
         }
@@ -228,6 +231,7 @@ public class Actor : MonoBehaviour {
         //Reseta de volta para frente se nenhum input está sendo segurado
         if (!leftAim && !rightAim && !upAim && !downAim)
         {
+            idleAnim();
             if (lastSideWasRight)
             {
                 rightAim = true;
@@ -318,6 +322,7 @@ public class Actor : MonoBehaviour {
         objAnimado.GetComponent<Animator>().SetBool("baixo", false);
         objAnimado.GetComponent<Animator>().SetBool("DiagCima", true);
         objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+        walkAnim();
     }
 
     private void diagBaixo()
@@ -327,6 +332,7 @@ public class Actor : MonoBehaviour {
         objAnimado.GetComponent<Animator>().SetBool("baixo", false);
         objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
         objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", true);
+        walkAnim();
     }
 
     private void frente()
@@ -336,6 +342,7 @@ public class Actor : MonoBehaviour {
         objAnimado.GetComponent<Animator>().SetBool("baixo", false);
         objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
         objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+        walkAnim();
     }
 
     private void baixo()
@@ -355,15 +362,54 @@ public class Actor : MonoBehaviour {
         objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
         objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
     }
+
+    private void atirouAnim()
+    {
+        objAnimado.GetComponent<Animator>().SetTrigger("atirou");
+    }
+
+    private void idleAnim()
+    {
+        objAnimado.GetComponent<Animator>().SetBool("walk", false);
+        objAnimado.GetComponent<Animator>().SetBool("idle", true);
+    }
+
+    private void walkAnim()
+    {
+        objAnimado.GetComponent<Animator>().SetBool("idle", false);
+        objAnimado.GetComponent<Animator>().SetBool("walk", true);
+    }
+
+    private void agacharAnim()
+    {
+        if (!isAgachado) { 
+            objAnimado.GetComponent<Animator>().SetBool("agachou", true);
+        }
+        else
+        {
+            objAnimado.GetComponent<Animator>().SetBool("agachou", false);
+        }
+    }
+
+    private void rasteiraAnim()
+    {
+        if (isRasteira) { 
+            objAnimado.GetComponent<Animator>().SetBool("rasteira", false);
+        }
+        else
+        {
+            objAnimado.GetComponent<Animator>().SetBool("rasteira", true);
+        }
+    }
     #endregion
 
     private void attack()
     {
         if(Input.GetButtonDown(inputs[3]) && !isRasteira)
         {
+            atirouAnim();
             GameObject aux;
             aux = Instantiate(bullet,localSpawnBullet[0].position, localSpawnBullet[0].rotation);
-            
         }
     }
 
@@ -372,6 +418,7 @@ public class Actor : MonoBehaviour {
     {
         yield return new WaitForSeconds(cooldownRasteira);
         GetComponent<BoxCollider>().size = new Vector3(1,1,1);
+        rasteiraAnim();
         isRasteira = false;
         StopCoroutine("Rasteira");
     }
