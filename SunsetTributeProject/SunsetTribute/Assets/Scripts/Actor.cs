@@ -231,7 +231,7 @@ public class Actor : MonoBehaviour {
         //Reseta de volta para frente se nenhum input está sendo segurado
         if (!leftAim && !rightAim && !upAim && !downAim)
         {
-            idleAnim();
+            
             if (lastSideWasRight)
             {
                 rightAim = true;
