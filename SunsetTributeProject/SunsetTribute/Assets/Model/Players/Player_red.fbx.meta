@@ -1,0 +1,3758 @@
+fileFormatVersion: 2
+guid: 00edca278205327488a348614380e7a7
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Arm_WeaponBone.L
+    100002: Arm_WeaponBone.R
+    100004: breast.L
+    100006: breast.R
+    100008: DEF-Arm_WeaponBone.L
+    100010: DEF-Arm_WeaponBone.R
+    100012: DEF-breast.L
+    100014: DEF-breast.R
+    100016: DEF-Eye.L
+    100018: DEF-Eye.R
+    100020: DEF-EyeBrow.L.001
+    100022: DEF-EyeBrow.L.002
+    100024: DEF-EyeBrow.L.003
+    100026: DEF-EyeBrow.R.001
+    100028: DEF-EyeBrow.R.002
+    100030: DEF-EyeBrow.R.003
+    100032: DEF-f_index.01.L
+    100034: DEF-f_index.01.R
+    100036: DEF-f_index.02.L
+    100038: DEF-f_index.02.R
+    100040: DEF-f_index.03.L
+    100042: DEF-f_index.03.R
+    100044: DEF-f_middle.01.L
+    100046: DEF-f_middle.01.R
+    100048: DEF-f_middle.02.L
+    100050: DEF-f_middle.02.R
+    100052: DEF-f_middle.03.L
+    100054: DEF-f_middle.03.R
+    100056: DEF-f_pinky.01.L
+    100058: DEF-f_pinky.01.R
+    100060: DEF-f_pinky.02.L
+    100062: DEF-f_pinky.02.R
+    100064: DEF-f_pinky.03.L
+    100066: DEF-f_pinky.03.R
+    100068: DEF-f_ring.01.L
+    100070: DEF-f_ring.01.R
+    100072: DEF-f_ring.02.L
+    100074: DEF-f_ring.02.R
+    100076: DEF-f_ring.03.L
+    100078: DEF-f_ring.03.R
+    100080: DEF-foot.L
+    100082: DEF-foot.R
+    100084: DEF-forearm.L
+    100086: DEF-forearm.L.001
+    100088: DEF-forearm.R
+    100090: DEF-forearm.R.001
+    100092: DEF-hair
+    100094: DEF-HairBone.L.001
+    100096: DEF-HairBone.L.002
+    100098: DEF-HairBone.L.003
+    100100: DEF-HairBone.L.004
+    100102: DEF-HairBone.L.005
+    100104: DEF-HairBone.L.006
+    100106: DEF-HairBone.L.007
+    100108: DEF-HairBone.L.008
+    100110: DEF-HairBone.L.009
+    100112: DEF-HairBone.R.001
+    100114: DEF-HairBone.R.002
+    100116: DEF-HairBone.R.003
+    100118: DEF-HairBone.R.004
+    100120: DEF-HairBone.R.005
+    100122: DEF-HairBone.R.006
+    100124: DEF-HairBone.R.007
+    100126: DEF-HairBone.R.008
+    100128: DEF-HairBone.R.009
+    100130: DEF-hand.L
+    100132: DEF-hand.R
+    100134: DEF-HatBone
+    100136: DEF-jaw
+    100138: DEF-Mouth.L.001
+    100140: DEF-Mouth.L.002
+    100142: DEF-Mouth.R.001
+    100144: DEF-Mouth.R.002
+    100146: DEF-nouse
+    100148: DEF-palm.01.L
+    100150: DEF-palm.01.R
+    100152: DEF-palm.02.L
+    100154: DEF-palm.02.R
+    100156: DEF-palm.03.L
+    100158: DEF-palm.03.R
+    100160: DEF-palm.04.L
+    100162: DEF-palm.04.R
+    100164: DEF-pelvis.L
+    100166: DEF-pelvis.R
+    100168: DEF-shin.L
+    100170: DEF-shin.L.001
+    100172: DEF-shin.R
+    100174: DEF-shin.R.001
+    100176: DEF-shoulder.L
+    100178: DEF-shoulder.R
+    100180: DEF-Smoking.L.001
+    100182: DEF-Smoking.L.002
+    100184: DEF-Smoking.L.003
+    100186: DEF-Smoking.L.004
+    100188: DEF-Smoking.L.005
+    100190: DEF-Smoking.L.006
+    100192: DEF-Smoking.R.001
+    100194: DEF-Smoking.R.002
+    100196: DEF-Smoking.R.003
+    100198: DEF-Smoking.R.004
+    100200: DEF-Smoking.R.005
+    100202: DEF-Smoking.R.006
+    100204: DEF-spine
+    100206: DEF-spine.001
+    100208: DEF-spine.002
+    100210: DEF-spine.003
+    100212: DEF-spine.004
+    100214: DEF-spine.005
+    100216: DEF-spine.006
+    100218: DEF-thigh.L
+    100220: DEF-thigh.L.001
+    100222: DEF-thigh.R
+    100224: DEF-thigh.R.001
+    100226: DEF-thumb.01.L
+    100228: DEF-thumb.01.R
+    100230: DEF-thumb.02.L
+    100232: DEF-thumb.02.R
+    100234: DEF-thumb.03.L
+    100236: DEF-thumb.03.R
+    100238: DEF-toe.L
+    100240: DEF-toe.R
+    100242: DEF-upper_arm.L
+    100244: DEF-upper_arm.L.001
+    100246: DEF-upper_arm.R
+    100248: DEF-upper_arm.R.001
+    100250: Eye.L
+    100252: Eye.R
+    100254: EyeBrow.L.001
+    100256: EyeBrow.L.002
+    100258: EyeBrow.L.003
+    100260: EyeBrow.R.001
+    100262: EyeBrow.R.002
+    100264: EyeBrow.R.003
+    100266: f_index.01.L
+    100268: f_index.01.R
+    100270: f_index.02.L
+    100272: f_index.02.R
+    100274: f_index.03.L
+    100276: f_index.03.R
+    100278: f_middle.01.L
+    100280: f_middle.01.R
+    100282: f_middle.02.L
+    100284: f_middle.02.R
+    100286: f_middle.03.L
+    100288: f_middle.03.R
+    100290: f_pinky.01.L
+    100292: f_pinky.01.R
+    100294: f_pinky.02.L
+    100296: f_pinky.02.R
+    100298: f_pinky.03.L
+    100300: f_pinky.03.R
+    100302: f_ring.01.L
+    100304: f_ring.01.R
+    100306: f_ring.02.L
+    100308: f_ring.02.R
+    100310: f_ring.03.L
+    100312: f_ring.03.R
+    100314: foot.L
+    100316: foot.R
+    100318: forearm.L
+    100320: forearm.R
+    100322: hair
+    100324: HairBone.L.001
+    100326: HairBone.L.002
+    100328: HairBone.L.003
+    100330: HairBone.L.004
+    100332: HairBone.L.005
+    100334: HairBone.L.006
+    100336: HairBone.L.007
+    100338: HairBone.L.008
+    100340: HairBone.L.009
+    100342: HairBone.R.001
+    100344: HairBone.R.002
+    100346: HairBone.R.003
+    100348: HairBone.R.004
+    100350: HairBone.R.005
+    100352: HairBone.R.006
+    100354: HairBone.R.007
+    100356: HairBone.R.008
+    100358: HairBone.R.009
+    100360: hand.L
+    100362: hand.R
+    100364: hand_ik.L
+    100366: hand_ik.R
+    100368: HatBone
+    100370: head
+    100372: heel.02.L
+    100374: heel.02.R
+    100376: jaw
+    100378: MCH-hand_ik_socket.L
+    100380: MCH-hand_ik_socket.R
+    100382: MCH-ROT-head
+    100384: MCH-ROT-neck
+    100386: MCH-spine
+    100388: MCH-spine.001
+    100390: MCH-spine.002
+    100392: MCH-spine.003
+    100394: metarig
+    100396: Mouth.L.001
+    100398: Mouth.L.002
+    100400: Mouth.R.001
+    100402: Mouth.R.002
+    100404: neck
+    100406: nouse
+    100408: ORG-Arm_WeaponBone.L
+    100410: ORG-Arm_WeaponBone.R
+    100412: ORG-breast.L
+    100414: ORG-breast.R
+    100416: ORG-Eye.L
+    100418: ORG-Eye.R
+    100420: ORG-forearm.L
+    100422: ORG-forearm.R
+    100424: ORG-hair
+    100426: ORG-HatBone
+    100428: ORG-jaw
+    100430: ORG-nouse
+    100432: ORG-palm.01.L
+    100434: ORG-palm.01.R
+    100436: ORG-palm.02.L
+    100438: ORG-palm.02.R
+    100440: ORG-palm.03.L
+    100442: ORG-palm.03.R
+    100444: ORG-palm.04.L
+    100446: ORG-palm.04.R
+    100448: ORG-pelvis.L
+    100450: ORG-pelvis.R
+    100452: ORG-shoulder.L
+    100454: ORG-shoulder.R
+    100456: ORG-spine
+    100458: ORG-spine.003
+    100460: ORG-spine.006
+    100462: ORG-upper_arm.L
+    100464: ORG-upper_arm.R
+    100466: palm.01.L
+    100468: palm.01.R
+    100470: palm.02.L
+    100472: palm.02.R
+    100474: palm.03.L
+    100476: palm.03.R
+    100478: palm.04.L
+    100480: palm.04.R
+    100482: pelvis.L
+    100484: pelvis.R
+    100486: //RootNode
+    100488: Player_Red_Body
+    100490: Player_Red_Face
+    100492: Player_Red_Gun.l
+    100494: Player_Red_Gun.R
+    100496: Player_Red_Hair
+    100498: Player_Red_Hat
+    100500: rig
+    100502: root
+    100504: shin.L
+    100506: shin.R
+    100508: shoulder.L
+    100510: shoulder.R
+    100512: Smoking.L.001
+    100514: Smoking.L.002
+    100516: Smoking.L.003
+    100518: Smoking.L.004
+    100520: Smoking.L.005
+    100522: Smoking.L.006
+    100524: Smoking.R.001
+    100526: Smoking.R.002
+    100528: Smoking.R.003
+    100530: Smoking.R.004
+    100532: Smoking.R.005
+    100534: Smoking.R.006
+    100536: spine
+    100538: spine.001
+    100540: spine.002
+    100542: spine.003
+    100544: spine.004
+    100546: spine.005
+    100548: spine.006
+    100550: thigh.L
+    100552: thigh.R
+    100554: thumb.01.L
+    100556: thumb.01.R
+    100558: thumb.02.L
+    100560: thumb.02.R
+    100562: thumb.03.L
+    100564: thumb.03.R
+    100566: toe.L
+    100568: toe.R
+    100570: torso
+    100572: tweak_spine
+    100574: tweak_spine.003
+    100576: upper_arm.L
+    100578: upper_arm.R
+    100580: WGT-rig_Arm_WeaponBone.L
+    100582: WGT-rig_Arm_WeaponBone.L.001
+    100584: WGT-rig_Arm_WeaponBone.R
+    100586: WGT-rig_Arm_WeaponBone.R.001
+    100588: WGT-rig_breast.L
+    100590: WGT-rig_breast.R
+    100592: WGT-rig_chest
+    100594: WGT-rig_Eye.L
+    100596: WGT-rig_Eye.R
+    100598: WGT-rig_EyeBrow.L.001
+    100600: WGT-rig_EyeBrow.L.002
+    100602: WGT-rig_EyeBrow.L.003
+    100604: WGT-rig_EyeBrow.R.001
+    100606: WGT-rig_EyeBrow.R.002
+    100608: WGT-rig_EyeBrow.R.003
+    100610: WGT-rig_f_index.01.L
+    100612: WGT-rig_f_index.01.R
+    100614: WGT-rig_f_index.02.L
+    100616: WGT-rig_f_index.02.R
+    100618: WGT-rig_f_index.03.L
+    100620: WGT-rig_f_index.03.R
+    100622: WGT-rig_f_middle.01.L
+    100624: WGT-rig_f_middle.01.R
+    100626: WGT-rig_f_middle.02.L
+    100628: WGT-rig_f_middle.02.R
+    100630: WGT-rig_f_middle.03.L
+    100632: WGT-rig_f_middle.03.R
+    100634: WGT-rig_f_pinky.01.L
+    100636: WGT-rig_f_pinky.01.R
+    100638: WGT-rig_f_pinky.02.L
+    100640: WGT-rig_f_pinky.02.R
+    100642: WGT-rig_f_pinky.03.L
+    100644: WGT-rig_f_pinky.03.R
+    100646: WGT-rig_f_ring.01.L
+    100648: WGT-rig_f_ring.01.R
+    100650: WGT-rig_f_ring.02.L
+    100652: WGT-rig_f_ring.02.R
+    100654: WGT-rig_f_ring.03.L
+    100656: WGT-rig_f_ring.03.R
+    100658: WGT-rig_foot_fk.L
+    100660: WGT-rig_foot_fk.R
+    100662: WGT-rig_foot_heel_ik.L
+    100664: WGT-rig_foot_heel_ik.R
+    100666: WGT-rig_foot_ik.L
+    100668: WGT-rig_foot_ik.R
+    100670: WGT-rig_foot_tweak.L
+    100672: WGT-rig_foot_tweak.R
+    100674: WGT-rig_forearm_fk.L
+    100676: WGT-rig_forearm_fk.R
+    100678: WGT-rig_forearm_tweak.L
+    100680: WGT-rig_forearm_tweak.L.001
+    100682: WGT-rig_forearm_tweak.R
+    100684: WGT-rig_forearm_tweak.R.001
+    100686: WGT-rig_hair
+    100688: WGT-rig_HairBone.1
+    100690: WGT-rig_HairBone.2
+    100692: WGT-rig_HairBone.3
+    100694: WGT-rig_HairBone.L.001
+    100696: WGT-rig_HairBone.L.002
+    100698: WGT-rig_HairBone.L.003
+    100700: WGT-rig_HairBone.L.004
+    100702: WGT-rig_HairBone.L.005
+    100704: WGT-rig_HairBone.L.006
+    100706: WGT-rig_HairBone.L.007
+    100708: WGT-rig_HairBone.L.008
+    100710: WGT-rig_HairBone.L.009
+    100712: WGT-rig_HairBone.R.001
+    100714: WGT-rig_HairBone.R.002
+    100716: WGT-rig_HairBone.R.003
+    100718: WGT-rig_HairBone.R.004
+    100720: WGT-rig_HairBone.R.005
+    100722: WGT-rig_HairBone.R.006
+    100724: WGT-rig_HairBone.R.007
+    100726: WGT-rig_HairBone.R.008
+    100728: WGT-rig_HairBone.R.009
+    100730: WGT-rig_hand_fk.L
+    100732: WGT-rig_hand_fk.R
+    100734: WGT-rig_hand_ik.L
+    100736: WGT-rig_hand_ik.R
+    100738: WGT-rig_hand_tweak.L
+    100740: WGT-rig_hand_tweak.R
+    100742: WGT-rig_HatBone
+    100744: WGT-rig_head
+    100746: WGT-rig_hips
+    100748: WGT-rig_jaw
+    100750: WGT-rig_Mouth.L.001
+    100752: WGT-rig_Mouth.L.002
+    100754: WGT-rig_Mouth.R.001
+    100756: WGT-rig_Mouth.R.002
+    100758: WGT-rig_neck
+    100760: WGT-rig_nouse
+    100762: WGT-rig_palm.L
+    100764: WGT-rig_palm.R
+    100766: WGT-rig_root
+    100768: WGT-rig_shin_fk.L
+    100770: WGT-rig_shin_fk.R
+    100772: WGT-rig_shin_tweak.L
+    100774: WGT-rig_shin_tweak.L.001
+    100776: WGT-rig_shin_tweak.R
+    100778: WGT-rig_shin_tweak.R.001
+    100780: WGT-rig_shoulder.L
+    100782: WGT-rig_shoulder.R
+    100784: WGT-rig_Smoking.L.001
+    100786: WGT-rig_Smoking.L.002
+    100788: WGT-rig_Smoking.L.003
+    100790: WGT-rig_Smoking.L.004
+    100792: WGT-rig_Smoking.L.005
+    100794: WGT-rig_Smoking.L.006
+    100796: WGT-rig_Smoking.R.001
+    100798: WGT-rig_Smoking.R.002
+    100800: WGT-rig_Smoking.R.003
+    100802: WGT-rig_Smoking.R.004
+    100804: WGT-rig_Smoking.R.005
+    100806: WGT-rig_Smoking.R.006
+    100808: WGT-rig_thigh_fk.L
+    100810: WGT-rig_thigh_fk.R
+    100812: WGT-rig_thigh_ik.L
+    100814: WGT-rig_thigh_ik.R
+    100816: WGT-rig_thigh_ik_target.L
+    100818: WGT-rig_thigh_ik_target.R
+    100820: WGT-rig_thigh_parent.L
+    100822: WGT-rig_thigh_parent.R
+    100824: WGT-rig_thigh_tweak.L
+    100826: WGT-rig_thigh_tweak.L.001
+    100828: WGT-rig_thigh_tweak.R
+    100830: WGT-rig_thigh_tweak.R.001
+    100832: WGT-rig_thumb.01.L
+    100834: WGT-rig_thumb.01.R
+    100836: WGT-rig_thumb.02.L
+    100838: WGT-rig_thumb.02.R
+    100840: WGT-rig_thumb.03.L
+    100842: WGT-rig_thumb.03.R
+    100844: WGT-rig_toe.L
+    100846: WGT-rig_toe.R
+    100848: WGT-rig_torso
+    100850: WGT-rig_tweak_f_index.01.L
+    100852: WGT-rig_tweak_f_index.01.R
+    100854: WGT-rig_tweak_f_index.02.L
+    100856: WGT-rig_tweak_f_index.02.R
+    100858: WGT-rig_tweak_f_index.03.L
+    100860: WGT-rig_tweak_f_index.03.L.001
+    100862: WGT-rig_tweak_f_index.03.R
+    100864: WGT-rig_tweak_f_index.03.R.001
+    100866: WGT-rig_tweak_f_middle.01.L
+    100868: WGT-rig_tweak_f_middle.01.R
+    100870: WGT-rig_tweak_f_middle.02.L
+    100872: WGT-rig_tweak_f_middle.02.R
+    100874: WGT-rig_tweak_f_middle.03.L
+    100876: WGT-rig_tweak_f_middle.03.L.001
+    100878: WGT-rig_tweak_f_middle.03.R
+    100880: WGT-rig_tweak_f_middle.03.R.001
+    100882: WGT-rig_tweak_f_pinky.01.L
+    100884: WGT-rig_tweak_f_pinky.01.R
+    100886: WGT-rig_tweak_f_pinky.02.L
+    100888: WGT-rig_tweak_f_pinky.02.R
+    100890: WGT-rig_tweak_f_pinky.03.L
+    100892: WGT-rig_tweak_f_pinky.03.L.001
+    100894: WGT-rig_tweak_f_pinky.03.R
+    100896: WGT-rig_tweak_f_pinky.03.R.001
+    100898: WGT-rig_tweak_f_ring.01.L
+    100900: WGT-rig_tweak_f_ring.01.R
+    100902: WGT-rig_tweak_f_ring.02.L
+    100904: WGT-rig_tweak_f_ring.02.R
+    100906: WGT-rig_tweak_f_ring.03.L
+    100908: WGT-rig_tweak_f_ring.03.L.001
+    100910: WGT-rig_tweak_f_ring.03.R
+    100912: WGT-rig_tweak_f_ring.03.R.001
+    100914: WGT-rig_tweak_spine
+    100916: WGT-rig_tweak_spine.001
+    100918: WGT-rig_tweak_spine.002
+    100920: WGT-rig_tweak_spine.003
+    100922: WGT-rig_tweak_spine.004
+    100924: WGT-rig_tweak_spine.005
+    100926: WGT-rig_tweak_thumb.01.L
+    100928: WGT-rig_tweak_thumb.01.R
+    100930: WGT-rig_tweak_thumb.02.L
+    100932: WGT-rig_tweak_thumb.02.R
+    100934: WGT-rig_tweak_thumb.03.L
+    100936: WGT-rig_tweak_thumb.03.L.001
+    100938: WGT-rig_tweak_thumb.03.R
+    100940: WGT-rig_tweak_thumb.03.R.001
+    100942: WGT-rig_upper_arm_fk.L
+    100944: WGT-rig_upper_arm_fk.R
+    100946: WGT-rig_upper_arm_ik.L
+    100948: WGT-rig_upper_arm_ik.R
+    100950: WGT-rig_upper_arm_ik_target.L
+    100952: WGT-rig_upper_arm_ik_target.R
+    100954: WGT-rig_upper_arm_parent.L
+    100956: WGT-rig_upper_arm_parent.R
+    100958: WGT-rig_upper_arm_tweak.L
+    100960: WGT-rig_upper_arm_tweak.L.001
+    100962: WGT-rig_upper_arm_tweak.R
+    100964: WGT-rig_upper_arm_tweak.R.001
+    100966: WGT-rig_VIS_thigh_ik_pole.L
+    100968: WGT-rig_VIS_thigh_ik_pole.R
+    100970: WGT-rig_VIS_upper_arm_ik_pole.L
+    100972: WGT-rig_VIS_upper_arm_ik_pole.R
+    100974: WGTS_rig
+    100976: DEF-Arm_WeaponBone.L_end
+    100978: DEF-Arm_WeaponBone.R_end
+    100980: DEF-breast.L_end
+    100982: DEF-breast.R_end
+    100984: DEF-Eye.L_end
+    100986: DEF-Eye.R_end
+    100988: DEF-EyeBrow.L.003_end
+    100990: DEF-EyeBrow.R.003_end
+    100992: DEF-f_index.03.L_end
+    100994: DEF-f_index.03.R_end
+    100996: DEF-f_middle.03.L_end
+    100998: DEF-f_middle.03.R_end
+    101000: DEF-f_pinky.03.L_end
+    101002: DEF-f_pinky.03.R_end
+    101004: DEF-f_ring.03.L_end
+    101006: DEF-f_ring.03.R_end
+    101008: DEF-forearm.L.001_end
+    101010: DEF-forearm.R.001_end
+    101012: DEF-hair_end
+    101014: DEF-HairBone.L.003_end
+    101016: DEF-HairBone.L.006_end
+    101018: DEF-HairBone.L.009_end
+    101020: DEF-HairBone.R.003_end
+    101022: DEF-HairBone.R.006_end
+    101024: DEF-HairBone.R.009_end
+    101026: DEF-HatBone_end
+    101028: DEF-jaw_end
+    101030: DEF-Mouth.L.002_end
+    101032: DEF-Mouth.R.002_end
+    101034: DEF-nouse_end
+    101036: DEF-palm.01.L_end
+    101038: DEF-palm.01.R_end
+    101040: DEF-palm.02.L_end
+    101042: DEF-palm.02.R_end
+    101044: DEF-palm.03.L_end
+    101046: DEF-palm.03.R_end
+    101048: DEF-palm.04.L_end
+    101050: DEF-palm.04.R_end
+    101052: DEF-pelvis.L_end
+    101054: DEF-pelvis.R_end
+    101056: DEF-Smoking.L.003_end
+    101058: DEF-Smoking.L.006_end
+    101060: DEF-Smoking.R.003_end
+    101062: DEF-Smoking.R.006_end
+    101064: DEF-spine.006_end
+    101066: DEF-thumb.03.L_end
+    101068: DEF-thumb.03.R_end
+    101070: DEF-toe.L_end
+    101072: DEF-toe.R_end
+    400000: Arm_WeaponBone.L
+    400002: Arm_WeaponBone.R
+    400004: breast.L
+    400006: breast.R
+    400008: DEF-Arm_WeaponBone.L
+    400010: DEF-Arm_WeaponBone.R
+    400012: DEF-breast.L
+    400014: DEF-breast.R
+    400016: DEF-Eye.L
+    400018: DEF-Eye.R
+    400020: DEF-EyeBrow.L.001
+    400022: DEF-EyeBrow.L.002
+    400024: DEF-EyeBrow.L.003
+    400026: DEF-EyeBrow.R.001
+    400028: DEF-EyeBrow.R.002
+    400030: DEF-EyeBrow.R.003
+    400032: DEF-f_index.01.L
+    400034: DEF-f_index.01.R
+    400036: DEF-f_index.02.L
+    400038: DEF-f_index.02.R
+    400040: DEF-f_index.03.L
+    400042: DEF-f_index.03.R
+    400044: DEF-f_middle.01.L
+    400046: DEF-f_middle.01.R
+    400048: DEF-f_middle.02.L
+    400050: DEF-f_middle.02.R
+    400052: DEF-f_middle.03.L
+    400054: DEF-f_middle.03.R
+    400056: DEF-f_pinky.01.L
+    400058: DEF-f_pinky.01.R
+    400060: DEF-f_pinky.02.L
+    400062: DEF-f_pinky.02.R
+    400064: DEF-f_pinky.03.L
+    400066: DEF-f_pinky.03.R
+    400068: DEF-f_ring.01.L
+    400070: DEF-f_ring.01.R
+    400072: DEF-f_ring.02.L
+    400074: DEF-f_ring.02.R
+    400076: DEF-f_ring.03.L
+    400078: DEF-f_ring.03.R
+    400080: DEF-foot.L
+    400082: DEF-foot.R
+    400084: DEF-forearm.L
+    400086: DEF-forearm.L.001
+    400088: DEF-forearm.R
+    400090: DEF-forearm.R.001
+    400092: DEF-hair
+    400094: DEF-HairBone.L.001
+    400096: DEF-HairBone.L.002
+    400098: DEF-HairBone.L.003
+    400100: DEF-HairBone.L.004
+    400102: DEF-HairBone.L.005
+    400104: DEF-HairBone.L.006
+    400106: DEF-HairBone.L.007
+    400108: DEF-HairBone.L.008
+    400110: DEF-HairBone.L.009
+    400112: DEF-HairBone.R.001
+    400114: DEF-HairBone.R.002
+    400116: DEF-HairBone.R.003
+    400118: DEF-HairBone.R.004
+    400120: DEF-HairBone.R.005
+    400122: DEF-HairBone.R.006
+    400124: DEF-HairBone.R.007
+    400126: DEF-HairBone.R.008
+    400128: DEF-HairBone.R.009
+    400130: DEF-hand.L
+    400132: DEF-hand.R
+    400134: DEF-HatBone
+    400136: DEF-jaw
+    400138: DEF-Mouth.L.001
+    400140: DEF-Mouth.L.002
+    400142: DEF-Mouth.R.001
+    400144: DEF-Mouth.R.002
+    400146: DEF-nouse
+    400148: DEF-palm.01.L
+    400150: DEF-palm.01.R
+    400152: DEF-palm.02.L
+    400154: DEF-palm.02.R
+    400156: DEF-palm.03.L
+    400158: DEF-palm.03.R
+    400160: DEF-palm.04.L
+    400162: DEF-palm.04.R
+    400164: DEF-pelvis.L
+    400166: DEF-pelvis.R
+    400168: DEF-shin.L
+    400170: DEF-shin.L.001
+    400172: DEF-shin.R
+    400174: DEF-shin.R.001
+    400176: DEF-shoulder.L
+    400178: DEF-shoulder.R
+    400180: DEF-Smoking.L.001
+    400182: DEF-Smoking.L.002
+    400184: DEF-Smoking.L.003
+    400186: DEF-Smoking.L.004
+    400188: DEF-Smoking.L.005
+    400190: DEF-Smoking.L.006
+    400192: DEF-Smoking.R.001
+    400194: DEF-Smoking.R.002
+    400196: DEF-Smoking.R.003
+    400198: DEF-Smoking.R.004
+    400200: DEF-Smoking.R.005
+    400202: DEF-Smoking.R.006
+    400204: DEF-spine
+    400206: DEF-spine.001
+    400208: DEF-spine.002
+    400210: DEF-spine.003
+    400212: DEF-spine.004
+    400214: DEF-spine.005
+    400216: DEF-spine.006
+    400218: DEF-thigh.L
+    400220: DEF-thigh.L.001
+    400222: DEF-thigh.R
+    400224: DEF-thigh.R.001
+    400226: DEF-thumb.01.L
+    400228: DEF-thumb.01.R
+    400230: DEF-thumb.02.L
+    400232: DEF-thumb.02.R
+    400234: DEF-thumb.03.L
+    400236: DEF-thumb.03.R
+    400238: DEF-toe.L
+    400240: DEF-toe.R
+    400242: DEF-upper_arm.L
+    400244: DEF-upper_arm.L.001
+    400246: DEF-upper_arm.R
+    400248: DEF-upper_arm.R.001
+    400250: Eye.L
+    400252: Eye.R
+    400254: EyeBrow.L.001
+    400256: EyeBrow.L.002
+    400258: EyeBrow.L.003
+    400260: EyeBrow.R.001
+    400262: EyeBrow.R.002
+    400264: EyeBrow.R.003
+    400266: f_index.01.L
+    400268: f_index.01.R
+    400270: f_index.02.L
+    400272: f_index.02.R
+    400274: f_index.03.L
+    400276: f_index.03.R
+    400278: f_middle.01.L
+    400280: f_middle.01.R
+    400282: f_middle.02.L
+    400284: f_middle.02.R
+    400286: f_middle.03.L
+    400288: f_middle.03.R
+    400290: f_pinky.01.L
+    400292: f_pinky.01.R
+    400294: f_pinky.02.L
+    400296: f_pinky.02.R
+    400298: f_pinky.03.L
+    400300: f_pinky.03.R
+    400302: f_ring.01.L
+    400304: f_ring.01.R
+    400306: f_ring.02.L
+    400308: f_ring.02.R
+    400310: f_ring.03.L
+    400312: f_ring.03.R
+    400314: foot.L
+    400316: foot.R
+    400318: forearm.L
+    400320: forearm.R
+    400322: hair
+    400324: HairBone.L.001
+    400326: HairBone.L.002
+    400328: HairBone.L.003
+    400330: HairBone.L.004
+    400332: HairBone.L.005
+    400334: HairBone.L.006
+    400336: HairBone.L.007
+    400338: HairBone.L.008
+    400340: HairBone.L.009
+    400342: HairBone.R.001
+    400344: HairBone.R.002
+    400346: HairBone.R.003
+    400348: HairBone.R.004
+    400350: HairBone.R.005
+    400352: HairBone.R.006
+    400354: HairBone.R.007
+    400356: HairBone.R.008
+    400358: HairBone.R.009
+    400360: hand.L
+    400362: hand.R
+    400364: hand_ik.L
+    400366: hand_ik.R
+    400368: HatBone
+    400370: head
+    400372: heel.02.L
+    400374: heel.02.R
+    400376: jaw
+    400378: MCH-hand_ik_socket.L
+    400380: MCH-hand_ik_socket.R
+    400382: MCH-ROT-head
+    400384: MCH-ROT-neck
+    400386: MCH-spine
+    400388: MCH-spine.001
+    400390: MCH-spine.002
+    400392: MCH-spine.003
+    400394: metarig
+    400396: Mouth.L.001
+    400398: Mouth.L.002
+    400400: Mouth.R.001
+    400402: Mouth.R.002
+    400404: neck
+    400406: nouse
+    400408: ORG-Arm_WeaponBone.L
+    400410: ORG-Arm_WeaponBone.R
+    400412: ORG-breast.L
+    400414: ORG-breast.R
+    400416: ORG-Eye.L
+    400418: ORG-Eye.R
+    400420: ORG-forearm.L
+    400422: ORG-forearm.R
+    400424: ORG-hair
+    400426: ORG-HatBone
+    400428: ORG-jaw
+    400430: ORG-nouse
+    400432: ORG-palm.01.L
+    400434: ORG-palm.01.R
+    400436: ORG-palm.02.L
+    400438: ORG-palm.02.R
+    400440: ORG-palm.03.L
+    400442: ORG-palm.03.R
+    400444: ORG-palm.04.L
+    400446: ORG-palm.04.R
+    400448: ORG-pelvis.L
+    400450: ORG-pelvis.R
+    400452: ORG-shoulder.L
+    400454: ORG-shoulder.R
+    400456: ORG-spine
+    400458: ORG-spine.003
+    400460: ORG-spine.006
+    400462: ORG-upper_arm.L
+    400464: ORG-upper_arm.R
+    400466: palm.01.L
+    400468: palm.01.R
+    400470: palm.02.L
+    400472: palm.02.R
+    400474: palm.03.L
+    400476: palm.03.R
+    400478: palm.04.L
+    400480: palm.04.R
+    400482: pelvis.L
+    400484: pelvis.R
+    400486: //RootNode
+    400488: Player_Red_Body
+    400490: Player_Red_Face
+    400492: Player_Red_Gun.l
+    400494: Player_Red_Gun.R
+    400496: Player_Red_Hair
+    400498: Player_Red_Hat
+    400500: rig
+    400502: root
+    400504: shin.L
+    400506: shin.R
+    400508: shoulder.L
+    400510: shoulder.R
+    400512: Smoking.L.001
+    400514: Smoking.L.002
+    400516: Smoking.L.003
+    400518: Smoking.L.004
+    400520: Smoking.L.005
+    400522: Smoking.L.006
+    400524: Smoking.R.001
+    400526: Smoking.R.002
+    400528: Smoking.R.003
+    400530: Smoking.R.004
+    400532: Smoking.R.005
+    400534: Smoking.R.006
+    400536: spine
+    400538: spine.001
+    400540: spine.002
+    400542: spine.003
+    400544: spine.004
+    400546: spine.005
+    400548: spine.006
+    400550: thigh.L
+    400552: thigh.R
+    400554: thumb.01.L
+    400556: thumb.01.R
+    400558: thumb.02.L
+    400560: thumb.02.R
+    400562: thumb.03.L
+    400564: thumb.03.R
+    400566: toe.L
+    400568: toe.R
+    400570: torso
+    400572: tweak_spine
+    400574: tweak_spine.003
+    400576: upper_arm.L
+    400578: upper_arm.R
+    400580: WGT-rig_Arm_WeaponBone.L
+    400582: WGT-rig_Arm_WeaponBone.L.001
+    400584: WGT-rig_Arm_WeaponBone.R
+    400586: WGT-rig_Arm_WeaponBone.R.001
+    400588: WGT-rig_breast.L
+    400590: WGT-rig_breast.R
+    400592: WGT-rig_chest
+    400594: WGT-rig_Eye.L
+    400596: WGT-rig_Eye.R
+    400598: WGT-rig_EyeBrow.L.001
+    400600: WGT-rig_EyeBrow.L.002
+    400602: WGT-rig_EyeBrow.L.003
+    400604: WGT-rig_EyeBrow.R.001
+    400606: WGT-rig_EyeBrow.R.002
+    400608: WGT-rig_EyeBrow.R.003
+    400610: WGT-rig_f_index.01.L
+    400612: WGT-rig_f_index.01.R
+    400614: WGT-rig_f_index.02.L
+    400616: WGT-rig_f_index.02.R
+    400618: WGT-rig_f_index.03.L
+    400620: WGT-rig_f_index.03.R
+    400622: WGT-rig_f_middle.01.L
+    400624: WGT-rig_f_middle.01.R
+    400626: WGT-rig_f_middle.02.L
+    400628: WGT-rig_f_middle.02.R
+    400630: WGT-rig_f_middle.03.L
+    400632: WGT-rig_f_middle.03.R
+    400634: WGT-rig_f_pinky.01.L
+    400636: WGT-rig_f_pinky.01.R
+    400638: WGT-rig_f_pinky.02.L
+    400640: WGT-rig_f_pinky.02.R
+    400642: WGT-rig_f_pinky.03.L
+    400644: WGT-rig_f_pinky.03.R
+    400646: WGT-rig_f_ring.01.L
+    400648: WGT-rig_f_ring.01.R
+    400650: WGT-rig_f_ring.02.L
+    400652: WGT-rig_f_ring.02.R
+    400654: WGT-rig_f_ring.03.L
+    400656: WGT-rig_f_ring.03.R
+    400658: WGT-rig_foot_fk.L
+    400660: WGT-rig_foot_fk.R
+    400662: WGT-rig_foot_heel_ik.L
+    400664: WGT-rig_foot_heel_ik.R
+    400666: WGT-rig_foot_ik.L
+    400668: WGT-rig_foot_ik.R
+    400670: WGT-rig_foot_tweak.L
+    400672: WGT-rig_foot_tweak.R
+    400674: WGT-rig_forearm_fk.L
+    400676: WGT-rig_forearm_fk.R
+    400678: WGT-rig_forearm_tweak.L
+    400680: WGT-rig_forearm_tweak.L.001
+    400682: WGT-rig_forearm_tweak.R
+    400684: WGT-rig_forearm_tweak.R.001
+    400686: WGT-rig_hair
+    400688: WGT-rig_HairBone.1
+    400690: WGT-rig_HairBone.2
+    400692: WGT-rig_HairBone.3
+    400694: WGT-rig_HairBone.L.001
+    400696: WGT-rig_HairBone.L.002
+    400698: WGT-rig_HairBone.L.003
+    400700: WGT-rig_HairBone.L.004
+    400702: WGT-rig_HairBone.L.005
+    400704: WGT-rig_HairBone.L.006
+    400706: WGT-rig_HairBone.L.007
+    400708: WGT-rig_HairBone.L.008
+    400710: WGT-rig_HairBone.L.009
+    400712: WGT-rig_HairBone.R.001
+    400714: WGT-rig_HairBone.R.002
+    400716: WGT-rig_HairBone.R.003
+    400718: WGT-rig_HairBone.R.004
+    400720: WGT-rig_HairBone.R.005
+    400722: WGT-rig_HairBone.R.006
+    400724: WGT-rig_HairBone.R.007
+    400726: WGT-rig_HairBone.R.008
+    400728: WGT-rig_HairBone.R.009
+    400730: WGT-rig_hand_fk.L
+    400732: WGT-rig_hand_fk.R
+    400734: WGT-rig_hand_ik.L
+    400736: WGT-rig_hand_ik.R
+    400738: WGT-rig_hand_tweak.L
+    400740: WGT-rig_hand_tweak.R
+    400742: WGT-rig_HatBone
+    400744: WGT-rig_head
+    400746: WGT-rig_hips
+    400748: WGT-rig_jaw
+    400750: WGT-rig_Mouth.L.001
+    400752: WGT-rig_Mouth.L.002
+    400754: WGT-rig_Mouth.R.001
+    400756: WGT-rig_Mouth.R.002
+    400758: WGT-rig_neck
+    400760: WGT-rig_nouse
+    400762: WGT-rig_palm.L
+    400764: WGT-rig_palm.R
+    400766: WGT-rig_root
+    400768: WGT-rig_shin_fk.L
+    400770: WGT-rig_shin_fk.R
+    400772: WGT-rig_shin_tweak.L
+    400774: WGT-rig_shin_tweak.L.001
+    400776: WGT-rig_shin_tweak.R
+    400778: WGT-rig_shin_tweak.R.001
+    400780: WGT-rig_shoulder.L
+    400782: WGT-rig_shoulder.R
+    400784: WGT-rig_Smoking.L.001
+    400786: WGT-rig_Smoking.L.002
+    400788: WGT-rig_Smoking.L.003
+    400790: WGT-rig_Smoking.L.004
+    400792: WGT-rig_Smoking.L.005
+    400794: WGT-rig_Smoking.L.006
+    400796: WGT-rig_Smoking.R.001
+    400798: WGT-rig_Smoking.R.002
+    400800: WGT-rig_Smoking.R.003
+    400802: WGT-rig_Smoking.R.004
+    400804: WGT-rig_Smoking.R.005
+    400806: WGT-rig_Smoking.R.006
+    400808: WGT-rig_thigh_fk.L
+    400810: WGT-rig_thigh_fk.R
+    400812: WGT-rig_thigh_ik.L
+    400814: WGT-rig_thigh_ik.R
+    400816: WGT-rig_thigh_ik_target.L
+    400818: WGT-rig_thigh_ik_target.R
+    400820: WGT-rig_thigh_parent.L
+    400822: WGT-rig_thigh_parent.R
+    400824: WGT-rig_thigh_tweak.L
+    400826: WGT-rig_thigh_tweak.L.001
+    400828: WGT-rig_thigh_tweak.R
+    400830: WGT-rig_thigh_tweak.R.001
+    400832: WGT-rig_thumb.01.L
+    400834: WGT-rig_thumb.01.R
+    400836: WGT-rig_thumb.02.L
+    400838: WGT-rig_thumb.02.R
+    400840: WGT-rig_thumb.03.L
+    400842: WGT-rig_thumb.03.R
+    400844: WGT-rig_toe.L
+    400846: WGT-rig_toe.R
+    400848: WGT-rig_torso
+    400850: WGT-rig_tweak_f_index.01.L
+    400852: WGT-rig_tweak_f_index.01.R
+    400854: WGT-rig_tweak_f_index.02.L
+    400856: WGT-rig_tweak_f_index.02.R
+    400858: WGT-rig_tweak_f_index.03.L
+    400860: WGT-rig_tweak_f_index.03.L.001
+    400862: WGT-rig_tweak_f_index.03.R
+    400864: WGT-rig_tweak_f_index.03.R.001
+    400866: WGT-rig_tweak_f_middle.01.L
+    400868: WGT-rig_tweak_f_middle.01.R
+    400870: WGT-rig_tweak_f_middle.02.L
+    400872: WGT-rig_tweak_f_middle.02.R
+    400874: WGT-rig_tweak_f_middle.03.L
+    400876: WGT-rig_tweak_f_middle.03.L.001
+    400878: WGT-rig_tweak_f_middle.03.R
+    400880: WGT-rig_tweak_f_middle.03.R.001
+    400882: WGT-rig_tweak_f_pinky.01.L
+    400884: WGT-rig_tweak_f_pinky.01.R
+    400886: WGT-rig_tweak_f_pinky.02.L
+    400888: WGT-rig_tweak_f_pinky.02.R
+    400890: WGT-rig_tweak_f_pinky.03.L
+    400892: WGT-rig_tweak_f_pinky.03.L.001
+    400894: WGT-rig_tweak_f_pinky.03.R
+    400896: WGT-rig_tweak_f_pinky.03.R.001
+    400898: WGT-rig_tweak_f_ring.01.L
+    400900: WGT-rig_tweak_f_ring.01.R
+    400902: WGT-rig_tweak_f_ring.02.L
+    400904: WGT-rig_tweak_f_ring.02.R
+    400906: WGT-rig_tweak_f_ring.03.L
+    400908: WGT-rig_tweak_f_ring.03.L.001
+    400910: WGT-rig_tweak_f_ring.03.R
+    400912: WGT-rig_tweak_f_ring.03.R.001
+    400914: WGT-rig_tweak_spine
+    400916: WGT-rig_tweak_spine.001
+    400918: WGT-rig_tweak_spine.002
+    400920: WGT-rig_tweak_spine.003
+    400922: WGT-rig_tweak_spine.004
+    400924: WGT-rig_tweak_spine.005
+    400926: WGT-rig_tweak_thumb.01.L
+    400928: WGT-rig_tweak_thumb.01.R
+    400930: WGT-rig_tweak_thumb.02.L
+    400932: WGT-rig_tweak_thumb.02.R
+    400934: WGT-rig_tweak_thumb.03.L
+    400936: WGT-rig_tweak_thumb.03.L.001
+    400938: WGT-rig_tweak_thumb.03.R
+    400940: WGT-rig_tweak_thumb.03.R.001
+    400942: WGT-rig_upper_arm_fk.L
+    400944: WGT-rig_upper_arm_fk.R
+    400946: WGT-rig_upper_arm_ik.L
+    400948: WGT-rig_upper_arm_ik.R
+    400950: WGT-rig_upper_arm_ik_target.L
+    400952: WGT-rig_upper_arm_ik_target.R
+    400954: WGT-rig_upper_arm_parent.L
+    400956: WGT-rig_upper_arm_parent.R
+    400958: WGT-rig_upper_arm_tweak.L
+    400960: WGT-rig_upper_arm_tweak.L.001
+    400962: WGT-rig_upper_arm_tweak.R
+    400964: WGT-rig_upper_arm_tweak.R.001
+    400966: WGT-rig_VIS_thigh_ik_pole.L
+    400968: WGT-rig_VIS_thigh_ik_pole.R
+    400970: WGT-rig_VIS_upper_arm_ik_pole.L
+    400972: WGT-rig_VIS_upper_arm_ik_pole.R
+    400974: WGTS_rig
+    400976: DEF-Arm_WeaponBone.L_end
+    400978: DEF-Arm_WeaponBone.R_end
+    400980: DEF-breast.L_end
+    400982: DEF-breast.R_end
+    400984: DEF-Eye.L_end
+    400986: DEF-Eye.R_end
+    400988: DEF-EyeBrow.L.003_end
+    400990: DEF-EyeBrow.R.003_end
+    400992: DEF-f_index.03.L_end
+    400994: DEF-f_index.03.R_end
+    400996: DEF-f_middle.03.L_end
+    400998: DEF-f_middle.03.R_end
+    401000: DEF-f_pinky.03.L_end
+    401002: DEF-f_pinky.03.R_end
+    401004: DEF-f_ring.03.L_end
+    401006: DEF-f_ring.03.R_end
+    401008: DEF-forearm.L.001_end
+    401010: DEF-forearm.R.001_end
+    401012: DEF-hair_end
+    401014: DEF-HairBone.L.003_end
+    401016: DEF-HairBone.L.006_end
+    401018: DEF-HairBone.L.009_end
+    401020: DEF-HairBone.R.003_end
+    401022: DEF-HairBone.R.006_end
+    401024: DEF-HairBone.R.009_end
+    401026: DEF-HatBone_end
+    401028: DEF-jaw_end
+    401030: DEF-Mouth.L.002_end
+    401032: DEF-Mouth.R.002_end
+    401034: DEF-nouse_end
+    401036: DEF-palm.01.L_end
+    401038: DEF-palm.01.R_end
+    401040: DEF-palm.02.L_end
+    401042: DEF-palm.02.R_end
+    401044: DEF-palm.03.L_end
+    401046: DEF-palm.03.R_end
+    401048: DEF-palm.04.L_end
+    401050: DEF-palm.04.R_end
+    401052: DEF-pelvis.L_end
+    401054: DEF-pelvis.R_end
+    401056: DEF-Smoking.L.003_end
+    401058: DEF-Smoking.L.006_end
+    401060: DEF-Smoking.R.003_end
+    401062: DEF-Smoking.R.006_end
+    401064: DEF-spine.006_end
+    401066: DEF-thumb.03.L_end
+    401068: DEF-thumb.03.R_end
+    401070: DEF-toe.L_end
+    401072: DEF-toe.R_end
+    2100000: Mat_PolygonWestern_01_A.001
+    2100002: metal
+    2100004: Material.003
+    2100006: metal.001
+    2100008: Material.013
+    2100010: shirt detail
+    2100012: hair
+    2100014: skin
+    2100016: skin.001
+    2100018: shirt.002
+    2100020: pants
+    2100022: boots
+    2100024: shirt
+    2100026: Material.002
+    2300000: WGT-rig_Arm_WeaponBone.L
+    2300002: WGT-rig_Arm_WeaponBone.L.001
+    2300004: WGT-rig_Arm_WeaponBone.R
+    2300006: WGT-rig_Arm_WeaponBone.R.001
+    2300008: WGT-rig_breast.L
+    2300010: WGT-rig_breast.R
+    2300012: WGT-rig_chest
+    2300014: WGT-rig_Eye.L
+    2300016: WGT-rig_Eye.R
+    2300018: WGT-rig_EyeBrow.L.001
+    2300020: WGT-rig_EyeBrow.L.002
+    2300022: WGT-rig_EyeBrow.L.003
+    2300024: WGT-rig_EyeBrow.R.001
+    2300026: WGT-rig_EyeBrow.R.002
+    2300028: WGT-rig_EyeBrow.R.003
+    2300030: WGT-rig_f_index.01.L
+    2300032: WGT-rig_f_index.01.R
+    2300034: WGT-rig_f_index.02.L
+    2300036: WGT-rig_f_index.02.R
+    2300038: WGT-rig_f_index.03.L
+    2300040: WGT-rig_f_index.03.R
+    2300042: WGT-rig_f_middle.01.L
+    2300044: WGT-rig_f_middle.01.R
+    2300046: WGT-rig_f_middle.02.L
+    2300048: WGT-rig_f_middle.02.R
+    2300050: WGT-rig_f_middle.03.L
+    2300052: WGT-rig_f_middle.03.R
+    2300054: WGT-rig_f_pinky.01.L
+    2300056: WGT-rig_f_pinky.01.R
+    2300058: WGT-rig_f_pinky.02.L
+    2300060: WGT-rig_f_pinky.02.R
+    2300062: WGT-rig_f_pinky.03.L
+    2300064: WGT-rig_f_pinky.03.R
+    2300066: WGT-rig_f_ring.01.L
+    2300068: WGT-rig_f_ring.01.R
+    2300070: WGT-rig_f_ring.02.L
+    2300072: WGT-rig_f_ring.02.R
+    2300074: WGT-rig_f_ring.03.L
+    2300076: WGT-rig_f_ring.03.R
+    2300078: WGT-rig_foot_fk.L
+    2300080: WGT-rig_foot_fk.R
+    2300082: WGT-rig_foot_heel_ik.L
+    2300084: WGT-rig_foot_heel_ik.R
+    2300086: WGT-rig_foot_ik.L
+    2300088: WGT-rig_foot_ik.R
+    2300090: WGT-rig_foot_tweak.L
+    2300092: WGT-rig_foot_tweak.R
+    2300094: WGT-rig_forearm_fk.L
+    2300096: WGT-rig_forearm_fk.R
+    2300098: WGT-rig_forearm_tweak.L
+    2300100: WGT-rig_forearm_tweak.L.001
+    2300102: WGT-rig_forearm_tweak.R
+    2300104: WGT-rig_forearm_tweak.R.001
+    2300106: WGT-rig_hair
+    2300108: WGT-rig_HairBone.1
+    2300110: WGT-rig_HairBone.2
+    2300112: WGT-rig_HairBone.3
+    2300114: WGT-rig_HairBone.L.001
+    2300116: WGT-rig_HairBone.L.002
+    2300118: WGT-rig_HairBone.L.003
+    2300120: WGT-rig_HairBone.L.004
+    2300122: WGT-rig_HairBone.L.005
+    2300124: WGT-rig_HairBone.L.006
+    2300126: WGT-rig_HairBone.L.007
+    2300128: WGT-rig_HairBone.L.008
+    2300130: WGT-rig_HairBone.L.009
+    2300132: WGT-rig_HairBone.R.001
+    2300134: WGT-rig_HairBone.R.002
+    2300136: WGT-rig_HairBone.R.003
+    2300138: WGT-rig_HairBone.R.004
+    2300140: WGT-rig_HairBone.R.005
+    2300142: WGT-rig_HairBone.R.006
+    2300144: WGT-rig_HairBone.R.007
+    2300146: WGT-rig_HairBone.R.008
+    2300148: WGT-rig_HairBone.R.009
+    2300150: WGT-rig_hand_fk.L
+    2300152: WGT-rig_hand_fk.R
+    2300154: WGT-rig_hand_ik.L
+    2300156: WGT-rig_hand_ik.R
+    2300158: WGT-rig_hand_tweak.L
+    2300160: WGT-rig_hand_tweak.R
+    2300162: WGT-rig_HatBone
+    2300164: WGT-rig_head
+    2300166: WGT-rig_hips
+    2300168: WGT-rig_jaw
+    2300170: WGT-rig_Mouth.L.001
+    2300172: WGT-rig_Mouth.L.002
+    2300174: WGT-rig_Mouth.R.001
+    2300176: WGT-rig_Mouth.R.002
+    2300178: WGT-rig_neck
+    2300180: WGT-rig_nouse
+    2300182: WGT-rig_palm.L
+    2300184: WGT-rig_palm.R
+    2300186: WGT-rig_root
+    2300188: WGT-rig_shin_fk.L
+    2300190: WGT-rig_shin_fk.R
+    2300192: WGT-rig_shin_tweak.L
+    2300194: WGT-rig_shin_tweak.L.001
+    2300196: WGT-rig_shin_tweak.R
+    2300198: WGT-rig_shin_tweak.R.001
+    2300200: WGT-rig_shoulder.L
+    2300202: WGT-rig_shoulder.R
+    2300204: WGT-rig_Smoking.L.001
+    2300206: WGT-rig_Smoking.L.002
+    2300208: WGT-rig_Smoking.L.003
+    2300210: WGT-rig_Smoking.L.004
+    2300212: WGT-rig_Smoking.L.005
+    2300214: WGT-rig_Smoking.L.006
+    2300216: WGT-rig_Smoking.R.001
+    2300218: WGT-rig_Smoking.R.002
+    2300220: WGT-rig_Smoking.R.003
+    2300222: WGT-rig_Smoking.R.004
+    2300224: WGT-rig_Smoking.R.005
+    2300226: WGT-rig_Smoking.R.006
+    2300228: WGT-rig_thigh_fk.L
+    2300230: WGT-rig_thigh_fk.R
+    2300232: WGT-rig_thigh_ik.L
+    2300234: WGT-rig_thigh_ik.R
+    2300236: WGT-rig_thigh_ik_target.L
+    2300238: WGT-rig_thigh_ik_target.R
+    2300240: WGT-rig_thigh_parent.L
+    2300242: WGT-rig_thigh_parent.R
+    2300244: WGT-rig_thigh_tweak.L
+    2300246: WGT-rig_thigh_tweak.L.001
+    2300248: WGT-rig_thigh_tweak.R
+    2300250: WGT-rig_thigh_tweak.R.001
+    2300252: WGT-rig_thumb.01.L
+    2300254: WGT-rig_thumb.01.R
+    2300256: WGT-rig_thumb.02.L
+    2300258: WGT-rig_thumb.02.R
+    2300260: WGT-rig_thumb.03.L
+    2300262: WGT-rig_thumb.03.R
+    2300264: WGT-rig_toe.L
+    2300266: WGT-rig_toe.R
+    2300268: WGT-rig_torso
+    2300270: WGT-rig_tweak_f_index.01.L
+    2300272: WGT-rig_tweak_f_index.01.R
+    2300274: WGT-rig_tweak_f_index.02.L
+    2300276: WGT-rig_tweak_f_index.02.R
+    2300278: WGT-rig_tweak_f_index.03.L
+    2300280: WGT-rig_tweak_f_index.03.L.001
+    2300282: WGT-rig_tweak_f_index.03.R
+    2300284: WGT-rig_tweak_f_index.03.R.001
+    2300286: WGT-rig_tweak_f_middle.01.L
+    2300288: WGT-rig_tweak_f_middle.01.R
+    2300290: WGT-rig_tweak_f_middle.02.L
+    2300292: WGT-rig_tweak_f_middle.02.R
+    2300294: WGT-rig_tweak_f_middle.03.L
+    2300296: WGT-rig_tweak_f_middle.03.L.001
+    2300298: WGT-rig_tweak_f_middle.03.R
+    2300300: WGT-rig_tweak_f_middle.03.R.001
+    2300302: WGT-rig_tweak_f_pinky.01.L
+    2300304: WGT-rig_tweak_f_pinky.01.R
+    2300306: WGT-rig_tweak_f_pinky.02.L
+    2300308: WGT-rig_tweak_f_pinky.02.R
+    2300310: WGT-rig_tweak_f_pinky.03.L
+    2300312: WGT-rig_tweak_f_pinky.03.L.001
+    2300314: WGT-rig_tweak_f_pinky.03.R
+    2300316: WGT-rig_tweak_f_pinky.03.R.001
+    2300318: WGT-rig_tweak_f_ring.01.L
+    2300320: WGT-rig_tweak_f_ring.01.R
+    2300322: WGT-rig_tweak_f_ring.02.L
+    2300324: WGT-rig_tweak_f_ring.02.R
+    2300326: WGT-rig_tweak_f_ring.03.L
+    2300328: WGT-rig_tweak_f_ring.03.L.001
+    2300330: WGT-rig_tweak_f_ring.03.R
+    2300332: WGT-rig_tweak_f_ring.03.R.001
+    2300334: WGT-rig_tweak_spine
+    2300336: WGT-rig_tweak_spine.001
+    2300338: WGT-rig_tweak_spine.002
+    2300340: WGT-rig_tweak_spine.003
+    2300342: WGT-rig_tweak_spine.004
+    2300344: WGT-rig_tweak_spine.005
+    2300346: WGT-rig_tweak_thumb.01.L
+    2300348: WGT-rig_tweak_thumb.01.R
+    2300350: WGT-rig_tweak_thumb.02.L
+    2300352: WGT-rig_tweak_thumb.02.R
+    2300354: WGT-rig_tweak_thumb.03.L
+    2300356: WGT-rig_tweak_thumb.03.L.001
+    2300358: WGT-rig_tweak_thumb.03.R
+    2300360: WGT-rig_tweak_thumb.03.R.001
+    2300362: WGT-rig_upper_arm_fk.L
+    2300364: WGT-rig_upper_arm_fk.R
+    2300366: WGT-rig_upper_arm_ik.L
+    2300368: WGT-rig_upper_arm_ik.R
+    2300370: WGT-rig_upper_arm_ik_target.L
+    2300372: WGT-rig_upper_arm_ik_target.R
+    2300374: WGT-rig_upper_arm_parent.L
+    2300376: WGT-rig_upper_arm_parent.R
+    2300378: WGT-rig_upper_arm_tweak.L
+    2300380: WGT-rig_upper_arm_tweak.L.001
+    2300382: WGT-rig_upper_arm_tweak.R
+    2300384: WGT-rig_upper_arm_tweak.R.001
+    2300386: WGT-rig_VIS_thigh_ik_pole.L
+    2300388: WGT-rig_VIS_thigh_ik_pole.R
+    2300390: WGT-rig_VIS_upper_arm_ik_pole.L
+    2300392: WGT-rig_VIS_upper_arm_ik_pole.R
+    2300394: WGTS_rig
+    3300000: WGT-rig_Arm_WeaponBone.L
+    3300002: WGT-rig_Arm_WeaponBone.L.001
+    3300004: WGT-rig_Arm_WeaponBone.R
+    3300006: WGT-rig_Arm_WeaponBone.R.001
+    3300008: WGT-rig_breast.L
+    3300010: WGT-rig_breast.R
+    3300012: WGT-rig_chest
+    3300014: WGT-rig_Eye.L
+    3300016: WGT-rig_Eye.R
+    3300018: WGT-rig_EyeBrow.L.001
+    3300020: WGT-rig_EyeBrow.L.002
+    3300022: WGT-rig_EyeBrow.L.003
+    3300024: WGT-rig_EyeBrow.R.001
+    3300026: WGT-rig_EyeBrow.R.002
+    3300028: WGT-rig_EyeBrow.R.003
+    3300030: WGT-rig_f_index.01.L
+    3300032: WGT-rig_f_index.01.R
+    3300034: WGT-rig_f_index.02.L
+    3300036: WGT-rig_f_index.02.R
+    3300038: WGT-rig_f_index.03.L
+    3300040: WGT-rig_f_index.03.R
+    3300042: WGT-rig_f_middle.01.L
+    3300044: WGT-rig_f_middle.01.R
+    3300046: WGT-rig_f_middle.02.L
+    3300048: WGT-rig_f_middle.02.R
+    3300050: WGT-rig_f_middle.03.L
+    3300052: WGT-rig_f_middle.03.R
+    3300054: WGT-rig_f_pinky.01.L
+    3300056: WGT-rig_f_pinky.01.R
+    3300058: WGT-rig_f_pinky.02.L
+    3300060: WGT-rig_f_pinky.02.R
+    3300062: WGT-rig_f_pinky.03.L
+    3300064: WGT-rig_f_pinky.03.R
+    3300066: WGT-rig_f_ring.01.L
+    3300068: WGT-rig_f_ring.01.R
+    3300070: WGT-rig_f_ring.02.L
+    3300072: WGT-rig_f_ring.02.R
+    3300074: WGT-rig_f_ring.03.L
+    3300076: WGT-rig_f_ring.03.R
+    3300078: WGT-rig_foot_fk.L
+    3300080: WGT-rig_foot_fk.R
+    3300082: WGT-rig_foot_heel_ik.L
+    3300084: WGT-rig_foot_heel_ik.R
+    3300086: WGT-rig_foot_ik.L
+    3300088: WGT-rig_foot_ik.R
+    3300090: WGT-rig_foot_tweak.L
+    3300092: WGT-rig_foot_tweak.R
+    3300094: WGT-rig_forearm_fk.L
+    3300096: WGT-rig_forearm_fk.R
+    3300098: WGT-rig_forearm_tweak.L
+    3300100: WGT-rig_forearm_tweak.L.001
+    3300102: WGT-rig_forearm_tweak.R
+    3300104: WGT-rig_forearm_tweak.R.001
+    3300106: WGT-rig_hair
+    3300108: WGT-rig_HairBone.1
+    3300110: WGT-rig_HairBone.2
+    3300112: WGT-rig_HairBone.3
+    3300114: WGT-rig_HairBone.L.001
+    3300116: WGT-rig_HairBone.L.002
+    3300118: WGT-rig_HairBone.L.003
+    3300120: WGT-rig_HairBone.L.004
+    3300122: WGT-rig_HairBone.L.005
+    3300124: WGT-rig_HairBone.L.006
+    3300126: WGT-rig_HairBone.L.007
+    3300128: WGT-rig_HairBone.L.008
+    3300130: WGT-rig_HairBone.L.009
+    3300132: WGT-rig_HairBone.R.001
+    3300134: WGT-rig_HairBone.R.002
+    3300136: WGT-rig_HairBone.R.003
+    3300138: WGT-rig_HairBone.R.004
+    3300140: WGT-rig_HairBone.R.005
+    3300142: WGT-rig_HairBone.R.006
+    3300144: WGT-rig_HairBone.R.007
+    3300146: WGT-rig_HairBone.R.008
+    3300148: WGT-rig_HairBone.R.009
+    3300150: WGT-rig_hand_fk.L
+    3300152: WGT-rig_hand_fk.R
+    3300154: WGT-rig_hand_ik.L
+    3300156: WGT-rig_hand_ik.R
+    3300158: WGT-rig_hand_tweak.L
+    3300160: WGT-rig_hand_tweak.R
+    3300162: WGT-rig_HatBone
+    3300164: WGT-rig_head
+    3300166: WGT-rig_hips
+    3300168: WGT-rig_jaw
+    3300170: WGT-rig_Mouth.L.001
+    3300172: WGT-rig_Mouth.L.002
+    3300174: WGT-rig_Mouth.R.001
+    3300176: WGT-rig_Mouth.R.002
+    3300178: WGT-rig_neck
+    3300180: WGT-rig_nouse
+    3300182: WGT-rig_palm.L
+    3300184: WGT-rig_palm.R
+    3300186: WGT-rig_root
+    3300188: WGT-rig_shin_fk.L
+    3300190: WGT-rig_shin_fk.R
+    3300192: WGT-rig_shin_tweak.L
+    3300194: WGT-rig_shin_tweak.L.001
+    3300196: WGT-rig_shin_tweak.R
+    3300198: WGT-rig_shin_tweak.R.001
+    3300200: WGT-rig_shoulder.L
+    3300202: WGT-rig_shoulder.R
+    3300204: WGT-rig_Smoking.L.001
+    3300206: WGT-rig_Smoking.L.002
+    3300208: WGT-rig_Smoking.L.003
+    3300210: WGT-rig_Smoking.L.004
+    3300212: WGT-rig_Smoking.L.005
+    3300214: WGT-rig_Smoking.L.006
+    3300216: WGT-rig_Smoking.R.001
+    3300218: WGT-rig_Smoking.R.002
+    3300220: WGT-rig_Smoking.R.003
+    3300222: WGT-rig_Smoking.R.004
+    3300224: WGT-rig_Smoking.R.005
+    3300226: WGT-rig_Smoking.R.006
+    3300228: WGT-rig_thigh_fk.L
+    3300230: WGT-rig_thigh_fk.R
+    3300232: WGT-rig_thigh_ik.L
+    3300234: WGT-rig_thigh_ik.R
+    3300236: WGT-rig_thigh_ik_target.L
+    3300238: WGT-rig_thigh_ik_target.R
+    3300240: WGT-rig_thigh_parent.L
+    3300242: WGT-rig_thigh_parent.R
+    3300244: WGT-rig_thigh_tweak.L
+    3300246: WGT-rig_thigh_tweak.L.001
+    3300248: WGT-rig_thigh_tweak.R
+    3300250: WGT-rig_thigh_tweak.R.001
+    3300252: WGT-rig_thumb.01.L
+    3300254: WGT-rig_thumb.01.R
+    3300256: WGT-rig_thumb.02.L
+    3300258: WGT-rig_thumb.02.R
+    3300260: WGT-rig_thumb.03.L
+    3300262: WGT-rig_thumb.03.R
+    3300264: WGT-rig_toe.L
+    3300266: WGT-rig_toe.R
+    3300268: WGT-rig_torso
+    3300270: WGT-rig_tweak_f_index.01.L
+    3300272: WGT-rig_tweak_f_index.01.R
+    3300274: WGT-rig_tweak_f_index.02.L
+    3300276: WGT-rig_tweak_f_index.02.R
+    3300278: WGT-rig_tweak_f_index.03.L
+    3300280: WGT-rig_tweak_f_index.03.L.001
+    3300282: WGT-rig_tweak_f_index.03.R
+    3300284: WGT-rig_tweak_f_index.03.R.001
+    3300286: WGT-rig_tweak_f_middle.01.L
+    3300288: WGT-rig_tweak_f_middle.01.R
+    3300290: WGT-rig_tweak_f_middle.02.L
+    3300292: WGT-rig_tweak_f_middle.02.R
+    3300294: WGT-rig_tweak_f_middle.03.L
+    3300296: WGT-rig_tweak_f_middle.03.L.001
+    3300298: WGT-rig_tweak_f_middle.03.R
+    3300300: WGT-rig_tweak_f_middle.03.R.001
+    3300302: WGT-rig_tweak_f_pinky.01.L
+    3300304: WGT-rig_tweak_f_pinky.01.R
+    3300306: WGT-rig_tweak_f_pinky.02.L
+    3300308: WGT-rig_tweak_f_pinky.02.R
+    3300310: WGT-rig_tweak_f_pinky.03.L
+    3300312: WGT-rig_tweak_f_pinky.03.L.001
+    3300314: WGT-rig_tweak_f_pinky.03.R
+    3300316: WGT-rig_tweak_f_pinky.03.R.001
+    3300318: WGT-rig_tweak_f_ring.01.L
+    3300320: WGT-rig_tweak_f_ring.01.R
+    3300322: WGT-rig_tweak_f_ring.02.L
+    3300324: WGT-rig_tweak_f_ring.02.R
+    3300326: WGT-rig_tweak_f_ring.03.L
+    3300328: WGT-rig_tweak_f_ring.03.L.001
+    3300330: WGT-rig_tweak_f_ring.03.R
+    3300332: WGT-rig_tweak_f_ring.03.R.001
+    3300334: WGT-rig_tweak_spine
+    3300336: WGT-rig_tweak_spine.001
+    3300338: WGT-rig_tweak_spine.002
+    3300340: WGT-rig_tweak_spine.003
+    3300342: WGT-rig_tweak_spine.004
+    3300344: WGT-rig_tweak_spine.005
+    3300346: WGT-rig_tweak_thumb.01.L
+    3300348: WGT-rig_tweak_thumb.01.R
+    3300350: WGT-rig_tweak_thumb.02.L
+    3300352: WGT-rig_tweak_thumb.02.R
+    3300354: WGT-rig_tweak_thumb.03.L
+    3300356: WGT-rig_tweak_thumb.03.L.001
+    3300358: WGT-rig_tweak_thumb.03.R
+    3300360: WGT-rig_tweak_thumb.03.R.001
+    3300362: WGT-rig_upper_arm_fk.L
+    3300364: WGT-rig_upper_arm_fk.R
+    3300366: WGT-rig_upper_arm_ik.L
+    3300368: WGT-rig_upper_arm_ik.R
+    3300370: WGT-rig_upper_arm_ik_target.L
+    3300372: WGT-rig_upper_arm_ik_target.R
+    3300374: WGT-rig_upper_arm_parent.L
+    3300376: WGT-rig_upper_arm_parent.R
+    3300378: WGT-rig_upper_arm_tweak.L
+    3300380: WGT-rig_upper_arm_tweak.L.001
+    3300382: WGT-rig_upper_arm_tweak.R
+    3300384: WGT-rig_upper_arm_tweak.R.001
+    3300386: WGT-rig_VIS_thigh_ik_pole.L
+    3300388: WGT-rig_VIS_thigh_ik_pole.R
+    3300390: WGT-rig_VIS_upper_arm_ik_pole.L
+    3300392: WGT-rig_VIS_upper_arm_ik_pole.R
+    3300394: WGTS_rig
+    4300000: Player_Red_Gun.l
+    4300002: Player_Red_Gun.R
+    4300004: Player_Red_Hat
+    4300006: Player_Red_Face
+    4300008: Player_Red_Hair
+    4300010: Player_Red_Body
+    4300012: WGTS_rig
+    4300014: WGT-rig_Smoking.R.006
+    4300016: WGT-rig_Smoking.R.005
+    4300018: WGT-rig_Smoking.R.004
+    4300020: WGT-rig_Smoking.R.003
+    4300022: WGT-rig_Smoking.R.002
+    4300024: WGT-rig_Smoking.R.001
+    4300026: WGT-rig_Smoking.L.006
+    4300028: WGT-rig_Smoking.L.005
+    4300030: WGT-rig_Smoking.L.004
+    4300032: WGT-rig_Smoking.L.003
+    4300034: WGT-rig_Smoking.L.002
+    4300036: WGT-rig_Smoking.L.001
+    4300038: WGT-rig_Mouth.R.002
+    4300040: WGT-rig_Mouth.L.002
+    4300042: WGT-rig_hair
+    4300044: WGT-rig_nouse
+    4300046: WGT-rig_jaw
+    4300048: WGT-rig_Mouth.R.001
+    4300050: WGT-rig_Mouth.L.001
+    4300052: WGT-rig_HairBone.R.009
+    4300054: WGT-rig_HairBone.R.008
+    4300056: WGT-rig_HairBone.R.007
+    4300058: WGT-rig_HairBone.R.006
+    4300060: WGT-rig_HairBone.R.005
+    4300062: WGT-rig_HairBone.R.004
+    4300064: WGT-rig_HairBone.R.003
+    4300066: WGT-rig_HairBone.R.002
+    4300068: WGT-rig_HairBone.R.001
+    4300070: WGT-rig_HairBone.L.009
+    4300072: WGT-rig_HairBone.L.008
+    4300074: WGT-rig_HairBone.L.007
+    4300076: WGT-rig_HairBone.L.006
+    4300078: WGT-rig_HairBone.L.005
+    4300080: WGT-rig_HairBone.L.004
+    4300082: WGT-rig_HairBone.L.003
+    4300084: WGT-rig_HairBone.L.002
+    4300086: WGT-rig_HairBone.L.001
+    4300088: WGT-rig_EyeBrow.R.003
+    4300090: WGT-rig_EyeBrow.R.002
+    4300092: WGT-rig_EyeBrow.R.001
+    4300094: WGT-rig_EyeBrow.L.003
+    4300096: WGT-rig_EyeBrow.L.002
+    4300098: WGT-rig_EyeBrow.L.001
+    4300100: WGT-rig_Eye.R
+    4300102: WGT-rig_Eye.L
+    4300104: WGT-rig_Arm_WeaponBone.R.001
+    4300106: WGT-rig_Arm_WeaponBone.L.001
+    4300108: WGT-rig_Arm_WeaponBone.R
+    4300110: WGT-rig_Arm_WeaponBone.L
+    4300112: WGT-rig_root
+    4300114: WGT-rig_tweak_thumb.03.R.001
+    4300116: WGT-rig_tweak_thumb.03.R
+    4300118: WGT-rig_tweak_thumb.02.R
+    4300120: WGT-rig_tweak_thumb.01.R
+    4300122: WGT-rig_thumb.03.R
+    4300124: WGT-rig_thumb.02.R
+    4300126: WGT-rig_thumb.01.R
+    4300128: WGT-rig_tweak_thumb.03.L.001
+    4300130: WGT-rig_tweak_thumb.03.L
+    4300132: WGT-rig_tweak_thumb.02.L
+    4300134: WGT-rig_tweak_thumb.01.L
+    4300136: WGT-rig_thumb.03.L
+    4300138: WGT-rig_thumb.02.L
+    4300140: WGT-rig_thumb.01.L
+    4300142: WGT-rig_tweak_f_ring.03.R.001
+    4300144: WGT-rig_tweak_f_ring.03.R
+    4300146: WGT-rig_tweak_f_ring.02.R
+    4300148: WGT-rig_tweak_f_ring.01.R
+    4300150: WGT-rig_f_ring.03.R
+    4300152: WGT-rig_f_ring.02.R
+    4300154: WGT-rig_f_ring.01.R
+    4300156: WGT-rig_tweak_f_ring.03.L.001
+    4300158: WGT-rig_tweak_f_ring.03.L
+    4300160: WGT-rig_tweak_f_ring.02.L
+    4300162: WGT-rig_tweak_f_ring.01.L
+    4300164: WGT-rig_f_ring.03.L
+    4300166: WGT-rig_f_ring.02.L
+    4300168: WGT-rig_f_ring.01.L
+    4300170: WGT-rig_tweak_f_pinky.03.R.001
+    4300172: WGT-rig_tweak_f_pinky.03.R
+    4300174: WGT-rig_tweak_f_pinky.02.R
+    4300176: WGT-rig_tweak_f_pinky.01.R
+    4300178: WGT-rig_f_pinky.03.R
+    4300180: WGT-rig_f_pinky.02.R
+    4300182: WGT-rig_f_pinky.01.R
+    4300184: WGT-rig_tweak_f_pinky.03.L.001
+    4300186: WGT-rig_tweak_f_pinky.03.L
+    4300188: WGT-rig_tweak_f_pinky.02.L
+    4300190: WGT-rig_tweak_f_pinky.01.L
+    4300192: WGT-rig_f_pinky.03.L
+    4300194: WGT-rig_f_pinky.02.L
+    4300196: WGT-rig_f_pinky.01.L
+    4300198: WGT-rig_tweak_f_middle.03.R.001
+    4300200: WGT-rig_tweak_f_middle.03.R
+    4300202: WGT-rig_tweak_f_middle.02.R
+    4300204: WGT-rig_tweak_f_middle.01.R
+    4300206: WGT-rig_f_middle.03.R
+    4300208: WGT-rig_f_middle.02.R
+    4300210: WGT-rig_f_middle.01.R
+    4300212: WGT-rig_tweak_f_middle.03.L.001
+    4300214: WGT-rig_tweak_f_middle.03.L
+    4300216: WGT-rig_tweak_f_middle.02.L
+    4300218: WGT-rig_tweak_f_middle.01.L
+    4300220: WGT-rig_f_middle.03.L
+    4300222: WGT-rig_f_middle.02.L
+    4300224: WGT-rig_f_middle.01.L
+    4300226: WGT-rig_tweak_f_index.03.R.001
+    4300228: WGT-rig_tweak_f_index.03.R
+    4300230: WGT-rig_tweak_f_index.02.R
+    4300232: WGT-rig_tweak_f_index.01.R
+    4300234: WGT-rig_f_index.03.R
+    4300236: WGT-rig_f_index.02.R
+    4300238: WGT-rig_f_index.01.R
+    4300240: WGT-rig_tweak_f_index.03.L.001
+    4300242: WGT-rig_tweak_f_index.03.L
+    4300244: WGT-rig_tweak_f_index.02.L
+    4300246: WGT-rig_tweak_f_index.01.L
+    4300248: WGT-rig_f_index.03.L
+    4300250: WGT-rig_f_index.02.L
+    4300252: WGT-rig_f_index.01.L
+    4300254: WGT-rig_palm.R
+    4300256: WGT-rig_palm.L
+    4300258: WGT-rig_HatBone
+    4300260: WGT-rig_HairBone.3
+    4300262: WGT-rig_HairBone.2
+    4300264: WGT-rig_HairBone.1
+    4300266: WGT-rig_hand_ik.R
+    4300268: WGT-rig_hand_fk.R
+    4300270: WGT-rig_forearm_fk.R
+    4300272: WGT-rig_upper_arm_fk.R
+    4300274: WGT-rig_VIS_upper_arm_ik_pole.R
+    4300276: WGT-rig_upper_arm_ik_target.R
+    4300278: WGT-rig_upper_arm_ik.R
+    4300280: WGT-rig_hand_tweak.R
+    4300282: WGT-rig_forearm_tweak.R.001
+    4300284: WGT-rig_forearm_tweak.R
+    4300286: WGT-rig_upper_arm_tweak.R.001
+    4300288: WGT-rig_upper_arm_tweak.R
+    4300290: WGT-rig_upper_arm_parent.R
+    4300292: WGT-rig_hand_ik.L
+    4300294: WGT-rig_hand_fk.L
+    4300296: WGT-rig_forearm_fk.L
+    4300298: WGT-rig_upper_arm_fk.L
+    4300300: WGT-rig_VIS_upper_arm_ik_pole.L
+    4300302: WGT-rig_upper_arm_ik_target.L
+    4300304: WGT-rig_upper_arm_ik.L
+    4300306: WGT-rig_hand_tweak.L
+    4300308: WGT-rig_forearm_tweak.L.001
+    4300310: WGT-rig_forearm_tweak.L
+    4300312: WGT-rig_upper_arm_tweak.L.001
+    4300314: WGT-rig_upper_arm_tweak.L
+    4300316: WGT-rig_upper_arm_parent.L
+    4300318: WGT-rig_shoulder.R
+    4300320: WGT-rig_shoulder.L
+    4300322: WGT-rig_breast.R
+    4300324: WGT-rig_breast.L
+    4300326: WGT-rig_toe.R
+    4300328: WGT-rig_foot_heel_ik.R
+    4300330: WGT-rig_foot_ik.R
+    4300332: WGT-rig_foot_fk.R
+    4300334: WGT-rig_shin_fk.R
+    4300336: WGT-rig_thigh_fk.R
+    4300338: WGT-rig_VIS_thigh_ik_pole.R
+    4300340: WGT-rig_thigh_ik_target.R
+    4300342: WGT-rig_thigh_ik.R
+    4300344: WGT-rig_foot_tweak.R
+    4300346: WGT-rig_shin_tweak.R.001
+    4300348: WGT-rig_shin_tweak.R
+    4300350: WGT-rig_thigh_tweak.R.001
+    4300352: WGT-rig_thigh_tweak.R
+    4300354: WGT-rig_thigh_parent.R
+    4300356: WGT-rig_toe.L
+    4300358: WGT-rig_foot_heel_ik.L
+    4300360: WGT-rig_foot_ik.L
+    4300362: WGT-rig_foot_fk.L
+    4300364: WGT-rig_shin_fk.L
+    4300366: WGT-rig_thigh_fk.L
+    4300368: WGT-rig_VIS_thigh_ik_pole.L
+    4300370: WGT-rig_thigh_ik_target.L
+    4300372: WGT-rig_thigh_ik.L
+    4300374: WGT-rig_foot_tweak.L
+    4300376: WGT-rig_shin_tweak.L.001
+    4300378: WGT-rig_shin_tweak.L
+    4300380: WGT-rig_thigh_tweak.L.001
+    4300382: WGT-rig_thigh_tweak.L
+    4300384: WGT-rig_thigh_parent.L
+    4300386: WGT-rig_tweak_spine.001
+    4300388: WGT-rig_tweak_spine
+    4300390: WGT-rig_tweak_spine.003
+    4300392: WGT-rig_tweak_spine.002
+    4300394: WGT-rig_tweak_spine.005
+    4300396: WGT-rig_tweak_spine.004
+    4300398: WGT-rig_head
+    4300400: WGT-rig_neck
+    4300402: WGT-rig_hips
+    4300404: WGT-rig_chest
+    4300406: WGT-rig_torso
+    7400000: rig|Area.001Action
+    7400002: rig|AreaAction
+    7400004: rig|CrounchOneGun
+    7400006: rig|CrounchOneGun_Fire
+    7400008: rig|CrounchTwoGun
+    7400010: rig|CrounchTwoGun_Fire
+    7400012: rig|Dash
+    7400014: rig|Died
+    7400016: rig|GunOneDDown
+    7400018: rig|GunOneDDown_Fire
+    7400020: rig|GunOneDUp
+    7400022: rig|GunOneDUpFire
+    7400024: rig|GunOneFront
+    7400026: rig|GunOneFront_Fire
+    7400028: rig|GunOneUp
+    7400030: rig|GunOneUp_Fire
+    7400032: rig|GunTwoDDown
+    7400034: rig|GunTwoDDown_Fire
+    7400036: rig|GunTwoDUp
+    7400038: rig|GunTwoDUp_Fire
+    7400040: rig|GunTwoFront
+    7400042: rig|GunTwoFront_Fire
+    7400044: rig|GunTwoUp
+    7400046: rig|GunTwoUp_Fire
+    7400048: rig|Idle
+    7400050: rig|Idle2
+    7400052: rig|Jump
+    7400054: rig|JumpAir
+    7400056: rig|JumpDown
+    7400058: rig|JumpGunOneDDown
+    7400060: rig|JumpGunOneDDown_Fire
+    7400062: rig|JumpGunOneUp
+    7400064: rig|JumpGunOneUp_Fore
+    7400066: rig|JumpGunTwoDDown
+    7400068: rig|JumpGunTwoDDown_Fire
+    7400070: rig|JumpGunTwoUp
+    7400072: rig|JumpGunTwoUp_Fire
+    7400074: rig|Victory
+    7400076: rig|Walk
+    7400078: rig|JumpGunOneUp_Fire
+    7400080: rig|GunOneDown
+    7400082: rig|GunOneDown_Fire
+    9500000: //RootNode
+    13700000: Player_Red_Body
+    13700002: Player_Red_Face
+    13700004: Player_Red_Gun.l
+    13700006: Player_Red_Gun.R
+    13700008: Player_Red_Hair
+    13700010: Player_Red_Hat
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 1
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: rig|CrounchOneGun
+      takeName: rig|CrounchOneGun
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|CrounchOneGun_Fire
+      takeName: rig|CrounchOneGun_Fire
+      firstFrame: 0
+      lastFrame: 2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|CrounchTwoGun
+      takeName: rig|CrounchTwoGun
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|CrounchTwoGun_Fire
+      takeName: rig|CrounchTwoGun_Fire
+      firstFrame: 0
+      lastFrame: 2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|Dash
+      takeName: rig|Dash
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|Died
+      takeName: rig|Died
+      firstFrame: 1
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunOneDDown
+      takeName: rig|GunOneDDown
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 00000000010000000100000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {fileID: 31900000, guid: d2fda1e0258f2e44d8c0d243e3eb2024, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunOneDDown_Fire
+      takeName: rig|GunOneDDown_Fire
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 00000000010000000100000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {fileID: 31900000, guid: d2fda1e0258f2e44d8c0d243e3eb2024, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunOneDUp
+      takeName: rig|GunOneDUp
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunOneDUpFire
+      takeName: rig|GunOneDUpFire
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunOneFront
+      takeName: rig|GunOneFront
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunOneFront_Fire
+      takeName: rig|GunOneFront_Fire
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunOneUp
+      takeName: rig|GunOneUp
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunOneUp_Fire
+      takeName: rig|GunOneUp_Fire
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunTwoDDown
+      takeName: rig|GunTwoDDown
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunTwoDDown_Fire
+      takeName: rig|GunTwoDDown_Fire
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunTwoDUp
+      takeName: rig|GunTwoDUp
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunTwoDUp_Fire
+      takeName: rig|GunTwoDUp_Fire
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunTwoFront
+      takeName: rig|GunTwoFront
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunTwoFront_Fire
+      takeName: rig|GunTwoFront_Fire
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunTwoUp
+      takeName: rig|GunTwoUp
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunTwoUp_Fire
+      takeName: rig|GunTwoUp_Fire
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|Idle
+      takeName: rig|Idle
+      firstFrame: 1
+      lastFrame: 18
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|Idle2
+      takeName: rig|Idle2
+      firstFrame: 1
+      lastFrame: 18
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|Jump
+      takeName: rig|Jump
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|JumpAir
+      takeName: rig|JumpAir
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|JumpDown
+      takeName: rig|JumpDown
+      firstFrame: 0
+      lastFrame: 2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|JumpGunOneDDown
+      takeName: rig|JumpGunOneDDown
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|JumpGunOneDDown_Fire
+      takeName: rig|JumpGunOneDDown_Fire
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|JumpGunOneUp
+      takeName: rig|JumpGunOneUp
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|JumpGunOneUp_Fire
+      takeName: rig|JumpGunOneUp_Fire
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|JumpGunTwoDDown
+      takeName: rig|JumpGunTwoDDown
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|JumpGunTwoDDown_Fire
+      takeName: rig|JumpGunTwoDDown_Fire
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|JumpGunTwoUp
+      takeName: rig|JumpGunTwoUp
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|JumpGunTwoUp_Fire
+      takeName: rig|JumpGunTwoUp_Fire
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|Victory
+      takeName: rig|Victory
+      firstFrame: 1
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|Walk
+      takeName: rig|Walk
+      firstFrame: 1
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunOneDown
+      takeName: rig|GunOneDown
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunOneDown_Fire
+      takeName: rig|GunOneDown_Fire
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton:
+    - name: Player_red(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Player_Red_Body
+      parentName: Player_red(Clone)
+      position: {x: -0, y: 0.9081764, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Player_Red_Face
+      parentName: Player_red(Clone)
+      position: {x: -0, y: 0.9081764, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Player_Red_Gun.l
+      parentName: Player_red(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Player_Red_Gun.R
+      parentName: Player_red(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Player_Red_Hair
+      parentName: Player_red(Clone)
+      position: {x: -0, y: 0.9081764, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Player_Red_Hat
+      parentName: Player_red(Clone)
+      position: {x: -0, y: 0.9081764, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: rig
+      parentName: Player_red(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: root
+      parentName: rig
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 0.9999961, z: 0.9999961}
+    - name: DEF-spine
+      parentName: root
+      position: {x: 0.00006457479, y: 0.0015844976, z: 0.0086216135}
+      rotation: {x: 0.8079014, y: 0.000000008118857, z: 0.000000008624042, w: 0.5893178}
+      scale: {x: 0.99999976, y: 1.0000027, z: 1.0000025}
+    - name: DEF-spine.001
+      parentName: DEF-spine
+      position: {x: 1.11758706e-10, y: 0.001117, z: -1.6763806e-10}
+      rotation: {x: -0.094475776, y: -0.000000011215873, z: 0.0000000032029601, w: 0.99552715}
+      scale: {x: 1.0117605, y: 0.97688615, z: 1.0117607}
+    - name: DEF-spine.002
+      parentName: DEF-spine.001
+      position: {x: 3.7252902e-11, y: 0.0012481204, z: 1.7695129e-10}
+      rotation: {x: -0.07746297, y: -0.000000023387786, z: -0.0000000018929465, w: 0.99699533}
+      scale: {x: 0.99805975, y: 1.0032125, z: 0.99905443}
+    - name: DEF-spine.003
+      parentName: DEF-spine.002
+      position: {x: -3.7252902e-11, y: 0.0014547707, z: 5.5879353e-11}
+      rotation: {x: -0.06431366, y: -0.000000011870972, z: 0.0000000017537538, w: 0.99792975}
+      scale: {x: 0.9903008, y: 1.0110959, z: 0.99910194}
+    - name: DEF-spine.004
+      parentName: DEF-spine.003
+      position: {x: 3.7252902e-11, y: 0.0023458684, z: -7.4505804e-11}
+      rotation: {x: 0.2563195, y: -0.00000018278766, z: -0.000000075864975, w: 0.96659213}
+      scale: {x: 0.9999995, y: 1.0468559, z: 0.95489657}
+    - name: DEF-spine.005
+      parentName: DEF-spine.004
+      position: {x: -6.519258e-11, y: 0.0002675421, z: -1.4901161e-10}
+      rotation: {x: 0.014361842, y: 0.00000066016895, z: 0.000000027932675, w: 0.9998969}
+      scale: {x: 1.0000019, y: 1.0005584, z: 0.9994611}
+    - name: DEF-spine.006
+      parentName: DEF-spine.005
+      position: {x: -3.7252902e-11, y: 0.0002260414, z: -1.3038516e-10}
+      rotation: {x: -0.13610348, y: -0.00000040363534, z: -0.000000076443094, w: 0.99069464}
+      scale: {x: 0.9999986, y: 0.99259496, z: 1.0087984}
+    - name: DEF-shoulder.L
+      parentName: DEF-spine.003
+      position: {x: -0.0007194207, y: 0.0022206665, z: 0.0005063473}
+      rotation: {x: 0.5619555, y: -0.4236181, z: -0.4888831, w: -0.51550657}
+      scale: {x: 0.9902729, y: 1.0133097, z: 0.9965843}
+    - name: DEF-upper_arm.L
+      parentName: DEF-shoulder.L
+      position: {x: 0.000003199121, y: 0.0016245062, z: -0.00027066833}
+      rotation: {x: -0.08096271, y: 0.8579129, z: -0.009372382, w: -0.50728965}
+      scale: {x: 1.001211, y: 1.0298909, z: 0.9700584}
+    - name: DEF-upper_arm.L.001
+      parentName: DEF-upper_arm.L
+      position: {x: -1.0244548e-10, y: 0.0011694883, z: 2.7474015e-10}
+      rotation: {x: 0.000000052154054, y: -0, z: 0.000000014901158, w: 1}
+      scale: {x: 1.0000006, y: 1.0000007, z: 0.9999991}
+    - name: DEF-forearm.L
+      parentName: DEF-upper_arm.L.001
+      position: {x: -4.1909515e-10, y: 0.0011694892, z: 6.239861e-10}
+      rotation: {x: 0.04195185, y: 0.0036844874, z: -0.021408653, w: 0.9988835}
+      scale: {x: 1.0001582, y: 0.98356223, z: 1.0177639}
+    - name: DEF-forearm.L.001
+      parentName: DEF-forearm.L
+      position: {x: -4.0978193e-10, y: 0.001027179, z: -4.6566126e-11}
+      rotation: {x: -0, y: 0.0000000031821827, z: 0.000000014557415, w: 1}
+      scale: {x: 1.000092, y: 1.0000012, z: 0.9999067}
+    - name: DEF-hand.L
+      parentName: DEF-forearm.L.001
+      position: {x: 5.9604643e-10, y: 0.0010271779, z: -2.2351741e-10}
+      rotation: {x: 0.040110577, y: -0.0013592661, z: 0.033841483, w: 0.99862105}
+      scale: {x: 0.99526995, y: 1.0118724, z: 0.9928916}
+    - name: ORG-palm.01.L
+      parentName: DEF-hand.L
+      position: {x: 0.000111083835, y: 0.0004279801, z: 0.00017865033}
+      rotation: {x: 0.093195654, y: -0.7069371, z: -0.07403873, w: 0.6971892}
+      scale: {x: 0.9861284, y: 1.0137517, z: 1.0002842}
+    - name: DEF-palm.01.L
+      parentName: ORG-palm.01.L
+      position: {x: 2.9802322e-10, y: -1.862645e-10, z: 7.4505804e-11}
+      rotation: {x: 0.000000081956365, y: -0, z: -0.000000037252896, w: 1}
+      scale: {x: 1.0000001, y: 1.0000013, z: 1.0000014}
+    - name: DEF-f_index.01.L
+      parentName: ORG-palm.01.L
+      position: {x: 0.000047291218, y: 0.0006569086, z: -0.000016238764}
+      rotation: {x: 0.014231467, y: 0.06577358, z: 0.100026995, w: 0.9927064}
+      scale: {x: 0.81046367, y: 1.5820086, z: 0.7798495}
+    - name: DEF-f_index.02.L
+      parentName: DEF-f_index.01.L
+      position: {x: 1.4901161e-10, y: 0.00040811303, z: 1.4901161e-10}
+      rotation: {x: 0.099749684, y: 0.0029048228, z: 0.026511274, w: 0.9946551}
+      scale: {x: 1.0227858, y: 1.1914525, z: 1.1055846}
+    - name: DEF-f_index.03.L
+      parentName: DEF-f_index.02.L
+      position: {x: 2.6077032e-10, y: 0.00026553962, z: -3.4458936e-10}
+      rotation: {x: 0.011120874, y: 0.017478589, z: 0.005590141, w: 0.9997698}
+      scale: {x: 1.2428094, y: 0.8100209, z: 1.3617166}
+    - name: DEF-thumb.01.L
+      parentName: ORG-palm.01.L
+      position: {x: 0.00005664721, y: 0.0002934933, z: 0.00005494453}
+      rotation: {x: -0.26303932, y: -0.8649805, z: -0.02041365, w: 0.42685175}
+      scale: {x: 1.0467908, y: 1.0043777, z: 0.9508306}
+    - name: DEF-thumb.02.L
+      parentName: DEF-thumb.01.L
+      position: {x: 2.0547304e-10, y: 0.0003825876, z: 3.352761e-10}
+      rotation: {x: -0.0014035542, y: 0.33771625, z: 0.03939566, w: 0.9404221}
+      scale: {x: 1.005879, y: 1.0015155, z: 0.9947506}
+    - name: DEF-thumb.03.L
+      parentName: DEF-thumb.02.L
+      position: {x: -3.352761e-10, y: 0.00025666654, z: -2.2351741e-10}
+      rotation: {x: 0.0972849, y: 0.13993011, z: -0.116652906, w: 0.9784413}
+      scale: {x: 1.0372969, y: 1.0003175, z: 0.96383244}
+    - name: ORG-palm.02.L
+      parentName: DEF-hand.L
+      position: {x: 0.000057981124, y: 0.0005560038, z: -0.000047437818}
+      rotation: {x: -0.015539201, y: -0.565401, z: -0.036656395, w: 0.82385474}
+      scale: {x: 1.0259558, y: 0.9975603, z: 0.97699314}
+    - name: DEF-palm.02.L
+      parentName: ORG-palm.02.L
+      position: {x: -7.4505804e-11, y: -9.872019e-10, z: 7.4505804e-11}
+      rotation: {x: 0.000000025145704, y: -0.00000014901158, z: -0.000000078231075,
+        w: 1}
+      scale: {x: 1.0000015, y: 1.0000052, z: 1.0000012}
+    - name: DEF-f_middle.01.L
+      parentName: ORG-palm.02.L
+      position: {x: -1.4901161e-10, y: 0.0004968534, z: 2.0489097e-10}
+      rotation: {x: 0.0695263, y: 0.028222876, z: 0.048740126, w: 0.99598897}
+      scale: {x: 1.008806, y: 1.0149783, z: 0.97705036}
+    - name: DEF-f_middle.02.L
+      parentName: DEF-f_middle.01.L
+      position: {x: -2.7939677e-11, y: 0.00051612774, z: 3.1664968e-10}
+      rotation: {x: 0.05094133, y: 0.1258412, z: 0.013576231, w: 0.9906487}
+      scale: {x: 1.0193737, y: 1.031264, z: 0.95286185}
+    - name: DEF-f_middle.03.L
+      parentName: DEF-f_middle.02.L
+      position: {x: -7.4505804e-11, y: 0.00035761844, z: -6.3329936e-10}
+      rotation: {x: -0.0010193137, y: -0.07599695, z: -0.042568397, w: 0.99619853}
+      scale: {x: 0.98421794, y: 0.9992262, z: 1.0164136}
+    - name: ORG-palm.03.L
+      parentName: DEF-hand.L
+      position: {x: 0.000050412862, y: 0.0005109305, z: -0.00012981538}
+      rotation: {x: -0.025528459, y: -0.5740156, z: -0.009585604, w: 0.81839013}
+      scale: {x: 1.0269793, y: 0.99614316, z: 0.97737604}
+    - name: DEF-palm.03.L
+      parentName: ORG-palm.03.L
+      position: {x: 1.4901161e-10, y: -1.11758706e-10, z: 4.2840836e-10}
+      rotation: {x: 0.0000001210719, y: -0.00000005960463, z: 0.000000038184215, w: 1}
+      scale: {x: 0.99999964, y: 0.9999966, z: 0.9999994}
+    - name: DEF-f_ring.01.L
+      parentName: ORG-palm.03.L
+      position: {x: 0.0000063937155, y: 0.0005787136, z: 0.0000065971535}
+      rotation: {x: 0.20234522, y: 0.15208884, z: 0.04119732, w: 0.96655476}
+      scale: {x: 1.019813, y: 1.0244033, z: 0.95775586}
+    - name: DEF-f_ring.02.L
+      parentName: DEF-f_ring.01.L
+      position: {x: -3.8417054e-11, y: 0.0003966652, z: 1.8218997e-10}
+      rotation: {x: 0.111134335, y: 0.0048960135, z: 0.075217776, w: 0.9909427}
+      scale: {x: 0.9984941, y: 1.0194492, z: 0.9833896}
+    - name: DEF-f_ring.03.L
+      parentName: DEF-f_ring.02.L
+      position: {x: -1.3038516e-10, y: 0.00018397455, z: -3.277091e-10}
+      rotation: {x: 0.06097714, y: -0.06139442, z: 0.008950623, w: 0.9962091}
+      scale: {x: 0.989871, y: 1.015242, z: 0.9957597}
+    - name: ORG-palm.04.L
+      parentName: DEF-hand.L
+      position: {x: -0.000007608123, y: 0.00055626535, z: -0.00025221833}
+      rotation: {x: -0.018439194, y: -0.58219945, z: 0.02645604, w: 0.8124062}
+      scale: {x: 1.027595, y: 0.99759763, z: 0.9753425}
+    - name: DEF-palm.04.L
+      parentName: ORG-palm.04.L
+      position: {x: 1.3038516e-10, y: -3.72529e-10, z: 1.11758706e-10}
+      rotation: {x: 0.00000012014058, y: 0.000000029802315, z: 0.000000014901158,
+        w: 1}
+      scale: {x: 1.0000019, y: 1.0000023, z: 1.0000013}
+    - name: DEF-f_pinky.01.L
+      parentName: ORG-palm.04.L
+      position: {x: -0.0000041291305, y: 0.0006424591, z: -0.000029536579}
+      rotation: {x: 0.257205, y: 0.2972535, z: 0.08529317, w: 0.91553867}
+      scale: {x: 1.0256169, y: 1.0293285, z: 0.947754}
+    - name: DEF-f_pinky.02.L
+      parentName: DEF-f_pinky.01.L
+      position: {x: -3.7252902e-11, y: 0.0002300709, z: 3.7252902e-11}
+      rotation: {x: 0.0155656915, y: -0.093330584, z: 0.0016343517, w: 0.9955122}
+      scale: {x: 0.98706377, y: 1.0018717, z: 1.0112293}
+    - name: DEF-f_pinky.03.L
+      parentName: DEF-f_pinky.02.L
+      position: {x: 3.7252902e-11, y: 0.00023025779, z: 2.4214386e-10}
+      rotation: {x: -0.07385847, y: -0.011103607, z: -0.023491422, w: 0.99693024}
+      scale: {x: 1.0006396, y: 0.9895269, z: 1.0096635}
+    - name: DEF-shoulder.R
+      parentName: DEF-spine.003
+      position: {x: 0.0007194209, y: 0.002220666, z: 0.0005063473}
+      rotation: {x: 0.56195605, y: 0.42361745, z: 0.4888833, w: -0.5155063}
+      scale: {x: 0.99027157, y: 1.0133059, z: 0.99657875}
+    - name: DEF-upper_arm.R
+      parentName: DEF-shoulder.R
+      position: {x: -0.0000031985342, y: 0.001624505, z: -0.00027066533}
+      rotation: {x: 0.08096374, y: 0.8579129, z: -0.009372575, w: 0.5072895}
+      scale: {x: 1.0038536, y: 1.0244828, z: 0.97261536}
+    - name: DEF-upper_arm.R.001
+      parentName: DEF-upper_arm.R
+      position: {x: 4.2142345e-10, y: 0.0011694884, z: 4.0978193e-10}
+      rotation: {x: -0.000000052154054, y: -0.00000005960463, z: 0.000000029802315,
+        w: 1}
+      scale: {x: 1.0000033, y: 1.0000017, z: 0.9999999}
+    - name: DEF-forearm.R
+      parentName: DEF-upper_arm.R.001
+      position: {x: 5.3463733e-10, y: 0.0011694882, z: 2.3748725e-10}
+      rotation: {x: 0.040445257, y: -0.003750951, z: 0.021441026, w: 0.99894464}
+      scale: {x: 0.9976212, y: 0.9833887, z: 1.0201731}
+    - name: DEF-forearm.R.001
+      parentName: DEF-forearm.R
+      position: {x: -7.683411e-11, y: 0.001027179, z: 1.862645e-10}
+      rotation: {x: -0.00000007450578, y: 0.00000006777619, z: 0.0000000309435, w: 1}
+      scale: {x: 1.000193, y: 1.0000069, z: 0.9998133}
+    - name: DEF-hand.R
+      parentName: DEF-forearm.R.001
+      position: {x: 4.0978193e-10, y: 0.0010271788, z: -6.705522e-10}
+      rotation: {x: 0.04011064, y: 0.0013590129, z: -0.0338415, w: 0.9986211}
+      scale: {x: 0.9948212, y: 1.0106031, z: 0.9946414}
+    - name: ORG-palm.01.R
+      parentName: DEF-hand.R
+      position: {x: -0.00011108391, y: 0.00042798, z: 0.00017865052}
+      rotation: {x: -0.09319577, y: -0.7069374, z: -0.07403857, w: -0.697189}
+      scale: {x: 0.99583787, y: 1.0039085, z: 1.0002803}
+    - name: DEF-palm.01.R
+      parentName: ORG-palm.01.R
+      position: {x: -0.0000000016018747, y: 4.4703483e-10, z: 3.7252902e-11}
+      rotation: {x: -0.00000007450579, y: -0.000000089406946, z: -0.000000052154054,
+        w: 1}
+      scale: {x: 1.0000015, y: 1.0000045, z: 1.0000018}
+    - name: DEF-f_index.01.R
+      parentName: ORG-palm.01.R
+      position: {x: -0.000036577785, y: 0.0007242196, z: -0.0000008353405}
+      rotation: {x: 0.022797484, y: -0.06240076, z: -0.12969576, w: 0.98932576}
+      scale: {x: 1.0098011, y: 1.0080937, z: 0.982441}
+    - name: DEF-f_index.02.R
+      parentName: DEF-f_index.01.R
+      position: {x: -0.0000000017508864, y: 0.0004081136, z: -2.9802322e-10}
+      rotation: {x: 0.044870723, y: -0.0025274735, z: -0.011536209, w: 0.998923}
+      scale: {x: 0.9986047, y: 1.0004442, z: 1.0010185}
+    - name: DEF-f_index.03.R
+      parentName: DEF-f_index.02.R
+      position: {x: 3.9115547e-10, y: 0.0002655407, z: 2.2351741e-10}
+      rotation: {x: 0.01112082, y: -0.017478287, z: -0.005590111, w: 0.99976975}
+      scale: {x: 1.0026292, y: 1.0003791, z: 0.99703836}
+    - name: DEF-thumb.01.R
+      parentName: ORG-palm.01.R
+      position: {x: -0.00031549978, y: 0.0003152231, z: -0.000037680453}
+      rotation: {x: -0.21896219, y: 0.8792743, z: 0.010970108, w: 0.42286158}
+      scale: {x: 1.007151, y: 1.0540313, z: 0.9426186}
+    - name: DEF-thumb.02.R
+      parentName: DEF-thumb.01.R
+      position: {x: -4.4703483e-10, y: 0.00038258804, z: 2.9802322e-10}
+      rotation: {x: -0.0020241875, y: -0.33736736, z: -0.044511754, w: 0.94031805}
+      scale: {x: 1.0452445, y: 0.9509641, z: 1.0095911}
+    - name: DEF-thumb.03.R
+      parentName: DEF-thumb.02.R
+      position: {x: -3.352761e-10, y: 0.00025666517, z: -1.4901161e-10}
+      rotation: {x: 0.097284995, y: -0.13993016, z: 0.116652645, w: 0.97844136}
+      scale: {x: 1.0492928, y: 0.9666076, z: 0.9867273}
+    - name: ORG-palm.02.R
+      parentName: DEF-hand.R
+      position: {x: -0.000057981237, y: 0.00055600435, z: -0.000047437745}
+      rotation: {x: -0.015539171, y: 0.5654014, z: 0.036656294, w: 0.82385457}
+      scale: {x: 1.026751, y: 0.9971049, z: 0.97680235}
+    - name: DEF-palm.02.R
+      parentName: ORG-palm.02.R
+      position: {x: -0.0000000012852251, y: -1.11758706e-10, z: -2.2351741e-10}
+      rotation: {x: -0.00000006519256, y: 0.000000029802312, z: -0.00000004563479,
+        w: 1}
+      scale: {x: 1.0000051, y: 1.0000037, z: 1.0000011}
+    - name: DEF-f_middle.01.R
+      parentName: ORG-palm.02.R
+      position: {x: 0.00009858122, y: 0.00047573587, z: 0.000009340904}
+      rotation: {x: 0.07616779, y: -0.02565146, z: -0.07287601, w: 0.99409735}
+      scale: {x: 1.0031786, y: 1.0164104, z: 0.98108685}
+    - name: DEF-f_middle.02.R
+      parentName: DEF-f_middle.01.R
+      position: {x: -4.4703483e-10, y: 0.00051612925, z: -7.4505804e-11}
+      rotation: {x: 0.04918041, y: -0.12616232, z: -0.013476313, w: 0.9906982}
+      scale: {x: 1.018037, y: 1.0219115, z: 0.9624686}
+    - name: DEF-f_middle.03.R
+      parentName: DEF-f_middle.02.R
+      position: {x: -0.000000001527369, y: 0.0003576185, z: 2.9802322e-10}
+      rotation: {x: -0.001018911, y: 0.07599671, z: 0.042568486, w: 0.9961985}
+      scale: {x: 0.9854113, y: 0.9981905, z: 1.0162777}
+    - name: ORG-palm.03.R
+      parentName: DEF-hand.R
+      position: {x: -0.000050413142, y: 0.00051093084, z: -0.00012981636}
+      rotation: {x: -0.025528556, y: 0.57401586, z: 0.0095855165, w: 0.81839013}
+      scale: {x: 1.025571, y: 0.99759096, z: 0.9774353}
+    - name: DEF-palm.03.R
+      parentName: ORG-palm.03.R
+      position: {x: 9.383074e-10, y: 0, z: -1.862645e-10}
+      rotation: {x: 0.0000001136213, y: 0.000000089406925, z: 0.0000000670552, w: 1}
+      scale: {x: 0.99999994, y: 0.9999975, z: 0.9999981}
+    - name: DEF-f_ring.01.R
+      parentName: ORG-palm.03.R
+      position: {x: -0.0000063928446, y: 0.0005787135, z: 0.0000065968184}
+      rotation: {x: 0.20234533, y: -0.15208867, z: -0.04119733, w: 0.9665549}
+      scale: {x: 1.0195476, y: 1.0195853, z: 0.96264124}
+    - name: DEF-f_ring.02.R
+      parentName: DEF-f_ring.01.R
+      position: {x: 0.000000001117587, y: 0.00039666478, z: -2.9802322e-10}
+      rotation: {x: 0.11113433, y: -0.004896251, z: -0.07521765, w: 0.9909427}
+      scale: {x: 0.9939116, y: 1.0165942, z: 0.9902929}
+    - name: DEF-f_ring.03.R
+      parentName: DEF-f_ring.02.R
+      position: {x: -0.0000000015646219, y: 0.0001839742, z: 5.9604643e-10}
+      rotation: {x: 0.06097679, y: 0.061394487, z: -0.00895056, w: 0.9962091}
+      scale: {x: 0.98783225, y: 1.009855, z: 1.0027137}
+    - name: ORG-palm.04.R
+      parentName: DEF-hand.R
+      position: {x: 0.000007608067, y: 0.0005562655, z: -0.0002522193}
+      rotation: {x: -0.01843923, y: 0.5821996, z: -0.026456134, w: 0.8124061}
+      scale: {x: 1.0241793, y: 1.0001194, z: 0.9762438}
+    - name: DEF-palm.04.R
+      parentName: ORG-palm.04.R
+      position: {x: 2.0489097e-10, y: 1.11758706e-10, z: 4.0978193e-10}
+      rotation: {x: 0.00000015832477, y: 0.00000011920923, z: 0.00000002607702, w: 1}
+      scale: {x: 1.0000035, y: 1.0000039, z: 1.0000002}
+    - name: DEF-f_pinky.01.R
+      parentName: ORG-palm.04.R
+      position: {x: 0.0000041284784, y: 0.0006424591, z: -0.000029536299}
+      rotation: {x: 0.25720492, y: -0.29725346, z: -0.085293144, w: 0.91553867}
+      scale: {x: 1.0250437, y: 1.0222889, z: 0.9549217}
+    - name: DEF-f_pinky.02.R
+      parentName: DEF-f_pinky.01.R
+      position: {x: 3.72529e-10, y: 0.00023007162, z: 0.0000000011920929}
+      rotation: {x: 0.015565541, y: 0.09333075, z: -0.0016345602, w: 0.9955122}
+      scale: {x: 0.9839546, y: 1.0007565, z: 1.0154462}
+    - name: DEF-f_pinky.03.R
+      parentName: DEF-f_pinky.02.R
+      position: {x: -7.4505804e-11, y: 0.0002302569, z: 4.4703483e-10}
+      rotation: {x: -0.07385821, y: 0.011103574, z: 0.023491466, w: 0.99693024}
+      scale: {x: 1.0011543, y: 0.9941859, z: 1.0045427}
+    - name: DEF-breast.L
+      parentName: DEF-spine.003
+      position: {x: -0.00088743935, y: 0.00017226819, z: 0.0014168243}
+      rotation: {x: -0.04309314, y: 0.6265658, z: 0.7765202, w: 0.05074174}
+      scale: {x: 0.99966455, y: 0.978462, z: 1.0221974}
+    - name: DEF-breast.R
+      parentName: DEF-spine.003
+      position: {x: 0.0008874393, y: 0.00017226697, z: 0.0014168243}
+      rotation: {x: 0.04309317, y: 0.62656575, z: 0.77652025, w: -0.050741777}
+      scale: {x: 0.9996707, y: 0.97846127, z: 1.0221959}
+    - name: DEF-pelvis.L
+      parentName: DEF-spine
+      position: {x: 1.4901161e-10, y: -0.00009271319, z: 0.000029735946}
+      rotation: {x: -0.22615206, y: 0.7661681, z: 0.3560623, w: 0.4848313}
+      scale: {x: 1.0000064, y: 1.0000025, z: 1.0000052}
+    - name: DEF-pelvis.R
+      parentName: DEF-spine
+      position: {x: 1.4901161e-10, y: -0.00009271319, z: 0.000029735946}
+      rotation: {x: -0.22615209, y: -0.76616806, z: -0.3560622, w: 0.4848314}
+      scale: {x: 1.0000031, y: 1.0000017, z: 1.0000038}
+    - name: DEF-thigh.L
+      parentName: DEF-spine
+      position: {x: -0.0009399962, y: 0.00090540154, z: 0.00015109558}
+      rotation: {x: 0.96807915, y: -0.031155191, z: -0.04001085, w: 0.2454612}
+      scale: {x: 1.0049556, y: 0.9901648, z: 1.004961}
+    - name: DEF-thigh.L.001
+      parentName: DEF-thigh.L
+      position: {x: 1.3038516e-10, y: 0.0022584077, z: 2.2351741e-10}
+      rotation: {x: 0.000000104308114, y: -0.00000002235174, z: 0.000000009313225,
+        w: 1}
+      scale: {x: 1.0000005, y: 1.0000051, z: 1.0000052}
+    - name: DEF-shin.L
+      parentName: DEF-thigh.L.001
+      position: {x: -1.11758706e-10, y: 0.0022584086, z: -4.656613e-10}
+      rotation: {x: 0.2005007, y: -0.00000017845758, z: 0.000000023647278, w: 0.9796936}
+      scale: {x: 1.0005896, y: 0.9931096, z: 1.0068316}
+    - name: DEF-shin.L.001
+      parentName: DEF-shin.L
+      position: {x: 1.3038516e-10, y: 0.0021165793, z: -1.8626451e-11}
+      rotation: {x: -0.000000059604645, y: -0.00000002090492, z: -0.000000018536692,
+        w: 1}
+      scale: {x: 1.0000023, y: 1.0000054, z: 1.0000014}
+    - name: DEF-foot.L
+      parentName: DEF-shin.L.001
+      position: {x: -9.3132255e-12, y: 0.0021165805, z: 5.5879353e-11}
+      rotation: {x: -0.60183764, y: 0.04997661, z: -0.008590905, w: 0.7970069}
+      scale: {x: 0.99435234, y: 1.0158414, z: 0.9909159}
+    - name: DEF-toe.L
+      parentName: DEF-foot.L
+      position: {x: 1.5832484e-10, y: 0.0018967235, z: -1.4901161e-10}
+      rotation: {x: 0.0000014305114, y: 0.96658885, z: -0.2563319, w: -0.000006631016}
+      scale: {x: 1.0000043, y: 0.94268876, z: 1.0613469}
+    - name: DEF-thigh.R
+      parentName: DEF-spine
+      position: {x: 0.0009399965, y: 0.00090540183, z: 0.0001510952}
+      rotation: {x: 0.96807915, y: 0.031155197, z: 0.040010873, w: 0.2454612}
+      scale: {x: 1.0019963, y: 0.99602956, z: 1.002005}
+    - name: DEF-thigh.R.001
+      parentName: DEF-thigh.R
+      position: {x: 2.2351741e-10, y: 0.0022584072, z: -3.7252902e-11}
+      rotation: {x: -0, y: 0.000000053085387, z: 0.000000013038516, w: 1}
+      scale: {x: 0.9999996, y: 1.0000018, z: 1.0000015}
+    - name: DEF-shin.R
+      parentName: DEF-thigh.R.001
+      position: {x: -0, y: 0.0022584088, z: 0}
+      rotation: {x: 0.20050079, y: 0.00000015469311, z: -0.00000002448183, w: 0.97969353}
+      scale: {x: 1.0000746, y: 0.9986862, z: 1.0013263}
+    - name: DEF-shin.R.001
+      parentName: DEF-shin.R
+      position: {x: 1.4901161e-10, y: 0.0021165803, z: 7.4505804e-11}
+      rotation: {x: -0, y: 0.00000003085647, z: -0.0000000025124791, w: 1}
+      scale: {x: 1.0000122, y: 1.0000069, z: 0.9999948}
+    - name: DEF-foot.R
+      parentName: DEF-shin.R.001
+      position: {x: -1.3038516e-10, y: 0.002116581, z: -2.2351741e-10}
+      rotation: {x: -0.60183764, y: -0.04997666, z: 0.008590867, w: 0.79700696}
+      scale: {x: 0.9978903, y: 1.0053471, z: 0.99687475}
+    - name: DEF-toe.R
+      parentName: DEF-foot.R
+      position: {x: 1.8097689e-10, y: 0.0018967233, z: 2.7939677e-11}
+      rotation: {x: -0.0000014770774, y: 0.9665888, z: -0.25633198, w: 0.000006660818}
+      scale: {x: 1.0000042, y: 0.98152137, z: 1.0189458}
+    - name: torso
+      parentName: root
+      position: {x: 0.00008814441, y: 0.0015376189, z: 0.008756634}
+      rotation: {x: -0, y: -0.0000000014551924, z: 0.000000023283064, w: 1}
+      scale: {x: 0.9999998, y: 0.9999988, z: 0.99999905}
+    - name: MCH-spine.002
+      parentName: torso
+      position: {x: 0.000066732784, y: -0.0003213915, z: 0.0017411172}
+      rotation: {x: -3.3881318e-17, y: 0.0000000014551933, z: -0.00000004656613, w: 1}
+      scale: {x: 1.0000005, y: 0.99999905, z: 0.999999}
+    - name: MCH-spine.003
+      parentName: MCH-spine.002
+      position: {x: 0.00006673287, y: 0.00004937617, z: 0.0014242588}
+      rotation: {x: 6.7762656e-17, y: -0.000000002910384, z: -4.9303776e-26, w: 1}
+      scale: {x: 1.0000004, y: 0.9999998, z: 0.99999964}
+    - name: MCH-ROT-neck
+      parentName: MCH-spine.003
+      position: {x: -9.313225e-11, y: 0.00037990577, z: 0.0023149024}
+      rotation: {x: 5.4887735e-15, y: -0.00000023574103, z: -7.1054274e-15, w: 1}
+      scale: {x: 1.0000002, y: 0.99999905, z: 0.9999993}
+    - name: neck
+      parentName: MCH-ROT-neck
+      position: {x: -7.4505804e-11, y: -2.0489097e-10, z: 5.3551047e-10}
+      rotation: {x: 0.8248046, y: 0.00000006579026, z: -0.0000003430427, w: 0.56541795}
+      scale: {x: 0.99999976, y: 1.000003, z: 1.0000026}
+    - name: MCH-ROT-head
+      parentName: neck
+      position: {x: 1.7695129e-10, y: 0.00049353, z: 2.0489097e-10}
+      rotation: {x: -0.8248046, y: 0.00000010878968, z: 0.00000017073087, w: 0.56541795}
+      scale: {x: 1.0000002, y: 1.000002, z: 1.0000019}
+    - name: head
+      parentName: MCH-ROT-head
+      position: {x: -5.5879353e-11, y: 0, z: -8.323695e-10}
+      rotation: {x: 0.7453864, y: -0.000000038105025, z: -0.000000027246113, w: 0.6666327}
+      scale: {x: 1.0000001, y: 1.0000051, z: 1.0000054}
+    - name: ORG-spine.006
+      parentName: head
+      position: {x: 1.3038516e-10, y: 9.126961e-10, z: 3.5390257e-10}
+      rotation: {x: -0, y: 0.000000023138647, z: -0.0000000025891074, w: 1}
+      scale: {x: 1.0000005, y: 1.0000005, z: 1.0000012}
+    - name: ORG-HatBone
+      parentName: ORG-spine.006
+      position: {x: -0.000013801511, y: 0.002156218, z: -0.00050479174}
+      rotation: {x: 0.63688886, y: -0.000008233449, z: -0.0000068647782, w: 0.7709557}
+      scale: {x: 0.9999998, y: 1.0000021, z: 1.0000025}
+    - name: DEF-HatBone
+      parentName: ORG-HatBone
+      position: {x: 3.7252902e-11, y: 2.1456799e-10, z: 2.0954757e-10}
+      rotation: {x: -0.000000029802315, y: -0.0000000032964627, z: 0.000000069804614,
+        w: 1}
+      scale: {x: 1.0000004, y: 1.000001, z: 1.0000011}
+    - name: ORG-Eye.L
+      parentName: ORG-spine.006
+      position: {x: -0.00033648225, y: 0.0009394525, z: 0.00078985404}
+      rotation: {x: -0.0556873, y: -1.2153654e-10, z: -0.0000000021794233, w: 0.99844825}
+      scale: {x: 0.9999998, y: 0.9999994, z: 0.99999905}
+    - name: DEF-Eye.L
+      parentName: ORG-Eye.L
+      position: {x: 1.3969838e-11, y: 8.649658e-10, z: 1.8626451e-11}
+      rotation: {x: -0, y: -1.0921817e-14, z: -0.0000000014551861, w: 1}
+      scale: {x: 1.0000004, y: 1.0000005, z: 1.0000004}
+    - name: ORG-Eye.R
+      parentName: ORG-spine.006
+      position: {x: 0.00033484033, y: 0.00094717776, z: 0.00078895927}
+      rotation: {x: -0.0556873, y: -1.6209432e-10, z: -0.0000000029058882, w: 0.99844825}
+      scale: {x: 0.9999998, y: 0.6743548, z: 0.9999987}
+    - name: DEF-Eye.R
+      parentName: ORG-Eye.R
+      position: {x: 2.0489097e-10, y: 0.000000002303859, z: 5.5879353e-11}
+      rotation: {x: -0, y: 2.9060084e-14, z: -7.2759e-10, w: 1}
+      scale: {x: 1.0000006, y: 0.99999946, z: 1.0000002}
+    - name: ORG-jaw
+      parentName: ORG-spine.006
+      position: {x: 1.11758706e-10, y: 0.000015405421, z: 0.00053519534}
+      rotation: {x: 0.7636304, y: 0.00000037526155, z: 0.0000004477012, w: 0.6456537}
+      scale: {x: 0.9999997, y: 1.0000027, z: 1.0000031}
+    - name: DEF-jaw
+      parentName: ORG-jaw
+      position: {x: 1.3038516e-10, y: -3.7252902e-11, z: -6.519258e-10}
+      rotation: {x: -0, y: 0.0000000013992292, z: -3.999503e-10, w: 1}
+      scale: {x: 1.0000002, y: 1.0000044, z: 1.0000046}
+    - name: ORG-nouse
+      parentName: ORG-spine.006
+      position: {x: 8.381903e-11, y: 0.00062636606, z: 0.0010081615}
+      rotation: {x: 0.46406335, y: 0.0000007340159, z: 0.00000037962116, w: 0.8858021}
+      scale: {x: 0.9999998, y: 1.0000012, z: 1.0000018}
+    - name: DEF-nouse
+      parentName: ORG-nouse
+      position: {x: -2.4214386e-10, y: -8.1490725e-10, z: 1.3620592e-10}
+      rotation: {x: -0.00000014901158, y: -0.000000007686479, z: -0.0000000041413832,
+        w: 1}
+      scale: {x: 1.0000004, y: 0.99999994, z: 1.0000001}
+    - name: ORG-hair
+      parentName: ORG-spine.006
+      position: {x: 1.10594554e-10, y: 0.0021479453, z: 0.00075062504}
+      rotation: {x: 0.99092585, y: 0.00000010150917, z: 0.00000079421534, w: 0.13441028}
+      scale: {x: 0.9999998, y: 1.0000091, z: 1.0000072}
+    - name: DEF-hair
+      parentName: ORG-hair
+      position: {x: 5.0058586e-11, y: -0.0000000021854065, z: -1.420267e-10}
+      rotation: {x: -0.00000005960463, y: -3.4385553e-10, z: 0.0000000021555304, w: 1}
+      scale: {x: 1.0000004, y: 0.9999997, z: 0.9999998}
+    - name: DEF-EyeBrow.L.001
+      parentName: ORG-spine.006
+      position: {x: -0.00011473475, y: 0.0012178748, z: 0.0009510127}
+      rotation: {x: -0.15614034, y: -0.040830996, z: 0.62269795, w: 0.7656373}
+      scale: {x: 1.0000033, y: 1.0000031, z: 0.99999857}
+    - name: DEF-EyeBrow.L.002
+      parentName: DEF-EyeBrow.L.001
+      position: {x: 7.8463924e-10, y: 0.00013306245, z: -1.11758706e-10}
+      rotation: {x: 0.0030198726, y: 0.99073786, z: -0.13549735, w: 0.008366422}
+      scale: {x: 1.0000062, y: 1.0000012, z: 1.0000129}
+    - name: DEF-EyeBrow.L.003
+      parentName: DEF-EyeBrow.L.002
+      position: {x: -3.72529e-10, y: 0.00018785144, z: -6.519258e-11}
+      rotation: {x: 0.1457702, y: 0.05818316, z: -0.0062123253, w: 0.9875866}
+      scale: {x: 1.0000007, y: 0.99999774, z: 0.9999993}
+    - name: DEF-EyeBrow.R.001
+      parentName: ORG-spine.006
+      position: {x: 0.0001523906, y: 0.001226133, z: 0.0009521249}
+      rotation: {x: -0.15614037, y: 0.040831093, z: -0.62269795, w: 0.7656373}
+      scale: {x: 1.0000032, y: 1.0000046, z: 0.9999986}
+    - name: DEF-EyeBrow.R.002
+      parentName: DEF-EyeBrow.R.001
+      position: {x: -0.000000001238659, y: 0.0001330626, z: 1.3969838e-10}
+      rotation: {x: -0.0030199655, y: 0.9907378, z: -0.13549715, w: -0.008366419}
+      scale: {x: 1.0000013, y: 0.9999981, z: 1.0000035}
+    - name: DEF-EyeBrow.R.003
+      parentName: DEF-EyeBrow.R.002
+      position: {x: -4.703179e-10, y: 0.00018785146, z: -1.7695129e-10}
+      rotation: {x: 0.14577019, y: -0.05818324, z: 0.0062123314, w: 0.98758656}
+      scale: {x: 1.0000058, y: 1.0000042, z: 1.0000081}
+    - name: DEF-HairBone.L.001
+      parentName: ORG-spine.006
+      position: {x: -0.00041717893, y: 0.0017398976, z: -0.00017162866}
+      rotation: {x: 0.8996608, y: -0.36864763, z: -0.22675477, w: -0.057372436}
+      scale: {x: 0.9126394, y: 0.91264343, z: 0.91264325}
+    - name: DEF-HairBone.L.002
+      parentName: DEF-HairBone.L.001
+      position: {x: 0.0000000012340023, y: 0.0007019998, z: 7.543713e-10}
+      rotation: {x: 0.24737951, y: 0.9397901, z: -0.050234333, w: -0.23037918}
+      scale: {x: 1.0000153, y: 1.0000024, z: 0.99999934}
+    - name: DEF-HairBone.L.003
+      parentName: DEF-HairBone.L.002
+      position: {x: 5.7742e-10, y: 0.0006395415, z: -1.4901161e-10}
+      rotation: {x: 0.00027270243, y: 0.013273925, z: 0.116925895, w: 0.99305195}
+      scale: {x: 1.0000018, y: 1.0000039, z: 0.99999803}
+    - name: DEF-HairBone.L.004
+      parentName: ORG-spine.006
+      position: {x: -0.0002340459, y: 0.0017573587, z: 0.000346635}
+      rotation: {x: 0.8430457, y: -0.39970908, z: -0.34072715, w: 0.11580821}
+      scale: {x: 0.9053878, y: 0.90539384, z: 0.90539175}
+    - name: DEF-HairBone.L.005
+      parentName: DEF-HairBone.L.004
+      position: {x: -6.1001626e-10, y: 0.0006008498, z: 3.3993272e-10}
+      rotation: {x: 0.24780375, y: 0.8990275, z: 0.0037529166, w: -0.3610108}
+      scale: {x: 1.0000117, y: 0.9999999, z: 0.99999344}
+    - name: DEF-HairBone.L.006
+      parentName: DEF-HairBone.L.005
+      position: {x: 1.3969838e-10, y: 0.0006542235, z: -2.7939676e-10}
+      rotation: {x: -0.048761494, y: 0.039644893, z: 0.095247194, w: 0.993468}
+      scale: {x: 1.0000066, y: 1.0000131, z: 1.0000008}
+    - name: DEF-HairBone.L.007
+      parentName: ORG-spine.006
+      position: {x: -0.00026347, y: 0.0016234091, z: -0.0006905079}
+      rotation: {x: 0.95207113, y: -0.2220108, z: -0.17887235, w: -0.11079916}
+      scale: {x: 0.94182014, y: 0.941822, z: 0.94182295}
+    - name: DEF-HairBone.L.008
+      parentName: DEF-HairBone.L.007
+      position: {x: 5.681068e-10, y: 0.00060297933, z: 5.2154064e-10}
+      rotation: {x: 0.10974349, y: 0.9751743, z: -0.06734885, w: -0.18015447}
+      scale: {x: 1.0000123, y: 1.0000069, z: 0.9999993}
+    - name: DEF-HairBone.L.009
+      parentName: DEF-HairBone.L.008
+      position: {x: -2.2351741e-10, y: 0.00071588805, z: 1.3038516e-10}
+      rotation: {x: 0.06390728, y: 0.011013015, z: 0.12978984, w: 0.9894187}
+      scale: {x: 1.0000064, y: 1.0000044, z: 1.0000006}
+    - name: DEF-HairBone.R.001
+      parentName: ORG-spine.006
+      position: {x: 0.00041717917, y: 0.0017398979, z: -0.00017162855}
+      rotation: {x: 0.8996608, y: 0.36864778, z: 0.22675484, w: -0.0573724}
+      scale: {x: 1.0000005, y: 1.0000055, z: 1.0000057}
+    - name: DEF-HairBone.R.002
+      parentName: DEF-HairBone.R.001
+      position: {x: 4.0978193e-10, y: 0.00070200063, z: 5.401671e-10}
+      rotation: {x: -0.24737963, y: 0.93979007, z: -0.050234128, w: 0.23037906}
+      scale: {x: 1.0000117, y: 1.0000007, z: 0.9999969}
+    - name: DEF-HairBone.R.003
+      parentName: DEF-HairBone.R.002
+      position: {x: 7.4505804e-11, y: 0.00063953974, z: 2.2351741e-10}
+      rotation: {x: 0.00027290732, y: -0.013274029, z: -0.11692594, w: 0.99305195}
+      scale: {x: 1.0000025, y: 1.0000032, z: 0.99999964}
+    - name: DEF-HairBone.R.004
+      parentName: ORG-spine.006
+      position: {x: 0.00023795902, y: 0.0019096234, z: 0.00031935333}
+      rotation: {x: 0.84304583, y: 0.399709, z: 0.34072715, w: 0.1158083}
+      scale: {x: 0.9192781, y: 0.91928333, z: 0.91928166}
+    - name: DEF-HairBone.R.005
+      parentName: DEF-HairBone.R.004
+      position: {x: -7.0780515e-10, y: 0.0006008489, z: -1.862645e-10}
+      rotation: {x: -0.24780358, y: 0.8990276, z: 0.0037530502, w: 0.36101058}
+      scale: {x: 1.0000072, y: 0.9999966, z: 0.9999942}
+    - name: DEF-HairBone.R.006
+      parentName: DEF-HairBone.R.005
+      position: {x: 3.5390257e-10, y: 0.0006542234, z: 3.72529e-10}
+      rotation: {x: -0.04876139, y: -0.039644983, z: -0.09524728, w: 0.993468}
+      scale: {x: 1.0000025, y: 1.0000069, z: 0.9999984}
+    - name: DEF-HairBone.R.007
+      parentName: ORG-spine.006
+      position: {x: 0.0002634703, y: 0.0016234091, z: -0.0006905079}
+      rotation: {x: 0.95207113, y: 0.22201078, z: 0.17887236, w: -0.11079932}
+      scale: {x: 0.9999996, y: 1.0000035, z: 1.0000049}
+    - name: DEF-HairBone.R.008
+      parentName: DEF-HairBone.R.007
+      position: {x: -4.0046869e-10, y: 0.0006029819, z: 7.636845e-10}
+      rotation: {x: -0.10974344, y: 0.9751743, z: -0.0673489, w: 0.18015447}
+      scale: {x: 1.0000142, y: 1.0000077, z: 0.9999998}
+    - name: DEF-HairBone.R.009
+      parentName: DEF-HairBone.R.008
+      position: {x: -3.72529e-10, y: 0.0007158872, z: -8.9406965e-10}
+      rotation: {x: 0.06390739, y: -0.011012985, z: -0.12978984, w: 0.9894186}
+      scale: {x: 1.0000049, y: 1.0000017, z: 1.0000007}
+    - name: DEF-Mouth.L.001
+      parentName: ORG-spine.006
+      position: {x: -0.000039982344, y: 0.00038610757, z: 0.0010517784}
+      rotation: {x: -0.08715538, y: -0.024085931, z: 0.70549214, w: 0.70292586}
+      scale: {x: 1.000007, y: 1.0000058, z: 0.9999996}
+    - name: DEF-Mouth.L.002
+      parentName: DEF-Mouth.L.001
+      position: {x: -3.085006e-10, y: 0.00009097169, z: 1.7695129e-10}
+      rotation: {x: 0.012160096, y: -0.9939658, z: 0.10640293, w: -0.023716886}
+      scale: {x: 0.9999963, y: 0.99999905, z: 1.0000032}
+    - name: DEF-Mouth.R.001
+      parentName: ORG-spine.006
+      position: {x: 0.000034161203, y: 0.00038585946, z: 0.0010466358}
+      rotation: {x: -0.08715541, y: 0.02408585, z: -0.7054922, w: 0.70292574}
+      scale: {x: 1.0000033, y: 1.0000025, z: 0.99999934}
+    - name: DEF-Mouth.R.002
+      parentName: DEF-Mouth.R.001
+      position: {x: -1.4988472e-11, y: 0.000090971975, z: -2.3283063e-11}
+      rotation: {x: 0.012159879, y: 0.9939658, z: -0.10640308, w: -0.023716928}
+      scale: {x: 1.000004, y: 1.0000024, z: 1.0000086}
+    - name: tweak_spine.003
+      parentName: MCH-spine.003
+      position: {x: -4.6566126e-11, y: -1.11758706e-10, z: 6.0768796e-10}
+      rotation: {x: 0.64732265, y: 0.000000017289997, z: 0.000000015862769, w: 0.7622161}
+      scale: {x: 0.9999999, y: 1.0000015, z: 1.0000015}
+    - name: ORG-spine.003
+      parentName: tweak_spine.003
+      position: {x: 9.313225e-11, y: -6.6967915e-10, z: 1.11758706e-10}
+      rotation: {x: -0, y: -4.7132787e-10, z: 0.000000002871964, w: 1}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1.0000004}
+    - name: ORG-shoulder.L
+      parentName: ORG-spine.003
+      position: {x: -0.0007194207, y: 0.002220665, z: 0.0005063474}
+      rotation: {x: 0.65710217, y: -0.2928093, z: -0.5052684, w: -0.47663754}
+      scale: {x: 1.0000017, y: 1.0000043, z: 1.000002}
+    - name: ORG-upper_arm.L
+      parentName: ORG-shoulder.L
+      position: {x: 0.0000031989812, y: 0.0016245057, z: -0.00027066804}
+      rotation: {x: 0.26131034, y: 0.7936356, z: -0.33829886, w: -0.4329127}
+      scale: {x: 0.9975383, y: 0.9975467, z: 0.9975405}
+    - name: ORG-forearm.L
+      parentName: ORG-upper_arm.L
+      position: {x: -7.4505804e-11, y: 0.002338979, z: 5.867332e-10}
+      rotation: {x: 0.21355277, y: 0.000000059604645, z: 0.000000074505806, w: 0.9769316}
+      scale: {x: 0.9996829, y: 0.9996846, z: 0.99968225}
+    - name: ORG-Arm_WeaponBone.L
+      parentName: ORG-forearm.L
+      position: {x: -0.0009836754, y: 0.0024658674, z: -0.0005026076}
+      rotation: {x: -0.44726613, y: -0.6408295, z: -0.43302393, w: -0.4492002}
+      scale: {x: 1.0027854, y: 1.002795, z: 1.0027845}
+    - name: DEF-Arm_WeaponBone.L
+      parentName: ORG-Arm_WeaponBone.L
+      position: {x: -6.6502254e-10, y: -8.1490724e-11, z: 1.3096724e-10}
+      rotation: {x: -0.000000029802319, y: 0.000020712612, z: 0.000000119209275, w: 1}
+      scale: {x: 0.9999995, y: 0.9999999, z: 0.9999979}
+    - name: ORG-shoulder.R
+      parentName: ORG-spine.003
+      position: {x: 0.00071942084, y: 0.0022206658, z: 0.00050634734}
+      rotation: {x: 0.65710217, y: 0.29280925, z: 0.5052684, w: -0.47663757}
+      scale: {x: 1.0000001, y: 1.0000038, z: 1.0000025}
+    - name: ORG-upper_arm.R
+      parentName: ORG-shoulder.R
+      position: {x: -0.0000031988322, y: 0.0016245055, z: -0.00027066632}
+      rotation: {x: -0.26131025, y: 0.7936356, z: -0.33829886, w: 0.43291277}
+      scale: {x: 0.99230146, y: 0.99230766, z: 0.99230385}
+    - name: ORG-forearm.R
+      parentName: ORG-upper_arm.R
+      position: {x: 1.178705e-10, y: 0.0023389782, z: 7.1711836e-10}
+      rotation: {x: 0.21355271, y: -0.000000029802322, z: -0.00000013411045, w: 0.97693163}
+      scale: {x: 1.0047823, y: 1.0047822, z: 1.0047811}
+    - name: ORG-Arm_WeaponBone.R
+      parentName: ORG-forearm.R
+      position: {x: 0.0008206827, y: 0.002442834, z: -0.0005860359}
+      rotation: {x: 0.44726622, y: -0.64082956, z: -0.4330238, w: 0.4492002}
+      scale: {x: 1.0029702, y: 1.0029761, z: 1.0029663}
+    - name: DEF-Arm_WeaponBone.R
+      parentName: ORG-Arm_WeaponBone.R
+      position: {x: 5.1695676e-10, y: -8.5681673e-10, z: 1.2107193e-10}
+      rotation: {x: -0.00000019371507, y: -0.000020742415, z: -0.000000059604638,
+        w: 1}
+      scale: {x: 1.0000026, y: 1.0000024, z: 1.000003}
+    - name: MCH-spine.001
+      parentName: torso
+      position: {x: -3.7252902e-11, y: -0.00032139162, z: 0.0017707899}
+      rotation: {x: 1.9058251e-17, y: 0.0000000015461419, z: -0.000000011641532, w: 1}
+      scale: {x: 1.0000004, y: 0.99999905, z: 0.9999995}
+    - name: MCH-spine
+      parentName: MCH-spine.001
+      position: {x: 3.7252902e-11, y: 0.00015082091, z: -0.0012389746}
+      rotation: {x: 1.0587961e-18, y: -9.0949026e-11, z: -0.000000023283064, w: 1}
+      scale: {x: 1.0000001, y: 0.9999992, z: 0.99999917}
+    - name: tweak_spine
+      parentName: MCH-spine
+      position: {x: 3.7252902e-11, y: 0.00034114206, z: -0.0010636313}
+      rotation: {x: 0.8079014, y: -0.000000008118853, z: -0.0000000086240375, w: 0.5893177}
+      scale: {x: 0.99999976, y: 1.0000006, z: 0.9999996}
+    - name: ORG-spine
+      parentName: tweak_spine
+      position: {x: -3.7252902e-11, y: -9.19681e-11, z: 3.9115547e-10}
+      rotation: {x: -0.00000008940697, y: 0.000000022392841, z: -0.0000000064180288,
+        w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1.0000004}
+    - name: DEF-Smoking.L.001
+      parentName: ORG-spine
+      position: {x: -0.0010022691, y: 0.0017249151, z: -0.0010594765}
+      rotation: {x: 0.9859318, y: -0.09937452, z: -0.096903406, w: 0.0931285}
+      scale: {x: 0.99999917, y: 1.0000023, z: 1.0000014}
+    - name: DEF-Smoking.L.002
+      parentName: DEF-Smoking.L.001
+      position: {x: -7.4505804e-11, y: 0.0010278709, z: 3.7252902e-11}
+      rotation: {x: 0.0052460213, y: 0.9983787, z: -0.03623132, w: -0.043586116}
+      scale: {x: 1.0000066, y: 1.0000025, z: 0.9999996}
+    - name: DEF-Smoking.L.003
+      parentName: DEF-Smoking.L.002
+      position: {x: -7.4505804e-11, y: 0.0010193121, z: 1.4901161e-10}
+      rotation: {x: -0.01827174, y: -0.0767057, z: -0.0020299046, w: 0.9968843}
+      scale: {x: 1.0000081, y: 1.000007, z: 0.99999976}
+    - name: DEF-Smoking.L.004
+      parentName: ORG-spine
+      position: {x: -0.0010771869, y: 0.0019602973, z: 0.0010073824}
+      rotation: {x: 0.97841686, y: -0.17445578, z: -0.103679284, w: -0.038940553}
+      scale: {x: 1.0000013, y: 1.0000063, z: 1.000007}
+    - name: DEF-Smoking.L.005
+      parentName: DEF-Smoking.L.004
+      position: {x: 9.429641e-11, y: 0.00075883814, z: 1.839362e-10}
+      rotation: {x: 0.031482834, y: 0.9823232, z: 0.1844862, w: 0.0038512351}
+      scale: {x: 1.0000082, y: 1.000009, z: 1.000004}
+    - name: DEF-Smoking.L.006
+      parentName: DEF-Smoking.L.005
+      position: {x: 5.5879353e-11, y: 0.0007403661, z: -3.9115547e-10}
+      rotation: {x: -0.029959038, y: -0.03778641, z: 0.1025472, w: 0.99355865}
+      scale: {x: 1.0000002, y: 1.0000054, z: 0.9999999}
+    - name: DEF-Smoking.R.001
+      parentName: ORG-spine
+      position: {x: 0.0010022687, y: 0.0017249149, z: -0.0010594765}
+      rotation: {x: 0.9859318, y: 0.09937452, z: 0.09690338, w: 0.09312851}
+      scale: {x: 0.99999905, y: 1.0000006, z: 1.0000012}
+    - name: DEF-Smoking.R.002
+      parentName: DEF-Smoking.R.001
+      position: {x: -0, y: 0.0010278719, z: 3.7252902e-11}
+      rotation: {x: -0.005246036, y: 0.99837875, z: -0.03623123, w: 0.04358605}
+      scale: {x: 1.0000073, y: 1.0000033, z: 1.0000011}
+    - name: DEF-Smoking.R.003
+      parentName: DEF-Smoking.R.002
+      position: {x: 1.862645e-10, y: 0.0010193114, z: 1.2107193e-10}
+      rotation: {x: -0.01827166, y: 0.07670569, z: 0.002029952, w: 0.99688435}
+      scale: {x: 1.0000094, y: 1.0000085, z: 0.9999985}
+    - name: DEF-Smoking.R.004
+      parentName: ORG-spine
+      position: {x: 0.001404341, y: 0.0015711461, z: 0.00044267546}
+      rotation: {x: 0.97841686, y: 0.17445576, z: 0.10367927, w: -0.038940575}
+      scale: {x: 1.0000013, y: 1.0000073, z: 1.000007}
+    - name: DEF-Smoking.R.005
+      parentName: DEF-Smoking.R.004
+      position: {x: -7.101335e-11, y: 0.0007588382, z: 3.7252902e-11}
+      rotation: {x: -0.031482816, y: 0.9823232, z: 0.18448612, w: -0.00385122}
+      scale: {x: 1.0000079, y: 1.0000074, z: 1.0000026}
+    - name: DEF-Smoking.R.006
+      parentName: DEF-Smoking.R.005
+      position: {x: -2.7939677e-11, y: 0.0007403667, z: -3.7252902e-11}
+      rotation: {x: -0.029959101, y: 0.037786443, z: -0.10254719, w: 0.99355865}
+      scale: {x: 1.0000079, y: 1.0000116, z: 1.000001}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
