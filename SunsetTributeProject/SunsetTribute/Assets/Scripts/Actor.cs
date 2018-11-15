@@ -47,7 +47,7 @@ public class Actor : MonoBehaviour {
             }
             if(isRight)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(1, 1, 1);
                 transform.Translate(speed * Time.deltaTime, 0, 0);
             }
                
@@ -61,7 +61,7 @@ public class Actor : MonoBehaviour {
             }
             if(!isRight)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(-1, 1, 1);
                 transform.Translate(-speed * Time.deltaTime, 0, 0);
             }
                 
@@ -77,7 +77,7 @@ public class Actor : MonoBehaviour {
             }
             if (isRight)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(1, 1, 1);
                 transform.Translate(speed * Time.deltaTime, 0, 0);
             }
                 
@@ -91,7 +91,7 @@ public class Actor : MonoBehaviour {
             }
             if (!isRight)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(-1, 1, 1);
                 transform.Translate(-speed * Time.deltaTime, 0, 0);
             }
 
@@ -108,7 +108,7 @@ public class Actor : MonoBehaviour {
             }
             if (isRight)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(1, 1, 1);
                 transform.Translate(speed * Time.deltaTime, 0, 0);
             }
                 
@@ -122,7 +122,7 @@ public class Actor : MonoBehaviour {
             }
             if (!isRight)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(-1, 1, 1);
                 transform.Translate(-speed * Time.deltaTime, 0, 0);
             }
                 
@@ -134,7 +134,7 @@ public class Actor : MonoBehaviour {
             if (!isRight)
             {
                 isRight = true;
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(-1, 1, 1);
             }
         }
         else if (Input.GetAxis(inputs[1]) < 0)
@@ -142,7 +142,7 @@ public class Actor : MonoBehaviour {
             if (isRight)
             {
                 isRight = false;
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(1, 1, 1);
             }
         }
 
@@ -176,13 +176,13 @@ public class Actor : MonoBehaviour {
         {
             if(!isAgachado)
             {
-                GetComponent<BoxCollider>().size = new Vector3(1, 0.5f, 1);
+                GetComponent<BoxCollider>().size = new Vector3(0.712278f, 0.5f, 1);
                 isAgachado = true;
                 agacharAnim();
             }
             else
             {
-                GetComponent<BoxCollider>().size = new Vector3(1, 1, 1);
+                GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.744769f, 1);
                 isAgachado = false;
                 agacharAnim();
             }
@@ -417,7 +417,7 @@ public class Actor : MonoBehaviour {
     IEnumerator Rasteira()
     {
         yield return new WaitForSeconds(cooldownRasteira);
-        GetComponent<BoxCollider>().size = new Vector3(1,1,1);
+        GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.744769f, 1);
         rasteiraAnim();
         isRasteira = false;
         StopCoroutine("Rasteira");
