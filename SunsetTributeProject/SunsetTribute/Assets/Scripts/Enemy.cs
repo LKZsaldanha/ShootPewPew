@@ -4,19 +4,28 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
-    [SerializeField] private float life;
-    [SerializeField] private int force, id;
-    [SerializeField] private float speed;
-    [SerializeField] private string target;
-    [SerializeField] private GameObject bullet, barraLife;
+    //baixoMinimo é o valor minimo para chamar a animação de mira baixa e o baixoMaximo a mesma coisa
+    [SerializeField] private float life,DiagMinimo,baixoMinimo,baixoMaximo;
+    [SerializeField] private float speed, distanceAttack, cowdownFire;
+    [SerializeField] private GameObject bullet,objAnimado;
     [SerializeField] private List<GameObject> itens;
+    [SerializeField] private Transform[] spawnBullet, players;
+    [SerializeField] private Transform mySpawn;
     private bool isRight, isAttack;
-    private GameObject gameSystem;
-    private float lifeMax;
+    private float lifeMax, distancePlayer;
 
     // Use this for initialization
     void Start () {
-        gameSystem = GameObject.Find("GameSystem");
+        /*
+         alterar para a variavel mySpawn para localizar a posição do spawn do inimigo e setar a escala de X do inimigo 
+         
+        if(mySpawn.position.x < players[0].position.x)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
+            transform.localScale = new Vector3(-1, 1, 1);
+            */
         isAttack = true;
         lifeMax = life;
 	}
@@ -29,20 +38,47 @@ public class Enemy : MonoBehaviour {
 
     private void Move()
     {
-        if(target == "")
+        distancePlayer = Vector3.Distance(players[0].position, transform.position);
+        if(distancePlayer <= distanceAttack)
         {
-            transform.Translate(speed * Time.deltaTime, 0, 0);
-        }        
+            transform.localScale = new Vector3(-1, 1, 1);
+            print("distancia: "+distancePlayer);
+            if (players[0].position.y < transform.position.y)
+            {
+                if(distancePlayer>DiagMinimo)
+                {
+                    print("Diagonal");
+                    objAnimado.GetComponent<Animator>().SetBool("DiagBaixo",true);
+                }
+                else if(distancePlayer<baixoMaximo && distancePlayer>baixoMinimo)
+                {
+                    print("baixo");
+                    objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                    objAnimado.GetComponent<Animator>().SetBool("baixo", true);
+                }
+            }
+
+            StartCoroutine("cowdown");
+        }
+        else if(distancePlayer >= distanceAttack)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            StopCoroutine("cowdown");
+            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+            objAnimado.GetComponent<Animator>().SetBool("idle", true);
+        }
     }
 
     private void Attack()
     {
-        if(target != "")
-        {
             if (isAttack)
             {
                 GameObject aux;
-                aux = Instantiate(bullet, transform.Find("SpawnBulletEnemy").transform.position, transform.Find("SpawnBulletEnemy").transform.rotation);
+                aux = Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
                 if (isRight)
                 {
                     aux.GetComponent<Rigidbody>().AddForce(-1000, 0, 0);
@@ -52,63 +88,36 @@ public class Enemy : MonoBehaviour {
                     aux.GetComponent<Rigidbody>().AddForce(1000, 0, 0);
                 }
                 isAttack = false;
-                StartCoroutine("cowdown");
-            }
-        }
+                
+            }        
     }
 
-    IEnumerator cowdown()
+    /// <summary>
+    /// Chamar como evento de animação
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator cowdown()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(cowdownFire);
         isAttack = true;
         StopCoroutine("cowdown");
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag != "Bullet" && other.gameObject.tag != "chao")
-        {
-            target = other.gameObject.tag;
-        }
-    }
+
+    #region animacoes
+
+    #endregion
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Bullet")
         {
             life--;
-            barraLife.GetComponent<Image>().fillAmount = life/lifeMax;
             if (life <= 0)
             {
-                //Spawn de um item após destruir um inimigo
-                //Instantiate(itens[Random.Range(0, itens.Count - 1)], transform.position, transform.rotation);
-                switch (id)
-                {
-                    case 0:
-                        gameSystem.GetComponent<GameSystem>().score += 5;
-                        break;
-
-                    case 1:
-                        gameSystem.GetComponent<GameSystem>().score += 10;
-                        break;
-
-                    case 2:
-                        gameSystem.GetComponent<GameSystem>().score += 15;
-                        break;
-
-                    case 3:
-                        gameSystem.GetComponent<GameSystem>().score += 20;
-                        break;
-                }
-
                 Destroy(gameObject);
             }
             Destroy(collision.gameObject);
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        target = "";
     }
 }

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - chao
+  - BulletEnemy
+  - Bullet
+  - chaoUp
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,7 +22,7 @@ TagManager:
   - BulletPlayer
   - Enemy
   - BulletEnemy
-  - 
+  - chaoUp
   - 
   - 
   - 
