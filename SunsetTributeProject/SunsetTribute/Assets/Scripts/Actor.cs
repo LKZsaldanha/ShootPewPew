@@ -12,7 +12,7 @@ public class Actor : MonoBehaviour {
     protected float life, lifeMax;
 
     //direções da mira
-    private bool leftAim, rightAim, upAim, downAim;
+    private bool leftAim, rightAim, upAim, downAim,isIdle;
     //ultima direção horizontal
     private bool lastSideWasRight = true;
 
@@ -28,7 +28,8 @@ public class Actor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Move();
+         Move();
+
         attack();
 
         directionInput();
@@ -38,112 +39,16 @@ public class Actor : MonoBehaviour {
 
     private void Move()
     {
-        //walk Direita ou esquerda
-        if (Input.GetAxis(inputs[0])>0 && Input.GetAxis(inputs[1]) == 0f)
+        if(Input.GetAxis(inputs[0]) == 0 && Input.GetAxis(inputs[1]) == 0)
         {
-            if (!isRight && isground)
-            {
-                isRight = true;
-            }
-            if(isRight)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-                transform.Translate(speed * Time.deltaTime, 0, 0);
-            }
-               
-        }
-        else if (Input.GetAxis(inputs[0]) < 0 && Input.GetAxis(inputs[1]) == 0f)
-        {
-            if (isRight && isground)
-            {
-                isRight = false;
-                
-            }
-            if(!isRight)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-                transform.Translate(-speed * Time.deltaTime, 0, 0);
-            }
-                
-        }
-
-        //walk DiagCima
-        if (Input.GetAxis(inputs[0]) > 0.7f && Input.GetAxis(inputs[1]) > 0f)
-        {
-            if (!isRight && isground)
-            {
-                isRight = true;
-                
-            }
-            if (isRight)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-                transform.Translate(speed * Time.deltaTime, 0, 0);
-            }
-                
-        }
-        else if (Input.GetAxis(inputs[0]) < -0.7f && Input.GetAxis(inputs[1]) > 0)
-        {
-            if (isRight && isground)
-            {
-                isRight = false;
-               
-            }
-            if (!isRight)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-                transform.Translate(-speed * Time.deltaTime, 0, 0);
-            }
-
-        }
-
-        //walk DiagBaixo
-        if (Input.GetAxis(inputs[0]) > 0.7f && Input.GetAxis(inputs[1]) < 0f)
-        {
-            if (!isRight && isground)
-            {
-
-                isRight = true;
-                
-            }
-            if (isRight)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-                transform.Translate(speed * Time.deltaTime, 0, 0);
-            }
-                
-        }
-        else if (Input.GetAxis(inputs[0]) < -0.7f && Input.GetAxis(inputs[1]) < 0)
-        {
-            if (isRight && isground)
-            {
-                isRight = false;
-               
-            }
-            if (!isRight)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-                transform.Translate(-speed * Time.deltaTime, 0, 0);
-            }
-                
-        }
-
-        //Cima ou Baixo
-        if (Input.GetAxis(inputs[1]) > 0)
-        {
-            if (!isRight)
-            {
-                isRight = true;
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-        }
-        else if (Input.GetAxis(inputs[1]) < 0)
-        {
-            if (isRight)
-            {
-                isRight = false;
-                transform.localScale = new Vector3(1, 1, 1);
-            }
+            print("idle");
+            isIdle = true;
+            objAnimado.GetComponent<Animator>().SetBool("walk", false);
+            objAnimado.GetComponent<Animator>().SetBool("cima", false);
+            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+            objAnimado.GetComponent<Animator>().SetBool("idle", true);
         }
 
         //Rasteira
@@ -195,18 +100,23 @@ public class Actor : MonoBehaviour {
         //Compara inputs para setar booleans
         if (Input.GetAxis(inputs[0]) > inputDeadZoneValue)
         {
+            objAnimado.GetComponent<Animator>().SetBool("frente", true);
+            isIdle = false;
             leftAim = false;
             rightAim = true;
             lastSideWasRight = true;
         }
         else if (Input.GetAxis(inputs[0]) < -inputDeadZoneValue)
         {
+            objAnimado.GetComponent<Animator>().SetBool("frente", true);
+            isIdle = false;
             leftAim = true;
             rightAim = false;
             lastSideWasRight = false;
         }
         else
         {
+            objAnimado.GetComponent<Animator>().SetBool("frente", false);
             leftAim = false;
             rightAim = false;
         }
@@ -214,11 +124,13 @@ public class Actor : MonoBehaviour {
 
         if (Input.GetAxis(inputs[1]) > inputDeadZoneValue)
         {
+            isIdle = false;
             upAim = true;
             downAim = false;
         }
         else if (Input.GetAxis(inputs[1]) < -inputDeadZoneValue)
         {
+            isIdle = false;
             upAim = false;
             downAim = true;
         }
@@ -246,70 +158,89 @@ public class Actor : MonoBehaviour {
     //converte a informação das booleans em um valor de angulo em sentido horario
     private void SetAimStatus()
     {
-        if (rightAim)
+        if (!isIdle)
         {
-            //diagonal para frente e cima
+            if (rightAim)
+            {
+                //diagonal para frente e cima
+                if (upAim)
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                    transform.Translate(speed * Time.deltaTime, 0, 0);
+
+                    diagCima();
+
+                    aimAngle = 45;
+                    return;
+                }
+                //diagonal para frente e baixo
+                if (downAim)
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                    transform.Translate(speed * Time.deltaTime, 0, 0);
+
+                    diagBaixo();
+
+                    aimAngle = 135;
+                    return;
+                }
+                //frente
+                transform.localScale = new Vector3(1, 1, 1);
+                transform.Translate(speed * Time.deltaTime, 0, 0);
+                walkAnim();
+                aimAngle = 90;
+                return;
+            }
+
+            if (leftAim)
+            {
+                if (upAim)
+                {
+                    //diagonal para trás e cima
+                    transform.localScale = new Vector3(-1, 1, 1);
+                    transform.Translate(-speed * Time.deltaTime, 0, 0);
+
+                    diagCima();
+                    aimAngle = 315;
+                    return;
+                }
+
+                if (downAim)
+                {
+                    //diagonal para trás e baixo
+                    transform.localScale = new Vector3(-1, 1, 1);
+                    transform.Translate(-speed * Time.deltaTime, 0, 0);
+
+                    diagBaixo();
+
+                    aimAngle = 225;
+                    return;
+                }
+                //trás
+                transform.localScale = new Vector3(-1, 1, 1);
+                transform.Translate(-speed * Time.deltaTime, 0, 0);
+                walkAnim();
+                aimAngle = 270;
+                return;
+            }
+
             if (upAim)
             {
-                diagCima();
+                //cima
+                cima();
 
-                aimAngle = 45;
-                return;
-            }
-            //diagonal para frente e baixo
-            if (downAim)
-            {
-                diagBaixo();
-
-                aimAngle = 135;
-                return;
-            }
-            //frente
-            aimAngle = 90;
-            return;
-        }
-
-        if (leftAim)
-        {
-            if (upAim)
-            {
-                //diagonal para trás e cima
-                diagCima();
-                aimAngle = 315;
+                aimAngle = 0;
                 return;
             }
 
             if (downAim)
             {
-                //diagonal para trás e baixo
+                //baixo
+                baixo();
 
-                diagBaixo();
-
-                aimAngle = 225;
+                aimAngle = 180;
                 return;
             }
-            //trás
-            frente();
-            aimAngle = 270;
-            return;
-        }
-
-        if (upAim)
-        {
-            //cima
-            cima();
-
-            aimAngle = 0;
-            return;
-        }
-
-        if (downAim)
-        {
-            //baixo
-            baixo();
-
-            aimAngle = 180;
-            return;
         }
     }
 
@@ -322,7 +253,8 @@ public class Actor : MonoBehaviour {
         objAnimado.GetComponent<Animator>().SetBool("baixo", false);
         objAnimado.GetComponent<Animator>().SetBool("DiagCima", true);
         objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-        walkAnim();
+        objAnimado.GetComponent<Animator>().SetBool("idle", false);
+        objAnimado.GetComponent<Animator>().SetBool("walk", true);
     }
 
     private void diagBaixo()
@@ -332,35 +264,28 @@ public class Actor : MonoBehaviour {
         objAnimado.GetComponent<Animator>().SetBool("baixo", false);
         objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
         objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", true);
-        walkAnim();
+        objAnimado.GetComponent<Animator>().SetBool("idle", false);
+        objAnimado.GetComponent<Animator>().SetBool("walk", true);
     }
-
-    private void frente()
-    {
-        objAnimado.GetComponent<Animator>().SetBool("frente", true);
-        objAnimado.GetComponent<Animator>().SetBool("cima", false);
-        objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-        objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-        objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-        walkAnim();
-    }
-
+    
     private void baixo()
     {
-        objAnimado.GetComponent<Animator>().SetBool("frente", false);
         objAnimado.GetComponent<Animator>().SetBool("cima", false);
         objAnimado.GetComponent<Animator>().SetBool("baixo", true);
         objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
         objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+        objAnimado.GetComponent<Animator>().SetBool("idle", false);
+        objAnimado.GetComponent<Animator>().SetBool("walk", false);
     }
 
     private void cima()
     {
-        objAnimado.GetComponent<Animator>().SetBool("frente", false);
         objAnimado.GetComponent<Animator>().SetBool("cima", true);
         objAnimado.GetComponent<Animator>().SetBool("baixo", false);
         objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
         objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+        objAnimado.GetComponent<Animator>().SetBool("idle", false);
+        objAnimado.GetComponent<Animator>().SetBool("walk", false);
     }
 
     private void atirouAnim()
@@ -368,14 +293,13 @@ public class Actor : MonoBehaviour {
         objAnimado.GetComponent<Animator>().SetTrigger("atirou");
     }
 
-    private void idleAnim()
-    {
-        objAnimado.GetComponent<Animator>().SetBool("walk", false);
-        objAnimado.GetComponent<Animator>().SetBool("idle", true);
-    }
 
     private void walkAnim()
     {
+        objAnimado.GetComponent<Animator>().SetBool("cima", false);
+        objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+        objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+        objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
         objAnimado.GetComponent<Animator>().SetBool("idle", false);
         objAnimado.GetComponent<Animator>().SetBool("walk", true);
     }
