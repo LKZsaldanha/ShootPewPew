@@ -12,7 +12,7 @@ public class Actor : MonoBehaviour {
     protected float life, lifeMax;
 
     //direções da mira
-    private bool leftAim, rightAim, upAim, downAim,isIdle;
+    private bool leftAim, rightAim, upAim, downAim,isIdle, isUp;
     //ultima direção horizontal
     private bool lastSideWasRight = true;
 
@@ -41,7 +41,6 @@ public class Actor : MonoBehaviour {
     {
         if(Input.GetAxis(inputs[0]) == 0 && Input.GetAxis(inputs[1]) == 0)
         {
-            print("idle");
             isIdle = true;
             objAnimado.GetComponent<Animator>().SetBool("walk", false);
             objAnimado.GetComponent<Animator>().SetBool("cima", false);
@@ -332,8 +331,7 @@ public class Actor : MonoBehaviour {
         if(Input.GetButtonDown(inputs[3]) && !isRasteira)
         {
             atirouAnim();
-            GameObject aux;
-            aux = Instantiate(bullet,localSpawnBullet[0].position, localSpawnBullet[0].rotation);
+            Instantiate(bullet,localSpawnBullet[0].position, localSpawnBullet[0].rotation);
         }
     }
 
@@ -369,7 +367,8 @@ public class Actor : MonoBehaviour {
             life--;
             if (life <= 0)
             {
-                Destroy(gameObject);
+                GetComponent<Actor>().enabled = false;
+                //Destroy(gameObject);
             }          
         }
 
@@ -383,4 +382,14 @@ public class Actor : MonoBehaviour {
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.tag == "chaoUp")
+        {
+            if(Input.GetButtonDown(inputs[6]))
+            {
+              gameObject.transform.position = new Vector3(transform.position.x, other.gameObject.GetComponent<SensorUp>().localUp.position.y, other.gameObject.GetComponent<SensorUp>().localUp.position.z);                       
+            }
+        }
+    }
 }

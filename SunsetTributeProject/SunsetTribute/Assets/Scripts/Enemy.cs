@@ -11,8 +11,9 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private List<GameObject> itens;
     [SerializeField] private Transform[] spawnBullet, players;
     [SerializeField] private Transform mySpawn;
-    private bool isRight, isAttack;
+    private bool isRight, isAttack, isIdPlayer;
     private float lifeMax, distancePlayer;
+    private int idPlayer;
 
     // Use this for initialization
     void Start () {
@@ -26,7 +27,6 @@ public class Enemy : MonoBehaviour {
         else
             transform.localScale = new Vector3(-1, 1, 1);
             */
-        isAttack = true;
         lifeMax = life;
 	}
 	
@@ -41,32 +41,62 @@ public class Enemy : MonoBehaviour {
         distancePlayer = Vector3.Distance(players[0].position, transform.position);
         if(distancePlayer <= distanceAttack)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-            print("distancia: "+distancePlayer);
-            if (players[0].position.y < transform.position.y)
+            print("test");
+            if (!isIdPlayer)
             {
-                if(distancePlayer>DiagMinimo)
+                idPlayer = Random.Range(0,players.Length-1);
+                isIdPlayer = true;
+            }
+            if (transform.position.x > players[idPlayer].position.x)
+                transform.localScale = new Vector3(-1, 1, 1);
+            else
+                transform.localScale = new Vector3(1, 1, 1);
+
+            //mesmo nivel de altura do player
+            if (players[idPlayer].position.y == transform.position.y)
+            {
+                print("nivel 1");
+                StartCoroutine("cowdown");
+                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                objAnimado.GetComponent<Animator>().SetBool("frente", true);
+                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                objAnimado.GetComponent<Animator>().SetBool("idle", false);
+            }
+
+            if (players[idPlayer].position.y < transform.position.y)
+            {
+                if(distancePlayer > DiagMinimo)
                 {
-                    print("Diagonal");
-                    objAnimado.GetComponent<Animator>().SetBool("DiagBaixo",true);
-                }
-                else if(distancePlayer<baixoMaximo && distancePlayer>baixoMinimo)
-                {
-                    print("baixo");
-                    objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-                    objAnimado.GetComponent<Animator>().SetBool("baixo", true);
+                    StartCoroutine("cowdown");
+                    objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                    objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                    objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", true);
+                    objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                    objAnimado.GetComponent<Animator>().SetBool("idle", false);
                 }
             }
 
-            StartCoroutine("cowdown");
-        }
-        else if(distancePlayer >= distanceAttack)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
+            if (players[idPlayer].position.y > transform.position.y)
+            {
+                if (distancePlayer > DiagMinimo)
+                {
+                    StartCoroutine("cowdown");
+                    objAnimado.GetComponent<Animator>().SetBool("DiagCima", true);
+                    objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                    objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                    objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                    objAnimado.GetComponent<Animator>().SetBool("idle", false);
+                }
+            }
+
+
         }
         else
         {
             StopCoroutine("cowdown");
+            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+            objAnimado.GetComponent<Animator>().SetBool("frente", false);
             objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
             objAnimado.GetComponent<Animator>().SetBool("baixo", false);
             objAnimado.GetComponent<Animator>().SetBool("idle", true);
@@ -77,18 +107,8 @@ public class Enemy : MonoBehaviour {
     {
             if (isAttack)
             {
-                GameObject aux;
-                aux = Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
-                if (isRight)
-                {
-                    aux.GetComponent<Rigidbody>().AddForce(-1000, 0, 0);
-                }
-                else
-                {
-                    aux.GetComponent<Rigidbody>().AddForce(1000, 0, 0);
-                }
-                isAttack = false;
-                
+                Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
+                isAttack = false;                
             }        
     }
 

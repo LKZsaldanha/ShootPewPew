@@ -1950,7 +1950,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4685089323641908}
   - component: {fileID: 61137059797358970}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: CameraCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3623,7 +3623,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087418768587476}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.844, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4550244893611198}
@@ -4285,7 +4285,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1705957658029812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.844, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4139162740990356}
@@ -4982,7 +4982,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.031065524, y: 0.38136828}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4993,7 +4993,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5987805, y: 1.7627366}
   m_EdgeRadius: 0
 --- !u!65 &65945796083106234
 BoxCollider:
@@ -5005,8 +5005,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.712278, y: 1.7447689, z: 1}
-  m_Center: {x: 0.0009074211, y: 0.37238443, z: 0}
+  m_Size: {x: 0.5333004, y: 1.739859, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95712129520713804
 Animator:
   serializedVersion: 3
@@ -5049,6 +5049,7 @@ MonoBehaviour:
   - Fire1P1
   - RasteiraP1
   - AgacharP1
+  - SubirP1
   localSpawnBullet:
   - {fileID: 4072992712438024}
   aimAngle: 0
