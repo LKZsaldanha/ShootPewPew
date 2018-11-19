@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a3bdb2cd68f901469e7cc149151eb49, type: 3}
-  m_Name: Demo_Level
+  m_Name: Demo_Level_dramatic
   m_EditorClassIdentifier: 
   debugViews:
     m_Enabled: 1
@@ -35,10 +35,10 @@ MonoBehaviour:
       fxaaSettings:
         preset: 4
       taaSettings:
-        jitterSpread: 0.75
-        sharpen: 0.3
-        stationaryBlending: 0.95
-        motionBlending: 0.85
+        jitterSpread: 0.154
+        sharpen: 0.09
+        stationaryBlending: 0.086
+        motionBlending: 0.028
   ambientOcclusion:
     m_Enabled: 1
     m_Settings:
@@ -47,7 +47,7 @@ MonoBehaviour:
       sampleCount: 10
       downsampling: 1
       forceForwardCompatibility: 0
-      ambientOnly: 0
+      ambientOnly: 1
       highPrecision: 0
   screenSpaceReflection:
     m_Enabled: 0
@@ -317,7 +317,7 @@ MonoBehaviour:
       size: 1
       luminanceContribution: 0.8
   vignette:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}

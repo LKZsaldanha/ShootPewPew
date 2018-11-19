@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.009
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.8301887, g: 0.31719476, b: 0.7254215, a: 1}
+  m_AmbientSkyColor: {r: 0.745283, g: 0.4562886, b: 0.4324048, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 0.96
@@ -463,7 +463,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.9339623, g: 0.81699383, b: 0.2863564, a: 1}
+  m_Color: {r: 0.93333334, g: 0.7572964, b: 0.34117648, a: 1}
   m_Intensity: 1.7
   m_Range: 10
   m_SpotAngle: 30
@@ -473,7 +473,7 @@ Light:
     m_Resolution: 3
     m_CustomResolution: -1
     m_Strength: 0.7
-    m_Bias: 0.09
+    m_Bias: 0.01
     m_NormalBias: 0
     m_NearPlane: 10
   m_Cookie: {fileID: 0}
@@ -497,13 +497,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 252657428}
-  m_LocalRotation: {x: 0.37253585, y: -0.26978743, z: -0.06781284, w: 0.8853436}
-  m_LocalPosition: {x: 98.4, y: 2.62, z: 1.63}
+  m_LocalRotation: {x: 0.063292146, y: -0.94173706, z: 0.30864933, w: 0.11773254}
+  m_LocalPosition: {x: 81.7, y: 2.62, z: 1.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1668553896}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 38.54, y: -42.480003, z: -24.236002}
+  m_LocalEulerAnglesHint: {x: 36.601, y: -166.84702, z: -3.3230002}
 --- !u!4 &260299109 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4478899117211098, guid: 87a34797f93a0eb4bb50b1ee8a33263a,
@@ -1865,6 +1866,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4555328225738700, guid: 0e1572cc545077942adc389058353465,
     type: 2}
   m_PrefabInternal: {fileID: 218284027}
+--- !u!1 &1668553895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1668553896}
+  - component: {fileID: 1668553897}
+  m_Layer: 0
+  m_Name: Contra Luz
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1668553896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1668553895}
+  m_LocalRotation: {x: 0.03681324, y: -0.6340433, z: 0.47168753, w: -0.6116738}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 252657430}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 33.58, y: -283.414, z: -48.475002}
+--- !u!108 &1668553897
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1668553895}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 1
+  m_Color: {r: 0.4716981, g: 0.46057314, b: 0.46057314, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1001 &1724554991
 Prefab:
   m_ObjectHideFlags: 0
@@ -2455,7 +2522,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2101853980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 104.5, y: 2.41, z: -7}
+  m_LocalPosition: {x: 69.89, y: 2.41, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2472,7 +2539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 43e73a3daca7a134c9a1d92d4f1c6e0a, type: 2}
+  profile: {fileID: 11400000, guid: 59f1a45ab72a9b54aa0d951727a7e222, type: 2}
 --- !u!4 &2103932027 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4114419894894260, guid: 15c67ae85ee15274c823b0d645ca1002,
