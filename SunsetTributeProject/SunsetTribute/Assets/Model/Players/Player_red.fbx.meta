@@ -2502,7 +2502,7 @@ ModelImporter:
     - serializedVersion: 16
       name: rig|JumpDown
       takeName: rig|JumpDown
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 2
       wrapMode: 0
       orientationOffsetY: 0
