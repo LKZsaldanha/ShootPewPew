@@ -107,6 +107,7 @@ public class Enemy : MonoBehaviour {
     {
             if (isAttack)
             {
+                objAnimado.GetComponent<Animator>().SetTrigger("atirou");
                 Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
                 isAttack = false;                
             }        
