@@ -16,6 +16,8 @@ public class Actor : MonoBehaviour {
     //ultima direção horizontal
     private bool lastSideWasRight = true;
 
+    private PlayerSound playerSound;
+
     //angulo para onde está a mira
     public int aimAngle = 0;
 
@@ -24,7 +26,8 @@ public class Actor : MonoBehaviour {
     // Use this for initialization
     void Start () {
         lifeMax = life = 3;
-	}
+        playerSound = GetComponent<PlayerSound>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -290,6 +293,7 @@ public class Actor : MonoBehaviour {
 
     private void atirouAnim()
     {
+        playerSound.ShootSound();//toca som de tiro no script PlayerSound
         objAnimado.GetComponent<Animator>().SetTrigger("atirou");
     }
 
