@@ -75,7 +75,7 @@ public class Actor : MonoBehaviour {
         if (Input.GetButtonDown(inputs[2]) && isground && !isRasteira)
         {
             isground = false;
-           // jumpAnim();
+            jumpAnim();
             GetComponent<Rigidbody>().AddForce(0,jump,0);
         }
 
@@ -329,7 +329,7 @@ public class Actor : MonoBehaviour {
             objAnimado.GetComponent<Animator>().SetBool("rasteira", true);
         }
     }
-   /* private void jumpAnim()
+    private void jumpAnim()
     {
         if (!isground)
         {
@@ -340,7 +340,7 @@ public class Actor : MonoBehaviour {
         {
             objAnimado.GetComponent<Animator>().SetBool("jumpLand", true);
         }
-    }*/
+    }
     #endregion
 
     private void attack()
@@ -367,7 +367,7 @@ public class Actor : MonoBehaviour {
         if(collision.gameObject.tag == "chao" || collision.gameObject.tag == "chaoUp")
         {
             isground = true;
-           // jumpAnim();
+            jumpAnim();
         }
 
         if(collision.gameObject.tag == "enemy")
