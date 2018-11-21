@@ -81,15 +81,17 @@ public class Actor : MonoBehaviour {
         {
             if(!isAgachado)
             {
-                GetComponent<BoxCollider>().size = new Vector3(0.712278f, 0.5f, 1);
+                GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.3f, 1);
+                objAnimado.transform.position = new Vector3(-0.5f, 0.23f, -0.3f);
+                agacharAnim();
                 isAgachado = true;
-               // agacharAnim();
             }
             else
             {
                 GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.744769f, 1);
+                objAnimado.transform.position = new Vector3(-0.5f, -0.23f, -0.3f);
+                agacharAnim();
                 isAgachado = false;
-              //  agacharAnim();
             }
             
         }
@@ -165,8 +167,12 @@ public class Actor : MonoBehaviour {
                 //diagonal para frente e cima
                 if (upAim)
                 {
-                    transform.localScale = new Vector3(1, 1, 1);
-                    transform.Translate(speed * Time.deltaTime, 0, 0);
+                    if(!isAgachado)
+                    {
+                        transform.localScale = new Vector3(1, 1, 1);
+                        transform.Translate(speed * Time.deltaTime, 0, 0);
+                    }
+                    
 
                     diagCima();
 
@@ -176,8 +182,12 @@ public class Actor : MonoBehaviour {
                 //diagonal para frente e baixo
                 if (downAim)
                 {
-                    transform.localScale = new Vector3(1, 1, 1);
-                    transform.Translate(speed * Time.deltaTime, 0, 0);
+                    if(!isAgachado)
+                    {
+                        transform.localScale = new Vector3(1, 1, 1);
+                        transform.Translate(speed * Time.deltaTime, 0, 0);
+                    }
+                    
 
                     diagBaixo();
 
@@ -185,9 +195,13 @@ public class Actor : MonoBehaviour {
                     return;
                 }
                 //frente
-                transform.localScale = new Vector3(1, 1, 1);
-                transform.Translate(speed * Time.deltaTime, 0, 0);
-                walkAnim();
+                if(!isAgachado)
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                    transform.Translate(speed * Time.deltaTime, 0, 0);
+                    walkAnim();
+                }
+                
                 aimAngle = 90;
                 return;
             }
@@ -197,8 +211,12 @@ public class Actor : MonoBehaviour {
                 if (upAim)
                 {
                     //diagonal para trás e cima
-                    transform.localScale = new Vector3(-1, 1, 1);
-                    transform.Translate(-speed * Time.deltaTime, 0, 0);
+                    if(!isAgachado)
+                    {
+                        transform.localScale = new Vector3(-1, 1, 1);
+                        transform.Translate(-speed * Time.deltaTime, 0, 0);
+                    }
+                    
 
                     diagCima();
                     aimAngle = 315;
@@ -208,8 +226,12 @@ public class Actor : MonoBehaviour {
                 if (downAim)
                 {
                     //diagonal para trás e baixo
-                    transform.localScale = new Vector3(-1, 1, 1);
-                    transform.Translate(-speed * Time.deltaTime, 0, 0);
+                    if(!isAgachado)
+                    {
+                        transform.localScale = new Vector3(-1, 1, 1);
+                        transform.Translate(-speed * Time.deltaTime, 0, 0);
+                    }
+
 
                     diagBaixo();
 
@@ -217,9 +239,13 @@ public class Actor : MonoBehaviour {
                     return;
                 }
                 //trás
-                transform.localScale = new Vector3(-1, 1, 1);
-                transform.Translate(-speed * Time.deltaTime, 0, 0);
-                walkAnim();
+                if(!isAgachado)
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                    transform.Translate(-speed * Time.deltaTime, 0, 0);
+                    walkAnim();
+                }
+
                 aimAngle = 270;
                 return;
             }
@@ -270,6 +296,7 @@ public class Actor : MonoBehaviour {
     
     private void baixo()
     {
+        print("baixo");
         objAnimado.GetComponent<Animator>().SetBool("cima", false);
         objAnimado.GetComponent<Animator>().SetBool("baixo", true);
         objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
@@ -280,6 +307,7 @@ public class Actor : MonoBehaviour {
 
     private void cima()
     {
+        print("cima");
         objAnimado.GetComponent<Animator>().SetBool("cima", true);
         objAnimado.GetComponent<Animator>().SetBool("baixo", false);
         objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
