@@ -292,9 +292,10 @@ public class Actor : MonoBehaviour {
         objAnimado.GetComponent<Animator>().SetBool("cima", false);
         objAnimado.GetComponent<Animator>().SetBool("baixo", false);
         objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+        objAnimado.GetComponent<Animator>().SetBool("walk", true);
         objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", true);
         objAnimado.GetComponent<Animator>().SetBool("idle", false);
-        objAnimado.GetComponent<Animator>().SetBool("walk", true);
+
     }
     
     private void baixo()

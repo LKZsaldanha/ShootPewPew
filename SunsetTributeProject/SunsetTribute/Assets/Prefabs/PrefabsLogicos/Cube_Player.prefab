@@ -5140,10 +5140,10 @@ MonoBehaviour:
   bullet: {fileID: 1885454868243236, guid: c1eddc9db60425a4e9d7b216a2b33fc7, type: 2}
   objAnimado: {fileID: 1087418768587476}
   inputs:
-  - Horizontal
-  - Vertical
-  - Jump
-  - Fire1
+  - HorizontalP1
+  - VerticalP1
+  - JumpP1
+  - Fire1P1
   - RasteiraP1
   - AgacharP1
   - SubirP1
