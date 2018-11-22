@@ -94,6 +94,11 @@ public class PlayerHUD : MonoBehaviour
         UpdateHUDLives(0);
     }
 
+    public void SetNewCharacterID(int newID)
+    {
+        characterID = newID;
+    }
+
     //Atualiza visualmente as sprites do char e do icone da arma, baseado no ID de personagem
     public void UpdateCharacterHUDVisual()
     {
