@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private List<GameObject> itens;
     [SerializeField] private Transform[] spawnBullet, players;
     [SerializeField] private Transform mySpawn;
-    private bool isRight, isAttack, isIdPlayer;
+    private bool isRight, isAttack, isIdPlayer, isDead;
     private float lifeMax, distancePlayer;
     private int idPlayer;
 
@@ -36,8 +36,12 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Move();
-        Attack();
+        if(!isDead)
+        {
+            Move();
+            Attack();
+        }
+
 	}
 
     private void Move()
@@ -128,20 +132,35 @@ public class Enemy : MonoBehaviour {
     }
 
 
-    #region animacoes
-
-    #endregion
-
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Bullet")
         {
             life--;
-            if (life <= 0)
+            if (life == 0)
             {
-                Destroy(gameObject);
+                isDead = true;
+
+                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                objAnimado.GetComponent<Animator>().SetBool("idle", false);
+
+                objAnimado.GetComponent<Animator>().SetTrigger("isDied");
+                GetComponent<BoxCollider>().enabled = false;
+                GetComponent<Rigidbody>().isKinematic = true;
+                GetComponent<Rigidbody>().useGravity = false;
+                StartCoroutine("morreu");
             }
             Destroy(collision.gameObject);
         }
+    }
+
+    public IEnumerator morreu()
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
+        StopCoroutine("morreu");
     }
 }
