@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour {
     private float lifeMax, distancePlayer;
     private int idPlayer;
 
+    private EnemySound enemySound;
+
     // Use this for initialization
     void Start () {
         /*
@@ -27,6 +29,8 @@ public class Enemy : MonoBehaviour {
         else
             transform.localScale = new Vector3(-1, 1, 1);
             */
+        enemySound = GetComponent<EnemySound>();
+
         lifeMax = life;
 	}
 	
@@ -107,6 +111,7 @@ public class Enemy : MonoBehaviour {
     {
             if (isAttack)
             {
+                enemySound.ShootSound();
                 objAnimado.GetComponent<Animator>().SetTrigger("atirou");
                 Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
                 isAttack = false;                

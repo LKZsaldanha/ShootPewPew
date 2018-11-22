@@ -14,6 +14,7 @@ public class BulletPlayer : MonoBehaviour {
 
     private void Update()
     {
+        transform.LookAt(GameObject.Find("Main Camera").transform);
         StartCoroutine("size");
         GetComponent<Rigidbody>().velocity = transform.forward * speedBullet;
     }
