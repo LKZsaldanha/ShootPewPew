@@ -45,7 +45,6 @@ public class Enemy : MonoBehaviour {
         distancePlayer = Vector3.Distance(players[0].position, transform.position);
         if(distancePlayer <= distanceAttack)
         {
-            print("test");
             if (!isIdPlayer)
             {
                 idPlayer = Random.Range(0,players.Length-1);
@@ -59,7 +58,6 @@ public class Enemy : MonoBehaviour {
             //mesmo nivel de altura do player
             if (players[idPlayer].position.y == transform.position.y)
             {
-                print("nivel 1");
                 StartCoroutine("cowdown");
                 objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
                 objAnimado.GetComponent<Animator>().SetBool("frente", true);

@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class Actor : MonoBehaviour {
     protected bool isground, isRight,isRasteira, isAgachado;
-    [SerializeField] protected float speed , jump, cooldownRasteira, speedRasteira;
+    [SerializeField] protected float speed , jump, cooldownRasteira, speedRasteira, lifeMax, life;
     [SerializeField] protected GameObject bullet, objAnimado;
     [SerializeField] private string[] inputs;
-    [SerializeField] private Transform[] localSpawnBullet;
-    protected float life, lifeMax;
+    [SerializeField] private Transform[] localSpawnBullet, mira;
 
     //direções da mira
     private bool leftAim, rightAim, upAim, downAim,isIdle, isUp;
@@ -25,17 +24,23 @@ public class Actor : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        isRight = true;
         lifeMax = life = 3;
         playerSound = GetComponent<PlayerSound>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-         Move();
+        if(!isRasteira)
+            Move();
 
         attack();
 
-        directionInput();
+        if (!isAgachado)
+        {
+            directionInput();
+        }
+        
         SetAimStatus();
 
     }
@@ -85,14 +90,14 @@ public class Actor : MonoBehaviour {
             if(!isAgachado)
             {
                 GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.3f, 1);
-                objAnimado.transform.position = new Vector3(-0.5f, 0.23f, -0.3f);
+                objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, 0.23f, -0.3f);
                 agacharAnim();
                 isAgachado = true;
             }
             else
             {
                 GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.744769f, 1);
-                objAnimado.transform.position = new Vector3(-0.5f, -0.23f, -0.3f);
+                objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, -0.23f, -0.3f);
                 agacharAnim();
                 isAgachado = false;
             }
@@ -106,6 +111,7 @@ public class Actor : MonoBehaviour {
         if (Input.GetAxis(inputs[0]) > inputDeadZoneValue)
         {
             objAnimado.GetComponent<Animator>().SetBool("frente", true);
+            isRight = true;
             isIdle = false;
             leftAim = false;
             rightAim = true;
@@ -114,6 +120,7 @@ public class Actor : MonoBehaviour {
         else if (Input.GetAxis(inputs[0]) < -inputDeadZoneValue)
         {
             objAnimado.GetComponent<Animator>().SetBool("frente", true);
+            isRight = false;
             isIdle = false;
             leftAim = true;
             rightAim = false;
@@ -174,6 +181,8 @@ public class Actor : MonoBehaviour {
                     {
                         transform.localScale = new Vector3(1, 1, 1);
                         transform.Translate(speed * Time.deltaTime, 0, 0);
+                        localSpawnBullet[0].position = mira[1].position;
+                        localSpawnBullet[0].rotation = Quaternion.Euler(135,90,0);
                     }
                     
 
@@ -189,6 +198,8 @@ public class Actor : MonoBehaviour {
                     {
                         transform.localScale = new Vector3(1, 1, 1);
                         transform.Translate(speed * Time.deltaTime, 0, 0);
+                        localSpawnBullet[0].position = mira[3].position;
+                        localSpawnBullet[0].rotation = Quaternion.Euler(225, 90, 0);
                     }
                     
 
@@ -202,6 +213,8 @@ public class Actor : MonoBehaviour {
                 {
                     transform.localScale = new Vector3(1, 1, 1);
                     transform.Translate(speed * Time.deltaTime, 0, 0);
+                    localSpawnBullet[0].position = mira[2].position;
+                    localSpawnBullet[0].rotation = Quaternion.Euler(180, 90, 0);
                     walkAnim();
                 }
                 
@@ -218,6 +231,8 @@ public class Actor : MonoBehaviour {
                     {
                         transform.localScale = new Vector3(-1, 1, 1);
                         transform.Translate(-speed * Time.deltaTime, 0, 0);
+                        localSpawnBullet[0].position = mira[1].position;
+                        localSpawnBullet[0].rotation = Quaternion.Euler(405, 90, 0);
                     }
                     
 
@@ -233,6 +248,8 @@ public class Actor : MonoBehaviour {
                     {
                         transform.localScale = new Vector3(-1, 1, 1);
                         transform.Translate(-speed * Time.deltaTime, 0, 0);
+                        localSpawnBullet[0].position = mira[3].position;
+                        localSpawnBullet[0].rotation = Quaternion.Euler(315, 90, 0);
                     }
 
 
@@ -246,6 +263,8 @@ public class Actor : MonoBehaviour {
                 {
                     transform.localScale = new Vector3(-1, 1, 1);
                     transform.Translate(-speed * Time.deltaTime, 0, 0);
+                    localSpawnBullet[0].position = mira[2].position;
+                    localSpawnBullet[0].rotation = Quaternion.Euler(0, 90, 0);
                     walkAnim();
                 }
 
@@ -255,6 +274,8 @@ public class Actor : MonoBehaviour {
 
             if (upAim)
             {
+                 localSpawnBullet[0].position = mira[0].position;
+                localSpawnBullet[0].rotation = Quaternion.Euler(90,90,0);
                 //cima
                 cima();
 
@@ -264,6 +285,8 @@ public class Actor : MonoBehaviour {
 
             if (downAim)
             {
+                localSpawnBullet[0].position = mira[4].position;
+                localSpawnBullet[0].rotation = Quaternion.Euler(270, 90, 0);
                 //baixo
                 baixo();
 
@@ -351,11 +374,13 @@ public class Actor : MonoBehaviour {
     private void rasteiraAnim()
     {
         if (isRasteira) { 
-            objAnimado.GetComponent<Animator>().SetBool("rasteira", false);
+            objAnimado.GetComponent<Animator>().SetBool("isDash", true);
+            print("rasteira");
         }
         else
         {
-            objAnimado.GetComponent<Animator>().SetBool("rasteira", true);
+            transform.position = new Vector3(objAnimado.transform.position.x, 0.91f, -0.3f);
+            objAnimado.GetComponent<Animator>().SetBool("isDash", false);
         }
     }
     private void jumpAnim()
@@ -386,8 +411,8 @@ public class Actor : MonoBehaviour {
     {
         yield return new WaitForSeconds(cooldownRasteira);
         GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.744769f, 1);
-        rasteiraAnim();
         isRasteira = false;
+        rasteiraAnim();        
         StopCoroutine("Rasteira");
     }
 
@@ -404,7 +429,18 @@ public class Actor : MonoBehaviour {
             life--;
             if (life<=0)
             {
-                Destroy(gameObject);
+                objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                objAnimado.GetComponent<Animator>().SetBool("cima", false);
+                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                objAnimado.GetComponent<Animator>().SetBool("idle", false);
+                objAnimado.GetComponent<Animator>().SetBool("walk", false);
+                objAnimado.GetComponent<Animator>().SetTrigger("isDied");
+
+                GetComponent<Actor>().enabled = false;
+               
+                //Destroy(gameObject);
             }
         }
 
@@ -412,8 +448,17 @@ public class Actor : MonoBehaviour {
         {
             Destroy(collision.gameObject);
             life--;
-            if (life <= 0)
+            if (life == 0)
             {
+                objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                objAnimado.GetComponent<Animator>().SetBool("cima", false);
+                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                objAnimado.GetComponent<Animator>().SetBool("idle", false);
+                objAnimado.GetComponent<Animator>().SetBool("walk", false);
+                objAnimado.GetComponent<Animator>().SetTrigger("isDied");
+
                 GetComponent<Actor>().enabled = false;
                 //Destroy(gameObject);
             }          

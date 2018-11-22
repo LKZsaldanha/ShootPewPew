@@ -14,8 +14,6 @@ public class BulletPlayer : MonoBehaviour {
 
     private void Update()
     {
-        transform.LookAt(GameObject.Find("Main Camera").transform);
-        StartCoroutine("size");
         GetComponent<Rigidbody>().velocity = transform.forward * speedBullet;
     }
 
@@ -23,16 +21,8 @@ public class BulletPlayer : MonoBehaviour {
     {
         yield return new WaitForSeconds(2);
         StopCoroutine("life");
-        StopCoroutine("size");
         Destroy(gameObject);
         
-    }
-
-    IEnumerator size()
-    {
-        yield return new WaitForSeconds(1f);
-        if(transform.localScale.x>0)
-            gameObject.transform.localScale /= 2f;
     }
 
     private void OnCollisionEnter(Collision collision)
