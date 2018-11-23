@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - chaoUp
   - Enemy
+  - Colver
   layers:
   - Default
   - TransparentFX

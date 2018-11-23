@@ -9,9 +9,11 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private float speed, distanceAttack, cowdownFire;
     [SerializeField] private GameObject bullet,objAnimado;
     [SerializeField] private List<GameObject> itens;
-    [SerializeField] private Transform[] spawnBullet, players;
+    [SerializeField] private Transform[] spawnBullet, players, mira;
     [SerializeField] private Transform mySpawn;
-    private bool isRight, isAttack, isIdPlayer;
+
+    private GameObject colver;
+    private bool isRight, isAttack, isIdPlayer, isDead, isColver;
     private float lifeMax, distancePlayer;
     private int idPlayer;
 
@@ -36,8 +38,14 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Move();
-        Attack();
+        if(!isDead)
+        {
+            if(colver == null)
+                Move();
+
+            Attack();
+        }
+
 	}
 
     private void Move()
@@ -45,7 +53,6 @@ public class Enemy : MonoBehaviour {
         distancePlayer = Vector3.Distance(players[0].position, transform.position);
         if(distancePlayer <= distanceAttack)
         {
-            print("test");
             if (!isIdPlayer)
             {
                 idPlayer = Random.Range(0,players.Length-1);
@@ -59,8 +66,22 @@ public class Enemy : MonoBehaviour {
             //mesmo nivel de altura do player
             if (players[idPlayer].position.y == transform.position.y)
             {
-                print("nivel 1");
                 StartCoroutine("cowdown");
+
+                //posição e rotação da mira (frente)
+                if(transform.localScale.x == 1)
+                {
+                    spawnBullet[0].position = mira[2].position;
+                    spawnBullet[0].rotation = Quaternion.Euler(180, 90, 0);
+                }
+                else
+                {
+                    //(Costas)
+                    spawnBullet[0].position = mira[2].position;
+                    spawnBullet[0].rotation = Quaternion.Euler(0, 90, 0);
+                }
+
+
                 objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
                 objAnimado.GetComponent<Animator>().SetBool("frente", true);
                 objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
@@ -73,12 +94,25 @@ public class Enemy : MonoBehaviour {
                 if(distancePlayer > DiagMinimo)
                 {
                     StartCoroutine("cowdown");
+                    //posição e rotação da mira (diagonal Baixo frente)
+                    if (transform.localScale.x == 1)
+                    {
+                        spawnBullet[0].position = mira[3].position;
+                        spawnBullet[0].rotation = Quaternion.Euler(225, 90, 0);
+                    }
+                    else
+                    {
+                        //(diagonal Baixo Costas)
+                        spawnBullet[0].position = mira[3].position;
+                        spawnBullet[0].rotation = Quaternion.Euler(315, 90, 0);
+                    }
                     objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
                     objAnimado.GetComponent<Animator>().SetBool("frente", false);
                     objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", true);
                     objAnimado.GetComponent<Animator>().SetBool("baixo", false);
                     objAnimado.GetComponent<Animator>().SetBool("idle", false);
                 }
+
             }
 
             if (players[idPlayer].position.y > transform.position.y)
@@ -86,12 +120,27 @@ public class Enemy : MonoBehaviour {
                 if (distancePlayer > DiagMinimo)
                 {
                     StartCoroutine("cowdown");
+                    //posição e rotação da mira (diagonal cima frente)
+                    if (transform.localScale.x == 1)
+                    {
+                        spawnBullet[0].position = mira[1].position;
+                        spawnBullet[0].rotation = Quaternion.Euler(135, 90, 0);
+                    }
+                    else
+                    {
+                        //(diagonal cima Costas)
+                        spawnBullet[0].position = mira[1].position;
+                        spawnBullet[0].rotation = Quaternion.Euler(405, 90, 0);
+                    }
+
                     objAnimado.GetComponent<Animator>().SetBool("DiagCima", true);
                     objAnimado.GetComponent<Animator>().SetBool("frente", false);
                     objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
                     objAnimado.GetComponent<Animator>().SetBool("baixo", false);
                     objAnimado.GetComponent<Animator>().SetBool("idle", false);
                 }
+
+
             }
 
 
@@ -109,41 +158,146 @@ public class Enemy : MonoBehaviour {
 
     private void Attack()
     {
-            if (isAttack)
-            {
+        distancePlayer = Vector3.Distance(players[0].position, transform.position);
+        if (isAttack && !isColver)
+        {
                 enemySound.ShootSound();
                 objAnimado.GetComponent<Animator>().SetTrigger("atirou");
                 Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
-                isAttack = false;                
-            }        
+                isAttack = false;
+
+        }
+        else if (isColver && distancePlayer <= distanceAttack)
+        {
+            if(life>0)
+                StartCoroutine("cowndownHide");
+            isColver = false;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            life--;
+            if (life == 0)
+            {
+                isDead = true;
+
+                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                objAnimado.GetComponent<Animator>().SetBool("idle", false);
+
+                objAnimado.GetComponent<Animator>().SetTrigger("isDied");
+                GetComponent<BoxCollider>().enabled = false;
+                GetComponent<Rigidbody>().isKinematic = true;
+                GetComponent<Rigidbody>().useGravity = false;
+                StopCoroutine("cowndownHide");
+                StartCoroutine("morreu");
+            }
+            Destroy(collision.gameObject);
+        }
     }
 
-    /// <summary>
-    /// Chamar como evento de animação
-    /// </summary>
-    /// <returns></returns>
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Colver")
+        {
+            colver = other.gameObject;
+            isColver = true;
+
+            //diminui o colisor para a bullet não acertar ele se o player estiver na mesma altura
+            GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.23f, 1);
+            objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, 0.23f, -0.3f);
+
+            objAnimado.GetComponent<Animator>().SetBool("isHide", true);
+        }
+    }
+
+    //tempo de tiro para inimigo no colver
+    IEnumerator cowndownHide()
+    {
+        yield return new WaitForSeconds(cowdownFire*2);
+        if(life>0)
+        {
+            objAnimado.GetComponent<Animator>().SetBool("isHide", false);
+            //normaliza o colisor para a bullet poder acertar ele se o player estiver na mesma altura ou nao
+            GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.744769f, 1);
+            objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, -0.23f, -0.3f);
+
+            objAnimado.GetComponent<Animator>().SetTrigger("isHideAttack");
+
+            isColver = true;
+            StartCoroutine("hideTrue");
+        }
+        StopCoroutine("cowndownHide");
+    }
+
+    //ativa o Hide / colver
+    IEnumerator hideTrue()
+    {
+        yield return new WaitForSeconds(1f);
+        if (life > 0)
+        {
+            objAnimado.GetComponent<Animator>().SetBool("isHide", true);
+            //diminui o colisor para a bullet não acertar ele se o player estiver na mesma altura
+            GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.23f, 1);
+            objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, 0.23f, -0.3f);
+
+
+            StartCoroutine("timerSpawnBullet");
+        }
+
+        StopCoroutine("hideTrue");
+    }
+
+
+    //atraso no spawn da bullet para a saida do colver
+    IEnumerator timerSpawnBullet()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if(life>0)
+        {
+            enemySound.ShootSound();
+
+            //posição e rotação da mira (frente)
+            if (transform.localScale.x == 1)
+            {
+                spawnBullet[0].position = mira[2].position;
+                spawnBullet[0].rotation = Quaternion.Euler(180, 90, 0);
+            }
+            else
+            {
+                //(Costas)
+                spawnBullet[0].position = mira[2].position;
+                spawnBullet[0].rotation = Quaternion.Euler(0, 90, 0);
+            }
+
+            Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
+        }
+
+        StopCoroutine("hideTrue");
+    }
+
+   
+    //tempo de tiro sem colver
     public IEnumerator cowdown()
     {
         yield return new WaitForSeconds(cowdownFire);
         isAttack = true;
+        if(colver != null)
+        {
+            isColver = true;
+            objAnimado.GetComponent<Animator>().SetBool("isHide", true);
+        }
         StopCoroutine("cowdown");
     }
 
-
-    #region animacoes
-
-    #endregion
-
-    private void OnCollisionEnter(Collision collision)
+    public IEnumerator morreu()
     {
-        if(collision.gameObject.tag == "Bullet")
-        {
-            life--;
-            if (life <= 0)
-            {
-                Destroy(gameObject);
-            }
-            Destroy(collision.gameObject);
-        }
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
+        StopCoroutine("morreu");
     }
 }
