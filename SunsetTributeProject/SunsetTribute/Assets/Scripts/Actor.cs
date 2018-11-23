@@ -418,7 +418,7 @@ public class Actor : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "chao" || collision.gameObject.tag == "chaoUp")
+        if(collision.gameObject.tag == "chao" || collision.gameObject.tag == "chaoUp" || collision.gameObject.tag == "Colver")
         {
             isground = true;
             jumpAnim();
