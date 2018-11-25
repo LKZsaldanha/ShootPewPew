@@ -2801,7 +2801,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1245349217530386}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -9.08, y: 0.91, z: 0}
+  m_LocalPosition: {x: -4.71, y: 1.63, z: 0.3626206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4723718424786736}
@@ -4728,13 +4728,13 @@ MonoBehaviour:
   bullet: {fileID: 1885454868243236, guid: c1eddc9db60425a4e9d7b216a2b33fc7, type: 2}
   objAnimado: {fileID: 1920758545162022}
   inputs:
-  - HorizontalP1
-  - VerticalP1
-  - JumpP1
-  - Fire1P1
-  - RasteiraP1
-  - AgacharP1
-  - SubirP1
+  - HorizontalP2
+  - VerticalP2
+  - JumpP2
+  - Fire1P2
+  - RasteiraP2
+  - AgacharP2
+  - SubirP2
   localSpawnBullet:
   - {fileID: 4624036110997614}
   mira:
