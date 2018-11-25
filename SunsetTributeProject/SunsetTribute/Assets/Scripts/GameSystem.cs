@@ -7,13 +7,30 @@ using System.Linq;
 
 public class GameSystem : MonoBehaviour {
 
-    public int Money;
+    public int money;
+    public List<GameObject> nPlayerVivos;
+    //variavel que indicara qual player morreu para o inimigo
+    public string nameplayer;
 
-    // Use this for initialization
-    void Update()
+
+    /// <summary>
+    /// Ao chamar o metodo deve colocar o nome do player para
+    /// a função remover o player morto correto da lista
+    /// </summary>
+    /// <param name="namePlayer"></param>
+    public void nPlayerAtivos(string namePlayer)
     {
-       
-    }
+        this.nameplayer = namePlayer;
+        if(nPlayerVivos[0].name == namePlayer)
+        {
+            nPlayerVivos.RemoveAt(0);
+        }
+        else
+        {
+            nPlayerVivos.RemoveAt(1);
+        }
 
+        nPlayerVivos.RemoveAll(c => c == null);
+    }
    
 }

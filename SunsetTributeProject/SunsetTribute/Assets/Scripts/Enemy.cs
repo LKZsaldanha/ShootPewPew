@@ -7,17 +7,23 @@ public class Enemy : MonoBehaviour {
     //baixoMinimo é o valor minimo para chamar a animação de mira baixa e o baixoMaximo a mesma coisa
     [SerializeField] private float life,DiagMinimo,baixoMinimo,baixoMaximo;
     [SerializeField] private float speed, distanceAttack, cowdownFire;
-    [SerializeField] private GameObject bullet,objAnimado;
+    [SerializeField] private GameObject bullet,objAnimado, gameSystem;
     [SerializeField] private List<GameObject> itens;
-    [SerializeField] private Transform[] spawnBullet, players, mira;
+    [SerializeField] private Transform[] spawnBullet, mira;
+    [SerializeField] private List<Transform> players;
     [SerializeField] private Transform mySpawn;
 
     private GameObject colver;
-    private bool isRight, isAttack, isIdPlayer, isDead, isColver;
-    private float lifeMax, distancePlayer;
+    private bool isRight, isAttack, isIdPlayer, isDead, isColver, lookinPlayer;
+    private float lifeMax, distancePlayer, distancePlayer2, menorDistancia;
     private int idPlayer;
 
     private EnemySound enemySound;
+
+    private void Awake()
+    {
+        gameSystem = GameObject.Find("GameSystem");
+    }
 
     // Use this for initialization
     void Start () {
@@ -31,6 +37,18 @@ public class Enemy : MonoBehaviour {
         else
             transform.localScale = new Vector3(-1, 1, 1);
             */
+
+        //Vai setar o numero de player que estão em game
+        if(gameSystem.GetComponent<GameSystem>().nPlayerVivos.Count == 2)
+        {
+            players.Add( gameSystem.GetComponent<GameSystem>().nPlayerVivos[0].transform );
+            players.Add( gameSystem.GetComponent<GameSystem>().nPlayerVivos[1].transform );
+        }
+        else
+        {
+            players.Add( gameSystem.GetComponent<GameSystem>().nPlayerVivos[0].transform );
+        }
+
         enemySound = GetComponent<EnemySound>();
 
         lifeMax = life;
@@ -38,24 +56,73 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(!isDead)
+        
+
+        if (!isDead && players.Count > 1)
         {
-            if(colver == null)
+            players.RemoveAll(c => c == null);
+            modNPlayers();
+
+            if (colver == null)
                 Move();
+
 
             Attack();
         }
 
 	}
 
+
+    //Sinaliza aos Inimigos quantos players estão em jogo
+    private void modNPlayers()
+    {
+        if (gameSystem.GetComponent<GameSystem>().nPlayerVivos.Count > players.Count)
+        {
+            if(players[0].name != gameSystem.GetComponent<GameSystem>().nameplayer)
+            {
+                players.Add(GameObject.Find(gameSystem.GetComponent<GameSystem>().nameplayer).transform);
+            }
+        }
+        else if (gameSystem.GetComponent<GameSystem>().nPlayerVivos.Count < players.Count)
+        {
+            if (players[0].name == gameSystem.GetComponent<GameSystem>().nameplayer)
+            {
+                players.RemoveAt(0);
+            }
+            else
+            {
+                players.RemoveAt(1);
+            }
+        }
+    }
+
     private void Move()
     {
+
         distancePlayer = Vector3.Distance(players[0].position, transform.position);
-        if(distancePlayer <= distanceAttack)
+        menorDistancia = distancePlayer;
+        if (players.Count > 1)
+        {
+            distancePlayer2 = Vector3.Distance(players[1].position, transform.position);
+            if(distancePlayer <= distancePlayer2)
+            {
+                menorDistancia = distancePlayer;
+            }
+            else
+            {
+                menorDistancia = distancePlayer2;
+            }
+                
+        }
+
+        
+
+
+        if (menorDistancia <= distanceAttack)
         {
             if (!isIdPlayer)
             {
-                idPlayer = Random.Range(0,players.Length-1);
+                idPlayer = Random.Range(0,players.Count-1);
                 isIdPlayer = true;
             }
             if (transform.position.x > players[idPlayer].position.x)
@@ -159,7 +226,7 @@ public class Enemy : MonoBehaviour {
     private void Attack()
     {
         distancePlayer = Vector3.Distance(players[0].position, transform.position);
-        if (isAttack && !isColver)
+        if (isAttack && !isColver )
         {
                 enemySound.ShootSound();
                 objAnimado.GetComponent<Animator>().SetTrigger("atirou");
@@ -169,8 +236,8 @@ public class Enemy : MonoBehaviour {
         }
         else if (isColver && distancePlayer <= distanceAttack)
         {
-            if(life>0)
-                StartCoroutine("cowndownHide");
+                if(life>0)
+                    StartCoroutine("cowndownHide");
             isColver = false;
         }
     }
@@ -252,7 +319,6 @@ public class Enemy : MonoBehaviour {
         StopCoroutine("hideTrue");
     }
 
-
     //atraso no spawn da bullet para a saida do colver
     IEnumerator timerSpawnBullet()
     {
@@ -279,10 +345,9 @@ public class Enemy : MonoBehaviour {
 
         StopCoroutine("hideTrue");
     }
-
    
     //tempo de tiro sem colver
-    public IEnumerator cowdown()
+    IEnumerator cowdown()
     {
         yield return new WaitForSeconds(cowdownFire);
         isAttack = true;
@@ -294,7 +359,7 @@ public class Enemy : MonoBehaviour {
         StopCoroutine("cowdown");
     }
 
-    public IEnumerator morreu()
+    IEnumerator morreu()
     {
         yield return new WaitForSeconds(3);
         Destroy(gameObject);

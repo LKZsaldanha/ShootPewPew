@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Actor : MonoBehaviour {
     protected bool isground, isRight,isRasteira, isAgachado;
-    [SerializeField] protected float speed , jump, cooldownRasteira, speedRasteira, lifeMax, life;
-    [SerializeField] protected GameObject bullet, objAnimado;
+    [SerializeField] protected float speed , jump, cooldownRasteira, speedRasteira;
+    [SerializeField] protected GameObject bullet, objAnimado, gameSystem;
     [SerializeField] private string[] inputs;
     [SerializeField] private Transform[] localSpawnBullet, mira;
 
@@ -18,12 +18,18 @@ public class Actor : MonoBehaviour {
     private PlayerSound playerSound;
 
     //angulo para onde está a mira
-    public int aimAngle = 0;
+    public int aimAngle = 0, lifeMax, life;
 
     [SerializeField] private float inputDeadZoneValue;
 
+    private void Awake()
+    {
+        gameSystem = GameObject.Find("GameSystem");
+        gameSystem.GetComponent<GameSystem>().nPlayerVivos.Add(gameObject);
+    }
     // Use this for initialization
     void Start () {
+        
         isRight = true;
         lifeMax = life = 3;
         playerSound = GetComponent<PlayerSound>();
@@ -323,7 +329,6 @@ public class Actor : MonoBehaviour {
     
     private void baixo()
     {
-        print("baixo");
         objAnimado.GetComponent<Animator>().SetBool("cima", false);
         objAnimado.GetComponent<Animator>().SetBool("baixo", true);
         objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
@@ -334,7 +339,6 @@ public class Actor : MonoBehaviour {
 
     private void cima()
     {
-        print("cima");
         objAnimado.GetComponent<Animator>().SetBool("cima", true);
         objAnimado.GetComponent<Animator>().SetBool("baixo", false);
         objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
@@ -438,6 +442,7 @@ public class Actor : MonoBehaviour {
                 objAnimado.GetComponent<Animator>().SetBool("walk", false);
                 objAnimado.GetComponent<Animator>().SetTrigger("isDied");
 
+                gameSystem.GetComponent<GameSystem>().nPlayerAtivos(gameObject.name);
                 GetComponent<Actor>().enabled = false;
                
                 //Destroy(gameObject);
@@ -459,7 +464,12 @@ public class Actor : MonoBehaviour {
                 objAnimado.GetComponent<Animator>().SetBool("walk", false);
                 objAnimado.GetComponent<Animator>().SetTrigger("isDied");
 
+                gameSystem.GetComponent<GameSystem>().nPlayerAtivos(gameObject.name);
+
                 GetComponent<Actor>().enabled = false;
+                GetComponent<Rigidbody>().isKinematic = true;
+                GetComponent<Rigidbody>().useGravity = false;
+                GetComponent<BoxCollider>().enabled = false;
                 //Destroy(gameObject);
             }          
         }
