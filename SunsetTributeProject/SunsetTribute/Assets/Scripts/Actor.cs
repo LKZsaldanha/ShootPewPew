@@ -104,8 +104,6 @@ public class Actor : MonoBehaviour {
         {
             if(!isAgachado)
             {
-                /*  GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.3f, 1);
-                  objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, 0.23f, -0.3f);*/
                 colisorAgachar.GetComponent<BoxCollider>().enabled = true;
                 gameObject.GetComponent<BoxCollider>().enabled = false;
                 agacharAnim();
@@ -113,8 +111,6 @@ public class Actor : MonoBehaviour {
             }
             else
             {
-                /* GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.744769f, 1);
-                 objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, -0.23f, -0.3f);*/
                 colisorAgachar.GetComponent<BoxCollider>().enabled = false;
                 gameObject.GetComponent<BoxCollider>().enabled = true;
                 agacharAnim();
@@ -482,7 +478,6 @@ public class Actor : MonoBehaviour {
                 GetComponent<Rigidbody>().isKinematic = true;
                 GetComponent<Rigidbody>().useGravity = false;
                 GetComponent<BoxCollider>().enabled = false;
-                //Destroy(gameObject);
             }          
         }
 
@@ -504,6 +499,27 @@ public class Actor : MonoBehaviour {
             {
               gameObject.transform.position = new Vector3(transform.position.x, other.gameObject.GetComponent<SensorUp>().localUp.position.y, other.gameObject.GetComponent<SensorUp>().localUp.position.z);                       
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.name == "Quadrante1")
+        {
+            gameSystem.GetComponent<GameSystem>().quadranteSpawn1();
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.name == "Quadrante2")
+        {
+            gameSystem.GetComponent<GameSystem>().quadranteSpawn2();
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.name == "Quadrante3")
+        {
+            gameSystem.GetComponent<GameSystem>().quadranteSpawn3();
+            Destroy(other.gameObject);
         }
     }
 }

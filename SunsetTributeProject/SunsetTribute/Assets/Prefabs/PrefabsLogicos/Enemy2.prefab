@@ -1122,7 +1122,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4461108763863622}
-  - component: {fileID: 33337726387036502}
   - component: {fileID: 65760595872929528}
   - component: {fileID: 54517423824600004}
   - component: {fileID: 114324625359056390}
@@ -2587,7 +2586,7 @@ Transform:
   m_GameObject: {fileID: 1602888416257730}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 5.07, y: 2.59, z: 0.85}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4659777000646188}
   - {fileID: 4684009652565886}
@@ -3311,13 +3310,6 @@ Transform:
   m_Father: {fileID: 4787350586708166}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &33337726387036502
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1602888416257730}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54517423824600004
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -3478,17 +3470,18 @@ MonoBehaviour:
   cowdownFire: 1
   bullet: {fileID: 1157084308398432, guid: caa1e8279cf8811409f6d2e736a9c0d2, type: 2}
   objAnimado: {fileID: 1522101212598898}
+  gameSystem: {fileID: 0}
   itens: []
   spawnBullet:
   - {fileID: 4659777000646188}
-  players:
-  - {fileID: 0}
   mira:
   - {fileID: 4684009652565886}
   - {fileID: 4043222718571908}
   - {fileID: 4567712211778904}
   - {fileID: 4046530431503312}
   - {fileID: 4947193977695454}
+  players:
+  - {fileID: 0}
   mySpawn: {fileID: 0}
 --- !u!114 &114679069334076560
 MonoBehaviour:
