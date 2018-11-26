@@ -22,14 +22,21 @@ public class Actor : MonoBehaviour {
 
     [SerializeField] private float inputDeadZoneValue;
 
+    //colisores
+    private GameObject colisorRasteira, colisorAgachar;
+
     private void Awake()
     {
+        colisorRasteira = gameObject.transform.GetChild(0).gameObject;
+        colisorAgachar = gameObject.transform.GetChild(1).gameObject;
         gameSystem = GameObject.Find("GameSystem");
         gameSystem.GetComponent<GameSystem>().nPlayerVivos.Add(gameObject);
     }
     // Use this for initialization
     void Start () {
-        
+        colisorRasteira.GetComponent<BoxCollider>().enabled = false;
+        colisorAgachar.GetComponent<BoxCollider>().enabled = false;
+
         isRight = true;
         lifeMax = life = 3;
         playerSound = GetComponent<PlayerSound>();
@@ -71,12 +78,14 @@ public class Actor : MonoBehaviour {
             if(isRight)
             {
                 GetComponent<Rigidbody>().AddForce(speedRasteira, 0, 0);
-                GetComponent<BoxCollider>().size = new Vector3(3, 0.5f, 1);
+                colisorRasteira.GetComponent<BoxCollider>().enabled = true;
+                gameObject.GetComponent<BoxCollider>().enabled = false;
             }                
             else
             {
                 GetComponent<Rigidbody>().AddForce(-speedRasteira, 0, 0);
-                GetComponent<BoxCollider>().size = new Vector3(3, 0.5f, 1);
+                colisorRasteira.GetComponent<BoxCollider>().enabled = true;
+                gameObject.GetComponent<BoxCollider>().enabled = false;
             }
             rasteiraAnim();
             StartCoroutine("Rasteira");
@@ -95,15 +104,19 @@ public class Actor : MonoBehaviour {
         {
             if(!isAgachado)
             {
-                GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.3f, 1);
-                objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, 0.23f, -0.3f);
+                /*  GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.3f, 1);
+                  objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, 0.23f, -0.3f);*/
+                colisorAgachar.GetComponent<BoxCollider>().enabled = true;
+                gameObject.GetComponent<BoxCollider>().enabled = false;
                 agacharAnim();
                 isAgachado = true;
             }
             else
             {
-                GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.744769f, 1);
-                objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, -0.23f, -0.3f);
+                /* GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.744769f, 1);
+                 objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, -0.23f, -0.3f);*/
+                colisorAgachar.GetComponent<BoxCollider>().enabled = false;
+                gameObject.GetComponent<BoxCollider>().enabled = true;
                 agacharAnim();
                 isAgachado = false;
             }
@@ -379,11 +392,9 @@ public class Actor : MonoBehaviour {
     {
         if (isRasteira) { 
             objAnimado.GetComponent<Animator>().SetBool("isDash", true);
-            print("rasteira");
         }
         else
         {
-            transform.position = new Vector3(objAnimado.transform.position.x, 0.91f, -0.3f);
             objAnimado.GetComponent<Animator>().SetBool("isDash", false);
         }
     }
@@ -414,7 +425,8 @@ public class Actor : MonoBehaviour {
     IEnumerator Rasteira()
     {
         yield return new WaitForSeconds(cooldownRasteira);
-        GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.744769f, 1);
+        gameObject.GetComponent<BoxCollider>().enabled = true;
+        colisorRasteira.GetComponent<BoxCollider>().enabled = false;
         isRasteira = false;
         rasteiraAnim();        
         StopCoroutine("Rasteira");
