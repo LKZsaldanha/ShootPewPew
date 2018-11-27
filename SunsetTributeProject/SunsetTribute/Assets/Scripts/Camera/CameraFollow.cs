@@ -5,7 +5,8 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour {
 
 	public Transform target;
-	public bool showFocusArea = false;
+    public Transform target2;
+    public bool showFocusArea = false;
 	public Vector2 focusAreaSize;
 	public Vector2 offset;
 	public float zDistance = -20;
@@ -15,13 +16,23 @@ public class CameraFollow : MonoBehaviour {
 
 	private void Start()
 	{
+        
 		focusArea = new FocusArea(target.GetComponent<Collider2D>().bounds, focusAreaSize);
-
 	}
 
 	void LateUpdate()
-	{	
-		focusArea.Update(target.GetComponent<Collider2D>().bounds);
+	{
+        if (target == null){ 
+            if (target2 != null) {
+                target = target2;
+                target2 = null;
+            }
+        }
+        if (target2 == null)
+        {
+            target2 = target;
+        }
+        focusArea.Update(target.GetComponent<Collider2D>().bounds, target2.GetComponent<Collider2D>().bounds);
 		Vector2 focusPosition = focusArea.center + offset;
 
 		transform.position = (Vector3)focusPosition + Vector3.forward * zDistance;
@@ -42,19 +53,20 @@ public class CameraFollow : MonoBehaviour {
 		public Vector2 velocity;
 
 		float left, right;
-		float top, bottom;
+        float top, bottom;
 
-		public FocusArea (Bounds targetBounds, Vector2 size) {
+        public FocusArea (Bounds targetBounds, Vector2 size) {
 			left = targetBounds.center.x - size.x/2;
 			right = targetBounds.center.x + size.x/2;
 			bottom = targetBounds.min.y - size.y/2;
 			top = targetBounds.min.y + size.y/2;
 
-			velocity = Vector2.zero;
+            velocity = Vector2.zero;
 			center = new Vector2((left + right) / 2,(bottom + top) / 2);
 		}
 
-		public void Update (Bounds targetBounds){
+		public void Update (Bounds targetBounds, Bounds targetBounds2)
+        {
 			float shiftX = 0;
 			if(targetBounds.min.x < left)
 			{
@@ -65,22 +77,36 @@ public class CameraFollow : MonoBehaviour {
 			{
                 //desloca a camera para a direita
                 shiftX = targetBounds.max.x - right;
-			}
-			left += shiftX;
+			}else if(targetBounds2.min.x < left)
+
+            {
+                //desloca a camera para a esquerda
+                //shiftX = targetBounds.min.x - left;
+            }
+			else if (targetBounds2.max.x > right)
+            {
+                //desloca a camera para a direita
+                shiftX = targetBounds2.max.x - right;
+            }
+            left += shiftX;
 			right += shiftX;
 
 			float shiftY = 0;
-			if(targetBounds.min.y < bottom)
+
+            float averageMinY = (targetBounds.min.y + targetBounds2.min.y) / 2;
+            float averageMaxY = (targetBounds.max.y + targetBounds2.max.y) / 2;
+
+            if (averageMinY < bottom)
 			{
                 //desloca a camera para baixo
-                shiftY = targetBounds.min.y - bottom;
+                shiftY = averageMinY - bottom;
 			}
-			else if (targetBounds.max.y > top)
+			else if (averageMaxY > top)
 			{
                 //desloca a camera para cima
-                shiftY = targetBounds.max.y - top;
+                shiftY = averageMaxY - top;
 			}
-			top += shiftY;
+            top += shiftY;
 			bottom += shiftY;
 
 			center = new Vector2((left + right) / 2,(bottom + top) / 2);

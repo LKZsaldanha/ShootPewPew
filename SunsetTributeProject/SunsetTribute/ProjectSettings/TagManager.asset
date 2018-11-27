@@ -10,6 +10,8 @@ TagManager:
   - chaoUp
   - Enemy
   - Colver
+  - bomb
+  - Bomb
   layers:
   - Default
   - TransparentFX
