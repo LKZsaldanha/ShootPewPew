@@ -61,7 +61,6 @@ public class Actor : MonoBehaviour {
         {
             GetComponent<Rigidbody>().AddForce(0, -gravity * Time.deltaTime, 0);
         }
-
     }
 
     private void Move()
