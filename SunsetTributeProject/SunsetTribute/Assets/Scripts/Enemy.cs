@@ -156,7 +156,7 @@ public class Enemy : MonoBehaviour {
                 objAnimado.GetComponent<Animator>().SetBool("idle", false);
             }
 
-            if (players[idPlayer].position.y < transform.position.y -1f)
+            if (players[idPlayer].position.y < transform.position.y -0.5f && players[idPlayer].position.y > transform.position.y + 0.5f)
             {
                 if(distancePlayer > DiagMinimo)
                 {
