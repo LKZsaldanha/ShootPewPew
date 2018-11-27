@@ -22,6 +22,12 @@ public class CameraFollow : MonoBehaviour {
 
 	void LateUpdate()
 	{
+        if (target == null){ 
+            if (target2 != null) {
+                target = target2;
+                target2 = null;
+            }
+        }
         if (target2 == null)
         {
             target2 = target;
