@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Actor : MonoBehaviour {
     protected bool isground, isRight,isRasteira, isAgachado;
+    [SerializeField] private float gravity = 15f;
     [SerializeField] protected float speed , jump, cooldownRasteira, speedRasteira;
     [SerializeField] protected GameObject bullet, objAnimado, gameSystem;
     [SerializeField] private string[] inputs;
@@ -55,6 +56,11 @@ public class Actor : MonoBehaviour {
         }
         
         SetAimStatus();
+
+        if (!isground)
+        {
+            GetComponent<Rigidbody>().AddForce(0, -gravity * Time.deltaTime, 0);
+        }
 
     }
 
