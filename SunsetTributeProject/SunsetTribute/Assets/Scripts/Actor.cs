@@ -424,7 +424,9 @@ public class Actor : MonoBehaviour {
         gameObject.GetComponent<BoxCollider>().enabled = true;
         colisorRasteira.GetComponent<BoxCollider>().enabled = false;
         isRasteira = false;
-        rasteiraAnim();        
+        rasteiraAnim();
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         StopCoroutine("Rasteira");
     }
 
