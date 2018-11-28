@@ -4675,7 +4675,8 @@ AudioSource:
   m_GameObject: {fileID: 1245349217530386}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243268538974119154, guid: 7007f80cae543cd49802dcb030b39fd1,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -4791,7 +4792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3ace194773a2e4a8ba610e718b50b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 8300000, guid: 7a0e0d046d22e8e4e82d904cc7e26cdc, type: 3}
+  dead: {fileID: 8300000, guid: fbee75e088ee62241a3b43d536977c7b, type: 3}
 --- !u!114 &114657029919041592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4807,7 +4808,7 @@ MonoBehaviour:
   jump: 500
   cooldownRasteira: 0.3
   speedRasteira: 700
-  bullet: {fileID: 1885454868243236, guid: c1eddc9db60425a4e9d7b216a2b33fc7, type: 2}
+  bullet: {fileID: 1885454868243236, guid: 7c370a6773bb6a240a4e2341753be7cc, type: 2}
   objAnimado: {fileID: 1920758545162022}
   gameSystem: {fileID: 0}
   inputs:

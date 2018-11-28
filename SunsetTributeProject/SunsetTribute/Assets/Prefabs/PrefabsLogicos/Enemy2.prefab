@@ -3345,9 +3345,10 @@ AudioSource:
   m_GameObject: {fileID: 1602888416257730}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243281782681103732, guid: 7007f80cae543cd49802dcb030b39fd1,
+    type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3494,7 +3495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25788e46441fe9446ab6108453089d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 8300000, guid: 4338660be1b13b647933a4aa2c104e21, type: 3}
+  dead: {fileID: 8300000, guid: 003e27b1841d17c41906ea7ad726599b, type: 3}
 --- !u!137 &137021700292599872
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

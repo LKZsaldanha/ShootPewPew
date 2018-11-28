@@ -308,7 +308,7 @@ public class EnemyB : MonoBehaviour {
             }
             else { 
                  print("Atirou");
-                enemySound.ShootSound();
+                //enemySound.ShootSound();
                 objAnimado.GetComponent<Animator>().SetTrigger("atirou");
                 Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
                 isAttack = false;
@@ -356,6 +356,8 @@ public class EnemyB : MonoBehaviour {
                 objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
                 objAnimado.GetComponent<Animator>().SetBool("baixo", false);
                 objAnimado.GetComponent<Animator>().SetBool("idle", false);
+
+                enemySound.DeadSound();
 
                 objAnimado.GetComponent<Animator>().SetTrigger("isDied");
                 GetComponent<BoxCollider>().enabled = false;
@@ -426,7 +428,7 @@ public class EnemyB : MonoBehaviour {
         yield return new WaitForSeconds(0.1f);
         if(life>0)
         {
-            enemySound.ShootSound();
+            //enemySound.ShootSound();
 
             //posição e rotação da mira (frente)
             if (transform.localScale.x == 1)

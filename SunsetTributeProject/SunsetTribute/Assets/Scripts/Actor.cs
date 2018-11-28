@@ -363,7 +363,7 @@ public class Actor : MonoBehaviour {
 
     private void atirouAnim()
     {
-        playerSound.ShootSound();//toca som de tiro no script PlayerSound
+        //playerSound.ShootSound();//toca som de tiro no script PlayerSound
         objAnimado.GetComponent<Animator>().SetTrigger("atirou");
     }
 
@@ -478,6 +478,8 @@ public class Actor : MonoBehaviour {
                 objAnimado.GetComponent<Animator>().SetBool("idle", false);
                 objAnimado.GetComponent<Animator>().SetBool("walk", false);
                 objAnimado.GetComponent<Animator>().SetTrigger("isDied");
+
+                playerSound.DeadSound();
 
                 gameSystem.GetComponent<GameSystem>().nPlayerAtivos(gameObject.name);
 
