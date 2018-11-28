@@ -415,6 +415,7 @@ ModelImporter:
     100818: WGT-rig_VIS_upper_arm_ik_pole.R
     100820: WGTS_rig
     100822: Enemy2_Gun
+    100824: Arm_WeaponBone.R 1
     400000: Arm_WeaponBone.L
     400002: Arm_WeaponBone.R
     400004: breast.L
@@ -827,6 +828,7 @@ ModelImporter:
     400818: WGT-rig_VIS_upper_arm_ik_pole.R
     400820: WGTS_rig
     400822: Enemy2_Gun
+    400824: Arm_WeaponBone.R 1
     2100000: belt
     2100002: mask
     2100004: pants
@@ -1389,6 +1391,9 @@ ModelImporter:
     7400026: rig|SpotAction
     7400028: rig|BombTaking
     7400030: rig|BombTakingThrowing
+    7400032: rig|bombTaking
+    7400034: rig|bombThrowing
+    7400036: rig|WalkBehind
     9500000: //RootNode
     13700000: Enemy2_Bag
     13700002: Enemy2_Body
@@ -1791,10 +1796,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: rig|BombTaking
-      takeName: rig|BombTaking
+      name: rig|bombTaking
+      takeName: rig|bombTaking
       firstFrame: 0
-      lastFrame: 1
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1819,8 +1824,36 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: rig|BombTakingThrowing
-      takeName: rig|BombTakingThrowing
+      name: rig|bombThrowing
+      takeName: rig|bombThrowing
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|WalkBehind
+      takeName: rig|WalkBehind
       firstFrame: 0
       lastFrame: 15
       wrapMode: 0
