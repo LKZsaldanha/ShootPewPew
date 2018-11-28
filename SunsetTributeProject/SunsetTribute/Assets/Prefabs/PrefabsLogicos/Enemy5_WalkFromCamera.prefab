@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 82873732807564458}
   - component: {fileID: 114962606222772684}
   m_Layer: 10
-  m_Name: Enemy5_WalkFromCamera 1
+  m_Name: Enemy5_WalkFromCamera
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

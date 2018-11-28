@@ -3472,6 +3472,7 @@ MonoBehaviour:
   bullet: {fileID: 1157084308398432, guid: caa1e8279cf8811409f6d2e736a9c0d2, type: 2}
   objAnimado: {fileID: 1522101212598898}
   gameSystem: {fileID: 0}
+  colisorHide: {fileID: 0}
   itens: []
   spawnBullet:
   - {fileID: 4659777000646188}
