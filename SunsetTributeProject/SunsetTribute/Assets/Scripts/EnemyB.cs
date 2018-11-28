@@ -70,6 +70,7 @@ public class EnemyB : MonoBehaviour {
 	void Update () {
         players.RemoveAll(c => c == null);
 
+        //Aqui deve-se ser inserido as animações pré-Violencia (antes do tiroteio)
         if (blockAction)
         {
             if(!isShowing){
@@ -78,6 +79,21 @@ public class EnemyB : MonoBehaviour {
                 {
                     blockAction = false;
                 }
+            print("block");
+            distancePlayer = Vector3.Distance(players[0].position, transform.position);
+            menorDistancia = distancePlayer;
+
+            if(players.Count>1)
+                distancePlayer2 = Vector3.Distance(players[1].position, transform.position);
+            if (distancePlayer > distancePlayer2)
+                menorDistancia = distancePlayer2;
+            else
+                menorDistancia = distancePlayer;
+
+            if (menorDistancia < distanceAttack)
+            {
+                print("block false");
+                blockAction = false;
             }
         }
         else
@@ -134,6 +150,7 @@ public class EnemyB : MonoBehaviour {
 
     private void Move()
     {
+        print("Move");
         if (players.Count != 0)
         {
             distancePlayer = Vector3.Distance(players[0].position, transform.position);
@@ -178,7 +195,7 @@ public class EnemyB : MonoBehaviour {
                     transform.localScale = new Vector3(1, 1, 1);
 
                 //mesmo nivel de altura do player
-                if (players[idPlayer].position.y <= 1.9f)
+                if (players[idPlayer].position.y < transform.position.y + 0.5f && players[idPlayer].position.y > transform.position.y - 0.5f)
                 {
                     StartCoroutine("cowdown");
 
@@ -204,7 +221,7 @@ public class EnemyB : MonoBehaviour {
                     objAnimado.GetComponent<Animator>().SetBool("baixo", false);
                     objAnimado.GetComponent<Animator>().SetBool("idle", false);
                 }
-
+                else
                 if (players[idPlayer].position.y < transform.position.y)
                 {
                     if (distancePlayer > DiagMinimo)
@@ -232,8 +249,8 @@ public class EnemyB : MonoBehaviour {
                     }
 
                 }
-
-                if (players[idPlayer].position.y > 2.5f && menorDistancia > 2)
+                else
+                if (players[idPlayer].position.y > transform.position.y && menorDistancia > 2)
                 {
                     if (distancePlayer > DiagMinimo)
                     {
@@ -262,7 +279,7 @@ public class EnemyB : MonoBehaviour {
 
                 }
                 //cima
-                if (players[idPlayer].position.y > 2.4f)
+                else if (players[idPlayer].position.y > 2.4f)
                 {
                     if (players[idPlayer].position.x > transform.position.x - 0.5f && players[idPlayer].position.x < transform.position.x + 0.5f)
                     {
@@ -336,6 +353,7 @@ public class EnemyB : MonoBehaviour {
 
     private void Attack()
     {
+        print("attack");
         if (players.Count != 0)
         {
             distancePlayer = Vector3.Distance(players[0].position, transform.position);
@@ -368,6 +386,7 @@ public class EnemyB : MonoBehaviour {
 
     IEnumerator throwBombCooldown()
     {
+        print("Bombaaa");
         if (canThrow)
         {
             //yield return new WaitForSeconds(timerToThrowBomb);

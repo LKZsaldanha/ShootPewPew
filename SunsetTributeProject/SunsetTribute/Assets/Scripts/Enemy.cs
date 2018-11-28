@@ -5,20 +5,20 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
     //baixoMinimo é o valor minimo para chamar a animação de mira baixa e o baixoMaximo a mesma coisa
-    [SerializeField] private float life,DiagMinimo,baixoMinimo,baixoMaximo;
-    [SerializeField] private float speed, distanceAttack, cowdownFire;
-    [SerializeField] private GameObject bullet,objAnimado, gameSystem;
-    [SerializeField] private List<GameObject> itens;
-    [SerializeField] private Transform[] spawnBullet, mira;
-    [SerializeField] private List<Transform> players;
-    [SerializeField] private Transform mySpawn;
+    [SerializeField] protected float life,DiagMinimo,baixoMinimo,baixoMaximo;
+    [SerializeField] protected float speed, distanceAttack, cowdownFire;
+    [SerializeField] protected GameObject bullet,objAnimado, gameSystem, colisorHide;
+    [SerializeField] protected List<GameObject> itens;
+    [SerializeField] protected Transform[] spawnBullet, mira;
+    [SerializeField] protected List<Transform> players;
+    [SerializeField] protected Transform mySpawn;
 
-    private bool blockAction;
+    protected bool blockAction;
 
-    private GameObject colver;
-    private bool isRight, isAttack, isIdPlayer, isDead, isColver, lookinPlayer;
-    private float lifeMax, distancePlayer, distancePlayer2, menorDistancia;
-    private int idPlayer;
+    protected GameObject colver;
+    protected bool isRight, isAttack, isIdPlayer, isDead, isColver, lookinPlayer;
+    protected float lifeMax, distancePlayer, distancePlayer2, menorDistancia;
+    protected int idPlayer;
 
     private EnemySound enemySound;
 
@@ -45,16 +45,25 @@ public class Enemy : MonoBehaviour {
 
         lifeMax = life;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    protected void Update () {
         players.RemoveAll(c => c == null);
 
         //Aqui deve-se ser inserido as animações pré-Violencia (antes do tiroteio)
         if (blockAction)
         {
             distancePlayer = Vector3.Distance(players[0].position, transform.position);
-            if(distancePlayer < distanceAttack)
+            menorDistancia = distancePlayer;
+
+            if (players.Count > 1)
+                distancePlayer2 = Vector3.Distance(players[1].position, transform.position);
+            if (distancePlayer > distancePlayer2)
+                menorDistancia = distancePlayer2;
+            else
+                menorDistancia = distancePlayer;
+
+            if (menorDistancia < distanceAttack)
             {
                 blockAction = false;
             }
@@ -159,10 +168,10 @@ public class Enemy : MonoBehaviour {
                         transform.localScale = new Vector3(1, 1, 1);
 
                     //mesmo nivel de altura do player
-                    if (players[idPlayer].position.y <= 1.9f)
+                    if (players[idPlayer].position.y < transform.position.y + 0.5f && players[idPlayer].position.y > transform.position.y - 0.5f)
                     {
                         StartCoroutine("cowdown");
-
+                        print(""+gameObject.name);
                         //posição e rotação da mira (frente)
                         if (transform.localScale.x == 1)
                         {
@@ -184,8 +193,8 @@ public class Enemy : MonoBehaviour {
                         objAnimado.GetComponent<Animator>().SetBool("baixo", false);
                         objAnimado.GetComponent<Animator>().SetBool("idle", false);
                     }
-
-                    if (players[idPlayer].position.y < transform.position.y - 0.5f && players[idPlayer].position.y > transform.position.y + 0.5f)
+                    else
+                    if (players[idPlayer].position.y < transform.position.y)
                     {
                         if (distancePlayer > DiagMinimo)
                         {
@@ -212,8 +221,8 @@ public class Enemy : MonoBehaviour {
                         }
 
                     }
-
-                    if (players[idPlayer].position.y > 2.5f && menorDistancia > 2)
+                    else
+                    if (players[idPlayer].position.y > transform.position.y && menorDistancia > 2)
                     {
                         if (distancePlayer > DiagMinimo)
                         {
@@ -242,7 +251,7 @@ public class Enemy : MonoBehaviour {
 
                     }
                     //cima
-                    if (players[idPlayer].position.y > 2.4f)
+                    else if (players[idPlayer].position.y > 2.4f)
                     {
                         if (players[idPlayer].position.x > transform.position.x - 0.5f && players[idPlayer].position.x < transform.position.x + 0.5f)
                         {
@@ -272,7 +281,7 @@ public class Enemy : MonoBehaviour {
                     }
 
                     //baixo
-                    if (players[idPlayer].position.y < 2.0f && menorDistancia < 1)
+                    else if (players[idPlayer].position.y < 2.0f && menorDistancia < 1)
                     {
                         if (players[idPlayer].position.x > transform.position.x - 0.5f && players[idPlayer].position.x < transform.position.x + 0.5f)
                         {
@@ -373,11 +382,7 @@ public class Enemy : MonoBehaviour {
             colver = other.gameObject;
             isColver = true;
 
-            //diminui o colisor para a bullet não acertar ele se o player estiver na mesma altura
-            GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.23f, 1);
-            objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, 0.23f, -0.3f);
-
-            objAnimado.GetComponent<Animator>().SetBool("isHide", true);
+            StartCoroutine("hideTrue");
         }
     }
 
@@ -389,8 +394,9 @@ public class Enemy : MonoBehaviour {
         {
             objAnimado.GetComponent<Animator>().SetBool("isHide", false);
             //normaliza o colisor para a bullet poder acertar ele se o player estiver na mesma altura ou nao
-            GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.744769f, 1);
-            objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, -0.23f, -0.3f);
+            GetComponent<BoxCollider>().enabled = true;
+            colisorHide.GetComponent<BoxCollider>().enabled = false;
+
 
             objAnimado.GetComponent<Animator>().SetTrigger("isHideAttack");
 
@@ -403,13 +409,13 @@ public class Enemy : MonoBehaviour {
     //ativa o Hide / colver
     IEnumerator hideTrue()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1);
         if (life > 0)
         {
             objAnimado.GetComponent<Animator>().SetBool("isHide", true);
             //diminui o colisor para a bullet não acertar ele se o player estiver na mesma altura
-            GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.23f, 1);
-            objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, 0.23f, -0.3f);
+            GetComponent<BoxCollider>().enabled = false;
+            colisorHide.GetComponent<BoxCollider>().enabled = true;
 
 
             StartCoroutine("timerSpawnBullet");
