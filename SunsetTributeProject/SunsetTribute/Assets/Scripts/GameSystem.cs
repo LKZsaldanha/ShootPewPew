@@ -15,7 +15,7 @@ public class GameSystem : MonoBehaviour {
     //[SerializeField] private List<GameObject> enemys;
     [SerializeField] private List<Transform> quadrante1;
 
-    private int numberSpawn;
+    public int numberSpawn;//forçar spawn a ser mostrado
     /// <summary>
     /// Ao chamar o metodo deve colocar o nome do player para
     /// a função remover o player morto correto da lista
@@ -23,7 +23,7 @@ public class GameSystem : MonoBehaviour {
     /// <param name="namePlayer"></param>
     void Start()
     {
-        numberSpawn = 0;
+        //numberSpawn = 0;
     }
     public void nPlayerAtivos(string namePlayer)
     {
