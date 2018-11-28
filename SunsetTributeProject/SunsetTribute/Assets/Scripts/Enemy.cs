@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private List<Transform> players;
     [SerializeField] private Transform mySpawn;
 
+    private bool blockAction;
+
     private GameObject colver;
     private bool isRight, isAttack, isIdPlayer, isDead, isColver, lookinPlayer;
     private float lifeMax, distancePlayer, distancePlayer2, menorDistancia;
@@ -22,6 +24,7 @@ public class Enemy : MonoBehaviour {
 
     private void Awake()
     {
+        blockAction = true;
         gameSystem = GameObject.Find("GameSystem");
     }
 
@@ -45,28 +48,44 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        players.RemoveAll(c => c == null);
 
-
-        if (!isDead && players.Count >= 1)
+        //Aqui deve-se ser inserido as animações pré-Violencia (antes do tiroteio)
+        if (blockAction)
         {
-            if (transform.position.x < players[players.Count-1].position.x)
+            distancePlayer = Vector3.Distance(players[0].position, transform.position);
+            if(distancePlayer < distanceAttack)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                blockAction = false;
             }
-            else
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-
-            players.RemoveAll(c => c == null);
-            modNPlayers();
-
-            if (colver == null)
-                Move();
-
-
-            Attack();
         }
+        else
+        {
+            if (players.Count != 0)
+            {
+                distancePlayer = Vector3.Distance(players[0].position, transform.position);
+                if (!isDead && players.Count >= 1)
+                {
+                    if (transform.position.x < players[players.Count - 1].position.x)
+                    {
+                        transform.localScale = new Vector3(1, 1, 1);
+                    }
+                    else
+                    {
+                        transform.localScale = new Vector3(-1, 1, 1);
+                    }
+
+                    modNPlayers();
+
+                    if (colver == null)
+                        Move();
+
+
+                    Attack();
+                }
+            }
+        }
+            
 
 	}
 
@@ -96,211 +115,228 @@ public class Enemy : MonoBehaviour {
 
     private void Move()
     {
-
-        distancePlayer = Vector3.Distance(players[0].position, transform.position);
-        menorDistancia = distancePlayer;
-        if (players.Count > 1)
+        if (players.Count != 0)
         {
-            distancePlayer2 = Vector3.Distance(players[1].position, transform.position);
-            if(distancePlayer <= distancePlayer2)
+            distancePlayer = Vector3.Distance(players[0].position, transform.position);
+            menorDistancia = distancePlayer;
+            if (players.Count > 1)
             {
-                menorDistancia = distancePlayer;
-            }
-            else
-            {
-                menorDistancia = distancePlayer2;
-            }
-                
-        }
-
-        
-
-
-        if (menorDistancia <= distanceAttack)
-        {
-            if (!isIdPlayer)
-            {
-                idPlayer = Random.Range(0,players.Count);
-                isIdPlayer = true;
-            }
-
-            if (transform.position.x > players[idPlayer].position.x)
-                transform.localScale = new Vector3(-1, 1, 1);
-            else
-                transform.localScale = new Vector3(1, 1, 1);
-
-            //mesmo nivel de altura do player
-            if (players[idPlayer].position.y <= 1.9f )
-            {
-                StartCoroutine("cowdown");
-
-                //posição e rotação da mira (frente)
-                if(transform.localScale.x == 1)
+                distancePlayer2 = Vector3.Distance(players[1].position, transform.position);
+                if (distancePlayer <= distancePlayer2)
                 {
-                    spawnBullet[0].position = mira[2].position;
-                    spawnBullet[0].rotation = Quaternion.Euler(180, 90, 0);
+                    menorDistancia = distancePlayer;
                 }
                 else
                 {
-                    //(Costas)
-                    spawnBullet[0].position = mira[2].position;
-                    spawnBullet[0].rotation = Quaternion.Euler(0, 90, 0);
+                    menorDistancia = distancePlayer2;
                 }
 
-                objAnimado.GetComponent<Animator>().SetBool("cima", false);
-                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+            }
+
+
+
+
+            if (menorDistancia <= distanceAttack)
+            {
+                if (!isIdPlayer)
+                {
+                    idPlayer = Random.Range(0, players.Count);
+                    isIdPlayer = true;
+                }
+
+                //caso tiver apenas um player em jogo o idPlayer fica em 0
+                if (players.Count == 1)
+                {
+                    idPlayer = 0;
+                }
+
+                //caso não haja player em jogo esse processo não ativa
+                if (players.Count != 0)
+                {
+                    if (transform.position.x > players[idPlayer].position.x)
+                        transform.localScale = new Vector3(-1, 1, 1);
+                    else
+                        transform.localScale = new Vector3(1, 1, 1);
+
+                    //mesmo nivel de altura do player
+                    if (players[idPlayer].position.y <= 1.9f)
+                    {
+                        StartCoroutine("cowdown");
+
+                        //posição e rotação da mira (frente)
+                        if (transform.localScale.x == 1)
+                        {
+                            spawnBullet[0].position = mira[2].position;
+                            spawnBullet[0].rotation = Quaternion.Euler(180, 90, 0);
+                        }
+                        else
+                        {
+                            //(Costas)
+                            spawnBullet[0].position = mira[2].position;
+                            spawnBullet[0].rotation = Quaternion.Euler(0, 90, 0);
+                        }
+
+                        objAnimado.GetComponent<Animator>().SetBool("cima", false);
+                        objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                        objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                        objAnimado.GetComponent<Animator>().SetBool("frente", true);
+                        objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                        objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                        objAnimado.GetComponent<Animator>().SetBool("idle", false);
+                    }
+
+                    if (players[idPlayer].position.y < transform.position.y - 0.5f && players[idPlayer].position.y > transform.position.y + 0.5f)
+                    {
+                        if (distancePlayer > DiagMinimo)
+                        {
+                            StartCoroutine("cowdown");
+                            //posição e rotação da mira (diagonal Baixo frente)
+                            if (transform.localScale.x == 1)
+                            {
+                                spawnBullet[0].position = mira[3].position;
+                                spawnBullet[0].rotation = Quaternion.Euler(225, 90, 0);
+                            }
+                            else
+                            {
+                                //(diagonal Baixo Costas)
+                                spawnBullet[0].position = mira[3].position;
+                                spawnBullet[0].rotation = Quaternion.Euler(315, 90, 0);
+                            }
+                            objAnimado.GetComponent<Animator>().SetBool("cima", false);
+                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                            objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", true);
+                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                            objAnimado.GetComponent<Animator>().SetBool("idle", false);
+                        }
+
+                    }
+
+                    if (players[idPlayer].position.y > 2.5f && menorDistancia > 2)
+                    {
+                        if (distancePlayer > DiagMinimo)
+                        {
+                            StartCoroutine("cowdown");
+                            //posição e rotação da mira (diagonal cima frente)
+                            if (transform.localScale.x == 1)
+                            {
+                                spawnBullet[0].position = mira[1].position;
+                                spawnBullet[0].rotation = Quaternion.Euler(135, 90, 0);
+                            }
+                            else
+                            {
+                                //(diagonal cima Costas)
+                                spawnBullet[0].position = mira[1].position;
+                                spawnBullet[0].rotation = Quaternion.Euler(405, 90, 0);
+                            }
+                            objAnimado.GetComponent<Animator>().SetBool("cima", false);
+                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                            objAnimado.GetComponent<Animator>().SetBool("DiagCima", true);
+                            objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                            objAnimado.GetComponent<Animator>().SetBool("idle", false);
+                        }
+
+
+                    }
+                    //cima
+                    if (players[idPlayer].position.y > 2.4f)
+                    {
+                        if (players[idPlayer].position.x > transform.position.x - 0.5f && players[idPlayer].position.x < transform.position.x + 0.5f)
+                        {
+                            //posição e rotação da mira (Cima frente)
+                            if (transform.localScale.x == 1)
+                            {
+                                spawnBullet[0].position = mira[0].position;
+                                spawnBullet[0].rotation = Quaternion.Euler(135, 90, 0);
+                            }
+                            else
+                            {
+                                //(diagonal cima Costas)
+                                spawnBullet[0].position = mira[0].position;
+                                spawnBullet[0].rotation = Quaternion.Euler(405, 90, 0);
+                            }
+
+                            objAnimado.GetComponent<Animator>().SetBool("cima", true);
+                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                            objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                            objAnimado.GetComponent<Animator>().SetBool("idle", false);
+                        }
+
+
+                    }
+
+                    //baixo
+                    if (players[idPlayer].position.y < 2.0f && menorDistancia < 1)
+                    {
+                        if (players[idPlayer].position.x > transform.position.x - 0.5f && players[idPlayer].position.x < transform.position.x + 0.5f)
+                        {
+                            //posição e rotação da mira (Baixo frente)
+                            if (transform.localScale.x == 1)
+                            {
+                                spawnBullet[0].position = mira[4].position;
+                                spawnBullet[0].rotation = Quaternion.Euler(90, 90, 0);
+                            }
+                            else
+                            {
+                                //(diagonal Baixo Costas)
+                                spawnBullet[0].position = mira[4].position;
+                                spawnBullet[0].rotation = Quaternion.Euler(270, 90, 0);
+                            }
+
+                            objAnimado.GetComponent<Animator>().SetBool("baixo", true);
+                            objAnimado.GetComponent<Animator>().SetBool("cima", false);
+                            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                            objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                            objAnimado.GetComponent<Animator>().SetBool("idle", false);
+                        }
+                    }
+                }
+
+
+            }
+            else
+            {
+                StopCoroutine("cowdown");
                 objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-                objAnimado.GetComponent<Animator>().SetBool("frente", true);
+                objAnimado.GetComponent<Animator>().SetBool("frente", false);
                 objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
                 objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                objAnimado.GetComponent<Animator>().SetBool("idle", false);
+                objAnimado.GetComponent<Animator>().SetBool("idle", true);
             }
-
-            if (players[idPlayer].position.y < transform.position.y -0.5f && players[idPlayer].position.y > transform.position.y + 0.5f)
-            {
-                if(distancePlayer > DiagMinimo)
-                {
-                    StartCoroutine("cowdown");
-                    //posição e rotação da mira (diagonal Baixo frente)
-                    if (transform.localScale.x == 1)
-                    {
-                        spawnBullet[0].position = mira[3].position;
-                        spawnBullet[0].rotation = Quaternion.Euler(225, 90, 0);
-                    }
-                    else
-                    {
-                        //(diagonal Baixo Costas)
-                        spawnBullet[0].position = mira[3].position;
-                        spawnBullet[0].rotation = Quaternion.Euler(315, 90, 0);
-                    }
-                    objAnimado.GetComponent<Animator>().SetBool("cima", false);
-                    objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                    objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-                    objAnimado.GetComponent<Animator>().SetBool("frente", false);
-                    objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", true);
-                    objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                    objAnimado.GetComponent<Animator>().SetBool("idle", false);
-                }
-
-            }
-
-            if (players[idPlayer].position.y > 2.5f && menorDistancia > 2)
-            {
-                if (distancePlayer > DiagMinimo)
-                {
-                    StartCoroutine("cowdown");
-                    //posição e rotação da mira (diagonal cima frente)
-                    if (transform.localScale.x == 1)
-                    {
-                        spawnBullet[0].position = mira[1].position;
-                        spawnBullet[0].rotation = Quaternion.Euler(135, 90, 0);
-                    }
-                    else
-                    {
-                        //(diagonal cima Costas)
-                        spawnBullet[0].position = mira[1].position;
-                        spawnBullet[0].rotation = Quaternion.Euler(405, 90, 0);
-                    }
-                    objAnimado.GetComponent<Animator>().SetBool("cima", false);
-                    objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                    objAnimado.GetComponent<Animator>().SetBool("DiagCima", true);
-                    objAnimado.GetComponent<Animator>().SetBool("frente", false);
-                    objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-                    objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                    objAnimado.GetComponent<Animator>().SetBool("idle", false);
-                }
-
-
-            }
-            //cima
-            if (players[idPlayer].position.y > 2.4f)
-            {
-                if(players[idPlayer].position.x > transform.position.x - 0.5f && players[idPlayer].position.x < transform.position.x + 0.5f)
-                {
-                    //posição e rotação da mira (Cima frente)
-                    if (transform.localScale.x == 1)
-                    {
-                        spawnBullet[0].position = mira[0].position;
-                        spawnBullet[0].rotation = Quaternion.Euler(135, 90, 0);
-                    }
-                    else
-                    {
-                        //(diagonal cima Costas)
-                        spawnBullet[0].position = mira[0].position;
-                        spawnBullet[0].rotation = Quaternion.Euler(405, 90, 0);
-                    }
-
-                    objAnimado.GetComponent<Animator>().SetBool("cima", true);
-                    objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                    objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-                    objAnimado.GetComponent<Animator>().SetBool("frente", false);
-                    objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-                    objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                    objAnimado.GetComponent<Animator>().SetBool("idle", false);
-                }
-          
-
-            }
-
-            //baixo
-            if (players[idPlayer].position.y < 2.0f && menorDistancia < 1)
-            {
-                if (players[idPlayer].position.x > transform.position.x - 0.5f && players[idPlayer].position.x < transform.position.x + 0.5f)
-                {
-                    //posição e rotação da mira (Baixo frente)
-                    if (transform.localScale.x == 1)
-                    {
-                        spawnBullet[0].position = mira[4].position;
-                        spawnBullet[0].rotation = Quaternion.Euler(90, 90, 0);
-                    }
-                    else
-                    {
-                        //(diagonal Baixo Costas)
-                        spawnBullet[0].position = mira[4].position;
-                        spawnBullet[0].rotation = Quaternion.Euler(270, 90, 0);
-                    }
-
-                    objAnimado.GetComponent<Animator>().SetBool("baixo", true);
-                    objAnimado.GetComponent<Animator>().SetBool("cima", false);
-                    objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-                    objAnimado.GetComponent<Animator>().SetBool("frente", false);
-                    objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-                    objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                    objAnimado.GetComponent<Animator>().SetBool("idle", false);
-                }
-            }
-
-        }
-        else
-        {
-            StopCoroutine("cowdown");
-            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-            objAnimado.GetComponent<Animator>().SetBool("frente", false);
-            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-            objAnimado.GetComponent<Animator>().SetBool("idle", true);
         }
     }
 
     private void Attack()
     {
-        distancePlayer = Vector3.Distance(players[0].position, transform.position);
-
-        if (isAttack && !isColver )
+        if(players.Count!=0)
         {
-            //print("Atirou");
+            
+
+            if (isAttack && !isColver)
+            {
+                //print("Atirou");
                 //enemySound.ShootSound();
                 objAnimado.GetComponent<Animator>().SetTrigger("atirou");
                 Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
                 isAttack = false;
 
-        }
-        else if (isColver && distancePlayer <= distanceAttack)
-        {
-                if(life>0)
+            }
+            else if (isColver && distancePlayer <= distanceAttack)
+            {
+                if (life > 0)
                     StartCoroutine("cowndownHide");
-            isColver = false;
+                isColver = false;
+            }
         }
+
     }
     private void OnCollisionEnter(Collision collision)
     {
