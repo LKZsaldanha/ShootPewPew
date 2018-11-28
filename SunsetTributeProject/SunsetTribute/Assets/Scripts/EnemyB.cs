@@ -79,16 +79,20 @@ public class EnemyB : MonoBehaviour {
                 {
                     blockAction = false;
                 }
-            print("block");
-            distancePlayer = Vector3.Distance(players[0].position, transform.position);
-            menorDistancia = distancePlayer;
-
-            if(players.Count>1)
-                distancePlayer2 = Vector3.Distance(players[1].position, transform.position);
-            if (distancePlayer > distancePlayer2)
-                menorDistancia = distancePlayer2;
-            else
+                print("block");
+                distancePlayer = Vector3.Distance(players[0].position, transform.position);
                 menorDistancia = distancePlayer;
+            }
+
+            if(players.Count>1){
+                distancePlayer2 = Vector3.Distance(players[1].position, transform.position);
+                }
+            if (distancePlayer > distancePlayer2){
+                menorDistancia = distancePlayer2;
+                }
+            else{
+                menorDistancia = distancePlayer;
+                }
 
             if (menorDistancia < distanceAttack)
             {
