@@ -22,7 +22,10 @@ public class EnemyB : MonoBehaviour {
 
     private EnemySound enemySound;
 
+    private bool isShowing;
+
     public bool canThrow = false;
+    public bool isHideBehind, walkFromCamera, walkBehind = false;
     public GameObject bomb;
     public float timerToThrowBomb = 2.0f;
     public float timerToThrowBombAnim = 0.5f;
@@ -32,9 +35,15 @@ public class EnemyB : MonoBehaviour {
         blockAction = true;
         gameSystem = GameObject.Find("GameSystem");
         if (canThrow)
-        {
+        {   
+            //isShowing = false;
+            objAnimado.GetComponent<Animator>().SetBool("idle", false);
             objAnimado.GetComponent<Animator>().SetLayerWeight(1, 0);
             objAnimado.GetComponent<Animator>().SetBool("canThrow", true);
+        }else if (isHideBehind || walkFromCamera || walkBehind){
+            isShowing = true;
+            objAnimado.GetComponent<Animator>().SetBool("idle", false);
+            StartCoroutine("IsShowing");
         }
     }
 
@@ -63,10 +72,12 @@ public class EnemyB : MonoBehaviour {
 
         if (blockAction)
         {
-            distancePlayer = Vector3.Distance(players[0].position, transform.position);
-            if (distancePlayer < distanceAttack)
-            {
-                blockAction = false;
+            if(!isShowing){
+                distancePlayer = Vector3.Distance(players[0].position, transform.position);
+                if (distancePlayer < distanceAttack)
+                {
+                    blockAction = false;
+                }
             }
         }
         else
@@ -411,7 +422,7 @@ public class EnemyB : MonoBehaviour {
 
             //diminui o colisor para a bullet não acertar ele se o player estiver na mesma altura
             GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.23f, 1);
-            objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, 0.23f, -0.3f);
+            //objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, 0.23f, -0.3f);
 
             objAnimado.GetComponent<Animator>().SetBool("isHide", true);
         }
@@ -426,7 +437,7 @@ public class EnemyB : MonoBehaviour {
             objAnimado.GetComponent<Animator>().SetBool("isHide", false);
             //normaliza o colisor para a bullet poder acertar ele se o player estiver na mesma altura ou nao
             GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.744769f, 1);
-            objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, -0.23f, -0.3f);
+           // objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, -0.23f, -0.3f);
 
             objAnimado.GetComponent<Animator>().SetTrigger("isHideAttack");
 
@@ -445,7 +456,7 @@ public class EnemyB : MonoBehaviour {
             objAnimado.GetComponent<Animator>().SetBool("isHide", true);
             //diminui o colisor para a bullet não acertar ele se o player estiver na mesma altura
             GetComponent<BoxCollider>().size = new Vector3(0.712278f, 1.23f, 1);
-            objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, 0.23f, -0.3f);
+            //objAnimado.transform.position = new Vector3(objAnimado.transform.position.x, 0.23f, -0.3f);
 
 
             StartCoroutine("timerSpawnBullet");
@@ -453,6 +464,31 @@ public class EnemyB : MonoBehaviour {
 
         StopCoroutine("hideTrue");
     }
+    IEnumerator IsShowing()
+    {
+        if(isShowing){
+            objAnimado.GetComponent<Animator>().SetBool("idle", false);
+            GetComponent<BoxCollider>().enabled = false;
+            if(isHideBehind){
+                objAnimado.GetComponent<Animator>().SetTrigger("isHideBehind");
+                yield return new WaitForSeconds(1.5f);
+                isHideBehind = false;
+            }else if (walkFromCamera){
+                objAnimado.GetComponent<Animator>().SetTrigger("walkFromCamera");
+                yield return new WaitForSeconds(1f);
+                walkFromCamera = false;
+            }else if (walkBehind){
+                objAnimado.GetComponent<Animator>().SetTrigger("walkBehind");
+                yield return new WaitForSeconds(1.9f);
+                walkBehind = false;
+            }
+            isShowing = false;
+            GetComponent<BoxCollider>().enabled = true;    
+            Attack();
+            StopCoroutine("IsShowing");   
+        }
+    }
+    
 
     //atraso no spawn da bullet para a saida do colver
     IEnumerator timerSpawnBullet()

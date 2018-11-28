@@ -8,7 +8,7 @@ public class BulletPlayer : MonoBehaviour {
     [SerializeField] private float speedBullet;
     [SerializeField] GameObject muzzleParticlesPrefab, hitParticlesPrefab;
 
-
+    public float lifebullet = 2.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -40,7 +40,7 @@ public class BulletPlayer : MonoBehaviour {
 
     IEnumerator life()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(lifebullet);
         StopCoroutine("life");
         Destroy(gameObject);
         
