@@ -1128,7 +1128,7 @@ GameObject:
   - component: {fileID: 114679069334076560}
   - component: {fileID: 114452585225989968}
   m_Layer: 10
-  m_Name: Enemy3_Bomb
+  m_Name: Enemy3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3573,9 +3573,6 @@ MonoBehaviour:
   - {fileID: 0}
   mySpawn: {fileID: 0}
   canThrow: 1
-  isHideBehind: 0
-  walkFromCamera: 0
-  walkBehind: 0
   bomb: {fileID: 1807947524818686}
   timerToThrowBomb: 2
   timerToThrowBombAnim: 0.5
