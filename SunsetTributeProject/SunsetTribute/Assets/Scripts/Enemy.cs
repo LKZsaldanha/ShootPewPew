@@ -288,7 +288,7 @@ public class Enemy : MonoBehaviour {
 
         if (isAttack && !isColver )
         {
-            print("Atirou");
+            //print("Atirou");
                 //enemySound.ShootSound();
                 objAnimado.GetComponent<Animator>().SetTrigger("atirou");
                 Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);

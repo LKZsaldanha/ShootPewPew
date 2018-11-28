@@ -12,6 +12,7 @@ TagManager:
   - Colver
   - bomb
   - Bomb
+  - spawner
   layers:
   - Default
   - TransparentFX

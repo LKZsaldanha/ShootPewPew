@@ -513,7 +513,21 @@ public class Actor : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "Quadrante1")
+        if(other.tag == "spawner")
+        {
+
+            //objectA.transform.parent = objectB.transform;
+
+            /*for (var i = other.transform.childCount - 1; i >= 0; i--)
+            {
+
+                other.transform.GetChild(i).parent = null;
+            }*/
+            other.GetComponent<BoxCollider>().enabled = false;
+            gameSystem.GetComponent<GameSystem>().quadranteSpawn();
+            //Destroy(other.gameObject);
+        }
+        /*if(other.gameObject.name == "Quadrante1")
         {
             gameSystem.GetComponent<GameSystem>().quadranteSpawn1();
             Destroy(other.gameObject);
@@ -529,6 +543,6 @@ public class Actor : MonoBehaviour {
         {
             gameSystem.GetComponent<GameSystem>().quadranteSpawn3();
             Destroy(other.gameObject);
-        }
+        }*/
     }
 }

@@ -12,15 +12,19 @@ public class GameSystem : MonoBehaviour {
     //variavel que indicara qual player morreu para o inimigo
     public string nameplayer;
 
-    [SerializeField] private List<GameObject> enemys;
-    [SerializeField] private List<Transform> quadrante1, quadrante2, quadrante3;
+    //[SerializeField] private List<GameObject> enemys;
+    [SerializeField] private List<Transform> quadrante1;
 
-
+    private int numberSpawn;
     /// <summary>
     /// Ao chamar o metodo deve colocar o nome do player para
     /// a função remover o player morto correto da lista
     /// </summary>
     /// <param name="namePlayer"></param>
+    void Start()
+    {
+        numberSpawn = 0;
+    }
     public void nPlayerAtivos(string namePlayer)
     {
         this.nameplayer = namePlayer;
@@ -36,7 +40,35 @@ public class GameSystem : MonoBehaviour {
         nPlayerVivos.RemoveAll(c => c == null);
     }
 
-    public void quadranteSpawn1()
+    public void quadranteSpawn()
+    {
+        
+
+
+        while (numberSpawn < quadrante1.Count) 
+        {
+            for (var e = quadrante1[numberSpawn].transform.childCount - 1; e >= 0; e--)
+            {
+                //quadrante1[i].GetChild.gameObject.SetActive(true);
+                quadrante1[numberSpawn].GetChild(e).gameObject.SetActive(true);
+               // print("entrou " + quadrante1[i].gameObject.name);
+            }
+            print("entrou " + numberSpawn);
+            break;
+            
+        }
+        /*for (int i = 0; i <= quadrante1.Count - 1; i++)
+        {
+            quadrante1[i].GetChild.gameObject.SetActive(true);
+            break;
+        }*/
+        numberSpawn++;
+
+    }
+
+   
+
+    /*public void quadranteSpawn1()
     {
         for(int i=0; i<=quadrante1.Count-1;i++)
         {
@@ -58,5 +90,5 @@ public class GameSystem : MonoBehaviour {
         {
             Instantiate(enemys[Random.Range(0, enemys.Count)], quadrante3[i].position, quadrante3[i].rotation);
         }
-    }
+    }*/
 }
