@@ -3579,7 +3579,7 @@ MonoBehaviour:
   baixoMaximo: 2.5
   speed: 2
   distanceAttack: 10
-  cowdownFire: 1
+  cowdownFire: 2
   bullet: {fileID: 1157084308398432, guid: caa1e8279cf8811409f6d2e736a9c0d2, type: 2}
   objAnimado: {fileID: 1044180715429998}
   gameSystem: {fileID: 0}
@@ -3596,6 +3596,7 @@ MonoBehaviour:
   - {fileID: 4711139761231930}
   players: []
   mySpawn: {fileID: 0}
+  delayFirstAttack: 1
 --- !u!137 &137000420195663242
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
