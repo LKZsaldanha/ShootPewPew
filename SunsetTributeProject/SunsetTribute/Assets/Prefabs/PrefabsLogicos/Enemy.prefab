@@ -2339,7 +2339,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1659534150812558}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 2.83, y: 2.57, z: 0.7}
+  m_LocalPosition: {x: -3.06, y: 1.56, z: 0.9292722}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4268461518963912}
@@ -3580,6 +3580,8 @@ MonoBehaviour:
   speed: 2
   distanceAttack: 10
   cowdownFire: 2
+  cowdownHide: 2
+  delayFirstAttack: 1
   bullet: {fileID: 1157084308398432, guid: caa1e8279cf8811409f6d2e736a9c0d2, type: 2}
   objAnimado: {fileID: 1044180715429998}
   gameSystem: {fileID: 0}
@@ -3596,7 +3598,6 @@ MonoBehaviour:
   - {fileID: 4711139761231930}
   players: []
   mySpawn: {fileID: 0}
-  delayFirstAttack: 1
 --- !u!137 &137000420195663242
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

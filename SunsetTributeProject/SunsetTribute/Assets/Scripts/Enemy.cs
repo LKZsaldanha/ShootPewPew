@@ -6,14 +6,15 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour {
     //baixoMinimo é o valor minimo para chamar a animação de mira baixa e o baixoMaximo a mesma coisa
     [SerializeField] protected float life,DiagMinimo,baixoMinimo,baixoMaximo;
-    [SerializeField] protected float speed, distanceAttack, cowdownFire;
+    [SerializeField] protected float speed, distanceAttack, cowdownFire, cowdownHide;
+    public float delayFirstAttack = 0.5f;
     [SerializeField] protected GameObject bullet,objAnimado, gameSystem, colisorHide;
     [SerializeField] protected List<GameObject> itens;
     [SerializeField] protected Transform[] spawnBullet, mira;
     [SerializeField] protected List<Transform> players;
     [SerializeField] protected Transform mySpawn;
 
-    public float delayFirstAttack = 0.5f;
+    
     private bool inDelay = true;
 
     protected bool blockAction;
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour {
     protected int idPlayer;
 
     private EnemySound enemySound;
+    private bool enemyCover; //verificação pra saber se é um inimigo de cover
 
     private void Awake()
     {
@@ -95,13 +97,12 @@ public class Enemy : MonoBehaviour {
                     }
                     if (menorDistancia < distanceAttack)
                     {
-                        if(inDelay){
+                        if(inDelay){//delay pra personagem que entra correndo ou pulando
                             if (menorDistancia < distanceAttack - 2.0f)
                             {
                                 StartCoroutine("DelayAttack");
                             }
-                           // print("pq entra aquie?");
-                        }else{
+                        }else if (!isColver){
                             Attack();
                         }
                     }
@@ -162,6 +163,9 @@ public class Enemy : MonoBehaviour {
 
             if (menorDistancia <= distanceAttack)
             {
+                if(!inDelay){
+                    StartCoroutine("cowdown");
+                }
                 if (!isIdPlayer)
                 {
                     idPlayer = Random.Range(0, players.Count);
@@ -185,9 +189,7 @@ public class Enemy : MonoBehaviour {
                     //mesmo nivel de altura do player
                     if (players[idPlayer].position.y < transform.position.y + 0.5f && players[idPlayer].position.y > transform.position.y - 0.5f)
                     {
-                        if(!inDelay){
-                            StartCoroutine("cowdown");
-                        }
+                        
                         //print(""+gameObject.name);
                         //posição e rotação da mira (frente)
                         if (transform.localScale.x == 1)
@@ -215,9 +217,7 @@ public class Enemy : MonoBehaviour {
                     {
                         if (distancePlayer > DiagMinimo)
                         {
-                            if(!inDelay){
-                                StartCoroutine("cowdown");
-                            }
+                            
                             //posição e rotação da mira (diagonal Baixo frente)
                             if (transform.localScale.x == 1)
                             {
@@ -245,9 +245,7 @@ public class Enemy : MonoBehaviour {
                     {
                         if (distancePlayer > DiagMinimo)
                         {
-                            if(!inDelay){
-                                StartCoroutine("cowdown");
-                            }
+                            
                             //posição e rotação da mira (diagonal cima frente)
                             if (transform.localScale.x == 1)
                             {
@@ -347,13 +345,15 @@ public class Enemy : MonoBehaviour {
 
     IEnumerator DelayAttack()
     {
-        if(inDelay){
+        if(inDelay && !isColver){
             objAnimado.GetComponent<Animator>().SetBool("idle", true);
-            inDelay = false;
             yield return new WaitForSeconds(delayFirstAttack);
-            print("dellayattack");
             isAttack = true;
             Attack();
+            inDelay = false;
+
+            //yield return new WaitForSeconds(cowdownFire - delayFirstAttack);
+            
             StopCoroutine("DelayAttack");
         }
     }
@@ -366,20 +366,20 @@ public class Enemy : MonoBehaviour {
 
             if (isAttack && !isColver)
             {
-                print("Atirou");
-                //enemySound.ShootSound();
+                //print("Atirou");
+                
                 objAnimado.GetComponent<Animator>().SetTrigger("atirou");
-                //Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
+                
                 GameObject bulletNew = Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
                 bulletNew.GetComponent<BulletPlayer>().target = players[0].gameObject;
-                //print(players[0].position.y);
+                
                 isAttack = false;
-
             }
             else if (isColver && distancePlayer <= distanceAttack)
             {
-                if (life > 0)
+                if (life > 0){
                     StartCoroutine("cowndownHide");
+                }
                 isColver = false;
             }
         }
@@ -411,7 +411,6 @@ public class Enemy : MonoBehaviour {
                     Instantiate(itens[0], new Vector3(transform.position.x, transform.position.y, players[0].position.z), transform.rotation);
                 }
 
-                StopCoroutine("cowndownHide");
                 StartCoroutine("morreu");
             }
             Destroy(collision.gameObject);
@@ -420,41 +419,29 @@ public class Enemy : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Colver")
+        if (other.gameObject.tag == "Colver" && !enemyCover)
         {
+            enemyCover = true; //entrar nessa função somente 1 vez;
+            print("entrouTrigger");
             colver = other.gameObject;
             isColver = true;
-
-            StartCoroutine("hideTrue");
-        }
-    }
-
-    //tempo de tiro para inimigo no colver
-    IEnumerator cowndownHide()
-    {
-        yield return new WaitForSeconds(cowdownFire*2);
-        if(life>0)
-        {
-            objAnimado.GetComponent<Animator>().SetBool("isHide", false);
-            //normaliza o colisor para a bullet poder acertar ele se o player estiver na mesma altura ou nao
-            GetComponent<BoxCollider>().enabled = true;
+            objAnimado.GetComponent<Animator>().SetBool("isHide", true);
+            objAnimado.GetComponent<Animator>().SetTrigger("isHideCrounch");
+            GetComponent<BoxCollider>().enabled = false;
+            
             if(colisorHide != null){
-                colisorHide.GetComponent<BoxCollider>().enabled = false;
+                colisorHide.GetComponent<BoxCollider>().enabled = true;
             }
 
-
-            objAnimado.GetComponent<Animator>().SetTrigger("isHideAttack");
-
-            isColver = true;
             StartCoroutine("hideTrue");
+            
         }
-        StopCoroutine("cowndownHide");
     }
 
     //ativa o Hide / colver
     IEnumerator hideTrue()
     {
-        yield return new WaitForSeconds(1);
+        
         if (life > 0)
         {
             objAnimado.GetComponent<Animator>().SetBool("isHide", true);
@@ -463,16 +450,41 @@ public class Enemy : MonoBehaviour {
             if(colisorHide != null){
                 colisorHide.GetComponent<BoxCollider>().enabled = true;
             }
-
-
-            StartCoroutine("timerSpawnBullet");
+            yield return new WaitForSeconds(cowdownHide);
+            StartCoroutine("cowndownHide");
         }
 
         StopCoroutine("hideTrue");
     }
+    //tempo de tiro para inimigo no colver
+    IEnumerator cowndownHide()
+    {
+        objAnimado.GetComponent<Animator>().SetBool("isHide", false);
+        //normaliza o colisor para a bullet poder acertar ele se o player estiver na mesma altura ou nao
+        GetComponent<BoxCollider>().enabled = true;
+        if(colisorHide != null){
+            colisorHide.GetComponent<BoxCollider>().enabled = false;
+        }
+
+        yield return new WaitForSeconds(cowdownFire);
+        if(life>0)
+        {
+            objAnimado.GetComponent<Animator>().SetTrigger("isHideAttack");
+           // if(pla != null){
+                GameObject bulletNew = Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
+                bulletNew.GetComponent<BulletPlayer>().target = players[0].gameObject;
+            //}
+        yield return new WaitForSeconds(cowdownFire);
+            isColver = true;
+            StartCoroutine("hideTrue");
+        }
+        StopCoroutine("cowndownHide");
+    }
+
+    
 
     //atraso no spawn da bullet para a saida do colver
-    IEnumerator timerSpawnBullet()
+    /*IEnumerator timerSpawnBullet()
     {
         yield return new WaitForSeconds(0.1f);
         if(life>0)
@@ -490,26 +502,26 @@ public class Enemy : MonoBehaviour {
                 //(Costas)
                 spawnBullet[0].position = mira[2].position;
                 spawnBullet[0].rotation = Quaternion.Euler(0, 90, 0);
-            }
+            } 
 
-            GameObject bulletNew = Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
-            bulletNew.GetComponent<BulletPlayer>().target = players[0].gameObject;
-            print(players[0].position.y);
+           // GameObject bulletNew = Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
+           // bulletNew.GetComponent<BulletPlayer>().target = players[0].gameObject;
+           // print(players[0].position.y);
         }
 
-        StopCoroutine("hideTrStopCoroutineue");
-    }
+        //StopCoroutine("hideStopCoroutine");
+    }*/
    
     //tempo de tiro sem colver
     IEnumerator cowdown()
     {
         yield return new WaitForSeconds(cowdownFire);
         isAttack = true;
-        if(colver != null)
+        /*if(colver != null)
         {
             isColver = true;
             objAnimado.GetComponent<Animator>().SetBool("isHide", true);
-        }
+        }*/
         StopCoroutine("cowdown");
     }
 
