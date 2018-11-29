@@ -476,7 +476,6 @@ public class Actor : MonoBehaviour {
 
         if (collision.gameObject.tag == "gold")
         {
-            print("dfs");
             playerHUD.GetComponent<PlayerHUD>().UpdateHUDScore(valorDinheiro);
             playerSound.GoldSound();
             Destroy(collision.gameObject);

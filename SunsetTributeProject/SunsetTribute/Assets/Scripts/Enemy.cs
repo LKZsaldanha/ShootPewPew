@@ -58,59 +58,67 @@ public class Enemy : MonoBehaviour {
 
         atualizaEnemy();
 
-        //Aqui deve-se ser inserido as animações pré-Violencia (antes do tiroteio)
-        if (blockAction)
+        if(players.Count>0)
         {
-            distancePlayer = Vector3.Distance(players[0].position, transform.position);
-            menorDistancia = distancePlayer;
-
-            if (players.Count > 1)
-                distancePlayer2 = Vector3.Distance(players[1].position, transform.position);
-            if (distancePlayer > distancePlayer2)
-                menorDistancia = distancePlayer2;
-            else
-                menorDistancia = distancePlayer;
-
-            if (menorDistancia < distanceAttack)
-            {
-                blockAction = false;
-            }
-        }
-        else
-        {
-            if (players.Count != 0)
+            //Aqui deve-se ser inserido as animações pré-Violencia (antes do tiroteio)
+            if (blockAction)
             {
                 distancePlayer = Vector3.Distance(players[0].position, transform.position);
-                if (!isDead && players.Count >= 1)
+                menorDistancia = distancePlayer;
+
+                if (players.Count > 1)
+                    distancePlayer2 = Vector3.Distance(players[1].position, transform.position);
+                if (distancePlayer > distancePlayer2)
+                    menorDistancia = distancePlayer2;
+                else
+                    menorDistancia = distancePlayer;
+
+                if (menorDistancia < distanceAttack)
                 {
-                    if (transform.position.x < players[players.Count - 1].position.x)
+                    blockAction = false;
+                }
+            }
+            else
+            {
+                if (players.Count != 0)
+                {
+                    distancePlayer = Vector3.Distance(players[0].position, transform.position);
+                    if (!isDead && players.Count >= 1)
                     {
-                        transform.localScale = new Vector3(1, 1, 1);
-                    }
-                    else
-                    {
-                        transform.localScale = new Vector3(-1, 1, 1);
-                    }
+                        if (transform.position.x < players[players.Count - 1].position.x)
+                        {
+                            transform.localScale = new Vector3(1, 1, 1);
+                        }
+                        else
+                        {
+                            transform.localScale = new Vector3(-1, 1, 1);
+                        }
 
-                    modNPlayers();
+                        modNPlayers();
 
-                    if (colver == null){
-                        Move();
-                    }
-                    if (menorDistancia < distanceAttack)
-                    {
-                        if(inDelay){//delay pra personagem que entra correndo ou pulando
-                            if (menorDistancia < distanceAttack - 2.0f)
-                            {
-                                StartCoroutine("DelayAttack");
+                        if (colver == null)
+                        {
+                            Move();
+                        }
+                        if (menorDistancia < distanceAttack)
+                        {
+                            if (inDelay)
+                            {//delay pra personagem que entra correndo ou pulando
+                                if (menorDistancia < distanceAttack - 2.0f)
+                                {
+                                    StartCoroutine("DelayAttack");
+                                }
                             }
-                        }else if (!isColver){
-                            Attack();
+                            else if (!isColver)
+                            {
+                                Attack();
+                            }
                         }
                     }
                 }
             }
         }
+
             
 
 	}

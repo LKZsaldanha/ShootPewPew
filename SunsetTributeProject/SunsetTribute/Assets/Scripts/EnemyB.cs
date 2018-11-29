@@ -80,61 +80,70 @@ public class EnemyB : MonoBehaviour {
 
         atualizaEnemy();
 
-        //Aqui deve-se ser inserido as animações pré-Violencia (antes do tiroteio)
-        if (blockAction)
+        if (players.Count > 0)
         {
-            if(!isShowing){
-                distancePlayer = Vector3.Distance(players[0].position, transform.position);
-                if (distancePlayer < distanceAttack)
+            //Aqui deve-se ser inserido as animações pré-Violencia (antes do tiroteio)
+            if (blockAction)
+            {
+                if (!isShowing)
                 {
+                    distancePlayer = Vector3.Distance(players[0].position, transform.position);
+                    if (distancePlayer < distanceAttack)
+                    {
+                        blockAction = false;
+                    }
+                    print("block");
+                    distancePlayer = Vector3.Distance(players[0].position, transform.position);
+                    menorDistancia = distancePlayer;
+                }
+
+                if (players.Count > 1)
+                {
+                    distancePlayer2 = Vector3.Distance(players[1].position, transform.position);
+                }
+                if (distancePlayer > distancePlayer2)
+                {
+                    menorDistancia = distancePlayer2;
+                }
+                else
+                {
+                    menorDistancia = distancePlayer;
+                }
+
+                if (menorDistancia < distanceAttack)
+                {
+                    print("block false");
                     blockAction = false;
                 }
-                print("block");
-                distancePlayer = Vector3.Distance(players[0].position, transform.position);
-                menorDistancia = distancePlayer;
             }
-
-            if(players.Count>1){
-                distancePlayer2 = Vector3.Distance(players[1].position, transform.position);
-                }
-            if (distancePlayer > distancePlayer2){
-                menorDistancia = distancePlayer2;
-                }
-            else{
-                menorDistancia = distancePlayer;
-                }
-
-            if (menorDistancia < distanceAttack)
+            else
             {
-                print("block false");
-                blockAction = false;
-            }
-        }
-        else
-        {
 
-            if (players.Count != 0)
-            {
-                if (!isDead && players.Count >= 1)
+                if (players.Count != 0)
                 {
-                    if (transform.position.x < players[players.Count - 1].position.x)
+                    if (!isDead && players.Count >= 1)
                     {
-                        transform.localScale = new Vector3(1, 1, 1);
-                    }
-                    else
-                    {
-                        transform.localScale = new Vector3(-1, 1, 1);
-                    }
-
-                    modNPlayers();
-
-                    if (colver == null){
-                        Move();
-                    }
-                    if(!isShowing){
-                        if (menorDistancia < distanceAttack)
+                        if (transform.position.x < players[players.Count - 1].position.x)
                         {
-                            Attack();
+                            transform.localScale = new Vector3(1, 1, 1);
+                        }
+                        else
+                        {
+                            transform.localScale = new Vector3(-1, 1, 1);
+                        }
+
+                        modNPlayers();
+
+                        if (colver == null)
+                        {
+                            Move();
+                        }
+                        if (!isShowing)
+                        {
+                            if (menorDistancia < distanceAttack)
+                            {
+                                Attack();
+                            }
                         }
                     }
                 }
