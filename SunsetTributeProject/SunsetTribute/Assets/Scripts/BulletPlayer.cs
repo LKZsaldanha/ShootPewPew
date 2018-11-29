@@ -8,30 +8,12 @@ public class BulletPlayer : MonoBehaviour {
     [SerializeField] private float speedBullet;
     [SerializeField] GameObject muzzleParticlesPrefab, hitParticlesPrefab;
 
-    public float lifebullet = 10.0f;
-    
-
-    public GameObject target; //tentado passar pelo proprio script do inimigo
-
-    private Rigidbody rb;
+    public float lifebullet = 2.0f;
 
 	// Use this for initialization
 	void Start () {
-        rb = GetComponent<Rigidbody>();
-        lifebullet = 10.0f;
         CreateAndDestroyParticle(muzzleParticlesPrefab, transform.position, Quaternion.identity);
-        
 	}
-    void Awake () {
-        if(transform.tag == "BulletEnemy"){
-            if(target != null){
-                transform.LookAt(new Vector3(target.transform.position.x, target.transform.position.y + 0.3f, target.transform.position.z));
-            }else{
-                target = GameObject.FindWithTag("Player");
-                transform.LookAt(new Vector3(target.transform.position.x, target.transform.position.y + 0.3f, target.transform.position.z));
-            }
-        }
-    }
 
     private void CreateAndDestroyParticle(GameObject go,Vector3 pos, Quaternion rot)
     {
@@ -49,37 +31,25 @@ public class BulletPlayer : MonoBehaviour {
         }
     }
 
-    
-    private void FixedUpdate(){
-
-        GetComponent<Rigidbody>().velocity = transform.forward * speedBullet * Time.deltaTime;
-        Destroy(gameObject,lifebullet);
-    }
-
-
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if(transform.tag == "Bullet"){
-            if(other.gameObject.tag == "LimitSize")
-            {
-                
-                Destroy(gameObject);
-            }
-        }
+        GetComponent<Rigidbody>().velocity = transform.forward * speedBullet;
     }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if(transform.tag == "Bullet"){
-            if(collision.gameObject.tag == "LimitSize")
-            {
-                ContactPoint contact = collision.contacts[0];
-                Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-                Vector3 pos = contact.point;
-                CreateAndDestroyParticle(hitParticlesPrefab, pos, rot);
 
-            }
+        
+
+        if(collision.gameObject.tag != "LimitSize")
+        {
+            ContactPoint contact = collision.contacts[0];
+            Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+            Vector3 pos = contact.point;
+            CreateAndDestroyParticle(hitParticlesPrefab, pos, rot);
         }
         
+
         if (id)
         {
             if (collision.gameObject.tag == "BulletEnemy")
@@ -100,7 +70,11 @@ public class BulletPlayer : MonoBehaviour {
                 Destroy(gameObject);
             }
         }
-        
+
+        if(collision.gameObject.tag == "LimitSize")
+        {
+            Destroy(gameObject);
+        }
 
     }
 }

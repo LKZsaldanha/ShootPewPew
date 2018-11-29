@@ -430,13 +430,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  speedBullet: 100
+  speedBullet: -5
   muzzleParticlesPrefab: {fileID: 1322275989609090, guid: ddec521564231bb4d96837ccfc7ac3a6,
     type: 2}
   hitParticlesPrefab: {fileID: 1001301012208044, guid: 96e692e1292280c4fb01e73d73530f03,
     type: 2}
-  lifebullet: 2
-  target: {fileID: 0}
 --- !u!114 &114454669831813968
 MonoBehaviour:
   m_ObjectHideFlags: 1
