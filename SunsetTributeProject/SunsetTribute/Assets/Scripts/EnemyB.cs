@@ -25,13 +25,17 @@ public class EnemyB : MonoBehaviour {
     private bool isShowing;
 
     public bool canThrow = false;
-    public bool isHideBehind, walkFromCamera, walkBehind = false;
+    public bool isHideBehind, walkFromCamera, walkBehind, crounched, walkFromInside = false;
     public GameObject bomb;
+
     public float timerToThrowBomb = 2.0f;
     public float timerToThrowBombAnim = 0.5f;
+
     public float delayShootHideBehind = 1.0f;
     public float delayShootwalkFromCamera = 1.0f;
     public float delayShootWalkBehind = 1.0f;
+    public float delayShootCrounched = 1.0f;
+    public float delayShootWalkFromInside = 1.0f;
 
     private void Awake()
     {
@@ -43,8 +47,8 @@ public class EnemyB : MonoBehaviour {
             objAnimado.GetComponent<Animator>().SetBool("idle", false);
             //objAnimado.GetComponent<Animator>().SetLayerWeight(1, 0);
             objAnimado.GetComponent<Animator>().SetBool("canThrow", true);
-        }else if (isHideBehind || walkFromCamera || walkBehind){
-            print("entrou");
+        }else if (isHideBehind || walkFromCamera || walkBehind || crounched || walkFromInside){
+            //print("entrou");
             isShowing = true;
             objAnimado.GetComponent<Animator>().SetBool("idle", false);
             StartCoroutine("IsShowing");
@@ -360,11 +364,13 @@ public class EnemyB : MonoBehaviour {
         else
         {
             StopCoroutine("cowdown");
-            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-            objAnimado.GetComponent<Animator>().SetBool("frente", false);
-            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-            objAnimado.GetComponent<Animator>().SetBool("idle", true);
+            if(!isShowing){
+                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                objAnimado.GetComponent<Animator>().SetBool("idle", true);
+            }
         }
     }
     }
@@ -518,9 +524,17 @@ public class EnemyB : MonoBehaviour {
                 objAnimado.GetComponent<Animator>().SetTrigger("walkBehind");
                 yield return new WaitForSeconds(delayShootWalkBehind);
                 walkBehind = false;
+            }else if (crounched){
+                objAnimado.GetComponent<Animator>().SetTrigger("crounched");
+                yield return new WaitForSeconds(delayShootCrounched);
+                crounched = false;
+            }else if (walkFromInside){
+                objAnimado.GetComponent<Animator>().SetTrigger("walkFromInside");
+                yield return new WaitForSeconds(delayShootWalkFromInside);
+                walkFromInside = false;
             }
+            objAnimado.GetComponent<Animator>().SetBool("idle", true);
             isShowing = false;
-            print("entrou");
             GetComponent<BoxCollider>().enabled = true;    
             //Attack();
             StopCoroutine("IsShowing");
