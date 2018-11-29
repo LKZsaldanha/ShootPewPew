@@ -15,6 +15,12 @@ public class EnemyBombFlyInArc : MonoBehaviour {
     private float  cTime; //tempo somado para ter trajetoria
 
     public Transform explosaoFogo;
+    public Transform impactoMark;
+
+
+    public Vector3 impactoPos;
+    public float offSet = 0.85f;
+    private bool endPosTaked = false;
 //var dano : Transform;
 
 
@@ -25,6 +31,21 @@ public class EnemyBombFlyInArc : MonoBehaviour {
 
     void Update()
     {
+
+        if(!endPosTaked){
+            RaycastHit hit;
+            // Does the ray intersect any objects excluding the player layer
+            if (Physics.Raycast(endPos, transform.TransformDirection(Vector3.down), out hit, 50f))
+            {
+                if(hit.transform.tag == "chao"){
+                    endPos.y = hit.point.y;
+                    Transform impactoMark1;
+                    impactoMark1 = Instantiate(impactoMark, new Vector3(impactoPos.x, endPos.y - offSet, impactoPos.z), Quaternion.Euler(0, 0, 0));
+                    endPosTaked = true;
+                }
+                Debug.Log("Did Hit");
+            }
+        }
 
         // calculate current time within our lerping time range
         cTime += Time.deltaTime * velocidadeTiro;

@@ -93,7 +93,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1446330378676578}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.13903809, y: 0.21006775, z: 0.13903809}
@@ -211,3 +211,7 @@ MonoBehaviour:
   velocidadeTiro: 0.5
   explosaoFogo: {fileID: 4287250813186892, guid: 0243154a6f514e349adbb0ee768db837,
     type: 2}
+  impactoMark: {fileID: 4772014785407132, guid: 9f94721e36dcb1e4f960c776e6129252,
+    type: 2}
+  impactoPos: {x: 0, y: -0.1, z: 0}
+  offSet: 0
