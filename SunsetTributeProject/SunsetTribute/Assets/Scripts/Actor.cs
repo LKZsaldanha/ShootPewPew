@@ -87,12 +87,16 @@ public class Actor : MonoBehaviour {
             isRasteira = true;
             if(isRight)
             {
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 GetComponent<Rigidbody>().AddForce(speedRasteira, 0, 0);
                 colisorRasteira.GetComponent<BoxCollider>().enabled = true;
                 gameObject.GetComponent<BoxCollider>().enabled = false;
             }                
             else
             {
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 GetComponent<Rigidbody>().AddForce(-speedRasteira, 0, 0);
                 colisorRasteira.GetComponent<BoxCollider>().enabled = true;
                 gameObject.GetComponent<BoxCollider>().enabled = false;
@@ -430,6 +434,7 @@ public class Actor : MonoBehaviour {
     // Coroutine
     IEnumerator Rasteira()
     {
+        objAnimado.GetComponent<Animator>().SetLayerWeight(1, 0);
         yield return new WaitForSeconds(cooldownRasteira);
         gameObject.GetComponent<BoxCollider>().enabled = true;
         colisorRasteira.GetComponent<BoxCollider>().enabled = false;
@@ -437,6 +442,7 @@ public class Actor : MonoBehaviour {
         rasteiraAnim();
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        objAnimado.GetComponent<Animator>().SetLayerWeight(1, 1);
         StopCoroutine("Rasteira");
     }
 
