@@ -3485,6 +3485,7 @@ MonoBehaviour:
   players:
   - {fileID: 0}
   mySpawn: {fileID: 0}
+  delayFirstAttack: 0.5
 --- !u!114 &114679069334076560
 MonoBehaviour:
   m_ObjectHideFlags: 1

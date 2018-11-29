@@ -29,8 +29,13 @@ public class GameSystem : MonoBehaviour {
     }
     private void Update()
     {
+        //Para reinicar o jogo na amostra
+        if(Input.GetButtonDown("Reiniciar"))
+        {
+            SceneManager.LoadScene("Demo_Level_2");
+        }
+
         spawnPlayer();
-        print(""+ opcoesPlayer[1].activeSelf);
     }
 
     public void nPlayerAtivos(string namePlayer)
@@ -61,7 +66,6 @@ public class GameSystem : MonoBehaviour {
                 quadrante1[numberSpawn].GetChild(e).gameObject.SetActive(true);
                // print("entrou " + quadrante1[i].gameObject.name);
             }
-            print("entrou " + numberSpawn);
             break;
             
         }
@@ -78,36 +82,26 @@ public class GameSystem : MonoBehaviour {
     {
         if(Input.GetButtonDown("StartP1"))
         {
-            if(Time.timeScale == 0)
+            if (!opcoesPlayer[0].activeSelf)
             {
-                Time.timeScale = 1;
+                if (GameObject.Find("Cube_Player") == null)
+                {
+                    opcoesPlayer[0].SetActive(true);
+                    Instantiate(opcoesPlayer[0], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[0].transform.rotation);
+                }
             }
-
-            if(!opcoesPlayer[0].activeSelf)
-            {
-                Instantiate(opcoesPlayer[0],new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y,0f),opcoesPlayer[0].transform.rotation);
-            }
-            else
-            {
-                Time.timeScale = 0;
-            }
-
         }
 
         if (Input.GetButtonDown("StartP2"))
         {
-            if (Time.timeScale == 0)
-            {
-                Time.timeScale = 1;
-            }
-
             if (!opcoesPlayer[1].activeSelf)
             {
-                Instantiate(opcoesPlayer[1], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[1].transform.rotation);
-            }
-            else
-            {
-                Time.timeScale = 0;
+                if (GameObject.Find("Cube_Player2") == null)
+                {
+                    opcoesPlayer[1].SetActive(true);
+                    Instantiate(opcoesPlayer[1], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[1].transform.rotation);
+                }
+
             }
 
         }
