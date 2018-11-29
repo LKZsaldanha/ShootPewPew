@@ -325,7 +325,8 @@ public class EnemyB : MonoBehaviour {
 
                 }
                 //cima
-                else if (players[idPlayer].position.y > 2.4f)
+
+                else if (players[idPlayer].position.y > 2.4f && !canThrow)
                 {
                     if (players[idPlayer].position.x > transform.position.x - 0.5f && players[idPlayer].position.x < transform.position.x + 0.5f)
                     {
@@ -355,7 +356,7 @@ public class EnemyB : MonoBehaviour {
                 }
 
                 //baixo
-                if (players[idPlayer].position.y < 2.0f && menorDistancia < 1)
+                if (players[idPlayer].position.y < 2.0f && menorDistancia < 1 && !canThrow)
                 {
                     if (players[idPlayer].position.x > transform.position.x - 0.5f && players[idPlayer].position.x < transform.position.x + 0.5f)
                     {
