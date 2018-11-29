@@ -4512,7 +4512,7 @@ AudioSource:
   m_GameObject: {fileID: 1973248460037282}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243268538974119154, guid: 7007f80cae543cd49802dcb030b39fd1,
+  OutputAudioMixerGroup: {fileID: 243110389024955894, guid: 7007f80cae543cd49802dcb030b39fd1,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: d6ae8252f06b3f7488063536b34f6427, type: 3}
   m_PlayOnAwake: 0
@@ -4667,7 +4667,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: {fileID: 8300000, guid: c94de53fbfbf01c4fa4f5a68439654c6, type: 3}
-  pickItem: {fileID: 0}
+  pickItem: {fileID: 8300000, guid: c23a17352ce9d0b4689eb769bbc1df95, type: 3}
+  dash: {fileID: 8300000, guid: 28d871f0b5bd9f8489837fc6c8a22ed5, type: 3}
+  mixer: {fileID: 24100000, guid: 7007f80cae543cd49802dcb030b39fd1, type: 2}
 --- !u!114 &114340675810686320
 MonoBehaviour:
   m_ObjectHideFlags: 1
