@@ -50,17 +50,20 @@ public class Actor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(!isRasteira)
+        if(!isRasteira){
             Move();
+            attack();
+            directionInput();
+            SetAimStatus();
+        }
 
-        attack();
-
+        
         if (!isAgachado)
         {
             directionInput();
         }
         
-        SetAimStatus();
+        
 
         /*if (!isground)
         {
@@ -70,7 +73,7 @@ public class Actor : MonoBehaviour {
 
     private void Move()
     {
-        if(Input.GetAxis(inputs[0]) == 0 && Input.GetAxis(inputs[1]) == 0)
+        if(Input.GetAxis(inputs[0]) == 0 && Input.GetAxis(inputs[1]) == 0 && !isRasteira)
         {
             isIdle = true;
             objAnimado.GetComponent<Animator>().SetBool("walk", false);
@@ -458,6 +461,7 @@ public class Actor : MonoBehaviour {
         if (collision.gameObject.tag == "gold")
         {
             playerHUD.UpdateHUDScore(valorDinheiro);
+            playerSound.GoldSound();
             Destroy(collision.gameObject);
         }
 
