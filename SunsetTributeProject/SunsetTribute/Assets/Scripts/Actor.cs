@@ -28,8 +28,8 @@ public class Actor : MonoBehaviour {
 
 
     //valor do cx dois
-    [SerializeField] private int valorDinheiro, meMoney;
-    [SerializeField] private GameObject uiValue;
+    [SerializeField] private int valorDinheiro;
+    [SerializeField] private PlayerHUD playerHUD;
 
     private void Awake()
     {
@@ -457,8 +457,7 @@ public class Actor : MonoBehaviour {
 
         if (collision.gameObject.tag == "gold")
         {
-            meMoney += valorDinheiro;
-            uiValue.GetComponent<Text>().text = "" + meMoney;
+            playerHUD.UpdateHUDScore(valorDinheiro);
             Destroy(collision.gameObject);
         }
 
@@ -487,6 +486,7 @@ public class Actor : MonoBehaviour {
         {
             Destroy(collision.gameObject);
             life--;
+            playerHUD.UpdateHUDLives(-1);
             if (life == 0)
             {
                 objAnimado.GetComponent<Animator>().SetBool("frente", false);
@@ -514,6 +514,7 @@ public class Actor : MonoBehaviour {
             if(life<3)
             {
                 life++;
+                playerHUD.UpdateHUDLives(1);
             }
             Destroy(collision.gameObject);
         }

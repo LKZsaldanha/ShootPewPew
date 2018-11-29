@@ -92,6 +92,7 @@ public class PlayerHUD : MonoBehaviour
         UpdateCharacterHUDVisual();
         UpdateHUDGunRank(gunRank);
         UpdateHUDLives(0);
+        UpdateHUDScore(0);
     }
 
     public void SetNewCharacterID(int newID)
