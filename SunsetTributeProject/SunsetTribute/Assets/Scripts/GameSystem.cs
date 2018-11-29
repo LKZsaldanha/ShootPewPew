@@ -21,8 +21,6 @@ public class GameSystem : MonoBehaviour {
 
     private bool noSpawn1, noSpawn2;
 
-    private Enemy enemy;
-
     private void Update()
     {
         nPlayerVivos.RemoveAll(c => c == null);
@@ -97,7 +95,7 @@ public class GameSystem : MonoBehaviour {
                 GameObject aux;
                 aux = Instantiate(opcoesPlayer[0], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[0].transform.rotation);
                 aux.name = "Cube_Player";
-                //enemy.atualizaEnemy();
+                //aux.GetComponent<Actor>().playerHUD = GameObject.Find("HUD_Player1").GetComponent<PlayerHUD>();
             }
         }
 
@@ -108,7 +106,7 @@ public class GameSystem : MonoBehaviour {
                 GameObject aux;
                 aux = Instantiate(opcoesPlayer[1], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[1].transform.rotation);
                 aux.name = "Cube_Player2";
-               // enemy.atualizaEnemy();
+               // aux.GetComponent<Actor>().playerHUD = GameObject.Find("HUD_Player2").GetComponent<PlayerHUD>();
             }
 
         }
