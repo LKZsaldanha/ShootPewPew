@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSound : MonoBehaviour {
 
 
-    public AudioClip dead;
+    public AudioClip dead, pickItem;
     AudioSource audioSource;
     // Use this for initialization
     void Start () {
@@ -25,5 +25,9 @@ public class PlayerSound : MonoBehaviour {
     public void DeadSound()
     {
         audioSource.PlayOneShot(dead, 1F);
+    }
+    public void GoldSound()
+    {    
+        audioSource.PlayOneShot(pickItem, 1F);   
     }
 }
