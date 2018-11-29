@@ -31,15 +31,25 @@ public class Actor : MonoBehaviour {
     [SerializeField] private int valorDinheiro;
     [SerializeField] private PlayerHUD playerHUD;
 
+    [SerializeField] private GameObject cam;
+
     private void Awake()
     {
         colisorRasteira = gameObject.transform.GetChild(0).gameObject;
         colisorAgachar = gameObject.transform.GetChild(1).gameObject;
         gameSystem = GameObject.Find("GameSystem");
-        gameSystem.GetComponent<GameSystem>().nPlayerVivos.Add(gameObject);
+
     }
     // Use this for initialization
     void Start () {
+        gameSystem.GetComponent<GameSystem>().nPlayerVivos.Add(gameObject);
+        cam = GameObject.Find("Main Camera");
+
+        if(cam.GetComponent<CameraFollow>().target == null)
+            cam.GetComponent<CameraFollow>().target = transform.GetChild(2).transform;
+        else
+            cam.GetComponent<CameraFollow>().target2 = transform.GetChild(2).transform;
+
         colisorRasteira.GetComponent<BoxCollider>().enabled = false;
         colisorAgachar.GetComponent<BoxCollider>().enabled = false;
 
@@ -481,9 +491,9 @@ public class Actor : MonoBehaviour {
                 objAnimado.GetComponent<Animator>().SetTrigger("isDied");
 
                 gameSystem.GetComponent<GameSystem>().nPlayerAtivos(gameObject.name);
+
+                StartCoroutine("morreu");
                 GetComponent<Actor>().enabled = false;
-               
-                //Destroy(gameObject);
             }
         }
 
@@ -492,26 +502,31 @@ public class Actor : MonoBehaviour {
             Destroy(collision.gameObject);
             life--;
             playerHUD.UpdateHUDLives(-1);
-            if (life == 0)
+
+            objAnimado.GetComponent<Animator>().SetBool("frente", false);
+            objAnimado.GetComponent<Animator>().SetBool("cima", false);
+            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+            objAnimado.GetComponent<Animator>().SetBool("idle", false);
+            objAnimado.GetComponent<Animator>().SetBool("walk", false);
+            objAnimado.GetComponent<Animator>().SetTrigger("isDied");
+
+            playerSound.DeadSound();
+
+            if (life < 0)
             {
-                objAnimado.GetComponent<Animator>().SetBool("frente", false);
-                objAnimado.GetComponent<Animator>().SetBool("cima", false);
-                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-                objAnimado.GetComponent<Animator>().SetBool("idle", false);
-                objAnimado.GetComponent<Animator>().SetBool("walk", false);
-                objAnimado.GetComponent<Animator>().SetTrigger("isDied");
-
-                playerSound.DeadSound();
-
+                gameSystem.GetComponent<GameSystem>().lifePlayers(life, gameObject.name);
                 gameSystem.GetComponent<GameSystem>().nPlayerAtivos(gameObject.name);
-
-                GetComponent<Actor>().enabled = false;
+            }    
+            else
+            {
                 GetComponent<Rigidbody>().isKinematic = true;
                 GetComponent<Rigidbody>().useGravity = false;
                 GetComponent<BoxCollider>().enabled = false;
-            }          
+                GetComponent<Actor>().enabled = false;
+                StartCoroutine("morreu");
+            }
         }
 
         if (collision.gameObject.tag == "life")
@@ -540,35 +555,16 @@ public class Actor : MonoBehaviour {
     {
         if(other.tag == "spawner")
         {
-
-            //objectA.transform.parent = objectB.transform;
-
-            /*for (var i = other.transform.childCount - 1; i >= 0; i--)
-            {
-
-                other.transform.GetChild(i).parent = null;
-            }*/
             other.GetComponent<BoxCollider>().enabled = false;
             gameSystem.GetComponent<GameSystem>().quadranteSpawn();
-            //Destroy(other.gameObject);
         }
+    }
 
-        /*if(other.gameObject.name == "Quadrante1")
-        {
-            gameSystem.GetComponent<GameSystem>().quadranteSpawn1();
-            Destroy(other.gameObject);
-        }
 
-        if (other.gameObject.name == "Quadrante2")
-        {
-            gameSystem.GetComponent<GameSystem>().quadranteSpawn2();
-            Destroy(other.gameObject);
-        }
-
-        if (other.gameObject.name == "Quadrante3")
-        {
-            gameSystem.GetComponent<GameSystem>().quadranteSpawn3();
-            Destroy(other.gameObject);
-        }*/
+    IEnumerator morreu()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+        StopCoroutine("morreu");
     }
 }

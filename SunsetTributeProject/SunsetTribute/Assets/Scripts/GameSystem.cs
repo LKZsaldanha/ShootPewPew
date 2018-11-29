@@ -17,20 +17,15 @@ public class GameSystem : MonoBehaviour {
     //[SerializeField] private List<GameObject> enemys;
     [SerializeField] private List<Transform> quadrante1;
 
-    public int numberSpawn;//forçar spawn a ser mostrado
-    /// <summary>
-    /// Ao chamar o metodo deve colocar o nome do player para
-    /// a função remover o player morto correto da lista
-    /// </summary>
-    /// <param name="namePlayer"></param>
-    void Start()
-    {
-        //numberSpawn = 0;
-    }
+    public int numberSpawn;
+
+    private bool noSpawn1, noSpawn2;
+
     private void Update()
     {
+        nPlayerVivos.RemoveAll(c => c == null);
         //Para reinicar o jogo na amostra
-        if(Input.GetButtonDown("Reiniciar"))
+        if (Input.GetButtonDown("Reiniciar"))
         {
             SceneManager.LoadScene("Demo_Level_2");
         }
@@ -49,12 +44,13 @@ public class GameSystem : MonoBehaviour {
         {
             nPlayerVivos.RemoveAt(1);
         }
-
-        nPlayerVivos.RemoveAll(c => c == null);
     }
 
     public void quadranteSpawn()
     {
+        
+
+
         while (numberSpawn < quadrante1.Count) 
         {
             for (var e = quadrante1[numberSpawn].transform.childCount - 1; e >= 0; e--)
@@ -63,34 +59,87 @@ public class GameSystem : MonoBehaviour {
             }
             break; 
         }
+        /*for (int i = 0; i <= quadrante1.Count - 1; i++)
+        {
+            quadrante1[i].GetChild.gameObject.SetActive(true);
+            break;
+        }*/
         numberSpawn++;
 
     }
 
+    /// <summary>
+    /// Metodo onde controlará o GameOver no game
+    /// </summary>
+    public void lifePlayers(int lifePlayer, string nameplayer)
+    {
+        if (nameplayer == "Cube_Player")
+        {
+            if(lifePlayer < 0)
+            {
+                noSpawn1 = true;
+            }
+        }
+        else
+        {
+            if (lifePlayer < 0)
+            {
+                noSpawn2 = true;
+            }
+        }
+    }
+
+
     void spawnPlayer()
     {
-        if(Input.GetButtonDown("StartP1"))
+        if(Input.GetButtonDown("StartP1") && !noSpawn1)
         {
-            if (GameObject.Find("Cube_Player") == null)
+            if (!opcoesPlayer[0].activeSelf)
             {
-                GameObject aux;
-                aux  =Instantiate(opcoesPlayer[0], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[0].transform.rotation);
-                aux.name = "Cube_Player";
+                if (GameObject.Find("Cube_Player") == null)
+                {
+                    opcoesPlayer[0].SetActive(true);
+                    Instantiate(opcoesPlayer[0], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[0].transform.rotation);
+                }
             }
-            
         }
 
-        if (Input.GetButtonDown("StartP2"))
+        if (Input.GetButtonDown("StartP2") && !noSpawn2)
         {
-            if (GameObject.Find("Cube_Player2") == null)
+            if (!opcoesPlayer[1].activeSelf)
             {
-                GameObject aux;
-                aux = Instantiate(opcoesPlayer[1], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[1].transform.rotation);
-                aux.name = "Cube_Player2";
-            }
+                if (GameObject.Find("Cube_Player2") == null)
+                {
+                    opcoesPlayer[1].SetActive(true);
+                    Instantiate(opcoesPlayer[1], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[1].transform.rotation);
+                }
 
-            
+            }
 
         }
     }
+
+    /*public void quadranteSpawn1()
+    {
+        for(int i=0; i<=quadrante1.Count-1;i++)
+        {
+            Instantiate(enemys[Random.Range(0,enemys.Count)], quadrante1[i].position,quadrante1[i].rotation);
+        }        
+    }
+
+    public void quadranteSpawn2()
+    {
+        for (int i = 0; i <= quadrante1.Count - 1; i++)
+        {
+            Instantiate(enemys[Random.Range(0, enemys.Count)], quadrante2[i].position, quadrante2[i].rotation);
+        }
+    }
+
+    public void quadranteSpawn3()
+    {
+        for (int i = 0; i <= quadrante1.Count - 1; i++)
+        {
+            Instantiate(enemys[Random.Range(0, enemys.Count)], quadrante3[i].position, quadrante3[i].rotation);
+        }
+    }*/
 }
