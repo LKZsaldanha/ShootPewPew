@@ -55,9 +55,6 @@ public class GameSystem : MonoBehaviour {
 
     public void quadranteSpawn()
     {
-        
-
-
         while (numberSpawn < quadrante1.Count) 
         {
             for (var e = quadrante1[numberSpawn].transform.childCount - 1; e >= 0; e--)
@@ -66,11 +63,6 @@ public class GameSystem : MonoBehaviour {
             }
             break; 
         }
-        /*for (int i = 0; i <= quadrante1.Count - 1; i++)
-        {
-            quadrante1[i].GetChild.gameObject.SetActive(true);
-            break;
-        }*/
         numberSpawn++;
 
     }
@@ -79,52 +71,26 @@ public class GameSystem : MonoBehaviour {
     {
         if(Input.GetButtonDown("StartP1"))
         {
-            if (!opcoesPlayer[0].activeSelf)
+            if (GameObject.Find("Cube_Player") == null)
             {
-                if (GameObject.Find("Cube_Player") == null)
-                {
-                    opcoesPlayer[0].SetActive(true);
-                    Instantiate(opcoesPlayer[0], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[0].transform.rotation);
-                }
+                GameObject aux;
+                aux  =Instantiate(opcoesPlayer[0], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[0].transform.rotation);
+                aux.name = "Cube_Player";
             }
+            
         }
 
         if (Input.GetButtonDown("StartP2"))
         {
-            if (!opcoesPlayer[1].activeSelf)
+            if (GameObject.Find("Cube_Player2") == null)
             {
-                if (GameObject.Find("Cube_Player2") == null)
-                {
-                    opcoesPlayer[1].SetActive(true);
-                    Instantiate(opcoesPlayer[1], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[1].transform.rotation);
-                }
-
+                GameObject aux;
+                aux = Instantiate(opcoesPlayer[1], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[1].transform.rotation);
+                aux.name = "Cube_Player2";
             }
 
+            
+
         }
     }
-
-    /*public void quadranteSpawn1()
-    {
-        for(int i=0; i<=quadrante1.Count-1;i++)
-        {
-            Instantiate(enemys[Random.Range(0,enemys.Count)], quadrante1[i].position,quadrante1[i].rotation);
-        }        
-    }
-
-    public void quadranteSpawn2()
-    {
-        for (int i = 0; i <= quadrante1.Count - 1; i++)
-        {
-            Instantiate(enemys[Random.Range(0, enemys.Count)], quadrante2[i].position, quadrante2[i].rotation);
-        }
-    }
-
-    public void quadranteSpawn3()
-    {
-        for (int i = 0; i <= quadrante1.Count - 1; i++)
-        {
-            Instantiate(enemys[Random.Range(0, enemys.Count)], quadrante3[i].position, quadrante3[i].rotation);
-        }
-    }*/
 }

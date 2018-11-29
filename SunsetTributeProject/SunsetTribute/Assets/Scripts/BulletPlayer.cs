@@ -57,7 +57,7 @@ public class BulletPlayer : MonoBehaviour {
     }
 
 
-    private void OnTriggerEnter(Collider other)
+   /* private void OnTriggerEnter(Collider other)
     {
         if(transform.tag == "Bullet"){
             if(other.gameObject.tag == "LimitSize")
@@ -66,18 +66,17 @@ public class BulletPlayer : MonoBehaviour {
                 Destroy(gameObject);
             }
         }
-    }
+    }*/
+
     private void OnCollisionEnter(Collision collision)
     {
-        /*if(transform.tag == "Bullet"){
+        if(transform.tag == "Bullet")
+        {
             if(collision.gameObject.tag == "LimitSize")
             {
-                ContactPoint contact = collision.contacts[0];
-                Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-                Vector3 pos = contact.point;
-                CreateAndDestroyParticle(hitParticlesPrefab, pos, rot);
+                Destroy(gameObject);
             }
-        }*/
+        }
 
 
         if (collision.gameObject.tag == "chao")
