@@ -112,6 +112,7 @@ public class Enemy : MonoBehaviour {
         {
             if(players[0].name != gameSystem.GetComponent<GameSystem>().nameplayer)
             {
+                print("erro aqui: "+ gameSystem.GetComponent<GameSystem>().nameplayer);
                 players.Add(GameObject.Find(gameSystem.GetComponent<GameSystem>().nameplayer).transform);
             }
         }

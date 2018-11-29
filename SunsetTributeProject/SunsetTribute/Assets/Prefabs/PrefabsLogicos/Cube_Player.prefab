@@ -1220,7 +1220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1593569065441214
 GameObject:
   m_ObjectHideFlags: 1
@@ -4694,8 +4694,7 @@ MonoBehaviour:
   life: 0
   inputDeadZoneValue: 0.2
   valorDinheiro: 0
-  meMoney: 0
-  uiValue: {fileID: 0}
+  playerHUD: {fileID: 0}
 --- !u!114 &114737344542073034
 MonoBehaviour:
   m_ObjectHideFlags: 1

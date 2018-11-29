@@ -82,26 +82,30 @@ public class GameSystem : MonoBehaviour {
     {
         if(Input.GetButtonDown("StartP1"))
         {
-            if (!opcoesPlayer[0].activeSelf)
+            if (opcoesPlayer[0].activeInHierarchy)
             {
-                if (GameObject.Find("Cube_Player") == null)
+                if (GameObject.Find("Cube_Player1") == null)
                 {
-                    opcoesPlayer[0].SetActive(true);
-                    Instantiate(opcoesPlayer[0], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[0].transform.rotation);
+                    GameObject aux;
+                    aux = Instantiate(opcoesPlayer[0], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[0].transform.rotation);
+                    aux.name = "Cube_Player1";
+                    nameplayer = aux.name;
                 }
             }
         }
 
         if (Input.GetButtonDown("StartP2"))
         {
-            if (!opcoesPlayer[1].activeSelf)
+            if (!opcoesPlayer[1].activeInHierarchy)
             {
-                if (GameObject.Find("Cube_Player2") == null)
+                if(GameObject.Find("Cube_Player2") == null)
                 {
-                    opcoesPlayer[1].SetActive(true);
-                    Instantiate(opcoesPlayer[1], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[1].transform.rotation);
+                    GameObject aux;
+                    aux = Instantiate(opcoesPlayer[1], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[1].transform.rotation);
+                    aux.name = "Cube_Player2";
+                    nameplayer = aux.name;
                 }
-
+               
             }
 
         }

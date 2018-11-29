@@ -3484,7 +3484,8 @@ MonoBehaviour:
   bullet: {fileID: 1157084308398432, guid: caa1e8279cf8811409f6d2e736a9c0d2, type: 2}
   objAnimado: {fileID: 1252300857412038}
   gameSystem: {fileID: 0}
-  itens: []
+  itens:
+  - {fileID: 1989921776441462, guid: 0baf559b763933641836fd9460307883, type: 2}
   spawnBullet:
   - {fileID: 4797977172262946}
   mira:
