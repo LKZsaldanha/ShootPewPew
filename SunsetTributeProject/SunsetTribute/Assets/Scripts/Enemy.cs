@@ -368,7 +368,10 @@ public class Enemy : MonoBehaviour {
                 print("Atirou");
                 //enemySound.ShootSound();
                 objAnimado.GetComponent<Animator>().SetTrigger("atirou");
-                Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
+                //Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
+                GameObject bulletNew = Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
+                bulletNew.GetComponent<BulletPlayer>().target = players[0].gameObject;
+                //print(players[0].position.y);
                 isAttack = false;
 
             }
@@ -434,7 +437,9 @@ public class Enemy : MonoBehaviour {
             objAnimado.GetComponent<Animator>().SetBool("isHide", false);
             //normaliza o colisor para a bullet poder acertar ele se o player estiver na mesma altura ou nao
             GetComponent<BoxCollider>().enabled = true;
-            colisorHide.GetComponent<BoxCollider>().enabled = false;
+            if(colisorHide != null){
+                colisorHide.GetComponent<BoxCollider>().enabled = false;
+            }
 
 
             objAnimado.GetComponent<Animator>().SetTrigger("isHideAttack");
@@ -454,7 +459,9 @@ public class Enemy : MonoBehaviour {
             objAnimado.GetComponent<Animator>().SetBool("isHide", true);
             //diminui o colisor para a bullet não acertar ele se o player estiver na mesma altura
             GetComponent<BoxCollider>().enabled = false;
-            colisorHide.GetComponent<BoxCollider>().enabled = true;
+            if(colisorHide != null){
+                colisorHide.GetComponent<BoxCollider>().enabled = true;
+            }
 
 
             StartCoroutine("timerSpawnBullet");
@@ -484,10 +491,12 @@ public class Enemy : MonoBehaviour {
                 spawnBullet[0].rotation = Quaternion.Euler(0, 90, 0);
             }
 
-            Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
+            GameObject bulletNew = Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
+            bulletNew.GetComponent<BulletPlayer>().target = players[0].gameObject;
+            print(players[0].position.y);
         }
 
-        StopCoroutine("hideTrue");
+        StopCoroutine("hideTrStopCoroutineue");
     }
    
     //tempo de tiro sem colver
@@ -505,6 +514,12 @@ public class Enemy : MonoBehaviour {
 
     IEnumerator morreu()
     {
+        StopCoroutine("cowdown");
+        StopCoroutine("DelayAttack");
+        StopCoroutine("hideTrue");
+        StopCoroutine("hideTrStopCoroutineue");
+        StopCoroutine("cowdown");
+        StopCoroutine("cowndownHide");
         yield return new WaitForSeconds(3);
         Destroy(gameObject);
         StopCoroutine("morreu");
