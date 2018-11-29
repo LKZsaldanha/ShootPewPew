@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraFollow : MonoBehaviour {
 
@@ -10,34 +11,47 @@ public class CameraFollow : MonoBehaviour {
 	public Vector2 focusAreaSize;
 	public Vector2 offset;
 	public float zDistance = -20;
+    [SerializeField] GameObject gameSystem;
+
 
 	private FocusArea focusArea;
 
 
 	private void Start()
 	{
-        
+        gameSystem = GameObject.Find("GameSystem");
 		focusArea = new FocusArea(target.GetComponent<Collider2D>().bounds, focusAreaSize);
 	}
 
 	void LateUpdate()
 	{
-        if (target == null){ 
-            if (target2 != null) {
-                target = target2;
-                target2 = null;
-            }
-        }
-        if (target2 == null)
+        if(gameSystem.GetComponent<GameSystem>().nPlayerVivos.Count>0)
         {
-            target2 = target;
-        }
-        focusArea.Update(target.GetComponent<Collider2D>().bounds, target2.GetComponent<Collider2D>().bounds);
-		Vector2 focusPosition = focusArea.center + offset;
+            if (target == null)
+            {
+                if (target2 != null)
+                {
+                    target = target2;
+                    target2 = null;
+                }
+            }
+            if (target2 == null)
+            {
+                target2 = target;
+            }
+            focusArea.Update(target.GetComponent<Collider2D>().bounds, target2.GetComponent<Collider2D>().bounds);
+            Vector2 focusPosition = focusArea.center + offset;
 
-		transform.position = (Vector3)focusPosition + Vector3.forward * zDistance;
+            transform.position = (Vector3)focusPosition + Vector3.forward * zDistance;
+        }
+        else
+        {
+          //  SceneManager.LoadScene("SplashScreen");
+        }
+
 
 	}
+
 
 	void OnDrawGizmos()
 	{

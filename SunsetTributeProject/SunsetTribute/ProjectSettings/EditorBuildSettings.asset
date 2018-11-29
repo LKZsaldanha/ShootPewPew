@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Demo_Level_2.unity
+    guid: f4704e83ddce7524eb108c9ab8a8ac22
+  - enabled: 1
+    path: Assets/Scenes/SplashScreen.unity
+    guid: 061a25cb7e7d9e74cb904438255629aa
   m_configObjects: {}
