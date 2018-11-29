@@ -29,7 +29,7 @@ public class Actor : MonoBehaviour {
 
     //valor do cx dois
     [SerializeField] private int valorDinheiro;
-    [SerializeField] private PlayerHUD playerHUD;
+    public GameObject playerHUD;
 
     [SerializeField] private GameObject cam;
 
@@ -53,6 +53,16 @@ public class Actor : MonoBehaviour {
         colisorRasteira.GetComponent<BoxCollider>().enabled = false;
         colisorAgachar.GetComponent<BoxCollider>().enabled = false;
 
+        if (gameObject.name == "Cube_Player")
+        {
+            playerHUD = GameObject.Find("HUD_Player_1");
+        }
+        else
+        {
+            playerHUD = GameObject.Find("HUD_Player_2");
+        }
+
+
         isRight = true;
         lifeMax = life = 3;
         playerSound = GetComponent<PlayerSound>();
@@ -60,7 +70,9 @@ public class Actor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(!isRasteira){
+
+
+        if (!isRasteira){
             Move();
             attack();
             directionInput();
@@ -464,7 +476,8 @@ public class Actor : MonoBehaviour {
 
         if (collision.gameObject.tag == "gold")
         {
-            playerHUD.UpdateHUDScore(valorDinheiro);
+            print("dfs");
+            playerHUD.GetComponent<PlayerHUD>().UpdateHUDScore(valorDinheiro);
             playerSound.GoldSound();
             Destroy(collision.gameObject);
         }
@@ -494,7 +507,7 @@ public class Actor : MonoBehaviour {
         {
             Destroy(collision.gameObject);
             life--;
-            playerHUD.UpdateHUDLives(-1);
+            playerHUD.GetComponent<PlayerHUD>().UpdateHUDLives(-1);
 
             objAnimado.GetComponent<Animator>().SetBool("frente", false);
             objAnimado.GetComponent<Animator>().SetBool("cima", false);
@@ -527,7 +540,7 @@ public class Actor : MonoBehaviour {
             if(life<3)
             {
                 life++;
-                playerHUD.UpdateHUDLives(1);
+                playerHUD.GetComponent<PlayerHUD>().UpdateHUDLives(1);
             }
             Destroy(collision.gameObject);
         }

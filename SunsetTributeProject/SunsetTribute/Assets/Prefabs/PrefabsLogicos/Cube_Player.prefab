@@ -3651,7 +3651,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1973248460037282}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -10.15, y: 2.01, z: -0.077}
+  m_LocalPosition: {x: -9.82, y: 1.58, z: -0.077}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4873016270997844}
@@ -4710,6 +4710,7 @@ MonoBehaviour:
   inputDeadZoneValue: 0.2
   valorDinheiro: 100
   playerHUD: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!137 &137027556754463884
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
