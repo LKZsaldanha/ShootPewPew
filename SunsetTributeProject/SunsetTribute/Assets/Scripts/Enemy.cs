@@ -391,6 +391,9 @@ public class Enemy : MonoBehaviour {
                 GetComponent<BoxCollider>().enabled = false;
                 GetComponent<Rigidbody>().isKinematic = true;
                 GetComponent<Rigidbody>().useGravity = false;
+
+                Instantiate(itens[0], new Vector3(transform.position.x, transform.position.y, players[0].position.z), transform.rotation);
+
                 StopCoroutine("cowndownHide");
                 StartCoroutine("morreu");
             }

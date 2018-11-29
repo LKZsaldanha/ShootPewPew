@@ -3584,7 +3584,8 @@ MonoBehaviour:
   objAnimado: {fileID: 1044180715429998}
   gameSystem: {fileID: 0}
   colisorHide: {fileID: 1841898665929674}
-  itens: []
+  itens:
+  - {fileID: 1989921776441462, guid: 0baf559b763933641836fd9460307883, type: 2}
   spawnBullet:
   - {fileID: 4500325605253064}
   mira:

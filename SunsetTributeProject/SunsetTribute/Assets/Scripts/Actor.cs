@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Actor : MonoBehaviour {
-    protected bool isground, isRight,isRasteira, isAgachado;
+    private bool isground, isRight,isRasteira, isAgachado;
     //[SerializeField] private float gravity = 15f;
-    [SerializeField] protected float speed , jump, cooldownRasteira, speedRasteira;
-    [SerializeField] protected GameObject bullet, objAnimado, gameSystem;
+    [SerializeField] private float speed , jump, cooldownRasteira, speedRasteira;
+    [SerializeField] private GameObject bullet, objAnimado, gameSystem;
     [SerializeField] private string[] inputs;
     [SerializeField] private Transform[] localSpawnBullet, mira;
 
@@ -25,6 +25,11 @@ public class Actor : MonoBehaviour {
 
     //colisores
     private GameObject colisorRasteira, colisorAgachar;
+
+
+    //valor do cx dois
+    [SerializeField] private int valorDinheiro, meMoney;
+    [SerializeField] private GameObject uiValue;
 
     private void Awake()
     {
@@ -443,7 +448,15 @@ public class Actor : MonoBehaviour {
             jumpAnim();
         }
 
-        if(collision.gameObject.tag == "enemy")
+
+        if (collision.gameObject.tag == "gold")
+        {
+            meMoney += valorDinheiro;
+            uiValue.GetComponent<Text>().text = "" + meMoney;
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.tag == "enemy")
         {
             life--;
             if (life<=0)
@@ -527,6 +540,7 @@ public class Actor : MonoBehaviour {
             gameSystem.GetComponent<GameSystem>().quadranteSpawn();
             //Destroy(other.gameObject);
         }
+
         /*if(other.gameObject.name == "Quadrante1")
         {
             gameSystem.GetComponent<GameSystem>().quadranteSpawn1();
