@@ -13,8 +13,6 @@ public class BulletPlayer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         CreateAndDestroyParticle(muzzleParticlesPrefab, transform.position, Quaternion.identity);
-
-        StartCoroutine("life");
 	}
 
     private void CreateAndDestroyParticle(GameObject go,Vector3 pos, Quaternion rot)
@@ -38,22 +36,19 @@ public class BulletPlayer : MonoBehaviour {
         GetComponent<Rigidbody>().velocity = transform.forward * speedBullet;
     }
 
-    IEnumerator life()
-    {
-        yield return new WaitForSeconds(lifebullet);
-        StopCoroutine("life");
-        Destroy(gameObject);
-        
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
 
-        ContactPoint contact = collision.contacts[0];
-        Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-        Vector3 pos = contact.point;
+        
 
-        CreateAndDestroyParticle(hitParticlesPrefab, pos, rot);
+        if(collision.gameObject.tag != "LimitSize")
+        {
+            ContactPoint contact = collision.contacts[0];
+            Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+            Vector3 pos = contact.point;
+            CreateAndDestroyParticle(hitParticlesPrefab, pos, rot);
+        }
+        
 
         if (id)
         {
@@ -74,6 +69,11 @@ public class BulletPlayer : MonoBehaviour {
             {
                 Destroy(gameObject);
             }
+        }
+
+        if(collision.gameObject.tag == "LimitSize")
+        {
+            Destroy(gameObject);
         }
 
     }

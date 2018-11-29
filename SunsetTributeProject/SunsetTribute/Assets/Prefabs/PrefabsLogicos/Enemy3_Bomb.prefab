@@ -3556,7 +3556,7 @@ MonoBehaviour:
   baixoMaximo: 2.5
   speed: 2
   distanceAttack: 5
-  cowdownFire: 1
+  cowdownFire: 2
   bullet: {fileID: 1157084308398432, guid: caa1e8279cf8811409f6d2e736a9c0d2, type: 2}
   objAnimado: {fileID: 1522101212598898}
   gameSystem: {fileID: 0}
@@ -3579,6 +3579,9 @@ MonoBehaviour:
   bomb: {fileID: 1807947524818686}
   timerToThrowBomb: 2
   timerToThrowBombAnim: 0.5
+  delayShootHideBehind: 2
+  delayShootwalkFromCamera: 2
+  delayShootWalkBehind: 2
 --- !u!114 &114679069334076560
 MonoBehaviour:
   m_ObjectHideFlags: 1

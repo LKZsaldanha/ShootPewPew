@@ -29,6 +29,9 @@ public class EnemyB : MonoBehaviour {
     public GameObject bomb;
     public float timerToThrowBomb = 2.0f;
     public float timerToThrowBombAnim = 0.5f;
+    public float delayShootHideBehind = 1.0f;
+    public float delayShootwalkFromCamera = 1.0f;
+    public float delayShootWalkBehind = 1.0f;
 
     private void Awake()
     {
@@ -118,11 +121,15 @@ public class EnemyB : MonoBehaviour {
 
                     modNPlayers();
 
-                    if (colver == null)
+                    if (colver == null){
                         Move();
-
-
-                    Attack();
+                    }
+                    if(!isShowing){
+                        if (menorDistancia < distanceAttack)
+                        {
+                            Attack();
+                        }
+                    }
                 }
             }
         }
@@ -154,11 +161,11 @@ public class EnemyB : MonoBehaviour {
 
     private void Move()
     {
-        print("Move");
+        //print("Move");
         if (players.Count != 0)
         {
             distancePlayer = Vector3.Distance(players[0].position, transform.position);
-        menorDistancia = distancePlayer;
+            menorDistancia = distancePlayer;
         if (players.Count > 1)
         {
             distancePlayer2 = Vector3.Distance(players[1].position, transform.position);
@@ -201,7 +208,9 @@ public class EnemyB : MonoBehaviour {
                 //mesmo nivel de altura do player
                 if (players[idPlayer].position.y < transform.position.y + 0.5f && players[idPlayer].position.y > transform.position.y - 0.5f)
                 {
-                    StartCoroutine("cowdown");
+                    if(!isShowing){
+                        StartCoroutine("cowdown");
+                    }
 
 
                     //posição e rotação da mira (frente)
@@ -230,7 +239,9 @@ public class EnemyB : MonoBehaviour {
                 {
                     if (distancePlayer > DiagMinimo)
                     {
-                        StartCoroutine("cowdown");
+                        if(!isShowing){
+                            StartCoroutine("cowdown");
+                        }
                         //posição e rotação da mira (diagonal Baixo frente)
                         if (transform.localScale.x == 1)
                         {
@@ -258,7 +269,9 @@ public class EnemyB : MonoBehaviour {
                 {
                     if (distancePlayer > DiagMinimo)
                     {
-                        StartCoroutine("cowdown");
+                        if(!isShowing){
+                            StartCoroutine("cowdown");
+                        }
                         //posição e rotação da mira (diagonal cima frente)
                         if (transform.localScale.x == 1)
                         {
@@ -357,7 +370,7 @@ public class EnemyB : MonoBehaviour {
 
     private void Attack()
     {
-        print("attack");
+        //print("attack");
         if (players.Count != 0)
         {
             distancePlayer = Vector3.Distance(players[0].position, transform.position);
@@ -371,7 +384,7 @@ public class EnemyB : MonoBehaviour {
                     isAttack = false;
                 }
                 else { 
-                     print("Atirou");
+                    print("Atirou");
                     //enemySound.ShootSound();
                     objAnimado.GetComponent<Animator>().SetTrigger("atirou");
                     Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
@@ -390,7 +403,7 @@ public class EnemyB : MonoBehaviour {
 
     IEnumerator throwBombCooldown()
     {
-        print("Bombaaa");
+        //print("Bombaaa");
         if (canThrow)
         {
             //yield return new WaitForSeconds(timerToThrowBomb);
@@ -494,21 +507,22 @@ public class EnemyB : MonoBehaviour {
             GetComponent<BoxCollider>().enabled = false;
             if(isHideBehind){
                 objAnimado.GetComponent<Animator>().SetTrigger("isHideBehind");
-                yield return new WaitForSeconds(1.5f);
+                yield return new WaitForSeconds(delayShootHideBehind);
                 isHideBehind = false;
             }else if (walkFromCamera){
                 objAnimado.GetComponent<Animator>().SetTrigger("walkFromCamera");
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(delayShootwalkFromCamera);
                 walkFromCamera = false;
             }else if (walkBehind){
                 objAnimado.GetComponent<Animator>().SetTrigger("walkBehind");
-                yield return new WaitForSeconds(1.9f);
+                yield return new WaitForSeconds(delayShootWalkBehind);
                 walkBehind = false;
             }
             isShowing = false;
+            print("entrou");
             GetComponent<BoxCollider>().enabled = true;    
-            Attack();
-            StopCoroutine("IsShowing");   
+            //Attack();
+            StopCoroutine("IsShowing");
         }
     }
     

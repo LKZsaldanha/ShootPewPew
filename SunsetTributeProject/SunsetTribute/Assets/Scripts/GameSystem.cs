@@ -9,6 +9,8 @@ public class GameSystem : MonoBehaviour {
 
     public int money;
     public List<GameObject> nPlayerVivos;
+
+    [SerializeField] List<GameObject> opcoesPlayer;
     //variavel que indicara qual player morreu para o inimigo
     public string nameplayer;
 
@@ -25,6 +27,12 @@ public class GameSystem : MonoBehaviour {
     {
         //numberSpawn = 0;
     }
+    private void Update()
+    {
+        spawnPlayer();
+        print(""+ opcoesPlayer[1].activeSelf);
+    }
+
     public void nPlayerAtivos(string namePlayer)
     {
         this.nameplayer = namePlayer;
@@ -66,7 +74,44 @@ public class GameSystem : MonoBehaviour {
 
     }
 
-   
+    void spawnPlayer()
+    {
+        if(Input.GetButtonDown("StartP1"))
+        {
+            if(Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
+
+            if(!opcoesPlayer[0].activeSelf)
+            {
+                Instantiate(opcoesPlayer[0],new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y,0f),opcoesPlayer[0].transform.rotation);
+            }
+            else
+            {
+                Time.timeScale = 0;
+            }
+
+        }
+
+        if (Input.GetButtonDown("StartP2"))
+        {
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
+
+            if (!opcoesPlayer[1].activeSelf)
+            {
+                Instantiate(opcoesPlayer[1], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[1].transform.rotation);
+            }
+            else
+            {
+                Time.timeScale = 0;
+            }
+
+        }
+    }
 
     /*public void quadranteSpawn1()
     {
