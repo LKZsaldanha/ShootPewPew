@@ -69,37 +69,53 @@ public class BulletPlayer : MonoBehaviour {
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(transform.tag == "Bullet"){
+        /*if(transform.tag == "Bullet"){
             if(collision.gameObject.tag == "LimitSize")
             {
                 ContactPoint contact = collision.contacts[0];
                 Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
                 Vector3 pos = contact.point;
                 CreateAndDestroyParticle(hitParticlesPrefab, pos, rot);
-
             }
+        }*/
+
+
+        if (collision.gameObject.tag == "chao")
+        {
+            Destroy(gameObject);
+            ContactPoint contact = collision.contacts[0];
+            Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+            Vector3 pos = contact.point;
+            CreateAndDestroyParticle(hitParticlesPrefab, pos, rot);
         }
-        
+
         if (id)
         {
-            if (collision.gameObject.tag == "BulletEnemy")
+            /*if (collision.gameObject.tag == "BulletEnemy")
             {
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
+            }*/
+            if (collision.gameObject.tag == "Enemy")
+            {
+                ContactPoint contact = collision.contacts[0];
+                Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+                Vector3 pos = contact.point;
+                CreateAndDestroyParticle(hitParticlesPrefab, pos, rot);
             }
 
-            if(collision.gameObject.tag == "chao")
-            {
-                Destroy(gameObject);
-            }
         }
         else
         {
-            if (collision.gameObject.tag == "chao")
+            if (collision.gameObject.tag == "Player")
             {
-                Destroy(gameObject);
+                ContactPoint contact = collision.contacts[0];
+                Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+                Vector3 pos = contact.point;
+                CreateAndDestroyParticle(hitParticlesPrefab, pos, rot);
             }
         }
+
         
 
     }

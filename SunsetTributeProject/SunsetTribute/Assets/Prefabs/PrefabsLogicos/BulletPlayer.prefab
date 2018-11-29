@@ -443,7 +443,7 @@ MonoBehaviour:
     type: 2}
   hitParticlesPrefab: {fileID: 1610465882251708, guid: 40994b2d43adaad4c85ea2cf975385b2,
     type: 2}
-  lifebullet: 10
+  lifebullet: 15
   target: {fileID: 0}
 --- !u!114 &114596260666165308
 MonoBehaviour:
