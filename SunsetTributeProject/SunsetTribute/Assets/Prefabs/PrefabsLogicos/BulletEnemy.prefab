@@ -118,7 +118,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1689803847931694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.129}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4843827009831064}
@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1157084308398432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0102587, y: 0.9, z: -0.5901804}
+  m_LocalPosition: {x: 4.37, y: 5.4, z: -0.5901804}
   m_LocalScale: {x: 0.20784825, y: 0.20784825, z: 0.20784825}
   m_Children:
   - {fileID: 4843827009831064}
@@ -146,7 +146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1569827997181692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.15}
+  m_LocalPosition: {x: 0, y: 0, z: 0.433}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4843827009831064}
@@ -187,13 +187,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654020708922236}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4843827009831064}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!54 &54212354293841964
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -435,7 +435,7 @@ MonoBehaviour:
     type: 2}
   hitParticlesPrefab: {fileID: 1001301012208044, guid: 96e692e1292280c4fb01e73d73530f03,
     type: 2}
-  lifebullet: 10
+  lifebullet: 15
   target: {fileID: 0}
 --- !u!114 &114454669831813968
 MonoBehaviour:
@@ -5166,7 +5166,7 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 1, g: 0, b: 0.73142433, a: 1}
+      minColor: {r: 1, g: 0, b: 0.7333336, a: 1}
       maxColor: {r: 1, g: 0.4764151, b: 0.7437776, a: 1}
       maxGradient:
         serializedVersion: 2
