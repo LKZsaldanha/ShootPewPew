@@ -4693,7 +4693,11 @@ MonoBehaviour:
   lifeMax: 0
   life: 0
   inputDeadZoneValue: 0.2
+<<<<<<< HEAD
   valorDinheiro: 100
+=======
+  valorDinheiro: 0
+>>>>>>> be0e8398f1abc018cf77bd79812960f2c534b094
   playerHUD: {fileID: 0}
 --- !u!114 &114737344542073034
 MonoBehaviour:

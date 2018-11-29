@@ -62,12 +62,9 @@ public class GameSystem : MonoBehaviour {
         {
             for (var e = quadrante1[numberSpawn].transform.childCount - 1; e >= 0; e--)
             {
-                //quadrante1[i].GetChild.gameObject.SetActive(true);
-                quadrante1[numberSpawn].GetChild(e).gameObject.SetActive(true);
-               // print("entrou " + quadrante1[i].gameObject.name);
+                quadrante1[numberSpawn].GetChild(e).gameObject.SetActive(true);  
             }
-            break;
-            
+            break; 
         }
         /*for (int i = 0; i <= quadrante1.Count - 1; i++)
         {

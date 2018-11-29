@@ -296,6 +296,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1161351357968252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4186951232495948}
+  - component: {fileID: 65859238731282548}
+  m_Layer: 10
+  m_Name: ColisorHide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1167680486726848
 GameObject:
   m_ObjectHideFlags: 1
@@ -1757,7 +1773,7 @@ Transform:
   m_LocalScale: {x: -0.19894, y: 0.19894, z: 0.19894}
   m_Children: []
   m_Father: {fileID: 4461108763863622}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4046530431503312
 Transform:
@@ -1770,7 +1786,7 @@ Transform:
   m_LocalScale: {x: -0.19894, y: 0.19894, z: 0.19894}
   m_Children: []
   m_Father: {fileID: 4461108763863622}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4046827160065670
 Transform:
@@ -1990,6 +2006,19 @@ Transform:
   - {fileID: 4420951836447270}
   m_Father: {fileID: 4144343291361540}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4186951232495948
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161351357968252}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.416, z: 0}
+  m_LocalScale: {x: 0.52632, y: 0.87615997, z: 0.64981997}
+  m_Children: []
+  m_Father: {fileID: 4461108763863622}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4193688499455966
 Transform:
@@ -2406,7 +2435,7 @@ Transform:
   - {fileID: 4727649588251308}
   - {fileID: 4090717641173828}
   m_Father: {fileID: 4461108763863622}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4385428583367690
 Transform:
@@ -2584,12 +2613,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1602888416257730}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 5.07, y: 2.59, z: 0.85}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 2.5279307, y: 1.29, z: -0.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4659777000646188}
   - {fileID: 4684009652565886}
+  - {fileID: 4186951232495948}
   - {fileID: 4043222718571908}
   - {fileID: 4567712211778904}
   - {fileID: 4046530431503312}
@@ -2769,7 +2799,7 @@ Transform:
   m_LocalScale: {x: -0.19894, y: 0.19894, z: 0.19894}
   m_Children: []
   m_Father: {fileID: 4461108763863622}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4568951969144752
 Transform:
@@ -3268,7 +3298,7 @@ Transform:
   m_LocalScale: {x: -0.19894, y: 0.19894, z: 0.19894}
   m_Children: []
   m_Father: {fileID: 4461108763863622}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4956993550619178
 Transform:
@@ -3337,6 +3367,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5333004, y: 1.739859, z: 0.773829}
   m_Center: {x: 0, y: 0, z: 0.11308551}
+--- !u!65 &65859238731282548
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161351357968252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &82283467085964192
 AudioSource:
   m_ObjectHideFlags: 1
@@ -3472,8 +3514,9 @@ MonoBehaviour:
   bullet: {fileID: 1157084308398432, guid: caa1e8279cf8811409f6d2e736a9c0d2, type: 2}
   objAnimado: {fileID: 1522101212598898}
   gameSystem: {fileID: 0}
-  colisorHide: {fileID: 0}
-  itens: []
+  colisorHide: {fileID: 1161351357968252}
+  itens:
+  - {fileID: 1989921776441462, guid: 0baf559b763933641836fd9460307883, type: 2}
   spawnBullet:
   - {fileID: 4659777000646188}
   mira:
