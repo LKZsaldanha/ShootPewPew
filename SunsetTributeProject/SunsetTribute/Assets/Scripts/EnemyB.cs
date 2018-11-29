@@ -41,9 +41,10 @@ public class EnemyB : MonoBehaviour {
         {   
             //isShowing = false;
             objAnimado.GetComponent<Animator>().SetBool("idle", false);
-            objAnimado.GetComponent<Animator>().SetLayerWeight(1, 0);
+            //objAnimado.GetComponent<Animator>().SetLayerWeight(1, 0);
             objAnimado.GetComponent<Animator>().SetBool("canThrow", true);
         }else if (isHideBehind || walkFromCamera || walkBehind){
+            print("entrou");
             isShowing = true;
             objAnimado.GetComponent<Animator>().SetBool("idle", false);
             StartCoroutine("IsShowing");
