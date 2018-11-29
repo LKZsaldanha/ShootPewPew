@@ -13,6 +13,7 @@ TagManager:
   - bomb
   - Bomb
   - spawner
+  - gold
   layers:
   - Default
   - TransparentFX
