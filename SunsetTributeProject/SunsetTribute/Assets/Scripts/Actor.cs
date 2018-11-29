@@ -403,7 +403,8 @@ public class Actor : MonoBehaviour {
 
     private void rasteiraAnim()
     {
-        if (isRasteira) { 
+        if (isRasteira) {
+            playerSound.DashSound();
             objAnimado.GetComponent<Animator>().SetBool("isDash", true);
         }
         else
