@@ -18,7 +18,7 @@ public class EnemyB : MonoBehaviour {
     private float lifeMax, distancePlayer, distancePlayer2, menorDistancia, timerBomb;
     private int idPlayer;
 
-    private bool blockAction;
+    private bool blockAction, isBlockAtuli, isBlockAtuli2;
 
     private EnemySound enemySound;
 
@@ -77,6 +77,8 @@ public class EnemyB : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         players.RemoveAll(c => c == null);
+
+        atualizaEnemy();
 
         //Aqui deve-se ser inserido as animações pré-Violencia (antes do tiroteio)
         if (blockAction)
@@ -140,6 +142,28 @@ public class EnemyB : MonoBehaviour {
         }
 	}
 
+    void atualizaEnemy()
+    {
+        if (GameObject.Find("Cube_Player") != null && !isBlockAtuli)
+        {
+            players.Add(GameObject.Find("Cube_Player").transform);
+            isBlockAtuli = true;
+        }
+        else if (GameObject.Find("Cube_Player2") != null && !isBlockAtuli2)
+        {
+            players.Add(GameObject.Find("Cube_Player").transform);
+            isBlockAtuli2 = true;
+        }
+
+        if (GameObject.Find("Cube_Player") == null && isBlockAtuli)
+        {
+            isBlockAtuli = false;
+        }
+        else if (GameObject.Find("Cube_Player2") == null && isBlockAtuli2)
+        {
+            isBlockAtuli2 = false;
+        }
+    }
 
     //Sinaliza aos Inimigos quantos players estão em jogo
     private void modNPlayers()

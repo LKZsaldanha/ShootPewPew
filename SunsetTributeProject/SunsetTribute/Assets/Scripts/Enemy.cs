@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] protected Transform mySpawn;
 
     
-    private bool inDelay = true;
+    private bool inDelay = true, isBlockAtuli, isBlockAtuli2;
 
     protected bool blockAction;
 
@@ -55,6 +55,8 @@ public class Enemy : MonoBehaviour {
     // Update is called once per frame
      void Update () {
         players.RemoveAll(c => c == null);
+
+        atualizaEnemy();
 
         //Aqui deve-se ser inserido as animações pré-Violencia (antes do tiroteio)
         if (blockAction)
@@ -113,19 +115,26 @@ public class Enemy : MonoBehaviour {
 
 	}
 
-    public void atualizaEnemy()
+    void atualizaEnemy()
     {
-        print("1");
-        if (gameSystem.GetComponent<GameSystem>().nPlayerVivos.Count == 2)
+        if (GameObject.Find("Cube_Player") != null && !isBlockAtuli)
         {
-            print("2");
-            players.Add(gameSystem.GetComponent<GameSystem>().nPlayerVivos[0].transform);
-            players.Add(gameSystem.GetComponent<GameSystem>().nPlayerVivos[1].transform);
+                players.Add(GameObject.Find("Cube_Player").transform);
+            isBlockAtuli = true;
         }
-        else
+        else if (GameObject.Find("Cube_Player2") != null && !isBlockAtuli2)
         {
-            print("3");
-            players.Add(gameSystem.GetComponent<GameSystem>().nPlayerVivos[0].transform);
+            players.Add(GameObject.Find("Cube_Player").transform);
+            isBlockAtuli2 = true;
+        }
+
+        if (GameObject.Find("Cube_Player") == null && isBlockAtuli)
+        {
+            isBlockAtuli = false;
+        }
+        else if (GameObject.Find("Cube_Player2") == null && isBlockAtuli2)
+        {
+            isBlockAtuli2 = false;
         }
     }
 
