@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4964918264376406}
   - component: {fileID: 198599240792070316}
   - component: {fileID: 199239837950135340}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 65383015245620152}
   - component: {fileID: 54150322263140466}
   - component: {fileID: 82378303431884394}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: SM_Item_Bag_01
   m_TagString: gold
   m_Icon: {fileID: 0}
