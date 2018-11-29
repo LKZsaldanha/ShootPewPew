@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour {
     [SerializeField] protected List<Transform> players;
     [SerializeField] protected Transform mySpawn;
 
+    public float delayFirstAttack = 0.5f;
+    private bool inDelay = true;
+
     protected bool blockAction;
 
     protected GameObject colver;
@@ -31,6 +34,7 @@ public class Enemy : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //Vai setar o numero de player que estão em game
+        StartCoroutine("DelayAttack");
         if(gameSystem.GetComponent<GameSystem>().nPlayerVivos.Count == 2)
         {
             players.Add( gameSystem.GetComponent<GameSystem>().nPlayerVivos[0].transform );
@@ -86,11 +90,13 @@ public class Enemy : MonoBehaviour {
 
                     modNPlayers();
 
-                    if (colver == null)
+                    if (colver == null){
                         Move();
-
-
-                    Attack();
+                    }
+                    if (menorDistancia < distanceAttack)
+                    {
+                        Attack();
+                    }
                 }
             }
         }
@@ -170,8 +176,10 @@ public class Enemy : MonoBehaviour {
                     //mesmo nivel de altura do player
                     if (players[idPlayer].position.y < transform.position.y + 0.5f && players[idPlayer].position.y > transform.position.y - 0.5f)
                     {
-                        StartCoroutine("cowdown");
-                        print(""+gameObject.name);
+                        if(!inDelay){
+                            StartCoroutine("cowdown");
+                        }
+                        //print(""+gameObject.name);
                         //posição e rotação da mira (frente)
                         if (transform.localScale.x == 1)
                         {
@@ -198,7 +206,9 @@ public class Enemy : MonoBehaviour {
                     {
                         if (distancePlayer > DiagMinimo)
                         {
-                            StartCoroutine("cowdown");
+                            if(!inDelay){
+                                StartCoroutine("cowdown");
+                            }
                             //posição e rotação da mira (diagonal Baixo frente)
                             if (transform.localScale.x == 1)
                             {
@@ -226,7 +236,9 @@ public class Enemy : MonoBehaviour {
                     {
                         if (distancePlayer > DiagMinimo)
                         {
-                            StartCoroutine("cowdown");
+                            if(!inDelay){
+                                StartCoroutine("cowdown");
+                            }
                             //posição e rotação da mira (diagonal cima frente)
                             if (transform.localScale.x == 1)
                             {
@@ -323,6 +335,17 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+
+    IEnumerator DelayAttack()
+    {
+        if(inDelay){
+            objAnimado.GetComponent<Animator>().SetBool("idle", true);
+            yield return new WaitForSeconds(delayFirstAttack);
+            inDelay = false;
+            StopCoroutine("DelayAttack");
+        }
+    }
+
     private void Attack()
     {
         if(players.Count!=0)
@@ -331,7 +354,7 @@ public class Enemy : MonoBehaviour {
 
             if (isAttack && !isColver)
             {
-                //print("Atirou");
+                print("Atirou");
                 //enemySound.ShootSound();
                 objAnimado.GetComponent<Animator>().SetTrigger("atirou");
                 Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
