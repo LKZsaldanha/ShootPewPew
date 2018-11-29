@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour {
 	}
 
     // Update is called once per frame
-    protected void Update () {
+     void Update () {
         players.RemoveAll(c => c == null);
 
         //Aqui deve-se ser inserido as animações pré-Violencia (antes do tiroteio)
@@ -113,6 +113,21 @@ public class Enemy : MonoBehaviour {
 
 	}
 
+    public void atualizaEnemy()
+    {
+        print("1");
+        if (gameSystem.GetComponent<GameSystem>().nPlayerVivos.Count == 2)
+        {
+            print("2");
+            players.Add(gameSystem.GetComponent<GameSystem>().nPlayerVivos[0].transform);
+            players.Add(gameSystem.GetComponent<GameSystem>().nPlayerVivos[1].transform);
+        }
+        else
+        {
+            print("3");
+            players.Add(gameSystem.GetComponent<GameSystem>().nPlayerVivos[0].transform);
+        }
+    }
 
     //Sinaliza aos Inimigos quantos players estão em jogo
     private void modNPlayers()

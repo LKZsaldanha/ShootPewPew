@@ -72,13 +72,6 @@ public class Actor : MonoBehaviour {
         {
             directionInput();
         }
-        
-        
-
-        /*if (!isground)
-        {
-            GetComponent<Rigidbody>().AddForce(0, -gravity * Time.deltaTime, 0);
-        }*/
     }
 
     private void Move()
