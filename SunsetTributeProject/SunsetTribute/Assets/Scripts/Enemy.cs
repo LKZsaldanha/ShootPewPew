@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //Vai setar o numero de player que estão em game
-        StartCoroutine("DelayAttack");
+        
         if(gameSystem.GetComponent<GameSystem>().nPlayerVivos.Count == 2)
         {
             players.Add( gameSystem.GetComponent<GameSystem>().nPlayerVivos[0].transform );
@@ -95,7 +95,15 @@ public class Enemy : MonoBehaviour {
                     }
                     if (menorDistancia < distanceAttack)
                     {
-                        Attack();
+                        if(inDelay){
+                            if (menorDistancia < distanceAttack - 2.0f)
+                            {
+                                StartCoroutine("DelayAttack");
+                            }
+                           // print("pq entra aquie?");
+                        }else{
+                            Attack();
+                        }
                     }
                 }
             }
@@ -340,8 +348,11 @@ public class Enemy : MonoBehaviour {
     {
         if(inDelay){
             objAnimado.GetComponent<Animator>().SetBool("idle", true);
-            yield return new WaitForSeconds(delayFirstAttack);
             inDelay = false;
+            yield return new WaitForSeconds(delayFirstAttack);
+            print("dellayattack");
+            isAttack = true;
+            Attack();
             StopCoroutine("DelayAttack");
         }
     }
@@ -392,7 +403,9 @@ public class Enemy : MonoBehaviour {
                 GetComponent<Rigidbody>().isKinematic = true;
                 GetComponent<Rigidbody>().useGravity = false;
 
-                Instantiate(itens[0], new Vector3(transform.position.x, transform.position.y, players[0].position.z), transform.rotation);
+                if(itens.Count != 0){
+                    Instantiate(itens[0], new Vector3(transform.position.x, transform.position.y, players[0].position.z), transform.rotation);
+                }
 
                 StopCoroutine("cowndownHide");
                 StartCoroutine("morreu");
