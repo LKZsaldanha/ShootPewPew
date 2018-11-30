@@ -3555,7 +3555,7 @@ MonoBehaviour:
   baixoMinimo: 2
   baixoMaximo: 2.5
   speed: 2
-  distanceAttack: 5
+  distanceAttack: 9
   cowdownFire: 2
   bullet: {fileID: 1157084308398432, guid: caa1e8279cf8811409f6d2e736a9c0d2, type: 2}
   objAnimado: {fileID: 1522101212598898}
@@ -3577,12 +3577,16 @@ MonoBehaviour:
   isHideBehind: 0
   walkFromCamera: 0
   walkBehind: 0
+  crounched: 0
+  walkFromInside: 0
   bomb: {fileID: 1807947524818686}
-  timerToThrowBomb: 2
+  timerToThrowBomb: 0.5
   timerToThrowBombAnim: 0.5
   delayShootHideBehind: 2
   delayShootwalkFromCamera: 2
   delayShootWalkBehind: 2
+  delayShootCrounched: 1
+  delayShootWalkFromInside: 1
 --- !u!114 &114679069334076560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3606,19 +3610,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f295ed25976ab646a28cedec9840539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  podeAtirar: 0
-  tempoTiro: 0.5
-  atirar: 0
   heightShoot: 3
   speedShoot: 0.5
   bombaArco: {fileID: 4250458850785142, guid: 7a4e412dbe7b06d4c87ffbf95889d44e, type: 2}
-  contador: 0
   impacto: {x: 0, y: 0, z: 0}
   impactoMark: {fileID: 4772014785407132, guid: 9f94721e36dcb1e4f960c776e6129252,
     type: 2}
   offSet: 0.85
   player: {fileID: 0}
-  controllable: 1
 --- !u!114 &114881330396368194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3636,6 +3635,9 @@ MonoBehaviour:
   velocidadeTiro: 0.5
   explosaoFogo: {fileID: 4287250813186892, guid: 0243154a6f514e349adbb0ee768db837,
     type: 2}
+  impactoMark: {fileID: 0}
+  impactoPos: {x: 0, y: 0, z: 0}
+  offSet: 0.85
 --- !u!137 &137021700292599872
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
