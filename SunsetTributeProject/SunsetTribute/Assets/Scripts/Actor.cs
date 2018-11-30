@@ -12,7 +12,7 @@ public class Actor : MonoBehaviour {
     [SerializeField] private Transform[] localSpawnBullet, mira;
 
     //direções da mira
-    private bool leftAim, rightAim, upAim, downAim,isIdle, isUp;
+    private bool leftAim, rightAim, upAim, downAim,isIdle, isUp, isInvencivel;
     //ultima direção horizontal
     private bool lastSideWasRight = true;
 
@@ -42,6 +42,9 @@ public class Actor : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
+        isInvencivel = true;
+        StartCoroutine("invencivel");
+
         gameSystem.GetComponent<GameSystem>().nPlayerVivos.Add(gameObject);
         cam = GameObject.Find("Main Camera");
 
@@ -482,33 +485,49 @@ public class Actor : MonoBehaviour {
         {
             playerHUD.GetComponent<PlayerHUD>().UpdateHUDScore(valorDinheiro);
             playerSound.GoldSound();
-            Destroy(collision.gameObject);
         }
 
-        if (collision.gameObject.tag == "enemy")
+        if (collision.gameObject.tag == "enemy" && !isInvencivel)
         {
             life--;
-            if (life<=0)
+            playerHUD.GetComponent<PlayerHUD>().UpdateHUDLives(-1);
+
+            objAnimado.GetComponent<Animator>().SetBool("frente", false);
+            objAnimado.GetComponent<Animator>().SetBool("cima", false);
+            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+            objAnimado.GetComponent<Animator>().SetBool("idle", false);
+            objAnimado.GetComponent<Animator>().SetBool("walk", false);
+            objAnimado.GetComponent<Animator>().SetTrigger("isDied");
+
+            playerSound.DeadSound();
+
+            if (playerHUD.GetComponent<PlayerHUD>().playerLives <= 0)
             {
-                objAnimado.GetComponent<Animator>().SetBool("frente", false);
-                objAnimado.GetComponent<Animator>().SetBool("cima", false);
-                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-                objAnimado.GetComponent<Animator>().SetBool("idle", false);
-                objAnimado.GetComponent<Animator>().SetBool("walk", false);
-                objAnimado.GetComponent<Animator>().SetTrigger("isDied");
+                if (gameObject.name == "Cube_Player")
+                    gameSystem.GetComponent<GameSystem>().gameOver1 = true;
+                else
+                    gameSystem.GetComponent<GameSystem>().gameOver2 = true;
 
                 gameSystem.GetComponent<GameSystem>().nPlayerAtivos(gameObject.name);
 
                 StartCoroutine("morreu");
+
+                playerHUD.GetComponent<PlayerHUD>().playerHUDState = PlayerHUDState.gameOver;
+                playerHUD.GetComponent<PlayerHUD>().SwitchPlayerHUDState(playerHUD.GetComponent<PlayerHUD>().playerHUDState);
+
+                GetComponent<Rigidbody>().isKinematic = true;
+                GetComponent<Rigidbody>().useGravity = false;
+                GetComponent<BoxCollider>().enabled = false;
                 GetComponent<Actor>().enabled = false;
+                gameSystem.GetComponent<GameSystem>().lifePlayers(1, gameObject.name);
+                gameSystem.GetComponent<GameSystem>().nPlayerAtivos(gameObject.name);
             }
         }
 
-        if (collision.gameObject.tag == "BulletEnemy")
+        if (collision.gameObject.tag == "BulletEnemy" && !isInvencivel)
         {
-            Destroy(collision.gameObject);
             life--;
             playerHUD.GetComponent<PlayerHUD>().UpdateHUDLives(-1);
 
@@ -559,8 +578,9 @@ public class Actor : MonoBehaviour {
                 life++;
                 playerHUD.GetComponent<PlayerHUD>().UpdateHUDLives(1);
             }
-            Destroy(collision.gameObject);
         }
+
+        Destroy(collision.gameObject);
     }
 
     private void OnTriggerStay(Collider other)
@@ -583,6 +603,12 @@ public class Actor : MonoBehaviour {
         }
     }
 
+    IEnumerator invencivel()
+    {
+        yield return new WaitForSeconds(3);
+        isInvencivel = false;
+        StopCoroutine("invencivel");
+    }
 
     IEnumerator morreu()
     {
