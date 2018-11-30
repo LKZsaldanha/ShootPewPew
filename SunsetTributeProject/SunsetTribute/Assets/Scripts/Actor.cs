@@ -485,6 +485,7 @@ public class Actor : MonoBehaviour {
         {
             playerHUD.GetComponent<PlayerHUD>().UpdateHUDScore(valorDinheiro);
             playerSound.GoldSound();
+            Destroy(collision.gameObject);
         }
 
         if (collision.gameObject.tag == "enemy" && !isInvencivel)
@@ -528,6 +529,7 @@ public class Actor : MonoBehaviour {
 
         if (collision.gameObject.tag == "BulletEnemy" && !isInvencivel)
         {
+            Destroy(collision.gameObject);
             life--;
             playerHUD.GetComponent<PlayerHUD>().UpdateHUDLives(-1);
 
@@ -570,6 +572,8 @@ public class Actor : MonoBehaviour {
                 StartCoroutine("morreu");
             }
         }
+        else if (collision.gameObject.tag == "BulletEnemy" && isInvencivel)
+            Destroy(collision.gameObject);
 
         if (collision.gameObject.tag == "life")
         {
@@ -578,9 +582,8 @@ public class Actor : MonoBehaviour {
                 life++;
                 playerHUD.GetComponent<PlayerHUD>().UpdateHUDLives(1);
             }
+            Destroy(collision.gameObject);
         }
-
-        Destroy(collision.gameObject);
     }
 
     private void OnTriggerStay(Collider other)
