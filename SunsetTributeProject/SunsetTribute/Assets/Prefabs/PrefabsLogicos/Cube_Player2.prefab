@@ -4793,6 +4793,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: {fileID: 8300000, guid: fbee75e088ee62241a3b43d536977c7b, type: 3}
+  pickItem: {fileID: 8300000, guid: c23a17352ce9d0b4689eb769bbc1df95, type: 3}
+  dash: {fileID: 8300000, guid: 28d871f0b5bd9f8489837fc6c8a22ed5, type: 3}
+  mixer: {fileID: 24100000, guid: 7007f80cae543cd49802dcb030b39fd1, type: 2}
 --- !u!114 &114657029919041592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4832,8 +4835,8 @@ MonoBehaviour:
   life: 0
   inputDeadZoneValue: 0.2
   valorDinheiro: 0
-  meMoney: 0
-  uiValue: {fileID: 0}
+  playerHUD: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!137 &137062633802882704
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

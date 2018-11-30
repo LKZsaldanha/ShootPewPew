@@ -19,7 +19,16 @@ public class GameSystem : MonoBehaviour {
 
     public int numberSpawn;
 
+    private int life1, life2;
+
     private bool noSpawn1, noSpawn2;
+
+    public bool gameOver1, gameOver2;
+
+    private void Start()
+    {
+        life1 = life2 = 5;
+    }
 
     private void Update()
     {
@@ -71,14 +80,18 @@ public class GameSystem : MonoBehaviour {
     {
         if (nameplayer == "Cube_Player")
         {
-            if(lifePlayer < 0)
+            life1 -= lifePlayer;
+
+            print("life: "+life1);
+            if(life1 < 0)
             {
                 noSpawn1 = true;
             }
         }
         else
         {
-            if (lifePlayer < 0)
+            life2 -= lifePlayer;
+            if (life2 < 0)
             {
                 noSpawn2 = true;
             }
@@ -88,25 +101,30 @@ public class GameSystem : MonoBehaviour {
 
     void spawnPlayer()
     {
-        if(Input.GetButtonDown("StartP1") && !noSpawn1)
+        if (Input.GetButtonDown("StartP1") && !noSpawn1)
         {
             if (GameObject.Find("Cube_Player") == null)
-            {
-                GameObject aux;
-                aux = Instantiate(opcoesPlayer[0], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[0].transform.rotation);
-                aux.name = "Cube_Player";
-                //aux.GetComponent<Actor>().playerHUD = GameObject.Find("HUD_Player1").GetComponent<PlayerHUD>();
+            {                
+                if(!gameOver1)
+                {
+                    GameObject aux;
+                    aux = Instantiate(opcoesPlayer[0], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[0].transform.rotation);
+                    aux.name = "Cube_Player";
+                }
+                
             }
         }
-
         if (Input.GetButtonDown("StartP2") && !noSpawn2)
         {
             if (GameObject.Find("Cube_Player2") == null)
             {
-                GameObject aux;
-                aux = Instantiate(opcoesPlayer[1], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[1].transform.rotation);
-                aux.name = "Cube_Player2";
-               // aux.GetComponent<Actor>().playerHUD = GameObject.Find("HUD_Player2").GetComponent<PlayerHUD>();
+                
+                if (!gameOver2)
+                {
+                    GameObject aux;
+                    aux = Instantiate(opcoesPlayer[1], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[1].transform.rotation);
+                    aux.name = "Cube_Player2";
+                }
             }
 
         }

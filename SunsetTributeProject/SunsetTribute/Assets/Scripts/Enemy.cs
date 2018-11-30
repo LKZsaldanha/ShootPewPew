@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] protected Transform mySpawn;
 
     
-    private bool inDelay = true, isBlockAtuli, isBlockAtuli2;
+    private bool inDelay = true, isBlockAtuli, isBlockAtuli2,isBlock1, isBlock2;
 
     protected bool blockAction;
 
@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour {
     void Start () {
         //Vai setar o numero de player que estão em game
         
-        if(gameSystem.GetComponent<GameSystem>().nPlayerVivos.Count == 2)
+       /* if(gameSystem.GetComponent<GameSystem>().nPlayerVivos.Count == 2)
         {
             players.Add( gameSystem.GetComponent<GameSystem>().nPlayerVivos[0].transform );
             players.Add( gameSystem.GetComponent<GameSystem>().nPlayerVivos[1].transform );
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour {
         else
         {
             players.Add( gameSystem.GetComponent<GameSystem>().nPlayerVivos[0].transform );
-        }
+        }*/
 
         enemySound = GetComponent<EnemySound>();
 
@@ -94,8 +94,6 @@ public class Enemy : MonoBehaviour {
                             transform.localScale = new Vector3(-1, 1, 1);
                         }
 
-                        modNPlayers();
-
                         if (colver == null)
                         {
                             Move();
@@ -127,46 +125,26 @@ public class Enemy : MonoBehaviour {
     {
         if (GameObject.Find("Cube_Player") != null && !isBlockAtuli)
         {
-                players.Add(GameObject.Find("Cube_Player").transform);
+            players.Add(GameObject.Find("Cube_Player").transform);
             isBlockAtuli = true;
+            isBlock1 = true;
         }
         else if (GameObject.Find("Cube_Player2") != null && !isBlockAtuli2)
         {
-            players.Add(GameObject.Find("Cube_Player").transform);
+            players.Add(GameObject.Find("Cube_Player2").transform);
             isBlockAtuli2 = true;
+            isBlock2 = true;
         }
 
-        if (GameObject.Find("Cube_Player") == null && isBlockAtuli)
+        if (GameObject.Find("Cube_Player") == null && isBlock1)
         {
             isBlockAtuli = false;
+            isBlock1 = false;
         }
-        else if (GameObject.Find("Cube_Player2") == null && isBlockAtuli2)
+        else if (GameObject.Find("Cube_Player2") == null && isBlock2)
         {
             isBlockAtuli2 = false;
-        }
-    }
-
-    //Sinaliza aos Inimigos quantos players estão em jogo
-    private void modNPlayers()
-    {
-        if (gameSystem.GetComponent<GameSystem>().nPlayerVivos.Count > players.Count)
-        {
-            if(players[0].name != gameSystem.GetComponent<GameSystem>().nameplayer)
-            {
-                print("erro aqui: "+ gameSystem.GetComponent<GameSystem>().nameplayer);
-                players.Add(GameObject.Find(gameSystem.GetComponent<GameSystem>().nameplayer).transform);
-            }
-        }
-        else if (gameSystem.GetComponent<GameSystem>().nPlayerVivos.Count < players.Count)
-        {
-            if (players[0].name == gameSystem.GetComponent<GameSystem>().nameplayer)
-            {
-                players.RemoveAt(0);
-            }
-            else
-            {
-                players.RemoveAt(1);
-            }
+            isBlock2 = false;
         }
     }
 
@@ -512,48 +490,13 @@ public class Enemy : MonoBehaviour {
         }
         StopCoroutine("cowndownHide");
     }
-
-    
-
-    //atraso no spawn da bullet para a saida do colver
-    /*IEnumerator timerSpawnBullet()
-    {
-        yield return new WaitForSeconds(0.1f);
-        if(life>0)
-        {
-            //enemySound.ShootSound();
-
-            //posição e rotação da mira (frente)
-            if (transform.localScale.x == 1)
-            {
-                spawnBullet[0].position = mira[2].position;
-                spawnBullet[0].rotation = Quaternion.Euler(180, 90, 0);
-            }
-            else
-            {
-                //(Costas)
-                spawnBullet[0].position = mira[2].position;
-                spawnBullet[0].rotation = Quaternion.Euler(0, 90, 0);
-            } 
-
-           // GameObject bulletNew = Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
-           // bulletNew.GetComponent<BulletPlayer>().target = players[0].gameObject;
-           // print(players[0].position.y);
-        }
-
-        //StopCoroutine("hideStopCoroutine");
-    }*/
    
     //tempo de tiro sem colver
     IEnumerator cowdown()
     {
         yield return new WaitForSeconds(cowdownFire);
         isAttack = true;
-        /*if(colver != null)
-        {
-            isColver = true;
-            objAnimado.GetComponent<Animator>().SetBool("isHide", true);
-        }*/
+
         StopCoroutine("cowdown");
     }
 

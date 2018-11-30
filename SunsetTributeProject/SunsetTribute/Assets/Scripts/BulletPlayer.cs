@@ -25,6 +25,7 @@ public class BulletPlayer : MonoBehaviour {
     void Awake () {
         if(transform.tag == "BulletEnemy"){
             if(target != null){
+                StartCoroutine("lifeBulletEnemy");
                 transform.LookAt(new Vector3(target.transform.position.x, target.transform.position.y + 0.3f, target.transform.position.z));
             }else{
                 target = GameObject.FindWithTag("Player");
@@ -57,17 +58,6 @@ public class BulletPlayer : MonoBehaviour {
     }
 
 
-   /* private void OnTriggerEnter(Collider other)
-    {
-        if(transform.tag == "Bullet"){
-            if(other.gameObject.tag == "LimitSize")
-            {
-                
-                Destroy(gameObject);
-            }
-        }
-    }*/
-
     private void OnCollisionEnter(Collision collision)
     {
         if(transform.tag == "Bullet")
@@ -90,11 +80,6 @@ public class BulletPlayer : MonoBehaviour {
 
         if (id)
         {
-            /*if (collision.gameObject.tag == "BulletEnemy")
-            {
-                Destroy(collision.gameObject);
-                Destroy(gameObject);
-            }*/
             if (collision.gameObject.tag == "Enemy")
             {
                 ContactPoint contact = collision.contacts[0];
@@ -117,5 +102,12 @@ public class BulletPlayer : MonoBehaviour {
 
         
 
+    }
+
+    IEnumerator lifeBulletEnemy()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
+        StopCoroutine("lifeBulletEnemy");
     }
 }

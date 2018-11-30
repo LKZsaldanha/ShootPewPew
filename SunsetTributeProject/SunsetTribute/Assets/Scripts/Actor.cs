@@ -56,15 +56,19 @@ public class Actor : MonoBehaviour {
         if (gameObject.name == "Cube_Player")
         {
             playerHUD = GameObject.Find("HUD_Player_1");
+            playerHUD.GetComponent<PlayerHUD>().playerHUDState = PlayerHUDState.playing;
+            playerHUD.GetComponent<PlayerHUD>().SwitchPlayerHUDState(playerHUD.GetComponent<PlayerHUD>().playerHUDState);
         }
         else
         {
             playerHUD = GameObject.Find("HUD_Player_2");
+            playerHUD.GetComponent<PlayerHUD>().playerHUDState = PlayerHUDState.playing;
+            playerHUD.GetComponent<PlayerHUD>().SwitchPlayerHUDState(playerHUD.GetComponent<PlayerHUD>().playerHUDState);
         }
 
 
         isRight = true;
-        lifeMax = life = 3;
+        lifeMax = life = 5;
         playerSound = GetComponent<PlayerSound>();
     }
 	
@@ -519,9 +523,23 @@ public class Actor : MonoBehaviour {
 
             playerSound.DeadSound();
 
-            if (life < 0)
+            if (playerHUD.GetComponent<PlayerHUD>().playerLives <= 0)
             {
-                gameSystem.GetComponent<GameSystem>().lifePlayers(life, gameObject.name);
+                if(gameObject.name == "Cube_Player")
+                    gameSystem.GetComponent<GameSystem>().gameOver1 = true;
+                else
+                    gameSystem.GetComponent<GameSystem>().gameOver2 = true;
+
+                StartCoroutine("morreu");
+
+                playerHUD.GetComponent<PlayerHUD>().playerHUDState = PlayerHUDState.gameOver;
+                playerHUD.GetComponent<PlayerHUD>().SwitchPlayerHUDState(playerHUD.GetComponent<PlayerHUD>().playerHUDState);
+
+                GetComponent<Rigidbody>().isKinematic = true;
+                GetComponent<Rigidbody>().useGravity = false;
+                GetComponent<BoxCollider>().enabled = false;
+                GetComponent<Actor>().enabled = false;
+                gameSystem.GetComponent<GameSystem>().lifePlayers(1, gameObject.name);
                 gameSystem.GetComponent<GameSystem>().nPlayerAtivos(gameObject.name);
             }    
             else
@@ -536,7 +554,7 @@ public class Actor : MonoBehaviour {
 
         if (collision.gameObject.tag == "life")
         {
-            if(life<3)
+            if(life<5)
             {
                 life++;
                 playerHUD.GetComponent<PlayerHUD>().UpdateHUDLives(1);
