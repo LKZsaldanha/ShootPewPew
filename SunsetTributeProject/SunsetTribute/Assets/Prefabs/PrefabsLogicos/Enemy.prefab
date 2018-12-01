@@ -3573,7 +3573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62f31c90f4512d4b9499039124b7666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 3
+  life: 1
   DiagMinimo: 3
   baixoMinimo: 2
   baixoMaximo: 2.5
