@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 4096693851347012}
   - component: {fileID: 65224815322758082}
   - component: {fileID: 54370989910614330}
-  - component: {fileID: 114750229176495864}
+  - component: {fileID: 114930263308274576}
   - component: {fileID: 82873732807564458}
   - component: {fileID: 114962606222772684}
   m_Layer: 10
@@ -1373,6 +1373,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1779714902791830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4036748382860968}
+  - component: {fileID: 65105478971230452}
+  m_Layer: 10
+  m_Name: HideColision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1789191702254890
 GameObject:
   m_ObjectHideFlags: 1
@@ -1789,6 +1805,19 @@ Transform:
   m_Father: {fileID: 4965704266352058}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4036748382860968
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1779714902791830}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.443, z: 0}
+  m_LocalScale: {x: 0.62258, y: 0.79767, z: 0.53308}
+  m_Children: []
+  m_Father: {fileID: 4096693851347012}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4042806824155942
 Transform:
   m_ObjectHideFlags: 1
@@ -1852,7 +1881,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1245380479376782}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.9, y: 1.21, z: -2.12}
+  m_LocalPosition: {x: -5.675, y: 2.07, z: 1.2494179}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4990533924710404}
@@ -1860,6 +1889,7 @@ Transform:
   - {fileID: 4408516270574826}
   - {fileID: 4567075102247274}
   - {fileID: 4893018272134948}
+  - {fileID: 4036748382860968}
   - {fileID: 4170397317947168}
   - {fileID: 4304090268849360}
   m_Father: {fileID: 0}
@@ -1982,7 +2012,7 @@ Transform:
   m_LocalScale: {x: 0.09492863, y: 0.2629514, z: 1.1930922}
   m_Children: []
   m_Father: {fileID: 4096693851347012}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4172719073098512
 Transform:
@@ -2188,7 +2218,7 @@ Transform:
   - {fileID: 4420966831194030}
   - {fileID: 4956446801633844}
   m_Father: {fileID: 4096693851347012}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4312015369349406
 Transform:
@@ -3382,6 +3412,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!65 &65105478971230452
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1779714902791830}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65224815322758082
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3508,7 +3550,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114750229176495864
+--- !u!114 &114930263308274576
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3516,7 +3558,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1245380479376782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6870330cf6e933749ba9968a2596d16a, type: 3}
+  m_Script: {fileID: 11500000, guid: 491b1f20aad4f7f498186b2797fd2407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
@@ -3526,9 +3568,12 @@ MonoBehaviour:
   speed: 2
   distanceAttack: 7
   cowdownFire: 1
+  cowdownHide: 2
+  delayFirstAttack: 0.5
   bullet: {fileID: 1157084308398432, guid: caa1e8279cf8811409f6d2e736a9c0d2, type: 2}
   objAnimado: {fileID: 1140309933823686}
   gameSystem: {fileID: 0}
+  colisorHide: {fileID: 1779714902791830}
   itens:
   - {fileID: 1989921776441462, guid: 0baf559b763933641836fd9460307883, type: 2}
   spawnBullet:
@@ -3540,7 +3585,6 @@ MonoBehaviour:
   - {fileID: 4567075102247274}
   - {fileID: 4893018272134948}
   players: []
-  mySpawn: {fileID: 0}
   canThrow: 0
   isHideBehind: 0
   walkFromCamera: 1
@@ -3548,7 +3592,7 @@ MonoBehaviour:
   crounched: 0
   walkFromInside: 0
   bomb: {fileID: 0}
-  timerToThrowBomb: 2
+  timerToThrowBomb: 0.5
   timerToThrowBombAnim: 0.5
   delayShootHideBehind: 2
   delayShootwalkFromCamera: 2

@@ -504,9 +504,9 @@ GameObject:
   - component: {fileID: 4966498749425378}
   - component: {fileID: 65160339022497680}
   - component: {fileID: 54467998216609380}
-  - component: {fileID: 114202715462891264}
   - component: {fileID: 82762323561310214}
   - component: {fileID: 114544678682811202}
+  - component: {fileID: 114927897686262544}
   m_Layer: 10
   m_Name: Enemy7_Crounched
   m_TagString: Enemy
@@ -1444,6 +1444,22 @@ GameObject:
   - component: {fileID: 4946631841247472}
   m_Layer: 0
   m_Name: DEF-HairBone.R.006
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1856666606331770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4691205912179074}
+  - component: {fileID: 65323207264952316}
+  m_Layer: 10
+  m_Name: HideColision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2628,7 +2644,7 @@ Transform:
   - {fileID: 4564163148236036}
   - {fileID: 4643465216409328}
   m_Father: {fileID: 4966498749425378}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4564163148236036
 Transform:
@@ -2805,6 +2821,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4484397529011178}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4691205912179074
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856666606331770}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.36, z: 0}
+  m_LocalScale: {x: 0.62258, y: 0.79767, z: 0.53308}
+  m_Children: []
+  m_Father: {fileID: 4966498749425378}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4693754877328306
 Transform:
@@ -3199,7 +3228,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314427059709076}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 194.22, y: 1.3, z: 0.04}
+  m_LocalPosition: {x: -5.5776443, y: 1.54, z: 2.0586338}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4528845824277524}
@@ -3208,6 +3237,7 @@ Transform:
   - {fileID: 4128513659971094}
   - {fileID: 4842037537032898}
   - {fileID: 4495001373966476}
+  - {fileID: 4691205912179074}
   - {fileID: 4562034524092214}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -3337,6 +3367,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5333004, y: 1.739859, z: 0.773829}
   m_Center: {x: 0, y: 0, z: 0.11308551}
+--- !u!65 &65323207264952316
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856666606331770}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &82762323561310214
 AudioSource:
   m_ObjectHideFlags: 1
@@ -3451,52 +3493,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114202715462891264
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1314427059709076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6870330cf6e933749ba9968a2596d16a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 1
-  DiagMinimo: 3
-  baixoMinimo: 2
-  baixoMaximo: 2.5
-  speed: 2
-  distanceAttack: 7
-  cowdownFire: 1
-  bullet: {fileID: 1157084308398432, guid: caa1e8279cf8811409f6d2e736a9c0d2, type: 2}
-  objAnimado: {fileID: 1269409590305466}
-  gameSystem: {fileID: 0}
-  itens: []
-  spawnBullet:
-  - {fileID: 4528845824277524}
-  mira:
-  - {fileID: 4831804286021814}
-  - {fileID: 4626796720873972}
-  - {fileID: 4128513659971094}
-  - {fileID: 4842037537032898}
-  - {fileID: 4495001373966476}
-  players: []
-  mySpawn: {fileID: 0}
-  canThrow: 0
-  isHideBehind: 0
-  walkFromCamera: 0
-  walkBehind: 0
-  crounched: 1
-  walkFromInside: 0
-  bomb: {fileID: 0}
-  timerToThrowBomb: 2
-  timerToThrowBombAnim: 0.5
-  delayShootHideBehind: 2
-  delayShootwalkFromCamera: 2
-  delayShootWalkBehind: 2
-  delayShootCrounched: 1.5
-  delayShootWalkFromInside: 1
 --- !u!114 &114544678682811202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3509,6 +3505,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: {fileID: 8300000, guid: 003e27b1841d17c41906ea7ad726599b, type: 3}
+--- !u!114 &114927897686262544
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1314427059709076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491b1f20aad4f7f498186b2797fd2407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 1
+  DiagMinimo: 3
+  baixoMinimo: 2
+  baixoMaximo: 2.5
+  speed: 2
+  distanceAttack: 7
+  cowdownFire: 1
+  cowdownHide: 2
+  delayFirstAttack: 0.5
+  bullet: {fileID: 1157084308398432, guid: caa1e8279cf8811409f6d2e736a9c0d2, type: 2}
+  objAnimado: {fileID: 1269409590305466}
+  gameSystem: {fileID: 0}
+  colisorHide: {fileID: 1856666606331770}
+  itens:
+  - {fileID: 1989921776441462, guid: 0baf559b763933641836fd9460307883, type: 2}
+  spawnBullet:
+  - {fileID: 4528845824277524}
+  mira:
+  - {fileID: 4831804286021814}
+  - {fileID: 4626796720873972}
+  - {fileID: 4128513659971094}
+  - {fileID: 4842037537032898}
+  - {fileID: 4495001373966476}
+  players: []
+  canThrow: 0
+  isHideBehind: 0
+  walkFromCamera: 0
+  walkBehind: 0
+  crounched: 1
+  walkFromInside: 0
+  bomb: {fileID: 0}
+  timerToThrowBomb: 0.5
+  timerToThrowBombAnim: 0.5
+  delayShootHideBehind: 2
+  delayShootwalkFromCamera: 2
+  delayShootWalkBehind: 2
+  delayShootCrounched: 1
+  delayShootWalkFromInside: 1
 --- !u!137 &137181837649229624
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

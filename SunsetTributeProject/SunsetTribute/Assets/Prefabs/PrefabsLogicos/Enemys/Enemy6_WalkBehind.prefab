@@ -26,6 +26,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1017497474096482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4503742133116550}
+  - component: {fileID: 65153533823990146}
+  m_Layer: 10
+  m_Name: HideColision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1057222133395198
 GameObject:
   m_ObjectHideFlags: 1
@@ -444,9 +460,9 @@ GameObject:
   - component: {fileID: 4481709254739948}
   - component: {fileID: 65888334835485778}
   - component: {fileID: 54839425749102448}
-  - component: {fileID: 114917170597092930}
   - component: {fileID: 82098818871911060}
   - component: {fileID: 114464769162378662}
+  - component: {fileID: 114198914200640442}
   m_Layer: 10
   m_Name: Enemy6_WalkBehind
   m_TagString: Enemy
@@ -2085,7 +2101,7 @@ Transform:
   - {fileID: 4015129091342434}
   - {fileID: 4748773132644118}
   m_Father: {fileID: 4481709254739948}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4153221933463062
 Transform:
@@ -2486,7 +2502,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1349117020535026}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.02, y: 2.59, z: 0.85}
+  m_LocalPosition: {x: -5.2741966, y: 2.05, z: 2.1914117}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4797977172262946}
@@ -2495,6 +2511,7 @@ Transform:
   - {fileID: 4654340168290168}
   - {fileID: 4095022446900794}
   - {fileID: 4750147232545334}
+  - {fileID: 4503742133116550}
   - {fileID: 4150709215480596}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -2511,6 +2528,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4519454857213402}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4503742133116550
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1017497474096482}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
+  m_LocalScale: {x: 0.62258, y: 0.79767, z: 0.53308}
+  m_Children: []
+  m_Father: {fileID: 4481709254739948}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4516091650240084
 Transform:
@@ -3325,6 +3355,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!65 &65153533823990146
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1017497474096482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65888334835485778
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3451,6 +3493,56 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114198914200640442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1349117020535026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491b1f20aad4f7f498186b2797fd2407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 1
+  DiagMinimo: 3
+  baixoMinimo: 2
+  baixoMaximo: 2.5
+  speed: 2
+  distanceAttack: 9
+  cowdownFire: 2
+  cowdownHide: 2
+  delayFirstAttack: 0.5
+  bullet: {fileID: 1157084308398432, guid: caa1e8279cf8811409f6d2e736a9c0d2, type: 2}
+  objAnimado: {fileID: 1252300857412038}
+  gameSystem: {fileID: 0}
+  colisorHide: {fileID: 1017497474096482}
+  itens:
+  - {fileID: 1989921776441462, guid: 0baf559b763933641836fd9460307883, type: 2}
+  spawnBullet:
+  - {fileID: 4797977172262946}
+  mira:
+  - {fileID: 4551244148911654}
+  - {fileID: 4953382267333746}
+  - {fileID: 4654340168290168}
+  - {fileID: 4095022446900794}
+  - {fileID: 4750147232545334}
+  players:
+  - {fileID: 0}
+  canThrow: 0
+  isHideBehind: 0
+  walkFromCamera: 0
+  walkBehind: 1
+  crounched: 0
+  walkFromInside: 0
+  bomb: {fileID: 0}
+  timerToThrowBomb: 0.5
+  timerToThrowBombAnim: 0.5
+  delayShootHideBehind: 2
+  delayShootwalkFromCamera: 2
+  delayShootWalkBehind: 2
+  delayShootCrounched: 1
+  delayShootWalkFromInside: 1
 --- !u!114 &114464769162378662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3463,53 +3555,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: {fileID: 8300000, guid: 003e27b1841d17c41906ea7ad726599b, type: 3}
---- !u!114 &114917170597092930
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1349117020535026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6870330cf6e933749ba9968a2596d16a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 1
-  DiagMinimo: 3
-  baixoMinimo: 2
-  baixoMaximo: 2.5
-  speed: 2
-  distanceAttack: 7
-  cowdownFire: 1
-  bullet: {fileID: 1157084308398432, guid: caa1e8279cf8811409f6d2e736a9c0d2, type: 2}
-  objAnimado: {fileID: 1252300857412038}
-  gameSystem: {fileID: 0}
-  itens:
-  - {fileID: 1989921776441462, guid: 0baf559b763933641836fd9460307883, type: 2}
-  spawnBullet:
-  - {fileID: 4797977172262946}
-  mira:
-  - {fileID: 4551244148911654}
-  - {fileID: 4953382267333746}
-  - {fileID: 4654340168290168}
-  - {fileID: 4095022446900794}
-  - {fileID: 4750147232545334}
-  players: []
-  mySpawn: {fileID: 0}
-  canThrow: 0
-  isHideBehind: 0
-  walkFromCamera: 0
-  walkBehind: 1
-  crounched: 0
-  walkFromInside: 0
-  bomb: {fileID: 0}
-  timerToThrowBomb: 2
-  timerToThrowBombAnim: 0.5
-  delayShootHideBehind: 2
-  delayShootwalkFromCamera: 2
-  delayShootWalkBehind: 2
-  delayShootCrounched: 1
-  delayShootWalkFromInside: 1
 --- !u!137 &137006735798582876
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

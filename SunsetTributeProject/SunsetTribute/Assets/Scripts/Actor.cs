@@ -446,6 +446,51 @@ public class Actor : MonoBehaviour {
             objAnimado.GetComponent<Animator>().SetBool("jumpLand", true);
         }
     }
+
+    private void morreuuu()
+    {
+        life--;
+        playerHUD.GetComponent<PlayerHUD>().UpdateHUDLives(-1);
+
+        objAnimado.GetComponent<Animator>().SetBool("frente", false);
+        objAnimado.GetComponent<Animator>().SetBool("cima", false);
+        objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+        objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+        objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+        objAnimado.GetComponent<Animator>().SetBool("idle", false);
+        objAnimado.GetComponent<Animator>().SetBool("walk", false);
+        objAnimado.GetComponent<Animator>().SetTrigger("isDied");
+
+        playerSound.DeadSound();
+
+        if (playerHUD.GetComponent<PlayerHUD>().playerLives <= 0)
+        {
+            if (gameObject.name == "Cube_Player")
+                gameSystem.GetComponent<GameSystem>().gameOver1 = true;
+            else
+                gameSystem.GetComponent<GameSystem>().gameOver2 = true;
+
+            StartCoroutine("morreu");
+
+            playerHUD.GetComponent<PlayerHUD>().playerHUDState = PlayerHUDState.gameOver;
+            playerHUD.GetComponent<PlayerHUD>().SwitchPlayerHUDState(playerHUD.GetComponent<PlayerHUD>().playerHUDState);
+
+            GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<Rigidbody>().useGravity = false;
+            GetComponent<BoxCollider>().enabled = false;
+            GetComponent<Actor>().enabled = false;
+            gameSystem.GetComponent<GameSystem>().lifePlayers(1, gameObject.name);
+            gameSystem.GetComponent<GameSystem>().nPlayerAtivos(gameObject.name);
+        }
+        else
+        {
+            GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<Rigidbody>().useGravity = false;
+            GetComponent<BoxCollider>().enabled = false;
+            GetComponent<Actor>().enabled = false;
+            StartCoroutine("morreu");
+        }
+    }
     #endregion
 
     private void attack()
@@ -491,86 +536,13 @@ public class Actor : MonoBehaviour {
         if (collision.gameObject.tag == "enemy" && !isInvencivel)
         {
             life--;
-            playerHUD.GetComponent<PlayerHUD>().UpdateHUDLives(-1);
-
-            objAnimado.GetComponent<Animator>().SetBool("frente", false);
-            objAnimado.GetComponent<Animator>().SetBool("cima", false);
-            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-            objAnimado.GetComponent<Animator>().SetBool("idle", false);
-            objAnimado.GetComponent<Animator>().SetBool("walk", false);
-            objAnimado.GetComponent<Animator>().SetTrigger("isDied");
-
-            playerSound.DeadSound();
-
-            if (playerHUD.GetComponent<PlayerHUD>().playerLives <= 0)
-            {
-                if (gameObject.name == "Cube_Player")
-                    gameSystem.GetComponent<GameSystem>().gameOver1 = true;
-                else
-                    gameSystem.GetComponent<GameSystem>().gameOver2 = true;
-
-                gameSystem.GetComponent<GameSystem>().nPlayerAtivos(gameObject.name);
-
-                StartCoroutine("morreu");
-
-                playerHUD.GetComponent<PlayerHUD>().playerHUDState = PlayerHUDState.gameOver;
-                playerHUD.GetComponent<PlayerHUD>().SwitchPlayerHUDState(playerHUD.GetComponent<PlayerHUD>().playerHUDState);
-
-                GetComponent<Rigidbody>().isKinematic = true;
-                GetComponent<Rigidbody>().useGravity = false;
-                GetComponent<BoxCollider>().enabled = false;
-                GetComponent<Actor>().enabled = false;
-                gameSystem.GetComponent<GameSystem>().lifePlayers(1, gameObject.name);
-                gameSystem.GetComponent<GameSystem>().nPlayerAtivos(gameObject.name);
-            }
+            morreuuu();
         }
 
         if (collision.gameObject.tag == "BulletEnemy" && !isInvencivel)
         {
             Destroy(collision.gameObject);
-            life--;
-            playerHUD.GetComponent<PlayerHUD>().UpdateHUDLives(-1);
-
-            objAnimado.GetComponent<Animator>().SetBool("frente", false);
-            objAnimado.GetComponent<Animator>().SetBool("cima", false);
-            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-            objAnimado.GetComponent<Animator>().SetBool("idle", false);
-            objAnimado.GetComponent<Animator>().SetBool("walk", false);
-            objAnimado.GetComponent<Animator>().SetTrigger("isDied");
-
-            playerSound.DeadSound();
-
-            if (playerHUD.GetComponent<PlayerHUD>().playerLives <= 0)
-            {
-                if(gameObject.name == "Cube_Player")
-                    gameSystem.GetComponent<GameSystem>().gameOver1 = true;
-                else
-                    gameSystem.GetComponent<GameSystem>().gameOver2 = true;
-
-                StartCoroutine("morreu");
-
-                playerHUD.GetComponent<PlayerHUD>().playerHUDState = PlayerHUDState.gameOver;
-                playerHUD.GetComponent<PlayerHUD>().SwitchPlayerHUDState(playerHUD.GetComponent<PlayerHUD>().playerHUDState);
-
-                GetComponent<Rigidbody>().isKinematic = true;
-                GetComponent<Rigidbody>().useGravity = false;
-                GetComponent<BoxCollider>().enabled = false;
-                GetComponent<Actor>().enabled = false;
-                gameSystem.GetComponent<GameSystem>().lifePlayers(1, gameObject.name);
-                gameSystem.GetComponent<GameSystem>().nPlayerAtivos(gameObject.name);
-            }    
-            else
-            {
-                GetComponent<Rigidbody>().isKinematic = true;
-                GetComponent<Rigidbody>().useGravity = false;
-                GetComponent<BoxCollider>().enabled = false;
-                GetComponent<Actor>().enabled = false;
-                StartCoroutine("morreu");
-            }
+            morreuuu();
         }
         else if (collision.gameObject.tag == "BulletEnemy" && isInvencivel)
             Destroy(collision.gameObject);
@@ -599,6 +571,12 @@ public class Actor : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "Bomb")
+        {
+            morreuuu();
+            Destroy(other.gameObject);
+        }
+
         if(other.tag == "spawner")
         {
             other.GetComponent<BoxCollider>().enabled = false;

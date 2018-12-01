@@ -340,20 +340,7 @@ public class Enemy : MonoBehaviour {
     }
 
 
-    IEnumerator DelayAttack()
-    {
-        if(inDelay && !isColver){
-            objAnimado.GetComponent<Animator>().SetBool("idle", true);
-            yield return new WaitForSeconds(delayFirstAttack);
-            isAttack = true;
-            Attack();
-            inDelay = false;
-
-            //yield return new WaitForSeconds(cowdownFire - delayFirstAttack);
-            
-            StopCoroutine("DelayAttack");
-        }
-    }
+   
 
     protected virtual void Attack()
     {
@@ -387,7 +374,7 @@ public class Enemy : MonoBehaviour {
         if (collision.gameObject.tag == "Bullet")
         {
             life--;
-            if (life == 0)
+            if (life <= 0)
             {
                 isDead = true;
 
@@ -400,6 +387,7 @@ public class Enemy : MonoBehaviour {
                 enemySound.DeadSound();
 
                 objAnimado.GetComponent<Animator>().SetTrigger("isDied");
+                colisorHide.GetComponent<BoxCollider>().enabled = false;
                 GetComponent<BoxCollider>().enabled = false;
                 GetComponent<Rigidbody>().isKinematic = true;
                 GetComponent<Rigidbody>().useGravity = false;
@@ -432,6 +420,22 @@ public class Enemy : MonoBehaviour {
 
             StartCoroutine("hideTrue");
             
+        }
+    }
+
+    IEnumerator DelayAttack()
+    {
+        if (inDelay && !isColver)
+        {
+            objAnimado.GetComponent<Animator>().SetBool("idle", true);
+            yield return new WaitForSeconds(delayFirstAttack);
+            isAttack = true;
+            Attack();
+            inDelay = false;
+
+            //yield return new WaitForSeconds(cowdownFire - delayFirstAttack);
+
+            StopCoroutine("DelayAttack");
         }
     }
 
