@@ -6,6 +6,7 @@ public class SoundBackground : MonoBehaviour {
 
 
 	public float timeToReplay = 1.0f;
+	public bool isLoop = false;
 	private float timer = 0.0f;
 	private AudioSource audioSource;
 	// Use this for initialization
@@ -17,14 +18,22 @@ public class SoundBackground : MonoBehaviour {
 	 private void OnTriggerEnter(Collider other)
     {
 		if(other.tag == "Player"){
-			StartCoroutine("PlaySound");
+			if(isLoop){
+				audioSource.Play();
+			}else{
+				StartCoroutine("PlaySound");
+			}
 		}
 	}
 	 private void OnTriggerExit(Collider other)
     {
 		if(other.tag == "Player"){
-			StopCoroutine("CallSound");
-			StopCoroutine("PlaySound");
+			if(isLoop){
+				audioSource.Stop();
+			}else{
+				StopCoroutine("CallSound");
+				StopCoroutine("PlaySound");
+			}
 		}
 	}
 
