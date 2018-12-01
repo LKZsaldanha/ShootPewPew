@@ -2846,7 +2846,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1245349217530386}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 1.72, z: 0}
+  m_LocalPosition: {x: -7.1469026, y: 2.7890558, z: 3.5556731}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4174544882053084}
@@ -3780,7 +3780,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1425201511463586}
   m_LocalRotation: {x: 0.00000012992847, y: 0.70710665, z: -0.00000003865889, w: 0.7071069}
-  m_LocalPosition: {x: -1.8719461, y: 0.040124416, z: 0.52411294}
+  m_LocalPosition: {x: -2.41, y: 0.040124416, z: 0.52411294}
   m_LocalScale: {x: 0.09492795, y: 0.26295137, z: 1.1930854}
   m_Children: []
   m_Father: {fileID: 4196708718127924}
@@ -4823,13 +4823,13 @@ MonoBehaviour:
   - AgacharP2
   - SubirP2
   localSpawnBullet:
-  - {fileID: 0}
+  - {fileID: 4624036110997614}
   mira:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4897177572081490}
+  - {fileID: 4995740703899390}
+  - {fileID: 4282272809248638}
+  - {fileID: 4388197377497312}
+  - {fileID: 4612522417219888}
   aimAngle: 0
   lifeMax: 0
   life: 0
