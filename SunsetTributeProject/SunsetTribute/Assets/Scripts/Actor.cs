@@ -53,7 +53,7 @@ public class Actor : MonoBehaviour {
         else
             cam.GetComponent<CameraFollow>().target2 = transform.GetChild(2).transform;
 
-        colisorRasteira.GetComponent<BoxCollider>().enabled = false;
+        colisorRasteira.GetComponent<CapsuleCollider>().enabled = false;
         colisorAgachar.GetComponent<BoxCollider>().enabled = false;
 
         if (gameObject.name == "Cube_Player")
@@ -115,7 +115,7 @@ public class Actor : MonoBehaviour {
                 GetComponent<Rigidbody>().velocity = Vector3.zero;
                 GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 GetComponent<Rigidbody>().AddForce(speedRasteira, 0, 0);
-                colisorRasteira.GetComponent<BoxCollider>().enabled = true;
+                colisorRasteira.GetComponent<CapsuleCollider>().enabled = true;
                 gameObject.GetComponent<BoxCollider>().enabled = false;
             }                
             else
@@ -123,7 +123,7 @@ public class Actor : MonoBehaviour {
                 GetComponent<Rigidbody>().velocity = Vector3.zero;
                 GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 GetComponent<Rigidbody>().AddForce(-speedRasteira, 0, 0);
-                colisorRasteira.GetComponent<BoxCollider>().enabled = true;
+                colisorRasteira.GetComponent<CapsuleCollider>().enabled = true;
                 gameObject.GetComponent<BoxCollider>().enabled = false;
             }
             rasteiraAnim();
@@ -463,7 +463,7 @@ public class Actor : MonoBehaviour {
         objAnimado.GetComponent<Animator>().SetLayerWeight(1, 0);
         yield return new WaitForSeconds(cooldownRasteira);
         gameObject.GetComponent<BoxCollider>().enabled = true;
-        colisorRasteira.GetComponent<BoxCollider>().enabled = false;
+        colisorRasteira.GetComponent<CapsuleCollider>().enabled = false;
         isRasteira = false;
         rasteiraAnim();
         GetComponent<Rigidbody>().velocity = Vector3.zero;
