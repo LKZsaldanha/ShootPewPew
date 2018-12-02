@@ -2,10 +2,17 @@
 
 public class PlayerAim : MonoBehaviour {
 
-    [SerializeField] private string horizontalAxisInput = "Horizontal";
-    [SerializeField] private string verticalAxisInput = "Vertical";
+
+    //id do player (p1 = 0, p2 = 1, p3 = 2, p4 = 3)
+    public int playerID = 0;
+
+    private string horizontalAxisName = "HorizontalP";
+    private string verticalAxisName = "VerticalP";
+    private string fire1InputName = "Fire1P";
 
     [SerializeField] private float inputDeadZoneValue;
+
+    private Animator myAnimator;
 
 
     //direções da mira
@@ -15,6 +22,7 @@ public class PlayerAim : MonoBehaviour {
 
     //angulo para onde está a mira
     public int aimAngle = 0;
+    private int lastAimAngle = 0;
 
     
     private void Start () {
@@ -23,19 +31,31 @@ public class PlayerAim : MonoBehaviour {
         rightAim = false;
         upAim = false;
         downAim = false;
+
+
+        myAnimator = GetComponentInChildren<Animator>();
+        SetInputAxis();
     }
-	
-	
-	private void Update () {
+
+    private void SetInputAxis()
+    {
+        float convertedID = playerID + 1;
+        horizontalAxisName = horizontalAxisName + convertedID.ToString();
+        verticalAxisName = verticalAxisName + convertedID.ToString();
+        fire1InputName = fire1InputName + convertedID.ToString();
+    }
+
+
+        private void Update () {
 
         //Compara inputs para setar booleans
-        if (Input.GetAxis(horizontalAxisInput) > inputDeadZoneValue)
+        if (Input.GetAxis(horizontalAxisName) > inputDeadZoneValue)
         {
             leftAim = false;
             rightAim = true;
             lastSideWasRight = true;
         }
-        else if (Input.GetAxis(horizontalAxisInput) < -inputDeadZoneValue)
+        else if (Input.GetAxis(horizontalAxisName) < -inputDeadZoneValue)
         {
             leftAim = true;
             rightAim = false;
@@ -48,12 +68,12 @@ public class PlayerAim : MonoBehaviour {
         }
 
 
-        if (Input.GetAxis(verticalAxisInput) > inputDeadZoneValue)
+        if (Input.GetAxis(verticalAxisName) > inputDeadZoneValue)
         {
             upAim = true;
             downAim = false;
         }
-        else if (Input.GetAxis(verticalAxisInput) < -inputDeadZoneValue)
+        else if (Input.GetAxis(verticalAxisName) < -inputDeadZoneValue)
         {
             upAim = false;
             downAim = true;
@@ -79,6 +99,32 @@ public class PlayerAim : MonoBehaviour {
 
         SetAimStatus();
 
+        Animate();
+
+        Shoot();
+
+    }
+
+    private void Animate()
+    {
+        myAnimator.SetInteger("AimAngle", aimAngle);
+        if(aimAngle != lastAimAngle)
+        {
+            myAnimator.SetTrigger("UpdateAim");
+            lastAimAngle = aimAngle;
+        }
+
+    }
+
+    private void Shoot()
+    {
+        if (Input.GetButtonDown(fire1InputName))
+        {
+            print("PewPew");
+            myAnimator.SetTrigger("Shoot");
+
+            myAnimator.SetTrigger("UpdateAim");
+        }
     }
 
     //converte a informação das booleans em um valor de angulo em sentido horario

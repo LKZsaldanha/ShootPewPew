@@ -19,6 +19,8 @@ public class CharacterMovement : MonoBehaviour {
     [SerializeField] Transform groundCheck;
 
     [SerializeField] private float jumpHeight;
+
+    public bool aimingVertical = false;
     
 
     [SerializeField] private float dashForce;
@@ -26,11 +28,15 @@ public class CharacterMovement : MonoBehaviour {
     [SerializeField] private float dashCooldown;
     private float lastDashTime;
 
+
+
     //NomeDoInput sem o numeroFinal
     private string horizontalAxisName = "HorizontalP";
     private string verticalAxisName = "VerticalP";
     private string jumpInputName = "JumpP";
     private string dashInputName = "RasteiraP";
+
+    [SerializeField] private float controllerDeadZoneValue;
 
 
 
@@ -48,13 +54,18 @@ public class CharacterMovement : MonoBehaviour {
         jumpInputName = jumpInputName + convertedID.ToString();
         dashInputName = dashInputName + convertedID.ToString();
     }
-    
 
     private void FixedUpdate()
     {
+
+        myAnimator.SetBool("Dashing", dashLock);
         if (!dashLock)
         {
-            Move();
+            AimingVertical();
+            if (!aimingVertical)
+            {
+                Move();
+            }
 
             if (isGrounded)
             {
@@ -63,8 +74,7 @@ public class CharacterMovement : MonoBehaviour {
                 {
                     Dash();
                 }
-            }
-
+            }            
         }
         else
         {
@@ -88,6 +98,37 @@ public class CharacterMovement : MonoBehaviour {
         CheckGrounded();
 
     }
+
+    private void AimingVertical()
+    {
+        if (Input.GetAxis(horizontalAxisName) < controllerDeadZoneValue 
+            && Input.GetAxis(horizontalAxisName) > -controllerDeadZoneValue)
+        {
+
+            myRb.velocity = new Vector3(0, myRb.velocity.y, 0);
+            if (Input.GetAxis(verticalAxisName) > controllerDeadZoneValue)
+            {
+                myAnimator.SetInteger("VerticalAim", 1);
+                aimingVertical = true;
+            }
+            else if (Input.GetAxis(verticalAxisName) < -controllerDeadZoneValue)
+            {
+                myAnimator.SetInteger("VerticalAim", -1);
+                aimingVertical = true;
+            }
+            else
+            {
+                myAnimator.SetInteger("VerticalAim", 0);
+                aimingVertical = false;
+            }
+        }
+        else
+        {
+            aimingVertical = false;
+            myAnimator.SetInteger("VerticalAim", 0);
+        }
+    }
+
     private void Dash()
     {
         if (Input.GetButtonDown(dashInputName))
