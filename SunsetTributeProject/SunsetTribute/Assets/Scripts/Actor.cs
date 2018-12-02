@@ -9,7 +9,8 @@ public class Actor : MonoBehaviour {
     [SerializeField] private float speed , jump, cooldownRasteira, speedRasteira;
     [SerializeField] private GameObject bullet, objAnimado, gameSystem;
     [SerializeField] private string[] inputs;
-    [SerializeField] private Transform[] localSpawnBullet, mira;
+    [SerializeField] private Transform[] localSpawnBullet, mira, particlesMiscellaneous;
+    [SerializeField] private float offSetParticle;
 
     //direções da mira
     private bool leftAim, rightAim, upAim, downAim,isIdle, isUp, isInvencivel;
@@ -426,6 +427,11 @@ public class Actor : MonoBehaviour {
     private void rasteiraAnim()
     {
         if (isRasteira) {
+            if(isRight){
+                Instantiate(particlesMiscellaneous[0],new Vector3(transform.position.x - offSetParticle, transform.position.y - 0.5f, transform.position.z), Quaternion.Euler(new Vector3(0, 180, 0)));
+            }else{
+                Instantiate(particlesMiscellaneous[0],new Vector3(transform.position.x + offSetParticle, transform.position.y - 0.5f, transform.position.z), Quaternion.Euler(new Vector3(0, 0, 0)));
+            }
             playerSound.DashSound();
             objAnimado.GetComponent<Animator>().SetBool("isDash", true);
         }
