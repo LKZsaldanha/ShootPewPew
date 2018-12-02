@@ -15,7 +15,10 @@ public class HitBoxPlayer : MonoBehaviour {
     [SerializeField] private GameObject objAnimado, gameSystem,cam;
 
     private bool isInvencivel;
-    
+
+
+    private IEnumerator invencibleCouroutine;
+
 
     //angulo para onde está a mira
     public int life;
@@ -39,7 +42,8 @@ public class HitBoxPlayer : MonoBehaviour {
     // Use this for initialization
     void Start () {
         isInvencivel = true;
-        StartCoroutine("invencivel");
+        invencibleCouroutine = invencivel(3.0f);
+        StartCoroutine(invencibleCouroutine);
 
         gameSystem.GetComponent<GameSystem>().nPlayerVivos.Add(gameObject.transform.parent.gameObject);
         
@@ -67,13 +71,14 @@ public class HitBoxPlayer : MonoBehaviour {
     {
         if (GetComponentInParent<CharacterMovement>().dashLock)
         {
-            isInvencivel = true;
+            float duration = GetComponentInParent<CharacterMovement>().dashDuration;
+            invencibleCouroutine = invencivel(duration);
+            StartCoroutine(invencibleCouroutine);
             dashCollider.enabled = true;
             normalCollider.enabled = false;
         }
         else
         {
-            isInvencivel = false;
             dashCollider.enabled = false;
             normalCollider.enabled = true;
         }
@@ -167,9 +172,9 @@ public class HitBoxPlayer : MonoBehaviour {
         }
     }
 
-    IEnumerator invencivel()
+    IEnumerator invencivel(float duration)
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(duration);
         isInvencivel = false;
         StopCoroutine("invencivel");
     }

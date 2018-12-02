@@ -4828,6 +4828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb97b7e00d5408b4383a1a8eb0dcb087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: cd502f04fa3c40c48bbbcdeef1ca7efa, type: 2}
   dashCollider: {fileID: 65627647567456158}
   normalCollider: {fileID: 65960208134277930}
   valorDinheiro: 100

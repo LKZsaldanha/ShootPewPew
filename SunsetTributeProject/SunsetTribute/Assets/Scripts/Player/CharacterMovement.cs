@@ -24,7 +24,7 @@ public class CharacterMovement : MonoBehaviour {
     
 
     [SerializeField] private float dashForce;
-    [SerializeField] private float dashDuration;
+    public float dashDuration;
     [SerializeField] private float dashCooldown;
     private float lastDashTime;
 
