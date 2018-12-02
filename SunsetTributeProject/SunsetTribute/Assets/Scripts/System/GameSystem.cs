@@ -49,11 +49,11 @@ public class GameSystem : MonoBehaviour {
         {
             if (uiPlayers[1].activeSelf)
             {
-                SceneManager.LoadScene("SplashScreen");
+                StartCoroutine("returnMenu");
             }                
             else if(uiPlayers[2].activeSelf)
             {
-                SceneManager.LoadScene("SplashScreen");
+                StartCoroutine("returnMenu");
             }
         }
     }
@@ -97,8 +97,6 @@ public class GameSystem : MonoBehaviour {
         if (nameplayer == "Cube_Player")
         {
             life1 -= lifePlayer;
-
-            print("life: "+life1);
             if(life1 < 0)
             {
                 noSpawn1 = true;
@@ -114,6 +112,12 @@ public class GameSystem : MonoBehaviour {
         }
     }
 
+    IEnumerator returnMenu()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("SplashScreen");
+        StopCoroutine("returnMenu");
+    }
 
     void spawnPlayer()
     {

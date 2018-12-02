@@ -88,8 +88,6 @@ public class Enemy : MonoBehaviour {
 
                         if (distanceAttack > distancePlayer)
                         {
-                            print("Dis Attack: "+distancePlayer);
-                            print("meonor Dis: "+menorDistancia);
                             StartCoroutine("DelayAttack");
                             if (inDelay)
                              {//delay pra personagem que entra correndo ou pulando
