@@ -112,25 +112,25 @@ public class Enemy : MonoBehaviour {
 
     void atualizaEnemy()
     {
-        if (GameObject.Find("Cube_Player") != null && !isBlockAtuli)
+        if (GameObject.Find("NewPlayerPrefab") != null && !isBlockAtuli)
         {
-            players.Add(GameObject.Find("Cube_Player").transform);
+            players.Add(GameObject.Find("NewPlayerPrefab").transform);
             isBlockAtuli = true;
             isBlock1 = true;
         }
-        else if (GameObject.Find("Cube_Player2") != null && !isBlockAtuli2)
+        else if (GameObject.Find("NewPlayerPrefab2") != null && !isBlockAtuli2)
         {
-            players.Add(GameObject.Find("Cube_Player2").transform);
+            players.Add(GameObject.Find("NewPlayerPrefab2").transform);
             isBlockAtuli2 = true;
             isBlock2 = true;
         }
 
-        if (GameObject.Find("Cube_Player") == null && isBlock1)
+        if (GameObject.Find("NewPlayerPrefab") == null && isBlock1)
         {
             isBlockAtuli = false;
             isBlock1 = false;
         }
-        else if (GameObject.Find("Cube_Player2") == null && isBlock2)
+        else if (GameObject.Find("NewPlayerPrefab2") == null && isBlock2)
         {
             isBlockAtuli2 = false;
             isBlock2 = false;
