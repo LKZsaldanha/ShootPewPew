@@ -24,19 +24,19 @@ TagManager:
   - UI
   - 
   - 
-  - Player
+  - PlayerHitBox
   - BulletPlayer
   - Enemy
   - BulletEnemy
-  - chaoUp
-  - noRander
+  - ChaoUp
+  - noRender
   - ScenarioAssets
   - Level_design_objects
   - LimitCam
   - Foreground
   - Item
-  - 
-  - 
+  - PlayerController
+  - Floor
   - 
   - 
   - 
