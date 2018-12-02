@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnPrefab : MonoBehaviour {
 
     [SerializeField] private GameObject prefabToInstantiate;
 
-	void OnEnable () {
+	public void OnEnable () {
         Instantiate(prefabToInstantiate, transform.position, transform.rotation);
         Destroy(gameObject);
 	}
