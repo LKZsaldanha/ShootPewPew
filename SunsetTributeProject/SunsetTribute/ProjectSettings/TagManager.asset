@@ -15,6 +15,7 @@ TagManager:
   - spawner
   - gold
   - LimitSize
+  - PlayerHitbox
   layers:
   - Default
   - TransparentFX
