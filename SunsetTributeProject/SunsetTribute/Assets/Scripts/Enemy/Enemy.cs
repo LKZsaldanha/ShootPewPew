@@ -114,13 +114,17 @@ public class Enemy : MonoBehaviour {
     {
         if (GameObject.Find("NewPlayerPrefab") != null && !isBlockAtuli)
         {
-            players.Add(GameObject.Find("NewPlayerPrefab").transform);
+            if(gameSystem.GetComponent<GameSystem>().nPlayerVivos[0].name == "NewPlayerPrefab")
+                players.Add(gameSystem.GetComponent<GameSystem>().nPlayerVivos[0].transform);
+
             isBlockAtuli = true;
             isBlock1 = true;
         }
         else if (GameObject.Find("NewPlayerPrefab2") != null && !isBlockAtuli2)
         {
-            players.Add(GameObject.Find("NewPlayerPrefab2").transform);
+            if (gameSystem.GetComponent<GameSystem>().nPlayerVivos[1].name == "NewPlayerPrefab2")
+                players.Add(gameSystem.GetComponent<GameSystem>().nPlayerVivos[1].transform);
+
             isBlockAtuli2 = true;
             isBlock2 = true;
         }
@@ -203,13 +207,6 @@ public class Enemy : MonoBehaviour {
                             spawnBullet[0].rotation = Quaternion.Euler(0, 90, 0);
                         }
 
-                        objAnimado.GetComponent<Animator>().SetBool("cima", false);
-                        objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                        objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-                        objAnimado.GetComponent<Animator>().SetBool("frente", true);
-                        objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-                        objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                        objAnimado.GetComponent<Animator>().SetBool("idle", false);
                     }
                     else
                     if (players[idPlayer].position.y < transform.position.y)
@@ -229,13 +226,6 @@ public class Enemy : MonoBehaviour {
                                 spawnBullet[0].position = mira[3].position;
                                 spawnBullet[0].rotation = Quaternion.Euler(315, 90, 0);
                             }
-                            objAnimado.GetComponent<Animator>().SetBool("cima", false);
-                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-                            objAnimado.GetComponent<Animator>().SetBool("frente", false);
-                            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", true);
-                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                            objAnimado.GetComponent<Animator>().SetBool("idle", false);
                         }
 
                     }
@@ -257,13 +247,6 @@ public class Enemy : MonoBehaviour {
                                 spawnBullet[0].position = mira[1].position;
                                 spawnBullet[0].rotation = Quaternion.Euler(405, 90, 0);
                             }
-                            objAnimado.GetComponent<Animator>().SetBool("cima", false);
-                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                            objAnimado.GetComponent<Animator>().SetBool("DiagCima", true);
-                            objAnimado.GetComponent<Animator>().SetBool("frente", false);
-                            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                            objAnimado.GetComponent<Animator>().SetBool("idle", false);
                         }
 
 
@@ -285,14 +268,6 @@ public class Enemy : MonoBehaviour {
                                 spawnBullet[0].position = mira[0].position;
                                 spawnBullet[0].rotation = Quaternion.Euler(405, 90, 0);
                             }
-
-                            objAnimado.GetComponent<Animator>().SetBool("cima", true);
-                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-                            objAnimado.GetComponent<Animator>().SetBool("frente", false);
-                            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                            objAnimado.GetComponent<Animator>().SetBool("idle", false);
                         }
 
 
@@ -315,14 +290,6 @@ public class Enemy : MonoBehaviour {
                                 spawnBullet[0].position = mira[4].position;
                                 spawnBullet[0].rotation = Quaternion.Euler(270, 90, 0);
                             }
-
-                            objAnimado.GetComponent<Animator>().SetBool("baixo", true);
-                            objAnimado.GetComponent<Animator>().SetBool("cima", false);
-                            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-                            objAnimado.GetComponent<Animator>().SetBool("frente", false);
-                            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                            objAnimado.GetComponent<Animator>().SetBool("idle", false);
                         }
                     }
                 }
@@ -332,11 +299,6 @@ public class Enemy : MonoBehaviour {
             else
             {
                 StopCoroutine("cowdown");
-                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-                objAnimado.GetComponent<Animator>().SetBool("frente", false);
-                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                objAnimado.GetComponent<Animator>().SetBool("idle", true);
             }
         }
     }
@@ -377,12 +339,6 @@ public class Enemy : MonoBehaviour {
             if (life <= 0)
             {
                 isDead = true;
-
-                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-                objAnimado.GetComponent<Animator>().SetBool("frente", false);
-                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-                objAnimado.GetComponent<Animator>().SetBool("idle", false);
 
                 enemySound.DeadSound();
 

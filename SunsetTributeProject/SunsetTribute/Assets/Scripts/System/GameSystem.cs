@@ -94,7 +94,7 @@ public class GameSystem : MonoBehaviour {
     /// </summary>
     public void lifePlayers(int lifePlayer, string nameplayer)
     {
-        if (nameplayer == "InteractionColliderYAGO")
+        if (nameplayer == "NewPlayerPrefab")
         {
             life1 -= lifePlayer;
             if(life1 < 0)
@@ -122,7 +122,7 @@ public class GameSystem : MonoBehaviour {
     void spawnPlayer()
     {
 
-            if (GameObject.Find("InteractionColliderYAGO") == null)
+            if (GameObject.Find("NewPlayerPrefab") == null)
             {                
                     StartCoroutine("monsterReborn1");             
                 
@@ -130,14 +130,14 @@ public class GameSystem : MonoBehaviour {
         
             if(Input.GetButtonDown("StartP2"))
             {
-                if (GameObject.Find("InteractionColliderJOHN") == null)
+                if (GameObject.Find("NewPlayerPrefab2") == null)
                 {
 
                     if (!gameOver2)
                     {
                         GameObject aux;
                         aux = Instantiate(opcoesPlayer[1], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[1].transform.rotation);
-                        aux.name = "InteractionColliderJOHN";
+                        aux.name = "NewPlayerPrefab";
                     }
                 }
             }
@@ -154,14 +154,8 @@ public class GameSystem : MonoBehaviour {
         {
             GameObject aux;
             aux = Instantiate(opcoesPlayer[0], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[0].transform.rotation);
-            aux.name = "InteractionColliderYAGO";
+            aux.name = "NewPlayerPrefab";
         }
         StopCoroutine("monsterReborn1");
-    }
-    IEnumerator monsterReborn2()
-    {
-        yield return new WaitForSeconds(1);
-
-        StopCoroutine("monsterReborn2");
     }
 }

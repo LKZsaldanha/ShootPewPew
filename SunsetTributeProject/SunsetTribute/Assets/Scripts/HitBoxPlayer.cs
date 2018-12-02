@@ -73,20 +73,13 @@ public class HitBoxPlayer : MonoBehaviour {
 
         transform.parent.GetComponent<CharacterMovement>().enabled = false;
 
-        objAnimado.GetComponent<Animator>().SetBool("frente", false);
-        objAnimado.GetComponent<Animator>().SetBool("cima", false);
-        objAnimado.GetComponent<Animator>().SetBool("baixo", false);
-        objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
-        objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
-        objAnimado.GetComponent<Animator>().SetBool("idle", false);
-        objAnimado.GetComponent<Animator>().SetBool("walk", false);
         objAnimado.GetComponent<Animator>().SetTrigger("isDied");
 
         playerSound.DeadSound();
 
         if (playerHUD.GetComponent<PlayerHUD>().playerLives <= 0)
         {
-            if (gameObject.name == "InteractionColliderYAGO")
+            if (gameObject.name == "NewPlayerPrefab")
                 gameSystem.GetComponent<GameSystem>().gameOver1 = true;
             else
                 gameSystem.GetComponent<GameSystem>().gameOver2 = true;

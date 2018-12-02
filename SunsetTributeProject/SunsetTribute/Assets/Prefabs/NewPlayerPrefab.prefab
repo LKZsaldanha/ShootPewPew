@@ -550,6 +550,7 @@ GameObject:
   - component: {fileID: 114135205594426980}
   - component: {fileID: 54258482743605786}
   - component: {fileID: 114594224833307514}
+  - component: {fileID: 82260934684146186}
   m_Layer: 8
   m_Name: InteractionColliderYAGO
   m_TagString: Untagged
@@ -1985,7 +1986,6 @@ GameObject:
   - component: {fileID: 54392737898093186}
   - component: {fileID: 114433770998847220}
   - component: {fileID: 114039432878947968}
-  - component: {fileID: 82180206812613198}
   - component: {fileID: 114311555144067374}
   m_Layer: 19
   m_Name: NewPlayerPrefab
@@ -4472,12 +4472,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1.85, z: 0.65}
   m_Center: {x: 0, y: 0, z: 0.032589823}
---- !u!82 &82180206812613198
+--- !u!82 &82260934684146186
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1864172193316146}
+  m_GameObject: {fileID: 1213983807568622}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
