@@ -94,7 +94,7 @@ public class GameSystem : MonoBehaviour {
     /// </summary>
     public void lifePlayers(int lifePlayer, string nameplayer)
     {
-        if (nameplayer == "Cube_Player")
+        if (nameplayer == "InteractionColliderYAGO")
         {
             life1 -= lifePlayer;
             if(life1 < 0)
@@ -121,32 +121,47 @@ public class GameSystem : MonoBehaviour {
 
     void spawnPlayer()
     {
-        if (Input.GetButtonDown("StartP1") && !noSpawn1)
-        {
-            if (GameObject.Find("Cube_Player") == null)
+
+            if (GameObject.Find("InteractionColliderYAGO") == null)
             {                
-                if(!gameOver1)
-                {
-                    GameObject aux;
-                    aux = Instantiate(opcoesPlayer[0], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[0].transform.rotation);
-                    aux.name = "Cube_Player";
-                }
+                    StartCoroutine("monsterReborn1");             
                 
             }
-        }
-        if (Input.GetButtonDown("StartP2") && !noSpawn2)
-        {
-            if (GameObject.Find("Cube_Player2") == null)
+        
+            if(Input.GetButtonDown("StartP2"))
             {
-                
-                if (!gameOver2)
+                if (GameObject.Find("InteractionColliderJOHN") == null)
                 {
-                    GameObject aux;
-                    aux = Instantiate(opcoesPlayer[1], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[1].transform.rotation);
-                    aux.name = "Cube_Player2";
+
+                    if (!gameOver2)
+                    {
+                        GameObject aux;
+                        aux = Instantiate(opcoesPlayer[1], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[1].transform.rotation);
+                        aux.name = "InteractionColliderJOHN";
+                    }
                 }
             }
 
+
+        
+    }
+
+
+    IEnumerator monsterReborn1()
+    {
+        yield return new WaitForSeconds(1);
+        if (!gameOver1)
+        {
+            GameObject aux;
+            aux = Instantiate(opcoesPlayer[0], new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0f), opcoesPlayer[0].transform.rotation);
+            aux.name = "InteractionColliderYAGO";
         }
+        StopCoroutine("monsterReborn1");
+    }
+    IEnumerator monsterReborn2()
+    {
+        yield return new WaitForSeconds(1);
+
+        StopCoroutine("monsterReborn2");
     }
 }

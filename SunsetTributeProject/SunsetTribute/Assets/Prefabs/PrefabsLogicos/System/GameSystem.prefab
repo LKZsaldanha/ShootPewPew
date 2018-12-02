@@ -54,7 +54,7 @@ MonoBehaviour:
   money: 0
   nPlayerVivos: []
   opcoesPlayer:
-  - {fileID: 1973248460037282, guid: 9e72dd24c3f99f34eb8eada2463459f4, type: 2}
+  - {fileID: 1864172193316146, guid: e4a83941bf1f0fa4eb85cc6a02d12530, type: 2}
   - {fileID: 1245349217530386, guid: ac47b678c05b8d349b63c345e7418a77, type: 2}
   nameplayer: 
   quadrante1:
