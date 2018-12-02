@@ -1,25 +1,27 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HitBoxPlayer : MonoBehaviour {
 
     private PlayerSound playerSound;
 
+    [SerializeField] private Collider dashCollider;
+    [SerializeField] private Collider normalCollider;
+
     //valor do cx dois
     [SerializeField] private int valorDinheiro;
-    public GameObject playerHUD;
+    public PlayerHUD playerHUD;
 
     [SerializeField] private GameObject objAnimado, gameSystem,cam;
 
     private bool isInvencivel;
+    
 
     //angulo para onde está a mira
     public int life;
 
-    private void Awake()
-    {
+    private void Awake()    {
+
         gameSystem = GameObject.Find("GameSystem");
         cam = GameObject.Find("Main Camera");
 
@@ -45,31 +47,42 @@ public class HitBoxPlayer : MonoBehaviour {
 
         if (gameObject.name == "InteractionColliderYAGO")
         {
-            playerHUD = GameObject.Find("HUD_Player_1");
-            playerHUD.GetComponent<PlayerHUD>().playerHUDState = PlayerHUDState.playing;
-            playerHUD.GetComponent<PlayerHUD>().SwitchPlayerHUDState(playerHUD.GetComponent<PlayerHUD>().playerHUDState);
+            GameObject pHUD = GameObject.Find("HUD_Player_1");
+            playerHUD = pHUD.GetComponent<PlayerHUD>();
+            playerHUD.SwitchPlayerHUDState(PlayerHUDState.playing);
         }
         else if (gameObject.name == "InteractionColliderJOHN")
         {
-            playerHUD = GameObject.Find("HUD_Player_2");
-            playerHUD.GetComponent<PlayerHUD>().playerHUDState = PlayerHUDState.playing;
-            playerHUD.GetComponent<PlayerHUD>().SwitchPlayerHUDState(playerHUD.GetComponent<PlayerHUD>().playerHUDState);
+            GameObject pHUD2 = GameObject.Find("HUD_Player_2");
+            playerHUD = pHUD2.GetComponent<PlayerHUD>();
+            playerHUD.SwitchPlayerHUDState(PlayerHUDState.playing);
         }
 
 
         life = 5;
         playerSound = GetComponent<PlayerSound>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    private void Update()
+    {
+        if (GetComponentInParent<CharacterMovement>().dashLock)
+        {
+            isInvencivel = true;
+            dashCollider.enabled = true;
+            normalCollider.enabled = false;
+        }
+        else
+        {
+            isInvencivel = false;
+            dashCollider.enabled = false;
+            normalCollider.enabled = true;
+        }
+    }
 
     private void morreuuu()
     {
         life--;
-        playerHUD.GetComponent<PlayerHUD>().UpdateHUDLives(-1);
+        playerHUD.UpdateHUDLives(-1);
 
         transform.parent.GetComponent<CharacterMovement>().enabled = false;
 
@@ -77,7 +90,7 @@ public class HitBoxPlayer : MonoBehaviour {
 
         playerSound.DeadSound();
 
-        if (playerHUD.GetComponent<PlayerHUD>().playerLives <= 0)
+        if (playerHUD.playerLives <= 0)
         {
             if (gameObject.name == "NewPlayerPrefab")
                 gameSystem.GetComponent<GameSystem>().gameOver1 = true;
@@ -86,8 +99,7 @@ public class HitBoxPlayer : MonoBehaviour {
 
             StartCoroutine("morreu");
 
-            playerHUD.GetComponent<PlayerHUD>().playerHUDState = PlayerHUDState.gameOver;
-            playerHUD.GetComponent<PlayerHUD>().SwitchPlayerHUDState(playerHUD.GetComponent<PlayerHUD>().playerHUDState);
+            playerHUD.SwitchPlayerHUDState(PlayerHUDState.gameOver);
 
             GetComponent<Rigidbody>().isKinematic = true;
             GetComponent<Rigidbody>().useGravity = false;
@@ -110,7 +122,7 @@ public class HitBoxPlayer : MonoBehaviour {
     {
         if (collision.gameObject.tag == "gold")
         {
-            playerHUD.GetComponent<PlayerHUD>().UpdateHUDScore(valorDinheiro);
+            playerHUD.UpdateHUDScore(valorDinheiro);
             playerSound.GoldSound();
             Destroy(collision.gameObject);
         }
@@ -134,7 +146,7 @@ public class HitBoxPlayer : MonoBehaviour {
             if (life < 5)
             {
                 life++;
-                playerHUD.GetComponent<PlayerHUD>().UpdateHUDLives(1);
+                playerHUD.UpdateHUDLives(1);
             }
             Destroy(collision.gameObject);
         }

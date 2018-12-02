@@ -91,7 +91,7 @@ public class BulletPlayer : MonoBehaviour {
         }
         else
         {
-            if (collision.gameObject.tag == "Player")
+            if (collision.gameObject.tag == "PlayerHitbox")
             {
                 ContactPoint contact = collision.contacts[0];
                 Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
