@@ -57,7 +57,6 @@ public class CharacterMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
-
         myAnimator.SetBool("Dashing", dashLock);
         if (!dashLock)
         {
@@ -81,9 +80,12 @@ public class CharacterMovement : MonoBehaviour {
             if(Time.time - lastDashTime >= dashDuration)
             {
                 dashLock = false;
+                //myAnimator.SetBool("Dashing", dashLock);
             }
             else
             {
+
+                myAnimator.SetTrigger("Dash");
                 if (facingRight)
                 {
                     myRb.velocity = new Vector3(dashForce, myRb.velocity.y, 0);
@@ -133,9 +135,10 @@ public class CharacterMovement : MonoBehaviour {
     {
         if (Input.GetButtonDown(dashInputName))
         {
+            //myAnimator.SetTrigger("Dash");
             dashLock = true;
             lastDashTime = Time.time;
-            myAnimator.SetTrigger("Dash");
+
         }
     }
 
