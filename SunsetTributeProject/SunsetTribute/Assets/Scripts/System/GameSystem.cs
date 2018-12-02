@@ -25,6 +25,8 @@ public class GameSystem : MonoBehaviour {
 
     public bool gameOver1, gameOver2;
 
+    [SerializeField] GameObject[] uiPlayers;
+
     private void Start()
     {
         life1 = life2 = 5;
@@ -40,6 +42,20 @@ public class GameSystem : MonoBehaviour {
         }
 
         spawnPlayer();
+
+
+        // GameOver for the players
+        if(uiPlayers[0].activeSelf)
+        {
+            if (uiPlayers[1].activeSelf)
+            {
+                SceneManager.LoadScene("SplashScreen");
+            }                
+            else if(uiPlayers[2].activeSelf)
+            {
+                SceneManager.LoadScene("SplashScreen");
+            }
+        }
     }
 
     public void nPlayerAtivos(string namePlayer)

@@ -106,6 +106,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   numberSpawn: 0
   gameOver1: 0
   gameOver2: 0
+  uiPlayers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
