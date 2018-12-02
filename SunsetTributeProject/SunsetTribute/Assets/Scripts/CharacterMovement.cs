@@ -2,7 +2,7 @@
 
 public class CharacterMovement : MonoBehaviour {
 
-    [SerializeField] private bool dashLock = false;
+    public bool dashLock = false;
 
     //id do player (p1 = 0, p2 = 1, p3 = 2, p4 = 3)
     public int playerID = 0;

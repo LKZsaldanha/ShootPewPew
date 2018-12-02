@@ -97,11 +97,14 @@ public class PlayerAim : MonoBehaviour {
             }
         }
 
-        SetAimStatus();
+        if (!GetComponent<CharacterMovement>().dashLock)
+        {
+            SetAimStatus();
 
-        Animate();
+            Animate();
 
-        Shoot();
+            Shoot();
+        }
 
     }
 
@@ -120,7 +123,6 @@ public class PlayerAim : MonoBehaviour {
     {
         if (Input.GetButtonDown(fire1InputName))
         {
-            print("PewPew");
             myAnimator.SetTrigger("Shoot");
 
             myAnimator.SetTrigger("UpdateAim");
