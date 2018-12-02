@@ -3578,7 +3578,7 @@ MonoBehaviour:
   baixoMinimo: 2
   baixoMaximo: 2.5
   speed: 2
-  distanceAttack: 10
+  distanceAttack: 7
   cowdownFire: 2
   cowdownHide: 2
   delayFirstAttack: 1

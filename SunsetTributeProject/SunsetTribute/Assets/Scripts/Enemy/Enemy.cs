@@ -85,15 +85,19 @@ public class Enemy : MonoBehaviour {
                         {
                             Move();
                         }
-                        if (menorDistancia < distanceAttack)
+
+                        if (distanceAttack > distancePlayer)
                         {
+                            print("Dis Attack: "+distancePlayer);
+                            print("meonor Dis: "+menorDistancia);
+                            StartCoroutine("DelayAttack");
                             if (inDelay)
-                            {//delay pra personagem que entra correndo ou pulando
-                                if (menorDistancia < distanceAttack - 2.0f)
+                             {//delay pra personagem que entra correndo ou pulando
+                            if (menorDistancia < distanceAttack - 2.0f)
                                 {
                                     StartCoroutine("DelayAttack");
                                 }
-                            }
+                           }
                             else if (!isColver)
                             {
                                 Attack();
@@ -345,9 +349,7 @@ public class Enemy : MonoBehaviour {
     protected virtual void Attack()
     {
         if(players.Count!=0)
-        {
-            
-
+        {        
             if (isAttack && !isColver)
             {
                 //print("Atirou");
