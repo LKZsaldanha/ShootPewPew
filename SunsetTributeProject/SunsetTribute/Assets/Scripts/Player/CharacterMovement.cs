@@ -4,6 +4,8 @@ public class CharacterMovement : MonoBehaviour {
 
     public bool dashLock = false;
 
+    public bool isAlive = true;
+
     //id do player (p1 = 0, p2 = 1, p3 = 2, p4 = 3)
     public int playerID = 0;
 
@@ -57,47 +59,50 @@ public class CharacterMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        myAnimator.SetBool("Dashing", dashLock);
-        if (!dashLock)
+        if (isAlive)
         {
-            AimingVertical();
-            if (!aimingVertical)
+            myAnimator.SetBool("Dashing", dashLock);
+            if (!dashLock)
             {
-                Move();
-            }
-
-            if (isGrounded)
-            {
-                Jump();
-                if (Time.time - lastDashTime >= dashCooldown)
+                AimingVertical();
+                if (!aimingVertical)
                 {
-                    Dash();
+                    Move();
                 }
-            }            
-        }
-        else
-        {
-            if(Time.time - lastDashTime >= dashDuration)
-            {
-                dashLock = false;
-                //myAnimator.SetBool("Dashing", dashLock);
+
+                if (isGrounded)
+                {
+                    Jump();
+                    if (Time.time - lastDashTime >= dashCooldown)
+                    {
+                        Dash();
+                    }
+                }
             }
             else
             {
-
-                myAnimator.SetTrigger("Dash");
-                if (facingRight)
+                if (Time.time - lastDashTime >= dashDuration)
                 {
-                    myRb.velocity = new Vector3(dashForce, myRb.velocity.y, 0);
+                    dashLock = false;
+                    //myAnimator.SetBool("Dashing", dashLock);
                 }
                 else
                 {
-                    myRb.velocity = new Vector3(-dashForce, myRb.velocity.y, 0);
-                }
-            }
 
+                    myAnimator.SetTrigger("Dash");
+                    if (facingRight)
+                    {
+                        myRb.velocity = new Vector3(dashForce, myRb.velocity.y, 0);
+                    }
+                    else
+                    {
+                        myRb.velocity = new Vector3(-dashForce, myRb.velocity.y, 0);
+                    }
+                }
+
+            }
+            CheckGrounded();
         }
-        CheckGrounded();
 
     }
 

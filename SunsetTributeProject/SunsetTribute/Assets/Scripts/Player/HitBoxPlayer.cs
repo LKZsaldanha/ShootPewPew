@@ -87,6 +87,7 @@ public class HitBoxPlayer : MonoBehaviour {
     private void morreuuu()
     {
         life--;
+        transform.parent.GetComponent<CharacterMovement>().isAlive = false;
         playerHUD.UpdateHUDLives(-1);
 
         transform.parent.GetComponent<CharacterMovement>().enabled = false;
