@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour {
     protected EnemySound enemySound;
     protected bool enemyCover; //verificação pra saber se é um inimigo de cover
 
+    public bool normalEnemy = true;
+
     private void Awake()
     {
         blockAction = true;
@@ -89,9 +91,10 @@ public class Enemy : MonoBehaviour {
                         if (distanceAttack > distancePlayer)
                         {
                             StartCoroutine("DelayAttack");
+                            distanceAttack = 10f;
                             if (inDelay)
                              {//delay pra personagem que entra correndo ou pulando
-                            if (menorDistancia < distanceAttack - 2.0f)
+                                 if (menorDistancia < distanceAttack - 2.0f)
                                 {
                                     StartCoroutine("DelayAttack");
                                 }
@@ -197,12 +200,22 @@ public class Enemy : MonoBehaviour {
                         //posição e rotação da mira (frente)
                         if (transform.localScale.x == 1)
                         {
+                            objAnimado.GetComponent<Animator>().SetBool("frente", true);
+                            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                            objAnimado.GetComponent<Animator>().SetBool("cima", false);
+                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
                             spawnBullet[0].position = mira[2].position;
                             spawnBullet[0].rotation = Quaternion.Euler(180, 90, 0);
                         }
                         else
                         {
                             //(Costas)
+                            objAnimado.GetComponent<Animator>().SetBool("frente", true);
+                            objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                            objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                            objAnimado.GetComponent<Animator>().SetBool("cima", false);
+                            objAnimado.GetComponent<Animator>().SetBool("baixo", false);
                             spawnBullet[0].position = mira[2].position;
                             spawnBullet[0].rotation = Quaternion.Euler(0, 90, 0);
                         }
@@ -217,12 +230,24 @@ public class Enemy : MonoBehaviour {
                             //posição e rotação da mira (diagonal Baixo frente)
                             if (transform.localScale.x == 1)
                             {
+                                objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", true);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                                objAnimado.GetComponent<Animator>().SetBool("cima", false);
+                                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                                
                                 spawnBullet[0].position = mira[3].position;
                                 spawnBullet[0].rotation = Quaternion.Euler(225, 90, 0);
                             }
                             else
                             {
                                 //(diagonal Baixo Costas)
+                                objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", true);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                                objAnimado.GetComponent<Animator>().SetBool("cima", false);
+                                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+
                                 spawnBullet[0].position = mira[3].position;
                                 spawnBullet[0].rotation = Quaternion.Euler(315, 90, 0);
                             }
@@ -238,12 +263,22 @@ public class Enemy : MonoBehaviour {
                             //posição e rotação da mira (diagonal cima frente)
                             if (transform.localScale.x == 1)
                             {
+                                objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagCima", true);
+                                objAnimado.GetComponent<Animator>().SetBool("cima", false);
+                                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
                                 spawnBullet[0].position = mira[1].position;
                                 spawnBullet[0].rotation = Quaternion.Euler(135, 90, 0);
                             }
                             else
                             {
                                 //(diagonal cima Costas)
+                                objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagCima", true);
+                                objAnimado.GetComponent<Animator>().SetBool("cima", false);
+                                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
                                 spawnBullet[0].position = mira[1].position;
                                 spawnBullet[0].rotation = Quaternion.Euler(405, 90, 0);
                             }
@@ -259,12 +294,26 @@ public class Enemy : MonoBehaviour {
                             //posição e rotação da mira (Cima frente)
                             if (transform.localScale.x == 1)
                             {
+                                
+                                objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                                objAnimado.GetComponent<Animator>().SetBool("cima", true);
+                                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                                objAnimado.GetComponent<Animator>().SetBool("idle", false);
+
                                 spawnBullet[0].position = mira[0].position;
                                 spawnBullet[0].rotation = Quaternion.Euler(135, 90, 0);
                             }
                             else
                             {
                                 //(diagonal cima Costas)
+                                objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                                objAnimado.GetComponent<Animator>().SetBool("cima", true);
+                                objAnimado.GetComponent<Animator>().SetBool("baixo", false);
+                                objAnimado.GetComponent<Animator>().SetBool("idle", false);
                                 spawnBullet[0].position = mira[0].position;
                                 spawnBullet[0].rotation = Quaternion.Euler(405, 90, 0);
                             }
@@ -281,12 +330,26 @@ public class Enemy : MonoBehaviour {
                             //posição e rotação da mira (Baixo frente)
                             if (transform.localScale.x == 1)
                             {
+                                objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                                objAnimado.GetComponent<Animator>().SetBool("cima", false);
+                                objAnimado.GetComponent<Animator>().SetBool("baixo", true);
+                                objAnimado.GetComponent<Animator>().SetBool("idle", false);
+                                
                                 spawnBullet[0].position = mira[4].position;
                                 spawnBullet[0].rotation = Quaternion.Euler(90, 90, 0);
                             }
                             else
                             {
                                 //(diagonal Baixo Costas)
+                                objAnimado.GetComponent<Animator>().SetBool("frente", false);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagBaixo", false);
+                                objAnimado.GetComponent<Animator>().SetBool("DiagCima", false);
+                                objAnimado.GetComponent<Animator>().SetBool("cima", false);
+                                objAnimado.GetComponent<Animator>().SetBool("baixo", true);
+                                objAnimado.GetComponent<Animator>().SetBool("idle", false);
+
                                 spawnBullet[0].position = mira[4].position;
                                 spawnBullet[0].rotation = Quaternion.Euler(270, 90, 0);
                             }
@@ -308,6 +371,7 @@ public class Enemy : MonoBehaviour {
 
     protected virtual void Attack()
     {
+        
         if(players.Count!=0)
         {        
             if (isAttack && !isColver)
@@ -329,6 +393,7 @@ public class Enemy : MonoBehaviour {
                 isColver = false;
             }
         }
+        
 
     }
     private void OnCollisionEnter(Collision collision)
@@ -340,15 +405,13 @@ public class Enemy : MonoBehaviour {
             {
                 isDead = true;
 
-                enemySound.DeadSound();
-
-                objAnimado.GetComponent<Animator>().SetTrigger("isDied");
+                
                 colisorHide.GetComponent<BoxCollider>().enabled = false;
                 GetComponent<BoxCollider>().enabled = false;
                 GetComponent<Rigidbody>().isKinematic = true;
                 GetComponent<Rigidbody>().useGravity = false;
 
-                if(itens.Count != 0){
+                if(itens.Count != 0 && normalEnemy){
                     Instantiate(itens[0], new Vector3(transform.position.x, transform.position.y, players[0].position.z), transform.rotation);
                 }
 
@@ -429,7 +492,9 @@ public class Enemy : MonoBehaviour {
             objAnimado.GetComponent<Animator>().SetTrigger("isHideAttack");
            // if(pla != null){
                 GameObject bulletNew = Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
-                bulletNew.GetComponent<BulletPlayer>().target = players[0].gameObject;
+                if(players.Count != null){
+                    bulletNew.GetComponent<BulletPlayer>().target = players[0].gameObject;
+                }
             //}
         yield return new WaitForSeconds(cowdownFire);
             isColver = true;
@@ -449,6 +514,10 @@ public class Enemy : MonoBehaviour {
 
     IEnumerator morreu()
     {
+        enemySound.DeadSound();
+        objAnimado.GetComponent<Animator>().SetLayerWeight (objAnimado.GetComponent<Animator>().GetLayerIndex ("Aim"), 0);
+        objAnimado.GetComponent<Animator>().SetTrigger("isDied");
+
         StopCoroutine("cowdown");
         StopCoroutine("DelayAttack");
         StopCoroutine("hideTrue");

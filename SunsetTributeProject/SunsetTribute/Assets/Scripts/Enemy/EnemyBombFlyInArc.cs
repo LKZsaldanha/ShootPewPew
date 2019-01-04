@@ -43,7 +43,7 @@ public class EnemyBombFlyInArc : MonoBehaviour {
                     impactoMark1 = Instantiate(impactoMark, new Vector3(impactoPos.x, endPos.y - offSet, impactoPos.z), Quaternion.Euler(0, 0, 0));
                     endPosTaked = true;
                 }
-                Debug.Log("Did Hit");
+//                Debug.Log("Did Hit");
             }
         }
 

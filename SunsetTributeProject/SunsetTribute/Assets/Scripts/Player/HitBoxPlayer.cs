@@ -20,6 +20,11 @@ public class HitBoxPlayer : MonoBehaviour {
     private IEnumerator invencibleCouroutine;
 
 
+   
+
+    //public SkinnedMeshRenderer[] originalColor;
+
+
     //angulo para onde está a mira
     public int life;
 
@@ -41,13 +46,13 @@ public class HitBoxPlayer : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
         isInvencivel = true;
         invencibleCouroutine = invencivel(3.0f);
         StartCoroutine(invencibleCouroutine);
 
         gameSystem.GetComponent<GameSystem>().nPlayerVivos.Add(gameObject.transform.parent.gameObject);
         
-
 
         if (gameObject.name == "InteractionColliderYAGO")
         {
@@ -107,19 +112,19 @@ public class HitBoxPlayer : MonoBehaviour {
 
             playerHUD.SwitchPlayerHUDState(PlayerHUDState.gameOver);
 
-            GetComponent<Rigidbody>().isKinematic = true;
-            GetComponent<Rigidbody>().useGravity = false;
-            GetComponent<BoxCollider>().enabled = false;
-            GetComponent<HitBoxPlayer>().enabled = false;
+            GetComponentInParent<Rigidbody>().isKinematic = true;
+            GetComponentInParent<Rigidbody>().useGravity = false;
+            GetComponentInParent<BoxCollider>().enabled = false;
+            GetComponentInParent<HitBoxPlayer>().enabled = false;
             gameSystem.GetComponent<GameSystem>().lifePlayers(1, gameObject.name);
             gameSystem.GetComponent<GameSystem>().nPlayerAtivos(gameObject.name);
         }
         else
         {
-            GetComponent<Rigidbody>().isKinematic = true;
-            GetComponent<Rigidbody>().useGravity = false;
-            GetComponent<BoxCollider>().enabled = false;
-            GetComponent<HitBoxPlayer>().enabled = false;
+            GetComponentInParent<Rigidbody>().isKinematic = true;
+            GetComponentInParent<Rigidbody>().useGravity = false;
+            GetComponentInParent<BoxCollider>().enabled = false;
+            GetComponentInParent<HitBoxPlayer>().enabled = false;
             StartCoroutine("morreu");
         }
     }
@@ -172,10 +177,11 @@ public class HitBoxPlayer : MonoBehaviour {
             gameSystem.GetComponent<GameSystem>().quadranteSpawn();
         }
     }
+   
 
-    IEnumerator invencivel(float duration)
+    IEnumerator invencivel(float time)
     {
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(time);
         isInvencivel = false;
         StopCoroutine("invencivel");
     }

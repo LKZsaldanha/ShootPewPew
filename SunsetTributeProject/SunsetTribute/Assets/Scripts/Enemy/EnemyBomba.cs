@@ -42,11 +42,14 @@ public class EnemyBomba : Enemy
     // Use this for initialization
     protected override void Start () {
         base.Start();
+        base.normalEnemy = false;
 	}
 	
 	// Update is called once per frame
 	protected override void Update () {
-        base.Update();
+        if(!isShowing){
+            base.Update();
+        }
 	}
 
     protected override void Attack()
@@ -91,7 +94,7 @@ public class EnemyBomba : Enemy
             objAnimado.GetComponent<Animator>().SetBool("throwBomb", false);
 
             yield return new WaitForSeconds(timerToThrowBombAnim);
-            print("werwer12");
+//            print("werwer12");
             bomb.GetComponent<EnemyBomb>().impacto = players[idPlayer].position;
             bomb.GetComponent<EnemyBomb>().Tiro();
 
@@ -108,36 +111,46 @@ public class EnemyBomba : Enemy
             if (isHideBehind)
             {
                 objAnimado.GetComponent<Animator>().SetTrigger("isHideBehind");
-                yield return new WaitForSeconds(delayShootHideBehind);
+                yield return new WaitForSeconds(delayShootHideBehind - 0.3f);
+                GetComponent<BoxCollider>().enabled = true;
+                yield return new WaitForSeconds(0.3f);
                 isHideBehind = false;
             }
             else if (walkFromCamera)
             {
                 objAnimado.GetComponent<Animator>().SetTrigger("walkFromCamera");
-                yield return new WaitForSeconds(delayShootwalkFromCamera);
+                yield return new WaitForSeconds(delayShootwalkFromCamera - 0.3f);
+                GetComponent<BoxCollider>().enabled = true;
+                yield return new WaitForSeconds(0.3f);
                 walkFromCamera = false;
             }
             else if (walkBehind)
             {
                 objAnimado.GetComponent<Animator>().SetTrigger("walkBehind");
-                yield return new WaitForSeconds(delayShootWalkBehind);
+                yield return new WaitForSeconds(delayShootWalkBehind - 0.3f);
+                GetComponent<BoxCollider>().enabled = true;
+                yield return new WaitForSeconds(0.3f);
                 walkBehind = false;
             }
             else if (crounched)
             {
                 objAnimado.GetComponent<Animator>().SetTrigger("crounched");
-                yield return new WaitForSeconds(delayShootCrounched);
+                yield return new WaitForSeconds(delayShootCrounched - 0.3f);
+                GetComponent<BoxCollider>().enabled = true;
+                yield return new WaitForSeconds(0.3f);
                 crounched = false;
             }
             else if (walkFromInside)
             {
                 objAnimado.GetComponent<Animator>().SetTrigger("walkFromInside");
-                yield return new WaitForSeconds(delayShootWalkFromInside);
+                yield return new WaitForSeconds(delayShootWalkFromInside - 0.3f);
+                GetComponent<BoxCollider>().enabled = true;
+                yield return new WaitForSeconds(0.3f);
                 walkFromInside = false;
             }
             objAnimado.GetComponent<Animator>().SetBool("idle", true);
             isShowing = false;
-            GetComponent<BoxCollider>().enabled = true;
+            
             //Attack();
             StopCoroutine("IsShowing");
         }

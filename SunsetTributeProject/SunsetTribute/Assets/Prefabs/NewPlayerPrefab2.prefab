@@ -2084,6 +2084,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1894869397531166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4591543320043602}
+  - component: {fileID: 108572178916772296}
+  m_Layer: 19
+  m_Name: Area Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1899548369200200
 GameObject:
   m_ObjectHideFlags: 1
@@ -2815,6 +2831,7 @@ Transform:
   - {fileID: 4496371003830900}
   - {fileID: 4060855660786266}
   - {fileID: 4387759808622520}
+  - {fileID: 4591543320043602}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3854,6 +3871,19 @@ Transform:
   m_Father: {fileID: 4423675235393384}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4591543320043602
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1894869397531166}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.2700001, z: -0.81}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4143659310391086}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4593581208434748
 Transform:
   m_ObjectHideFlags: 1
@@ -4672,7 +4702,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 1.7, z: 0.6}
+  m_Size: {x: 0.4, y: 1.09, z: 0.6}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65703635622406832
 BoxCollider:
@@ -4799,6 +4829,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!108 &108572178916772296
+Light:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1894869397531166}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 0.16509432, g: 1, b: 0.9088462, a: 1}
+  m_Intensity: 1
+  m_Range: 19.32
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 524288
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!114 &114048110448181418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4877,6 +4944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashLock: 0
+  isAlive: 1
   playerID: 1
   moveSpeed: 3
   groundLayer:
@@ -4888,6 +4956,7 @@ MonoBehaviour:
   dashForce: 8
   dashDuration: 0.2
   dashCooldown: 0.5
+  timerCheckFall: 0.5
   controllerDeadZoneValue: 0.1
 --- !u!137 &137029266655018236
 SkinnedMeshRenderer:

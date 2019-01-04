@@ -29,7 +29,9 @@ public class BulletPlayer : MonoBehaviour {
                 transform.LookAt(new Vector3(target.transform.position.x, target.transform.position.y + 0.3f, target.transform.position.z));
             }else{
                 target = GameObject.FindWithTag("Player");
-                transform.LookAt(new Vector3(target.transform.position.x, target.transform.position.y + 0.3f, target.transform.position.z));
+                if(target != null){
+                    transform.LookAt(new Vector3(target.transform.position.x, target.transform.position.y + 0.3f, target.transform.position.z));
+                }
             }
         }
     }
@@ -69,13 +71,13 @@ public class BulletPlayer : MonoBehaviour {
         }
 
 
-        if (collision.gameObject.tag == "chao")
+         if (collision.gameObject.tag == "chao")
         {
-            Destroy(gameObject);
             ContactPoint contact = collision.contacts[0];
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 pos = contact.point;
             CreateAndDestroyParticle(hitParticlesPrefab, pos, rot);
+            Destroy(gameObject);
         }
 
         if (id)
@@ -106,7 +108,7 @@ public class BulletPlayer : MonoBehaviour {
 
     IEnumerator lifeBulletEnemy()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(lifebullet);
         Destroy(gameObject);
         StopCoroutine("lifeBulletEnemy");
     }

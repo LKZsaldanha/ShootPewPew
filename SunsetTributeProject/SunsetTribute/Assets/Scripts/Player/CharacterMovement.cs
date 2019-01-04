@@ -21,6 +21,7 @@ public class CharacterMovement : MonoBehaviour {
     [SerializeField] Transform groundCheck;
 
     [SerializeField] private float jumpHeight;
+    private bool jumped = false;
 
     public bool aimingVertical = false;
     
@@ -30,7 +31,9 @@ public class CharacterMovement : MonoBehaviour {
     [SerializeField] private float dashCooldown;
     private float lastDashTime;
 
-
+    //usado para checar se o player precisa fazer a animação de caindo (corrigindo bug de pequenos espaços onde o player "cai")
+    private float timerToUnground;
+    public float timerCheckFall = 0.5f;
 
     //NomeDoInput sem o numeroFinal
     private string horizontalAxisName = "HorizontalP";
@@ -57,7 +60,7 @@ public class CharacterMovement : MonoBehaviour {
         dashInputName = dashInputName + convertedID.ToString();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (isAlive)
         {
@@ -167,6 +170,17 @@ public class CharacterMovement : MonoBehaviour {
         }
     }
 
+    private void Jump()
+    {
+        if (Input.GetButtonDown(jumpInputName))
+        {
+            jumped = true;
+            //isGrounded = false;
+            myAnimator.SetBool("Grounded", isGrounded);
+            myAnimator.SetTrigger("Air");
+            myRb.velocity = new Vector3(0, jumpHeight, 0);
+        }
+    }
     private void CheckGrounded()
     {
         groundCollisions = Physics.OverlapBox(groundCheck.position, groundCheckSize / 2, Quaternion.identity, groundLayer);        
@@ -174,31 +188,33 @@ public class CharacterMovement : MonoBehaviour {
         {
             if (!isGrounded)
             {
-                isGrounded = true;                
+                isGrounded = true;
+                jumped = false;
             }
+            timerToUnground = 0;
         }
         else
         {
             if (isGrounded)
             {
-                isGrounded = false;
-                myAnimator.SetTrigger("Air");
+                if(!jumped){
+                    timerToUnground += Time.deltaTime;
+                    if(timerToUnground > timerCheckFall){
+                        isGrounded = false;
+                        myAnimator.SetTrigger("Air");
+                    }
+                }else{
+                    isGrounded = false;
+                    myAnimator.SetTrigger("Air");
+                }
             }
         }
         myAnimator.SetBool("Grounded", isGrounded);
 
     }
+    
 
-    private void Jump()
-    {
-        if (Input.GetButtonDown(jumpInputName))
-        {
-            isGrounded = false;
-            myAnimator.SetBool("Grounded", isGrounded);
-            myAnimator.SetTrigger("Air");
-            myRb.velocity = new Vector3(0, jumpHeight, 0);
-        }
-    }
+    
 
     private void Flip()
     {
