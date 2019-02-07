@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 114583190887805070}
   - component: {fileID: 114505610835038466}
   m_Layer: 10
-  m_Name: Enemy4_HideBehind
+  m_Name: Enemy4_HideBehind 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3653,7 +3653,7 @@ MonoBehaviour:
   - {fileID: 4559230956640888}
   players:
   - {fileID: 0}
-  normalEnemy: 0
+  normalEnemy: 1
   canThrow: 0
   isHideBehind: 1
   walkFromCamera: 0

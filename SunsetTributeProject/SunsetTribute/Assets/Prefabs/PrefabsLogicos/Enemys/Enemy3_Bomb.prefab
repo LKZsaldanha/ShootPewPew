@@ -2998,8 +2998,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1051072774394022}
-  m_LocalRotation: {x: 0.7071068, y: 0.000000030908623, z: 0.7071068, w: -0.000000030908623}
-  m_LocalPosition: {x: -246.73656, y: 1.8489294, z: -1.7161877}
+  m_LocalRotation: {x: 0.2705981, y: 0.6532815, z: 0.2705981, w: -0.6532815}
+  m_LocalPosition: {x: 193.96791, y: 1.1596537, z: -3.1263912}
   m_LocalScale: {x: 0.09558438, y: 0.2614479, z: 1.192236}
   m_Children: []
   m_Father: {fileID: 4461108763863622}
@@ -3716,6 +3716,7 @@ MonoBehaviour:
   players:
   - {fileID: 0}
   normalEnemy: 1
+  triggered: 1
   canThrow: 1
   isHideBehind: 0
   walkFromCamera: 0
@@ -3730,6 +3731,10 @@ MonoBehaviour:
   delayShootWalkBehind: 1.5
   delayShootCrounched: 1
   delayShootWalkFromInside: 1
+  waypoints: []
+  speedWayPoint: 1.5
+  WPradius: 0.1
+  triggered: 1
 --- !u!114 &114881330396368194
 MonoBehaviour:
   m_ObjectHideFlags: 1
