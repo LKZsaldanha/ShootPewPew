@@ -13,6 +13,31 @@ public class CameraFollow : MonoBehaviour {
 	public float zDistance = -20;
     [SerializeField] GameObject gameSystem;
 
+	float lerpTime = 1f;
+    float currentLerpTime;
+ 
+    float moveDistance = 10f;
+ 
+    //private Vector3 startPos;
+    public Transform endPosCamera;
+	public Transform positionCameraFake; //fiz pra camera pegar a ultima posição original da camera.
+	private Vector3 firstPosCamera;
+	public bool cameraFocusPlayer;
+	public bool reached;
+	private float perc = 0f;
+	public float slowSpeedTransition = 2f;
+
+	public bool firstTimeFocus;
+
+	public float powerShake = 0.7f;
+	//public float duration = 1.0f;
+	//public Transform camera;
+	//public float slowDownAmount = 1.0f;
+	public bool shouldShake;
+
+	//private Vector3 startPosition;
+	
+ 
 
 	private FocusArea focusArea;
 
@@ -21,7 +46,11 @@ public class CameraFollow : MonoBehaviour {
 	{
         gameSystem = GameObject.Find("GameSystem");
 		focusArea = new FocusArea(target.GetComponent<Collider2D>().bounds, focusAreaSize);
+
+		
+        //endPosCamera = transform.position + transform.up * moveDistance;
 	}
+
 
 	void LateUpdate()
 	{
@@ -39,10 +68,42 @@ public class CameraFollow : MonoBehaviour {
             {
                 target2 = target;
             }
-            focusArea.Update(target.GetComponent<Collider2D>().bounds, target2.GetComponent<Collider2D>().bounds);
-            Vector2 focusPosition = focusArea.center + offset;
+			
+			if(cameraFocusPlayer){
+				focusArea.Update(target.GetComponent<Collider2D>().bounds, target2.GetComponent<Collider2D>().bounds);
+				Vector2 focusPosition = focusArea.center + offset;
+				transform.position = (Vector3)focusPosition + Vector3.forward * zDistance;
+				firstPosCamera = positionCameraFake.position;
 
-            transform.position = (Vector3)focusPosition + Vector3.forward * zDistance;
+			}else{//leva a camera até o estado de ficar parada e tremendo na parte dos bois
+				
+				if(firstTimeFocus){//vai até a camera parada
+					if(perc < 1){
+						perc += Time.deltaTime / slowSpeedTransition; //numero de 0 a 1
+					}else{
+						shouldShake = true;
+					}
+					//lerp!
+					transform.position = Vector3.Lerp(transform.position, endPosCamera.position, perc);
+				}else{//volta pra posição original
+					if(perc < 1){
+						perc += Time.deltaTime / slowSpeedTransition*2; //numero de 0 a 1
+					}else{
+						cameraFocusPlayer = true; //volta a seguir os players
+					}
+					
+					transform.position = Vector3.Lerp(transform.position, firstPosCamera, perc);
+				}
+				
+
+				if(shouldShake)
+				{
+					firstPosCamera = positionCameraFake.position;
+					transform.localPosition = transform.position + Random.insideUnitSphere * powerShake;
+				}
+			}
+
+			
         }
         else
         {
@@ -51,7 +112,13 @@ public class CameraFollow : MonoBehaviour {
 
 
 	}
+	
 
+	public void Perc(){//chamado pelos bois quando chegam no fim
+		firstTimeFocus = false;
+		shouldShake = false;
+		perc = 0;
+	}
 
 	void OnDrawGizmos()
 	{

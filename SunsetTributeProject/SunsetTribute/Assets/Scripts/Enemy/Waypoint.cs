@@ -1,0 +1,47 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Waypoint : MonoBehaviour {
+
+    public GameObject[] waypoints;
+    //public GameObject player;
+    private int current = 0;
+    public float speed;
+    public float WPradius = 1;
+
+	private bool moving = true;
+	
+	void FixedUpdate () {
+		if(moving){
+			if(Vector3.Distance(waypoints[current].transform.position, transform.position) < WPradius)
+			{
+				current ++;
+				if (current >= waypoints.Length)
+				{
+					moving = false;
+
+				}
+			}
+			if(moving){
+				transform.position = Vector3.MoveTowards(transform.position, waypoints[current].transform.position, Time.deltaTime * speed);
+			}
+		}
+
+    }
+
+   /* void OnTriggerEnter(Collider n)
+    {
+        if (n.gameObject == player)
+        {
+            player.transform.parent = transform;
+        }
+    }
+    void OnTriggerExit(Collider n)
+    {
+        if (n.gameObject == player)
+        {
+            player.transform.parent = null;
+        }
+    } */
+}

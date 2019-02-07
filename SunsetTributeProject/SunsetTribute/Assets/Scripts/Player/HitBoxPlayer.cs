@@ -161,7 +161,10 @@ public class HitBoxPlayer : MonoBehaviour {
             }
             Destroy(collision.gameObject);
         }
+      
+
     }
+   
 
     private void OnTriggerEnter(Collider other)
     {
@@ -170,11 +173,22 @@ public class HitBoxPlayer : MonoBehaviour {
             morreuuu();
             Destroy(other.gameObject);
         }
+         if (other.tag == "BullsDamage")
+        {
+            morreuuu();
+            //Destroy(other.gameObject);
+        }
 
         if (other.tag == "spawner")
         {
             other.GetComponent<BoxCollider>().enabled = false;
             gameSystem.GetComponent<GameSystem>().quadranteSpawn();
+        }
+
+        if(other.tag == "ChangeCamera"){//colidindo muda a camera para uma parada
+            cam.GetComponent<CameraFollow>().cameraFocusPlayer = false;
+            gameSystem.GetComponent<GameSystem>().quadranteSpawn();
+            other.GetComponent<BoxCollider>().enabled = false;
         }
     }
    

@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour {
 
     public bool normalEnemy = true;
 
+    public bool triggered = true;
+
     private void Awake()
     {
         blockAction = true;
@@ -64,6 +66,7 @@ public class Enemy : MonoBehaviour {
 
                 if (menorDistancia < distanceAttack)
                 {
+                    objAnimado.GetComponent<Animator>().SetBool("idle", true);
                     blockAction = false;
                 }
             }
@@ -101,7 +104,7 @@ public class Enemy : MonoBehaviour {
                            }
                             else if (!isColver)
                             {
-                                Attack();
+                                StartCoroutine("Attack");
                             }
                         }
                     }
@@ -369,7 +372,7 @@ public class Enemy : MonoBehaviour {
 
    
 
-    protected virtual void Attack()
+    IEnumerator Attack()
     {
         
         if(players.Count!=0)
@@ -377,8 +380,11 @@ public class Enemy : MonoBehaviour {
             if (isAttack && !isColver)
             {
                 //print("Atirou");
-                
-                objAnimado.GetComponent<Animator>().SetTrigger("atirou");
+                if(triggered){
+                    objAnimado.GetComponent<Animator>().SetTrigger("atirou");
+                    triggered = false;
+                }
+                yield return new WaitForSeconds(0.5f);
                 
                 GameObject bulletNew = Instantiate(bullet, spawnBullet[0].position, spawnBullet[0].rotation);
                 bulletNew.GetComponent<BulletPlayer>().target = players[0].gameObject;
@@ -393,7 +399,8 @@ public class Enemy : MonoBehaviour {
                 isColver = false;
             }
         }
-        
+         triggered = true; //pode atirar novamente
+         StopCoroutine("Attack");
 
     }
     private void OnCollisionEnter(Collision collision)
@@ -517,7 +524,7 @@ public class Enemy : MonoBehaviour {
         enemySound.DeadSound();
         objAnimado.GetComponent<Animator>().SetLayerWeight (objAnimado.GetComponent<Animator>().GetLayerIndex ("Aim"), 0);
         objAnimado.GetComponent<Animator>().SetTrigger("isDied");
-
+        StopCoroutine("Attack");
         StopCoroutine("cowdown");
         StopCoroutine("DelayAttack");
         StopCoroutine("hideTrue");

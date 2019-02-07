@@ -16,6 +16,10 @@ TagManager:
   - gold
   - LimitSize
   - PlayerHitbox
+  - Waypoint
+  - ChangeCamera
+  - Bulls
+  - BullsDamage
   layers:
   - Default
   - TransparentFX
