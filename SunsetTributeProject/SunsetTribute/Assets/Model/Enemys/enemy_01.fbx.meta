@@ -420,6 +420,7 @@ ModelImporter:
     100828: WGT-rig_VIS_upper_arm_ik_pole.L
     100830: WGT-rig_VIS_upper_arm_ik_pole.R
     100832: WGTS_rig
+    100834: Cube
     400000: DEF-Arm_WeaponBone.L
     400002: DEF-Arm_WeaponBone.R
     400004: DEF-breast.L
@@ -837,6 +838,7 @@ ModelImporter:
     400828: WGT-rig_VIS_upper_arm_ik_pole.L
     400830: WGT-rig_VIS_upper_arm_ik_pole.R
     400832: WGTS_rig
+    400834: Cube
     2100000: hair
     2100002: shirt.002
     2100004: Material.034
@@ -848,6 +850,7 @@ ModelImporter:
     2100016: metal.001
     2100018: dark metal.001
     2100020: wood.001
+    2100022: No Name
     2300000: WGT-rig_Arm_WeaponBone.L
     2300002: WGT-rig_Arm_WeaponBone.R
     2300004: WGT-rig_breast.L
@@ -1029,6 +1032,7 @@ ModelImporter:
     2300356: WGT-rig_VIS_upper_arm_ik_pole.L
     2300358: WGT-rig_VIS_upper_arm_ik_pole.R
     2300360: WGTS_rig
+    2300362: Cube
     3300000: WGT-rig_Arm_WeaponBone.L
     3300002: WGT-rig_Arm_WeaponBone.R
     3300004: WGT-rig_breast.L
@@ -1210,6 +1214,7 @@ ModelImporter:
     3300356: WGT-rig_VIS_upper_arm_ik_pole.L
     3300358: WGT-rig_VIS_upper_arm_ik_pole.R
     3300360: WGTS_rig
+    3300362: Cube
     4300000: Enemy1_Face
     4300002: Enemy1_Hat
     4300004: Enemy1_Hair
@@ -1397,6 +1402,7 @@ ModelImporter:
     4300368: WGT-rig_hips
     4300370: WGT-rig_chest
     4300372: WGT-rig_torso
+    4300374: Cube
     7400000: rig|GunDDown
     7400002: rig|GunDDown_Fire
     7400004: rig|GunDown
@@ -1419,6 +1425,8 @@ ModelImporter:
     7400038: rig|HideChrounchOn_GunFront
     7400040: rig|JumpBehind
     7400042: rig|WalkFromCamera
+    7400044: rig|JumpBehind1
+    7400046: rig|GunFrontIdle
     9500000: //RootNode
     13700000: Enemy1_Body
     13700002: Enemy1_Face
@@ -1794,15 +1802,15 @@ ModelImporter:
     - serializedVersion: 16
       name: rig|Jump
       takeName: rig|Jump
-      firstFrame: 0
-      lastFrame: 1
+      firstFrame: 1
+      lastFrame: 6
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1822,8 +1830,8 @@ ModelImporter:
     - serializedVersion: 16
       name: rig|JumpDown
       takeName: rig|JumpDown
-      firstFrame: 0
-      lastFrame: 2
+      firstFrame: 1
+      lastFrame: 6
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -2027,6 +2035,62 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|JumpBehind1
+      takeName: rig|JumpBehind1
+      firstFrame: 0
+      lastFrame: 4
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|GunFrontIdle
+      takeName: rig|GunFrontIdle
+      firstFrame: 1
+      lastFrame: 7
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
